@@ -1,0 +1,9 @@
+
+namespace: postgres
+
+resources:
+- ns.yaml
+- deps/postgres-operator/manifests/configmap.yaml
+- deps/postgres-operator/manifests/operator-service-account-rbac.yaml
+- deps/postgres-operator/manifests/postgres-operator.yaml
+- deps/postgres-operator/manifests/api-service.yaml

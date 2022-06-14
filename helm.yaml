@@ -1,0 +1,256 @@
+---
+# Source: rucio-server/templates/auth_deployment.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: usdf-rucio-server-auth.config.yaml
+  labels:
+    app: rucio-server-auth
+    chart: "rucio-server"
+    release: "usdf"
+    heritage: "Helm"
+type: Opaque
+data:
+  rucio.config.common.json: "e30="
+---
+# Source: rucio-server/templates/deployment.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: usdf-rucio-server.config.yaml
+  labels:
+    app: rucio-server
+    chart: "rucio-server"
+    release: "usdf"
+    heritage: "Helm"
+type: Opaque
+data:
+  rucio.config.common.json: "e30="
+---
+# Source: rucio-server/templates/secrets.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: usdf-rucio-server.cfg
+  labels:
+    app: rucio-server
+    chart: "rucio-server-1.28.3"
+    release: "usdf"
+    heritage: "Helm"
+type: Opaque
+data:
+---
+# Source: rucio-server/templates/auth_service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: usdf-rucio-server-auth
+  labels:
+    app: rucio-server-auth
+    chart: rucio-server-1.28.3
+    release: usdf
+    heritage: Helm
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+      name: http
+  selector:
+    app: rucio-server-auth
+    release: usdf
+---
+# Source: rucio-server/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: usdf-rucio-server
+  labels:
+    app: rucio-server
+    chart: rucio-server-1.28.3
+    release: usdf
+    heritage: Helm
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+      name: http
+  selector:
+    app: rucio-server
+    release: usdf
+---
+# Source: rucio-server/templates/auth_deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usdf-rucio-server-auth
+  labels:
+    app: rucio-server-auth
+    chart: rucio-server-1.28.3
+    release: usdf
+    heritage: Helm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rucio-server-auth
+      release: usdf
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5
+  template:
+    metadata:
+      labels:
+        app: rucio-server-auth
+        release: usdf
+      annotations:
+        checksum/config: 716cf8cd50ce42bb7e2099e85c60cd170c342759
+    spec:
+      volumes:
+      - name: config
+        secret:
+          secretName: usdf-rucio-server-auth.config.yaml
+      - name: httpdlog
+        emptyDir: {}
+      containers:
+        - name: httpd-error-log
+          image: busybox
+          args: [/bin/sh, -c, 'tail -n+1 -F /var/log/httpd/error_log']
+          volumeMounts:
+          - name: httpdlog
+            mountPath: /var/log/httpd
+        - name: rucio-server-auth
+          image: "rucio/rucio-server:release-1.24.3"
+          imagePullPolicy: Always
+          resources:
+            {}
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+            - name: https
+              containerPort: 443
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /ping
+              port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 20
+            timeoutSeconds: 5
+          volumeMounts:
+            - name: config
+              mountPath: /opt/rucio/etc/rucio.config.common.json
+              subPath: rucio.config.common.json
+            - name: httpdlog
+              mountPath: /var/log/httpd
+          env:
+            - name: RUCIO_ENABLE_SSL
+              value: "False"
+            - name: RUCIO_SERVER_TYPE
+              value: "auth"
+            - name: RUCIO_CFG_API_ENDPOINTS
+              value: "auth,ping"
+            - name: RUCIO_OVERRIDE_CONFIGS
+              value: "/opt/rucio/etc/rucio.config.common.json"
+            - name: RUCIO_LOG_FORMAT
+              value: '[%{%Y-%m-%d %H:%M:%S}t]\t%v\t%h\t%{X-Forwarded-For}i\t%{X-Rucio-RequestId}i\t%>s\t%I\t%B\t%D\t\"%r\"\t\"%{X-Rucio-Auth-Token}i\"\t\"%{User-Agent}i\"\t%{X-Rucio-Script}i'
+            - name: RUCIO_WSGI_DAEMON_PROCESSES
+              value: "4"
+            - name: RUCIO_WSGI_DAEMON_THREADS
+              value: "4"
+---
+# Source: rucio-server/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usdf-rucio-server
+  labels:
+    app: rucio-server
+    chart: rucio-server-1.28.3
+    release: usdf
+    heritage: Helm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rucio-server
+      release: usdf
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5
+  template:
+    metadata:
+      labels:
+        app: rucio-server
+        release: usdf
+      annotations:
+        checksum/config: 716cf8cd50ce42bb7e2099e85c60cd170c342759
+    spec:
+      volumes:
+      - name: config
+        secret:
+          secretName: usdf-rucio-server.config.yaml
+      - name: httpdlog
+        emptyDir: {}
+      containers:
+        - name: httpd-error-log
+          image: busybox
+          args: [/bin/sh, -c, 'tail -n+1 -F /var/log/httpd/error_log']
+          volumeMounts:
+          - name: httpdlog
+            mountPath: /var/log/httpd
+          resources:
+            limits:
+              cpu: 30m
+              memory: 50Mi
+            requests:
+              cpu: 20m
+              memory: 20Mi
+        - name: rucio-server
+          image: "rucio/rucio-server:release-1.24.3"
+          imagePullPolicy: Always
+          resources:
+            {}
+          volumeMounts:
+          - name: config
+            mountPath: /opt/rucio/etc/rucio.config.common.json
+            subPath: rucio.config.common.json
+          - name: httpdlog
+            mountPath: /var/log/httpd
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+            - name: https
+              containerPort: 443
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /ping
+              port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 20
+            timeoutSeconds: 5
+          env:
+            - name: RUCIO_ENABLE_SSL
+              value: "False"
+            - name: RUCIO_SERVER_TYPE
+              value: "api"
+            - name: RUCIO_OVERRIDE_CONFIGS
+              value: "/opt/rucio/etc/rucio.config.common.json"
+            - name: RUCIO_LOG_FORMAT
+              value: '[%{%Y-%m-%d %H:%M:%S}t]\t%v\t%h\t%{X-Forwarded-For}i\t%{X-Rucio-RequestId}i\t%>s\t%I\t%B\t%D\t\"%r\"\t\"%{X-Rucio-Auth-Token}i\"\t\"%{User-Agent}i\"\t%{X-Rucio-Script}i'
+            - name: RUCIO_WSGI_DAEMON_PROCESSES
+              value: "4"
+            - name: RUCIO_WSGI_DAEMON_THREADS
+              value: "4"

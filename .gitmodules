@@ -1,0 +1,3 @@
+[submodule "zalando-postgres-operator/deps/postgres-operator"]
+	path = zalando-postgres-operator/deps/postgres-operator
+	url = https://github.com/zalando/postgres-operator.git

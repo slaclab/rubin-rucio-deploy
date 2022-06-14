@@ -1,0 +1,94 @@
+
+apiVersion: "acid.zalan.do/v1"
+kind: postgresql
+metadata:
+  name: rucio-postgres
+  namespace: postgres
+spec:
+  teamId: "rucio"
+  #labels:
+  #  application: butler
+  #  environment: prod
+  resources:
+    requests:
+      cpu: '2'
+      memory: 4Gi
+    limits:
+      cpu: '4'
+      memory: 8Gi
+  volume:
+    size: 100Gi
+  numberOfInstances: 2
+  users:
+    rucio:  # database owner
+    #- superuser
+    - createdb
+    #butler:
+    #- createdb
+    monitoring: []
+  databases:
+    rucio: rucio # dbname: owner
+  #preparedDatabases:
+  #  bar: {}
+  postgresql:
+    version: "14"
+  # required to avoid huge pages issues
+  additionalVolumes:
+  - name: pg-init-config-9
+    mountPath: /usr/share/postgresql/9.6/postgresql.conf.sample
+    subPath: postgresql.conf.sample
+    volumeSource:
+      configMap:
+        name: pg-init-config
+  - name: pg-init-config-10
+    mountPath: /usr/share/postgresql/10/postgresql.conf.sample
+    subPath: postgresql.conf.sample
+    volumeSource:
+      configMap:
+        name: pg-init-config
+  - name: pg-init-config-11
+    mountPath: /usr/share/postgresql/11/postgresql.conf.sample
+    subPath: postgresql.conf.sample
+    volumeSource:
+      configMap:
+        name: pg-init-config
+  - name: pg-init-config-12
+    mountPath: /usr/share/postgresql/12/postgresql.conf.sample
+    subPath: postgresql.conf.sample
+    volumeSource:
+      configMap:
+        name: pg-init-config
+  - name: pg-init-config-13
+    mountPath: /usr/share/postgresql/13/postgresql.conf.sample
+    subPath: postgresql.conf.sample
+    volumeSource:
+      configMap:
+        name: pg-init-config
+  - name: pg-init-config-14
+    mountPath: /usr/share/postgresql/14/postgresql.conf.sample
+    subPath: postgresql.conf.sample
+    volumeSource:
+      configMap:
+        name: pg-init-config
+  connectionPooler:
+    numberOfInstances: 1
+    mode: session
+    schema: "pooler"
+    user: "pooler"
+    resources:
+      requests:
+        cpu: 500m
+        memory: 100Mi
+      limits:
+        cpu: "1"
+        memory: 100Mi
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pg-init-config
+  namespace: postgres
+data:
+  postgresql.conf.sample: "huge_pages = off"
+ 

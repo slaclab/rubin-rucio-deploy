@@ -1,0 +1,11 @@
+
+bases:
+- zalando-postgres-operator
+
+namespace: rucio
+
+resources:
+- helm.yaml
+- database.yaml
+
+
