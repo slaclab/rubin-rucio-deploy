@@ -5,7 +5,9 @@ bases:
 namespace: rucio
 
 resources:
-- helm.yaml
+- helm-rucio-server.yaml
+- helm-rucio-daemons.yaml
+- helm-rucio-ui.yaml
 - database.yaml
 
 
