@@ -11,7 +11,7 @@ metadata:
     heritage: "Helm"
 type: Opaque
 data:
-  rucio.config.common.json: "e30="
+  rucio.config.common.json: "ewogICJhcGkiOiB7CiAgICAiZW5kcG9pbnRzIjogImF1dGgsYWNjb3VudGxpbWl0cyxhY2NvdW50cyxjb25maWcsY3JlZGVudGlhbHMsZGlkcyxleHBvcnQsaGVhcnRiZWF0cyxpZGVudGl0aWVzLGltcG9ydCxsaWZldGltZV9leGNlcHRpb25zLGxvY2tzLG1ldGEscGluZyxyZWRpcmVjdCxyZXBsaWNhcyxyZXF1ZXN0cyxyc2VzLHJ1bGVzLHNjb3BlcyxzdWJzY3JpcHRpb25zIgogIH0KfQ=="
 ---
 # Source: rucio-server/templates/deployment.yaml
 apiVersion: v1
@@ -25,7 +25,7 @@ metadata:
     heritage: "Helm"
 type: Opaque
 data:
-  rucio.config.common.json: "e30="
+  rucio.config.common.json: "ewogICJhcGkiOiB7CiAgICAiZW5kcG9pbnRzIjogImF1dGgsYWNjb3VudGxpbWl0cyxhY2NvdW50cyxjb25maWcsY3JlZGVudGlhbHMsZGlkcyxleHBvcnQsaGVhcnRiZWF0cyxpZGVudGl0aWVzLGltcG9ydCxsaWZldGltZV9leGNlcHRpb25zLGxvY2tzLG1ldGEscGluZyxyZWRpcmVjdCxyZXBsaWNhcyxyZXF1ZXN0cyxyc2VzLHJ1bGVzLHNjb3BlcyxzdWJzY3JpcHRpb25zIgogIH0KfQ=="
 ---
 # Source: rucio-server/templates/secrets.yaml
 apiVersion: v1
@@ -34,7 +34,7 @@ metadata:
   name: usdf-rucio-server.cfg
   labels:
     app: rucio-server
-    chart: "rucio-server-1.28.3"
+    chart: "rucio-server-1.29.0"
     release: "usdf"
     heritage: "Helm"
 type: Opaque
@@ -47,7 +47,7 @@ metadata:
   name: usdf-rucio-server-auth
   labels:
     app: rucio-server-auth
-    chart: rucio-server-1.28.3
+    chart: rucio-server-1.29.0
     release: usdf
     heritage: Helm
 spec:
@@ -68,7 +68,7 @@ metadata:
   name: usdf-rucio-server
   labels:
     app: rucio-server
-    chart: rucio-server-1.28.3
+    chart: rucio-server-1.29.0
     release: usdf
     heritage: Helm
 spec:
@@ -89,7 +89,7 @@ metadata:
   name: usdf-rucio-server-auth
   labels:
     app: rucio-server-auth
-    chart: rucio-server-1.28.3
+    chart: rucio-server-1.29.0
     release: usdf
     heritage: Helm
 spec:
@@ -110,7 +110,7 @@ spec:
         app: rucio-server-auth
         release: usdf
       annotations:
-        checksum/config: 716cf8cd50ce42bb7e2099e85c60cd170c342759
+        checksum/config: a3e76fd28270378eaceeddb256acbe109eb39c3a
     spec:
       volumes:
       - name: config
@@ -126,7 +126,7 @@ spec:
           - name: httpdlog
             mountPath: /var/log/httpd
         - name: rucio-server-auth
-          image: "rucio/rucio-server:release-1.24.3"
+          image: "rucio/rucio-server:release-1.29.0"
           imagePullPolicy: Always
           resources:
             {}
@@ -173,7 +173,7 @@ metadata:
   name: usdf-rucio-server
   labels:
     app: rucio-server
-    chart: rucio-server-1.28.3
+    chart: rucio-server-1.29.0
     release: usdf
     heritage: Helm
 spec:
@@ -194,7 +194,7 @@ spec:
         app: rucio-server
         release: usdf
       annotations:
-        checksum/config: 716cf8cd50ce42bb7e2099e85c60cd170c342759
+        checksum/config: a3e76fd28270378eaceeddb256acbe109eb39c3a
     spec:
       volumes:
       - name: config
@@ -217,7 +217,7 @@ spec:
               cpu: 20m
               memory: 20Mi
         - name: rucio-server
-          image: "rucio/rucio-server:release-1.24.3"
+          image: "rucio/rucio-server:release-1.29.0"
           imagePullPolicy: Always
           resources:
             {}

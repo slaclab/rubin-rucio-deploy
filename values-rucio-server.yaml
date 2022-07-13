@@ -27,7 +27,7 @@ useSSL:
 
 image:
   repository: rucio/rucio-server
-  tag: release-1.24.3
+  tag: release-1.29.0
   pullPolicy: Always
 
 service:
@@ -255,6 +255,9 @@ httpd_config:
 
 ## values used to configure Rucio
 config:
+  api:
+    endpoints: auth,accountlimits,accounts,config,credentials,dids,export,heartbeats,identities,import,lifetime_exceptions,locks,meta,ping,redirect,replicas,requests,rses,rules,scopes,subscriptions
+
   # common:
     ## config.common.logdir: the default directoy to write logs to (default: "/var/log/rucio")
     # logdir: "/var/log/rucio"
