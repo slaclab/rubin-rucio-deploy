@@ -8,9 +8,9 @@ abacusCollectionReplicaCount: 0
 abacusRseCount: 0
 automatixCount: 0
 cacheConsumerCount: 0
-conveyorTransferSubmitterCount: 0
-conveyorPollerCount: 0
-conveyorFinisherCount: 0
+conveyorTransferSubmitterCount: 1 
+conveyorPollerCount: 1
+conveyorFinisherCount: 1 
 conveyorReceiverCount: 0
 conveyorStagerCount: 0
 conveyorThrottlerCount: 0
@@ -18,14 +18,14 @@ conveyorPreparerCount: 0
 darkReaperCount: 0
 hermesCount: 0
 hermes2Count: 0
-judgeCleanerCount: 0
-judgeEvaluatorCount: 0
-judgeInjectorCount: 0
-judgeRepairerCount: 0
+judgeCleanerCount:  1
+judgeEvaluatorCount: 1 
+judgeInjectorCount: 1
+judgeRepairerCount: 1
 oauthManagerCount: 0
 undertakerCount: 0
-reaperCount: 0
-transmogrifierCount: 0
+reaperCount: 1 
+transmogrifierCount: 1 
 tracerKronosCount: 0
 minosCount: 0
 minosTemporaryExpirationCount: 0
@@ -33,7 +33,7 @@ necromancerCount: 0
 
 image:
   repository: rucio/rucio-daemons
-  tag: release-1.18.0
+  tag: release-1.29.4
   pullPolicy: Always
 
 strategy:
@@ -118,7 +118,7 @@ cacheConsumer:
 conveyorTransferSubmitter:
   threads: 1
   podAnnotations: {}
-  activities: "'test1' 'test2'"
+  activites: "'Data Brokering', 'Data Consolidation', 'Data rebalancing', Debug', 'Express', 'Functional Test', 'Group Subscriptions', Production Input', 'Production Output', Analysis Input', 'Analysis Output', 'Staging', T0 Export', 'T0 Tape', 'Upload/Download (Job)', Upload/Download (User)', 'User Subscriptions', 'Data Challenge'"
   sleepTime: 10
   archiveTimeout: ""
   resources:
@@ -132,6 +132,7 @@ conveyorTransferSubmitter:
 conveyorPoller:
   threads: 1
   podAnnotations: {}
+  activites: "'Data Brokering', 'Data Consolidation', 'Data rebalancing', Debug', 'Express', 'Functional Test', 'Group Subscriptions', Production Input', 'Production Output', Analysis Input', 'Analysis Output', 'Staging', T0 Export', 'T0 Tape', 'Upload/Download (Job)', Upload/Download (User)', 'User Subscriptions', 'Data Challenge'"
   resources:
     limits:
       memory: "200Mi"
@@ -143,6 +144,7 @@ conveyorPoller:
 conveyorFinisher:
   threads: 1
   podAnnotations: {}
+  activites: "'Data Brokering', 'Data Consolidation', 'Data rebalancing', Debug', 'Express', 'Functional Test', 'Group Subscriptions', Production Input', 'Production Output', Analysis Input', 'Analysis Output', 'Staging', T0 Export', 'T0 Tape', 'Upload/Download (Job)', Upload/Download (User)', 'User Subscriptions', 'Data Challenge'"
   resources:
     limits:
       memory: "200Mi"
@@ -367,9 +369,9 @@ ftsRenewal:
     repository: rucio/fts-cron
     tag: latest
     pullPolicy: Always
-  vo: "cms"
-  voms: "cms:/cms/Role=production"
-  servers: "https://fts3-devel.cern.ch:8446,https://cmsfts3.fnal.gov:8446,https://fts3.cern.ch:8446,https://lcgfts3.gridpp.rl.ac.uk:8446,https://fts3-pilot.cern.ch:8446"
+  vo: "lsst"
+  voms: "lsst:/lsst/Role=Production"
+  servers: "https://fts-eval01.slac.stanford.edu:8446"
 
 automaticRestart:
   enabled: 0
@@ -447,9 +449,9 @@ config:
     # set_metadata: ""
 
   conveyor:
-    # scheme: "srm,gsiftp,root,http,https"
-    # transfertool: "fts3"
-    # ftshosts: "https://fts3-pilot.cern.ch:8446, https://fts3-pilot.cern.ch:8446"
+    scheme: "srm,gsiftp,root,http,https"
+    transfertool: "fts3"
+    ftshosts: "https://fts-eval01.slac.stanford.edu:8446"
     cacert: "/opt/certs/CERN-bundle.pem"
     usercert: "/opt/proxy/x509up"
     # cache_time: ""

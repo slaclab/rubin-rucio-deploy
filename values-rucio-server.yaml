@@ -27,15 +27,15 @@ useSSL:
 
 image:
   repository: rucio/rucio-server
-  tag: release-1.29.0
+  tag: release-1.29.4
   pullPolicy: Always
 
 service:
   type: ClusterIP
-  port: 80
-  targetPort: 80
+  port: 80 
+  targetPort: 80 
   protocol: TCP
-  name: http
+  name: http-rucio-server
   annotations: {}
     # loadbalancer.openstack.org/network-id: "<id>"
     # service.beta.kubernetes.io/openstack-internal-load-balancer: "true"
@@ -43,18 +43,18 @@ service:
 
 authService:
   type: ClusterIP
-  port: 80
-  targetPort: 80
+  port: 80 
+  targetPort: 80 
   protocol: TCP
-  name: http
+  name: http-rucio-server-auth
   annotations: {}
 
 traceService:
   type: ClusterIP
-  port: 80
-  targetPort: 80
+  port: 80 
+  targetPort: 80 
   protocol: TCP
-  name: http
+  name: http-rucio-server-trace
   annotations: {}
 
 strategy:
@@ -83,8 +83,8 @@ livenessProbe:
     timeoutSeconds: 5
 
 serverType:
-  server: api
-  authServer: auth
+  server: flask 
+  authServer: flask 
   traceServer: trace
 
 logFormat:
@@ -111,17 +111,6 @@ metricsExporterResources:
    cpu: 20m
    memory: 20Mi
 
-ftsRenewal:
-  enabled: 0
-  schedule: "42 */6 * * *"
-  image:
-    repository: rucio/fts-cron
-    tag: latest
-    pullPolicy: Always
-  vo: "cms"
-  voms: "cms:/cms/Role=production"
-  servers: "https://fts3-devel.cern.ch:8446,https://cmsfts3.fnal.gov:8446,https://fts3.cern.ch:8446,https://lcgfts3.gridpp.rl.ac.uk:8446,https://fts3-pilot.cern.ch:8446"
-
 automaticRestart:
   enabled: 0
   image:
@@ -143,28 +132,27 @@ wsgi:
 httpd_config:
   mpm_mode: "event"
   enable_status: "True"
-  legacy_dn: "False"
-  # keep_alive: "On"
-  # keep_alive_timeout: "5"
-  # max_keep_alive_requests: "128"
-  # server_limit: "10"
-  # start_servers: "4"
-  # thread_limit: "128"
-  # threads_per_child: "128"
-  # min_spare_threads: "256"
-  # max_spare_threads: "512"
-  # max_request_workers: "1280"
-  # max_connections_per_child: "2048"
+  legacy_dn: "True"
+  keep_alive: "On"
+  keep_alive_timeout: "5"
+  max_keep_alive_requests: "128"
+  server_limit: "10"
+  start_servers: "4"
+  thread_limit: "128"
+  threads_per_child: "128"
+  min_spare_threads: "256"
+  max_spare_threads: "512"
+  max_request_workers: "1280"
+  max_connections_per_child: "2048"
 
 ingress:
-  enabled: false
-  annotations: {}
-    # kubernetes.io/ingress.class: traefik
-    # traefik.ingress.kubernetes.io/frontend-entry-points: http
-    # traefik.ingress.kubernetes.io/redirect-entry-point: https
+  enabled: true 
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/frontend-entry-points: http
   path: /
-  hosts: []
-  #   - my.rucio.test
+  hosts:
+     - rubin-rucio.slac.stanford.edu 
   tls:
     - secretName: rucio-server.tls-secret
   secrets:
@@ -186,16 +174,17 @@ ingress:
   #     -----END CERTIFICATE-----
 
 authIngress:
-  enabled: false
-  annotations: {}
-    # kubernetes.io/ingress.class: traefik
-    # traefik.ingress.kubernetes.io/frontend-entry-points: http
-    # traefik.ingress.kubernetes.io/redirect-entry-point: https
+  enabled: true 
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/frontend-entry-points: http
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
   path: /auth
-  hosts: []
-  #   - my.rucio.test
-  # tls:
-  #   - secretName: rucio-auth.tls-secret
+  hosts:
+     - rubin-rucio.slac.stanford.edu 
+  tls:
+    - secretName: rucio-auth.tls-secret
   secrets:
   ## If you're providing your own certificates, please use this to add the certificates as secrets
   ## key and certificate should start with -----BEGIN CERTIFICATE----- or
@@ -216,10 +205,9 @@ authIngress:
 
 traceIngress:
   enabled: false
-  annotations: {}
-    # kubernetes.io/ingress.class: traefik
-    # traefik.ingress.kubernetes.io/frontend-entry-points: http
-    # traefik.ingress.kubernetes.io/redirect-entry-point: https
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/frontend-entry-points: http
   path: /traces
   hosts: []
   #   - my.rucio.test
@@ -243,15 +231,6 @@ traceIngress:
   #     -----BEGIN CERTIFICATE-----
   #     -----END CERTIFICATE-----
 
-## values used to configure apache
-httpd_config:
-  # mpm_mode: "worker"
-  # start_servers: "1"
-  # min_spare_threads: "1"
-  # max_spare_threads: "20"
-  # threads_per_child: "5"
-  # max_clients: "20"
-  # max_requests_per_child: "8192"
 
 ## values used to configure Rucio
 config:
@@ -328,8 +307,22 @@ config:
     ## config.webui.usercert:  (default "/opt/rucio/etc/usercert_with_key.pem")
     # usercert: "/opt/rucio/etc/usercert_with_key.pem"
 
-serverResources: {}
-authServerResources: {}
+serverResources:
+  limits:
+    memory: "600Mi"
+    cpu: "700m"
+  requests:
+    memory: "200Mi"
+    cpu: "200m"
+
+authServerResources:
+  limits:
+    memory: "600Mi"
+    cpu: "700m"
+  requests:
+    memory: "200Mi"
+    cpu: "200m"
+
 traceServerResources: {}
   # limits:
   #  cpu: 100m

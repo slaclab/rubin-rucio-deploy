@@ -6,8 +6,8 @@ namespace: rucio
 
 resources:
 - helm-rucio-server.yaml
-#- helm-rucio-daemons.yaml
-#- helm-rucio-ui.yaml
+- helm-rucio-daemons.yaml
+- helm-rucio-ui.yaml
 #- database.yaml
 
 #patches:

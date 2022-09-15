@@ -6,7 +6,7 @@ metadata:
   name: usdf-rucio-ui.config.yaml
   labels:
     app: rucio-ui
-    chart: rucio-ui-1.28.1
+    chart: rucio-ui-1.29.1
     release: "usdf"
     heritage: "Helm"
 type: Opaque
@@ -20,11 +20,19 @@ metadata:
   name: usdf-rucio-ui.cfg
   labels:
     app: rucio-ui
-    chart: "rucio-ui-1.28.1"
+    chart: "rucio-ui-1.29.1"
     release: "usdf"
     heritage: "Helm"
 type: Opaque
 data:
+  legacy_dn: "RmFsc2U="
+  max_clients: "MjA="
+  max_requests_per_child: "ODE5Mg=="
+  max_spare_threads: "MjA="
+  min_spare_threads: "MQ=="
+  mpm_mode: "ZXZlbnQ="
+  start_servers: "MQ=="
+  threads_per_child: "NQ=="
 ---
 # Source: rucio-ui/templates/config.yaml
 apiVersion: v1
@@ -33,7 +41,7 @@ metadata:
   name: usdf-rucio-ui-aliases
   labels:
     app: usdf-rucio-ui
-    chart: "rucio-ui-1.28.1"
+    chart: "rucio-ui-1.29.1"
     release: "usdf"
     heritage: "Helm"
 data:
@@ -49,11 +57,11 @@ metadata:
   name: usdf-rucio-ui
   labels:
     app: rucio-ui
-    chart: rucio-ui-1.28.1
+    chart: rucio-ui-1.29.1
     release: usdf
     heritage: Helm
 spec:
-  type: NodePort
+  type: ClusterIP
   ports:
     - port: 443
       targetPort: https
@@ -70,7 +78,7 @@ metadata:
   name: usdf-rucio-ui
   labels:
     app: rucio-ui
-    chart: rucio-ui-1.28.1
+    chart: rucio-ui-1.29.1
     release: usdf
     heritage: Helm
 spec:
@@ -119,7 +127,7 @@ spec:
           - name: httpdlog
             mountPath: /var/log/httpd
         - name: rucio-ui
-          image: "rucio/rucio-ui:release-1.21.12"
+          image: "rucio/rucio-ui:release-1.29.4"
           imagePullPolicy: Always
           ports:
             - name: http
@@ -170,7 +178,7 @@ metadata:
   name: usdf-rucio-ui
   labels:
     app: rucio-ui
-    chart: rucio-ui-1.28.1
+    chart: rucio-ui-1.29.1
     release: usdf
     heritage: Helm
   annotations:
@@ -179,3 +187,13 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
 spec:
   rules:
+    - host: rubin-rucio.slac.stanford.edu
+      http:
+        paths:
+          - path: /
+            backend:
+              service:
+                name: usdf-rucio-ui
+                port:
+                  number: 443
+            pathType: Prefix

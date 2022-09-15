@@ -34,11 +34,25 @@ metadata:
   name: usdf-rucio-server.cfg
   labels:
     app: rucio-server
-    chart: "rucio-server-1.29.0"
+    chart: "rucio-server-1.29.1"
     release: "usdf"
     heritage: "Helm"
 type: Opaque
 data:
+  enable_status: "VHJ1ZQ=="
+  keep_alive: "T24="
+  keep_alive_timeout: "NQ=="
+  legacy_dn: "VHJ1ZQ=="
+  max_connections_per_child: "MjA0OA=="
+  max_keep_alive_requests: "MTI4"
+  max_request_workers: "MTI4MA=="
+  max_spare_threads: "NTEy"
+  min_spare_threads: "MjU2"
+  mpm_mode: "ZXZlbnQ="
+  server_limit: "MTA="
+  start_servers: "NA=="
+  thread_limit: "MTI4"
+  threads_per_child: "MTI4"
 ---
 # Source: rucio-server/templates/auth_service.yaml
 apiVersion: v1
@@ -47,7 +61,7 @@ metadata:
   name: usdf-rucio-server-auth
   labels:
     app: rucio-server-auth
-    chart: rucio-server-1.29.0
+    chart: rucio-server-1.29.1
     release: usdf
     heritage: Helm
 spec:
@@ -56,7 +70,7 @@ spec:
     - port: 80
       targetPort: 80
       protocol: TCP
-      name: http
+      name: http-rucio-server-auth
   selector:
     app: rucio-server-auth
     release: usdf
@@ -68,7 +82,7 @@ metadata:
   name: usdf-rucio-server
   labels:
     app: rucio-server
-    chart: rucio-server-1.29.0
+    chart: rucio-server-1.29.1
     release: usdf
     heritage: Helm
 spec:
@@ -77,7 +91,7 @@ spec:
     - port: 80
       targetPort: 80
       protocol: TCP
-      name: http
+      name: http-rucio-server
   selector:
     app: rucio-server
     release: usdf
@@ -89,7 +103,7 @@ metadata:
   name: usdf-rucio-server-auth
   labels:
     app: rucio-server-auth
-    chart: rucio-server-1.29.0
+    chart: rucio-server-1.29.1
     release: usdf
     heritage: Helm
 spec:
@@ -126,10 +140,15 @@ spec:
           - name: httpdlog
             mountPath: /var/log/httpd
         - name: rucio-server-auth
-          image: "rucio/rucio-server:release-1.29.0"
+          image: "rucio/rucio-server:release-1.29.4"
           imagePullPolicy: Always
           resources:
-            {}
+            limits:
+              cpu: 700m
+              memory: 600Mi
+            requests:
+              cpu: 200m
+              memory: 200Mi
           ports:
             - name: http
               containerPort: 80
@@ -151,10 +170,80 @@ spec:
             - name: httpdlog
               mountPath: /var/log/httpd
           env:
+            - name: RUCIO_HTTPD_ENABLE_STATUS
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: enable_status
+            - name: RUCIO_HTTPD_KEEP_ALIVE
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: keep_alive
+            - name: RUCIO_HTTPD_KEEP_ALIVE_TIMEOUT
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: keep_alive_timeout
+            - name: RUCIO_HTTPD_LEGACY_DN
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: legacy_dn
+            - name: RUCIO_HTTPD_MAX_CONNECTIONS_PER_CHILD
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: max_connections_per_child
+            - name: RUCIO_HTTPD_MAX_KEEP_ALIVE_REQUESTS
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: max_keep_alive_requests
+            - name: RUCIO_HTTPD_MAX_REQUEST_WORKERS
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: max_request_workers
+            - name: RUCIO_HTTPD_MAX_SPARE_THREADS
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: max_spare_threads
+            - name: RUCIO_HTTPD_MIN_SPARE_THREADS
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: min_spare_threads
+            - name: RUCIO_HTTPD_MPM_MODE
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: mpm_mode
+            - name: RUCIO_HTTPD_SERVER_LIMIT
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: server_limit
+            - name: RUCIO_HTTPD_START_SERVERS
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: start_servers
+            - name: RUCIO_HTTPD_THREAD_LIMIT
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: thread_limit
+            - name: RUCIO_HTTPD_THREADS_PER_CHILD
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: threads_per_child
             - name: RUCIO_ENABLE_SSL
               value: "False"
             - name: RUCIO_SERVER_TYPE
-              value: "auth"
+              value: "flask"
             - name: RUCIO_CFG_API_ENDPOINTS
               value: "auth,ping"
             - name: RUCIO_OVERRIDE_CONFIGS
@@ -173,7 +262,7 @@ metadata:
   name: usdf-rucio-server
   labels:
     app: rucio-server
-    chart: rucio-server-1.29.0
+    chart: rucio-server-1.29.1
     release: usdf
     heritage: Helm
 spec:
@@ -217,10 +306,15 @@ spec:
               cpu: 20m
               memory: 20Mi
         - name: rucio-server
-          image: "rucio/rucio-server:release-1.29.0"
+          image: "rucio/rucio-server:release-1.29.4"
           imagePullPolicy: Always
           resources:
-            {}
+            limits:
+              cpu: 700m
+              memory: 600Mi
+            requests:
+              cpu: 200m
+              memory: 200Mi
           volumeMounts:
           - name: config
             mountPath: /opt/rucio/etc/rucio.config.common.json
@@ -242,10 +336,80 @@ spec:
             periodSeconds: 20
             timeoutSeconds: 5
           env:
+            - name: RUCIO_HTTPD_ENABLE_STATUS
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: enable_status
+            - name: RUCIO_HTTPD_KEEP_ALIVE
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: keep_alive
+            - name: RUCIO_HTTPD_KEEP_ALIVE_TIMEOUT
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: keep_alive_timeout
+            - name: RUCIO_HTTPD_LEGACY_DN
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: legacy_dn
+            - name: RUCIO_HTTPD_MAX_CONNECTIONS_PER_CHILD
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: max_connections_per_child
+            - name: RUCIO_HTTPD_MAX_KEEP_ALIVE_REQUESTS
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: max_keep_alive_requests
+            - name: RUCIO_HTTPD_MAX_REQUEST_WORKERS
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: max_request_workers
+            - name: RUCIO_HTTPD_MAX_SPARE_THREADS
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: max_spare_threads
+            - name: RUCIO_HTTPD_MIN_SPARE_THREADS
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: min_spare_threads
+            - name: RUCIO_HTTPD_MPM_MODE
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: mpm_mode
+            - name: RUCIO_HTTPD_SERVER_LIMIT
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: server_limit
+            - name: RUCIO_HTTPD_START_SERVERS
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: start_servers
+            - name: RUCIO_HTTPD_THREAD_LIMIT
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: thread_limit
+            - name: RUCIO_HTTPD_THREADS_PER_CHILD
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: threads_per_child
             - name: RUCIO_ENABLE_SSL
               value: "False"
             - name: RUCIO_SERVER_TYPE
-              value: "api"
+              value: "flask"
             - name: RUCIO_OVERRIDE_CONFIGS
               value: "/opt/rucio/etc/rucio.config.common.json"
             - name: RUCIO_LOG_FORMAT
@@ -254,3 +418,65 @@ spec:
               value: "4"
             - name: RUCIO_WSGI_DAEMON_THREADS
               value: "4"
+---
+# Source: rucio-server/templates/auth_ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: usdf-rucio-server-auth
+  labels:
+    app: rucio-server-auth
+    chart: rucio-server-1.29.1
+    release: usdf
+    heritage: Helm
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/frontend-entry-points: http
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+spec:
+  tls:
+    - hosts:
+        - rubin-rucio.slac.stanford.edu
+      secretName: rucio-auth.tls-secret
+  rules:
+    - host: rubin-rucio.slac.stanford.edu
+      http:
+        paths:
+          - path: /auth
+            backend:
+              service:
+                name: usdf-rucio-server-auth
+                port:
+                  number: 80
+            pathType: Prefix
+---
+# Source: rucio-server/templates/ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: usdf-rucio-server
+  labels:
+    app: rucio-server
+    chart: rucio-server-1.29.1
+    release: usdf
+    heritage: Helm
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/frontend-entry-points: http
+spec:
+  tls:
+    - hosts:
+        - rubin-rucio.slac.stanford.edu
+      secretName: rucio-server.tls-secret
+  rules:
+    - host: 'rubin-rucio.slac.stanford.edu'
+      http:
+        paths:
+          - path: /
+            backend:
+              service:
+                name: usdf-rucio-server
+                port:
+                  number: 80
+            pathType: Prefix
