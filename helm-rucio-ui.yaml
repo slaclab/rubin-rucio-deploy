@@ -6,7 +6,7 @@ metadata:
   name: usdf-rucio-ui.config.yaml
   labels:
     app: rucio-ui
-    chart: rucio-ui-1.29.1
+    chart: rucio-ui-1.29.2
     release: "usdf"
     heritage: "Helm"
 type: Opaque
@@ -20,7 +20,7 @@ metadata:
   name: usdf-rucio-ui.cfg
   labels:
     app: rucio-ui
-    chart: "rucio-ui-1.29.1"
+    chart: "rucio-ui-1.29.2"
     release: "usdf"
     heritage: "Helm"
 type: Opaque
@@ -41,7 +41,7 @@ metadata:
   name: usdf-rucio-ui-aliases
   labels:
     app: usdf-rucio-ui
-    chart: "rucio-ui-1.29.1"
+    chart: "rucio-ui-1.29.2"
     release: "usdf"
     heritage: "Helm"
 data:
@@ -57,7 +57,7 @@ metadata:
   name: usdf-rucio-ui
   labels:
     app: rucio-ui
-    chart: rucio-ui-1.29.1
+    chart: rucio-ui-1.29.2
     release: usdf
     heritage: Helm
 spec:
@@ -78,7 +78,7 @@ metadata:
   name: usdf-rucio-ui
   labels:
     app: rucio-ui
-    chart: rucio-ui-1.29.1
+    chart: rucio-ui-1.29.2
     release: usdf
     heritage: Helm
 spec:
@@ -155,6 +155,46 @@ spec:
               mountPath: /etc/grid-security/ca.pem
               subPath: ca.pem
           env:
+            - name: RUCIO_HTTPD_LEGACY_DN
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-ui.cfg
+                  key: legacy_dn
+            - name: RUCIO_HTTPD_MAX_CLIENTS
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-ui.cfg
+                  key: max_clients
+            - name: RUCIO_HTTPD_MAX_REQUESTS_PER_CHILD
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-ui.cfg
+                  key: max_requests_per_child
+            - name: RUCIO_HTTPD_MAX_SPARE_THREADS
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-ui.cfg
+                  key: max_spare_threads
+            - name: RUCIO_HTTPD_MIN_SPARE_THREADS
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-ui.cfg
+                  key: min_spare_threads
+            - name: RUCIO_HTTPD_MPM_MODE
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-ui.cfg
+                  key: mpm_mode
+            - name: RUCIO_HTTPD_START_SERVERS
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-ui.cfg
+                  key: start_servers
+            - name: RUCIO_HTTPD_THREADS_PER_CHILD
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-ui.cfg
+                  key: threads_per_child
 
             - name: RUCIO_PROXY
               value: 
@@ -170,30 +210,3 @@ spec:
               value: "True"
           resources:
             {}
----
-# Source: rucio-ui/templates/ingress.yaml
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: usdf-rucio-ui
-  labels:
-    app: rucio-ui
-    chart: rucio-ui-1.29.1
-    release: usdf
-    heritage: Helm
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
-    nginx.ingress.kubernetes.io/ssl-redirect: "true"
-spec:
-  rules:
-    - host: rubin-rucio.slac.stanford.edu
-      http:
-        paths:
-          - path: /
-            backend:
-              service:
-                name: usdf-rucio-ui
-                port:
-                  number: 443
-            pathType: Prefix
