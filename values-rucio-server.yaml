@@ -184,7 +184,7 @@ authIngress:
   hosts:
      - rubin-rucio.slac.stanford.edu 
   tls:
-    - secretName: rucio-auth.tls-secret
+    - secretName: rucio-server.tls-secret
   secrets:
   ## If you're providing your own certificates, please use this to add the certificates as secrets
   ## key and certificate should start with -----BEGIN CERTIFICATE----- or
@@ -195,7 +195,7 @@ authIngress:
   ##
   ## It is also possible to create and manage the certificates outside of this helm chart
   ## Please see README.md for more information
-  # - name: rucio-auth.tls-secret
+  # - name: rucio-server.tls-secret
   #   key: |+
   #     -----BEGIN RSA PRIVATE KEY-----
   #     -----END RSA PRIVATE KEY-----
@@ -212,7 +212,7 @@ traceIngress:
   hosts: []
   #   - my.rucio.test
   # tls:
-  #   - secretName: rucio-auth.tls-secret
+  #   - secretName: rucio-server.tls-secret
   secrets:
   ## If you're providing your own certificates, please use this to add the certificates as secrets
   ## key and certificate should start with -----BEGIN CERTIFICATE----- or
@@ -223,7 +223,7 @@ traceIngress:
   ##
   ## It is also possible to create and manage the certificates outside of this helm chart
   ## Please see README.md for more information
-  # - name: rucio-auth.tls-secret
+  # - name: rucio-server.tls-secret
   #   key: |+
   #     -----BEGIN RSA PRIVATE KEY-----
   #     -----END RSA PRIVATE KEY-----
