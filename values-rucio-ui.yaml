@@ -43,7 +43,7 @@ ingress:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
   path: /
   hosts:
-     - webui-rubin-rucio.slac.stanford.edu
+     - rubin-rucio-dev.slac.stanford.edu
 
 additionalSecrets: {}
 # gcssecret:

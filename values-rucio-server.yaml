@@ -152,7 +152,7 @@ ingress:
     nginx.ingress.kubernetes.io/frontend-entry-points: http
   path: /
   hosts:
-     - rubin-rucio.slac.stanford.edu 
+     - rubin-rucio-dev.slac.stanford.edu 
   tls:
     - secretName: rucio-server.tls-secret
   secrets:
@@ -182,7 +182,7 @@ authIngress:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
   path: /auth
   hosts:
-     - rubin-rucio.slac.stanford.edu 
+     - rubin-rucio-dev.slac.stanford.edu 
   tls:
     - secretName: rucio-server.tls-secret
   secrets:

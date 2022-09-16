@@ -437,10 +437,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - rubin-rucio.slac.stanford.edu
+        - rubin-rucio-dev.slac.stanford.edu
       secretName: rucio-server.tls-secret
   rules:
-    - host: rubin-rucio.slac.stanford.edu
+    - host: rubin-rucio-dev.slac.stanford.edu
       http:
         paths:
           - path: /auth
@@ -467,10 +467,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - rubin-rucio.slac.stanford.edu
+        - rubin-rucio-dev.slac.stanford.edu
       secretName: rucio-server.tls-secret
   rules:
-    - host: 'rubin-rucio.slac.stanford.edu'
+    - host: 'rubin-rucio-dev.slac.stanford.edu'
       http:
         paths:
           - path: /
