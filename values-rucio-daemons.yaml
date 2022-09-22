@@ -33,7 +33,7 @@ necromancerCount: 0
 
 image:
   repository: rucio/rucio-daemons
-  tag: release-1.29.4
+  tag: release-1.29.5
   pullPolicy: Always
 
 strategy:
@@ -452,7 +452,7 @@ config:
     scheme: "srm,gsiftp,root,http,https"
     transfertool: "fts3"
     ftshosts: "https://fts-eval01.slac.stanford.edu:8446"
-    cacert: "/opt/certs/CERN-bundle.pem"
+    cacert: "/opt/certs/ca.pem"
     usercert: "/opt/proxy/x509up"
     # cache_time: ""
     # user_deterministic_id: ""
