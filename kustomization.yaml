@@ -1,14 +1,10 @@
 
-#bases:
-#- zalando-postgres-operator
-
 namespace: rucio
 
 resources:
 - helm-rucio-server.yaml
 - helm-rucio-daemons.yaml
 - helm-rucio-ui.yaml
-#- database.yaml
 
 #patches:
 #- patches-rucio-ui.yaml
