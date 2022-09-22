@@ -5,19 +5,15 @@ helm:
 	helm repo update
 
 rucio-server: helm
-	helm template usdf rucio/rucio-server --values=values-rucio-server.yaml > helm-rucio-server.yaml
+	helm template usdf rucio/rucio-server --values=values-rucio-server.yaml --values=secret/db-conn.yaml > helm-rucio-server.yaml
 
 rucio-daemons: helm
-	helm template usdf rucio/rucio-daemons --values=values-rucio-daemons.yaml > helm-rucio-daemons.yaml
+	helm template usdf rucio/rucio-daemons --values=values-rucio-daemons.yaml --values=secret/db-conn.yaml > helm-rucio-daemons.yaml
 
 rucio-ui: helm
-	helm template usdf rucio/rucio-ui --values=values-rucio-ui.yaml > helm-rucio-ui.yaml
+	helm template usdf rucio/rucio-ui --values=values-rucio-ui.yaml --values=secret/db-conn.yaml > helm-rucio-ui.yaml
 
 rucio: rucio-server rucio-daemons rucio-ui
-
-postgres-operator:
-	git submodule add https://github.com/zalando/postgres-operator.git zalando-postgres-operator/deps/postgres-operator || true
-	cd zalando-postgres-operator/deps/postgres-operator && git pull
 
 get-secrets-from-vault:
 	mkdir -p etc/.secrets/
@@ -28,8 +24,7 @@ get-secrets-from-vault:
 clean-secrets:
 	rm -rf etc/.secrets/
 
-run-apply: postgres-operator
-	kubectl apply -k .
+run-apply: kubectl apply -k .
 
 apply: get-secrets-from-vault run-apply clean-secrets
 
