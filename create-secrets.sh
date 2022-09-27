@@ -19,3 +19,11 @@ kubectl create secret generic usdf-rucio-ca-bundle \
 kubectl create secret tls rucio-server.tls-secret \
         --cert=${PWD}/secret/hostcert.pem \
         --key=${PWD}/secret/hostkey.pem
+
+# Reapers need the whole directory of certificates
+mkdir /tmp/reaper-certs
+cp /etc/grid-security/certificates/*.0 /tmp/reaper-certs/
+cp /etc/grid-security/certificates/*.signing_policy /tmp/reaper-certs/
+kubectl create secret generic usdf-rucio-ca-bundle-reaper \
+        --from-file=/tmp/reaper-certs
+rm -r /tmp/reaper-certs
