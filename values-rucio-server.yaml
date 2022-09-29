@@ -21,9 +21,9 @@ errorLogsExporterResources:
 
 # Set to true to enable SSL support for the different servers to be able accept X509 certificates and proxies.
 useSSL:
-  server: false
-  authServer: false
-  traceServer: false
+  server: true
+  authServer: true
+  traceServer: true
 
 image:
   repository: rucio/rucio-server
@@ -32,8 +32,8 @@ image:
 
 service:
   type: ClusterIP
-  port: 80 
-  targetPort: 80 
+  port: 443 
+  targetPort: 443
   protocol: TCP
   name: http-rucio-server
   annotations: {}
@@ -43,18 +43,18 @@ service:
 
 authService:
   type: ClusterIP
-  port: 80 
-  targetPort: 80 
+  port: 443
+  targetPort: 443
   protocol: TCP
-  name: http-rucio-server-auth
+  name: https-rucio-server-auth
   annotations: {}
 
 traceService:
   type: ClusterIP
-  port: 80 
-  targetPort: 80 
+  port: 443
+  targetPort: 443
   protocol: TCP
-  name: http-rucio-server-trace
+  name: https-rucio-server-trace
   annotations: {}
 
 strategy:
@@ -155,23 +155,7 @@ ingress:
      - rubin-rucio-dev.slac.stanford.edu 
   tls:
     - secretName: rucio-server.tls-secret
-  secrets:
-  ## If you're providing your own certificates, please use this to add the certificates as secrets
-  ## key and certificate should start with -----BEGIN CERTIFICATE----- or
-  ## -----BEGIN RSA PRIVATE KEY-----
-  ##
-  ## name should line up with a tlsSecret set further up
-  ## If you're using kube-lego, this is unneeded, as it will create the secret for you if it is not set
-  ##
-  ## It is also possible to create and manage the certificates outside of this helm chart
-  ## Please see README.md for more information
-  # - name: rucio-server.tls-secret
-  #   key: |+
-  #     -----BEGIN RSA PRIVATE KEY-----
-  #     -----END RSA PRIVATE KEY-----
-  #   certificate: |+
-  #     -----BEGIN CERTIFICATE-----
-  #     -----END CERTIFICATE-----
+  #secrets:
 
 authIngress:
   enabled: true 
@@ -185,23 +169,7 @@ authIngress:
      - rubin-rucio-dev.slac.stanford.edu 
   tls:
     - secretName: rucio-server.tls-secret
-  secrets:
-  ## If you're providing your own certificates, please use this to add the certificates as secrets
-  ## key and certificate should start with -----BEGIN CERTIFICATE----- or
-  ## -----BEGIN RSA PRIVATE KEY-----
-  ##
-  ## name should line up with a tlsSecret set further up
-  ## If you're using kube-lego, this is unneeded, as it will create the secret for you if it is not set
-  ##
-  ## It is also possible to create and manage the certificates outside of this helm chart
-  ## Please see README.md for more information
-  # - name: rucio-server.tls-secret
-  #   key: |+
-  #     -----BEGIN RSA PRIVATE KEY-----
-  #     -----END RSA PRIVATE KEY-----
-  #   certificate: |+
-  #     -----BEGIN CERTIFICATE-----
-  #     -----END CERTIFICATE-----
+  #secrets:
 
 traceIngress:
   enabled: false
