@@ -1,5 +1,25 @@
 #!/bin/bash
 
+# Server
+kubectl -n rucio create secret generic usdf-server-hostcert \
+        --from-file=hostcert.pem=${PWD}/secret/hostcert.pem
+
+kubectl -n rucio create secret generic usdf-server-hostkey \
+        --from-file=hostkey.pem=${PWD}/secret/hostkey.pem
+
+kubectl -n rucio create secret generic usdf-server-cafile \
+        --from-file=ca.pem=${PWD}/secret/ca.pem
+
+# Auth Server
+kubectl -n rucio create secret generic usdf-auth-hostcert \
+        --from-file=hostcert.pem=${PWD}/secret/hostcert.pem
+
+kubectl -n rucio create secret generic usdf-auth-hostkey \
+        --from-file=hostkey.pem=${PWD}/secret/hostkey.pem
+
+kubectl -n rucio create secret generic usdf-auth-cafile \
+        --from-file=ca.pem=${PWD}/secret/ca.pem
+
 # FTS3 Delegation Secrets
 kubectl -n rucio create secret generic usdf-rucio-fts-cert \
         --from-file=usercert.pem=${PWD}/secret/hostcert.pem \
