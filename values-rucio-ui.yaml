@@ -6,7 +6,7 @@
 replicaCount: 1
 
 # When set, run extra busybox containers in the relevant pods to also expose the error logs
-exposeErrorLogs: True
+exposeErrorLogs: True 
 
 service:
   type: ClusterIP # LoadBalancer

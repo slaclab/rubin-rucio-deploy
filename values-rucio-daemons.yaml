@@ -3,9 +3,9 @@
 # Declare variables to be passed into your templates.
 
 ## judgeCleanerCount gives the number of judge-cleaner pods to run
-abacusAccountCount: 0
-abacusCollectionReplicaCount: 0
-abacusRseCount: 0
+abacusAccountCount: 1
+abacusCollectionReplicaCount: 1
+abacusRseCount: 1
 automatixCount: 0
 cacheConsumerCount: 0
 conveyorTransferSubmitterCount: 1 
@@ -23,13 +23,13 @@ judgeEvaluatorCount: 1
 judgeInjectorCount: 1
 judgeRepairerCount: 1
 oauthManagerCount: 0
-undertakerCount: 0
+undertakerCount: 1
 reaperCount: 1 
 transmogrifierCount: 1 
 tracerKronosCount: 0
-minosCount: 0
+minosCount: 1
 minosTemporaryExpirationCount: 0
-necromancerCount: 0
+necromancerCount: 1
 
 image:
   repository: rucio/rucio-daemons
