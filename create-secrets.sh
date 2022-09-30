@@ -57,3 +57,10 @@ kubectl -n rucio create secret generic usdf-hostkey \
 
 kubectl -n rucio create secret generic usdf-cafile \
         --from-file=ca.pem=${PWD}/secret/ca.pem
+
+# FTS3
+kubectl -n rucio create secret generic usdf-fts-cert \
+        --from-file=usercert.pem=${PWD}/secret/hostcert.pem
+
+kubectl -n rucio create secret generic usdf-fts-key \
+        --from-file=new_userkey.pem=${PWD}/secret/hostkey.pem
