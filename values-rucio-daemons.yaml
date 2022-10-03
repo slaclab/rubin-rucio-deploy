@@ -118,7 +118,7 @@ cacheConsumer:
 conveyorTransferSubmitter:
   threads: 1
   podAnnotations: {}
-  activites: "'Data Brokering', 'Data Consolidation', 'Data rebalancing', Debug', 'Express', 'Functional Test', 'Group Subscriptions', Production Input', 'Production Output', Analysis Input', 'Analysis Output', 'Staging', T0 Export', 'T0 Tape', 'Upload/Download (Job)', Upload/Download (User)', 'User Subscriptions', 'Data Challenge'"
+  activities: "'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
   sleepTime: 10
   archiveTimeout: ""
   resources:
@@ -132,7 +132,7 @@ conveyorTransferSubmitter:
 conveyorPoller:
   threads: 1
   podAnnotations: {}
-  activites: "'Data Brokering', 'Data Consolidation', 'Data rebalancing', Debug', 'Express', 'Functional Test', 'Group Subscriptions', Production Input', 'Production Output', Analysis Input', 'Analysis Output', 'Staging', T0 Export', 'T0 Tape', 'Upload/Download (Job)', Upload/Download (User)', 'User Subscriptions', 'Data Challenge'"
+  activities: "'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
   resources:
     limits:
       memory: "200Mi"
@@ -144,7 +144,7 @@ conveyorPoller:
 conveyorFinisher:
   threads: 1
   podAnnotations: {}
-  activites: "'Data Brokering', 'Data Consolidation', 'Data rebalancing', Debug', 'Express', 'Functional Test', 'Group Subscriptions', Production Input', 'Production Output', Analysis Input', 'Analysis Output', 'Staging', T0 Export', 'T0 Tape', 'Upload/Download (Job)', Upload/Download (User)', 'User Subscriptions', 'Data Challenge'"
+  activities: "'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
   resources:
     limits:
       memory: "200Mi"
@@ -363,14 +363,14 @@ necromancer:
       cpu: "100m"
 
 ftsRenewal:
-  enabled: 0
+  enabled: 1 
   schedule: "12 */6 * * *"
   image:
     repository: rucio/fts-cron
     tag: latest
     pullPolicy: Always
   vo: "lsst"
-  voms: "lsst:/lsst/Role=Production"
+  voms: "lsst:/lsst/Role=ddmopr"
   servers: "https://fts-eval01.slac.stanford.edu:8446"
 
 automaticRestart:
