@@ -1,0 +1,26 @@
+
+resources:
+- ns.yaml
+# cnpg
+#- ../../base/cnpg
+- cnpg-rucio-database.yaml
+- cnpg-rucio-pooler.yaml
+
+#patches:
+#- endpoints-patch.yaml
+
+secretGenerator:
+- name: usdf-rucio-prod-creds
+  options:
+    disableNameSuffixHash: true
+  files:
+  - etc/.secrets/username
+  - etc/.secrets/password
+
+#nameSuffix: -dev
+namespace: rucio-db
+commonLabels:
+  env: prod
+  app: rucio
+  namespace: rucio-db
+
