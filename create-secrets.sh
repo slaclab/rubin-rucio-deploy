@@ -15,7 +15,7 @@ for i in "usdf-server-hostkey" "usdf-server-hostcert" "usdf-server-cafile"; do
     elif [ "$i" = "usdf-server-cafile" ]; then
         vault kv get --field=$i $SECRET_PATH  > etc/.secrets/ca.pem
     else
-       echo "Wrong valut key."
+       echo "Wrong vault key."
        exit 1
     fi
 done
