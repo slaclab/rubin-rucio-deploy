@@ -1,5 +1,10 @@
 #!/bin/bash
 #
+if [ $# -eq 0 ]; then
+    echo "Please provide the full Rucio deployment namespace name (usdf-rucio-dev|usdf-rucio)."
+    exit -1
+fi
+
 # get the secrets from vault
 mkdir -p ./etc/.secrets/
 # user input the kubernetes namespace(usdf-rucio-dev or usdf-rucio) in the commandline
