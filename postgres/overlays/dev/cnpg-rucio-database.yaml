@@ -1,0 +1,45 @@
+
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  # note the name is the DB services/pods  not the Cluster name.
+  name: usdf-rucio
+spec:
+  instances: 1
+  primaryUpdateStrategy: unsupervised
+
+  bootstrap:
+    initdb:
+      database: rucio
+      owner: rubin
+      secret:
+        name: usdf-rucio-dev-creds
+  
+  imageName:  ghcr.io/cloudnative-pg/postgresql:14.4-7
+  inheritedMetadata:
+    annotations:
+      prometheus.io/scrape: 'true' 
+
+  nodeMaintenanceWindow:
+    inProgress: false
+    reusePVC: true
+
+  postgresql:
+    parameters:
+      shared_buffers: 2GB
+      pg_stat_statements.max: "10000"
+      pg_stat_statements.track: all
+
+  resources:
+    requests:
+      memory: 8Gi
+      cpu: 8
+    limits:
+      memory: 16Gi
+      cpu: 16 
+
+  storage:
+    storageClass: wekafs--sdf-k8s01
+    size: 1000Gi
+
+
