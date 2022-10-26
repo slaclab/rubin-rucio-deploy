@@ -208,7 +208,9 @@ config:
     ## config.database.powuseraccount: password for user used to check the DB
     # powuserpassword: ""
 
-  # monitor:
+  monitor:
+    ## Turn on the Prometheus server for scraping of metrics (Default port 8080)
+    #enable_metrics: "True"
     ## config.monitor.carbon_server: address of carbon server used for graphite monitoring (default: "localhost")
     # carbon_server: "localhost"
     ## config.monitor.carbon_port: port of carbon server used for graphite monitoring (default: "8125")
