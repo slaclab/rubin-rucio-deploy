@@ -1,30 +1,32 @@
-SECRET_PATH=secret/rubin/usdf-rucio-dev/rucio
-DEPLOYMENT=usdf-rucio-dev
-
 helm:
 	helm repo add rucio https://rucio.github.io/helm-charts
 	helm repo update
 
-rucio-server: helm
-	helm template usdf rucio/rucio-server --values=values-rucio-server.yaml --values=secret/db-conn.yaml > helm-rucio-server.yaml
+# Dev Deployment Config Generation
+rucio-server-dev: helm
+	helm template usdf rucio/rucio-server --values=deployments/dev/values-rucio-server.yaml --values=secret/db-conn.yaml > deployments/dev/helm-rucio-server.yaml
 
-rucio-daemons: helm
-	helm template usdf rucio/rucio-daemons --values=values-rucio-daemons.yaml --values=secret/db-conn.yaml > helm-rucio-daemons.yaml
+rucio-daemons-dev: helm
+	helm template usdf rucio/rucio-daemons --values=deployments/dev/values-rucio-daemons.yaml --values=secret/db-conn.yaml > deployments/dev/helm-rucio-daemons.yaml
 
-rucio-ui: helm
-	helm template usdf rucio/rucio-ui --values=values-rucio-ui.yaml --values=secret/db-conn.yaml > helm-rucio-ui.yaml
+rucio-ui-dev: helm
+	helm template usdf rucio/rucio-ui --values=deployments/dev/values-rucio-ui.yaml --values=secret/db-conn.yaml > deployments/dev/helm-rucio-ui.yaml
 
-rucio: rucio-server rucio-daemons rucio-ui
+# Prod Deployment Config Generation
+rucio-server-prod: helm
+	helm template usdf rucio/rucio-server --values=deployments/prod/values-rucio-server.yaml --values=secret/db-conn.yaml > deployments/prod/helm-rucio-server.yaml
 
-get-secrets-from-vault:
-	./create-secrets.sh ${DEPLOYMENT}
+rucio-daemons-prod: helm
+	helm template usdf rucio/rucio-daemons --values=deployments/prod/values-rucio-daemons.yaml --values=secret/db-conn.yaml > deployments/prod/helm-rucio-daemons.yaml
 
-clean-secrets:
-	rm -rf etc/.secrets/
+rucio-ui-prod: helm
+	helm template usdf rucio/rucio-ui --values=deployments/prod/values-rucio-ui.yaml --values=secret/db-conn.yaml > deployments/prod/helm-rucio-ui.yaml
 
-run-apply:
-	kubectl apply -k .
+rucio-dev: rucio-server-dev rucio-daemons-dev rucio-ui-dev
+rucio-prod: rucio-server-prod rucio-daemons-prod rucio-ui-prod
 
-apply: get-secrets-from-vault run-apply clean-secrets
+run-apply-dev:
+	kubectl apply -k deployments/dev
 
-
+run-apply-prod:
+	kubectl apply -k deployments/prod
