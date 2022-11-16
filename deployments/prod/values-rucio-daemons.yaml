@@ -33,7 +33,7 @@ necromancerCount: 1
 
 image:
   repository: rucio/rucio-daemons
-  tag: release-1.29.6
+  tag: release-1.29.9
   pullPolicy: Always
 
 strategy:
@@ -370,7 +370,7 @@ ftsRenewal:
   schedule: "12 */6 * * *"
   image:
     repository: bjwhitefnal/rubin-rucio-fts-cron
-    tag: 1.29.6
+    tag: 1.29.9
     pullPolicy: Always
   vo: "lsst"
   voms: "lsst:/lsst/Role=ddmopr"
