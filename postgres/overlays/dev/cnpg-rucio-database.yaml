@@ -2,7 +2,6 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  # note the name is the DB services/pods  not the Cluster name.
   name: usdf-rucio
 spec:
   instances: 1

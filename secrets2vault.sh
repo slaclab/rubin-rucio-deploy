@@ -1,4 +1,5 @@
 #!/bin/bash
+
 if [ $# -eq 0 ]; then
     echo "Please specify the deployment to upload secrets into Vault for (dev|prod)."
     exit -1
