@@ -2,6 +2,8 @@
 namespace: rucio
 
 resources:
+- cnpg-rucio-pooler.yaml
+- cnpg-rucio-database.yaml
 - helm-rucio-server.yaml
 - helm-rucio-daemons.yaml
 - helm-rucio-ui.yaml
@@ -13,6 +15,14 @@ patchesStrategicMerge:
 
 
 secretGenerator:
+# database
+- name: usdf-rucio-dev-creds
+  options:
+    disableNameSuffixHash: true
+  files:
+  - etc/.secrets/username
+  - etc/.secrets/password
+# rucio
 - name: usdf-server-hostcert
   files:
   - hostcert.pem=etc/.secrets/hostcert.pem
