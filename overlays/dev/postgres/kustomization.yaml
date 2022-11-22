@@ -1,0 +1,15 @@
+namespace: rucio-db
+
+resources:
+- ns.yaml
+- cnpg-rucio-pooler.yaml
+- cnpg-rucio-database.yaml
+
+secretGenerator:
+# database
+- name: usdf-rucio-dev-creds
+  options:
+    disableNameSuffixHash: true
+  files:
+  - etc/.secrets/username
+  - etc/.secrets/password

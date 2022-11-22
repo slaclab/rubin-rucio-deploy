@@ -1,0 +1,75 @@
+
+namespace: rucio
+
+resources:
+- cnpg-rucio-pooler.yaml
+- cnpg-rucio-database.yaml
+- helm-rucio-server.yaml
+- helm-rucio-daemons.yaml
+- helm-rucio-ui.yaml
+
+patchesStrategicMerge:
+- rucio-env-patch.yaml
+- grid-certificates-patch.yaml
+#- patches-rucio-ui.yaml
+
+
+secretGenerator:
+# database
+- name: usdf-rucio-dev-creds
+  options:
+    disableNameSuffixHash: true
+  files:
+  - etc/.secrets/username
+  - etc/.secrets/password
+# rucio
+- name: usdf-server-hostcert
+  files:
+  - hostcert.pem=etc/.secrets/hostcert.pem
+- name: usdf-server-hostkey
+  files:
+  - hostkey.pem=etc/.secrets/hostkey.pem
+- name: usdf-server-cafile
+  files:
+  - ca.pem=etc/.secrets/ca.pem
+- name: usdf-auth-hostcert
+  files:
+  - hostkey.pem=etc/.secrets/hostkey.pem
+- name: usdf-auth-cafile
+  files:
+  - ca.pem=etc/.secrets/ca.pem
+- name: usdf-rucio-fts-cert
+  files:
+  - usercert.pem=etc/.secrets/hostcert.pem
+- name: usdf-rucio-fts-key
+  files:
+  - new_userkey.pem=etc/.secrets/hostkey.pem
+- name: usdf-rucio-x509up
+  files:
+  - hostcert.pem=etc/.secrets/hostcert.pem
+  - hostkey.pem=etc/.secrets/hostkey.pem
+- name: usdf-rucio-ca-bundle
+  files:
+  - ca.pem=etc/.secrets/ca.pem
+# ingress
+- name: rucio-server.tls-secret
+  files:
+  - cert=etc/.secrets/hostcert.pem
+  - key=etc/.secrets/hostkey.pem
+# webui
+- name: usdf-hostcert
+  files:
+  - hostcert.pem=etc/.secrets/hostcert.pem
+- name: usdf-hostkey
+  files:
+  - hostkey.pem=etc/.secrets/hostkey.pem
+- name: usdf-cafile
+  files:
+  - ca.pem=etc/.secrets/ca.pem
+# fts3
+- name: usdf-fts-cert
+  files:
+  - usercert.pem=etc/.secrets/hostcert.pem
+- name: usdf-fts-key
+  files:
+  - new_userkey.pem=etc/.secrets/hostkey.pem
