@@ -8,10 +8,14 @@ spec:
       initContainers:
       - name: grid-certs
         image: slaclab/grid-security-files:latest
-        command: cp /grid-certificates/* /out/
+        command: 
+        - cp
+        - -a 
+        - /grid-certificates/.
+        - /out/
         volumeMounts:
         - name: ca-volume
-          moutnPath: /out/
+          mountPath: /out/
       volumes:
        - name: ca-volume
          secret:
