@@ -3,6 +3,7 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: usdf-rucio
+  namespace: rucio-db
 spec:
   instances: 1
   primaryUpdateStrategy: unsupervised
