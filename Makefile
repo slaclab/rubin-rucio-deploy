@@ -1,3 +1,13 @@
+TAG ?= latest
+
+update-grid-security-files:
+	cp /etc/grid-security/certificates/*.0 grid-certificates/
+	cp /etc/grid-security/certificates/*.signing_policy grid-certificates/
+
+grid-security-files-docker: update-grid-security-files
+	docker build -f Dockerfile.grid-certificates -t slaclab/grid-security-files:$(TAG) .
+	docker push slaclab/grid-security-files:$(TAG)
+
 helm:
 	helm repo add rucio https://rucio.github.io/helm-charts
 	helm repo update
