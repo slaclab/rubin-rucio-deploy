@@ -3,6 +3,7 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Pooler
 metadata:
   name: usdf-rucio-pooler-rw
+  namespace: rucio-db
 spec:
   cluster:
     # the name here is not the cluster name, but the name of DB service that the pooler will control.
