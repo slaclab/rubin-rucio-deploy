@@ -5,7 +5,7 @@ metadata:
   name: usdf-rucio
   namespace: rucio-db
 spec:
-  instances: 1
+  instances: 2
   primaryUpdateStrategy: unsupervised
 
   bootstrap:
