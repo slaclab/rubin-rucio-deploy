@@ -1,10 +1,4 @@
 
-namespace: rucio
-
-resources:
-- helm-rucio-server.yaml
-- helm-rucio-daemons.yaml
-- helm-rucio-ui.yaml
-
-#patches:
-#- patches-rucio-ui.yaml
+bases:
+- postgres/
+- rucio/

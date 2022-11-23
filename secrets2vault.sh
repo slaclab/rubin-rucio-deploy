@@ -7,10 +7,10 @@ fi
 
 if [ $1 == "dev" ]; then
     cd ./secret
-    vault kv put secret/rubin/usdf-rucio-dev/rucio usdf-server-hostcert=@dev/hostcert.pem usdf-server-hostkey=@dev/hostkey.pem usdf-server-cafile=@ca.pem
+    vault kv put secret/rubin/usdf-rucio-dev/rucio usdf-db-conn=@db-conn.yaml usdf-server-hostcert=@dev/hostcert.pem usdf-server-hostkey=@dev/hostkey.pem usdf-server-cafile=@ca.pem
 elif [ $1 == "prod" ]; then
     cd ./secret
-    vault kv put secret/rubin/usdf-rucio/rucio usdf-server-hostcert=@prod/hostcert.pem usdf-server-hostkey=@prod/hostkey.pem usdf-server-cafile=@ca.pem
+    vault kv put secret/rubin/usdf-rucio/rucio usdf-db-conn=@db-conn.yaml usdf-server-hostcert=@prod/hostcert.pem usdf-server-hostkey=@prod/hostkey.pem usdf-server-cafile=@ca.pem
 else
     echo "Invalid deployment specification. (dev|prod)"
     exit -2
