@@ -30,6 +30,8 @@ get-secrets:
 	vault kv get --field=usdf-server-hostcert secret/rubin/usdf-rucio/rucio  > rucio/etc/.secrets/hostcert.pem
 	vault kv get --field=usdf-server-cafile secret/rubin/usdf-rucio/rucio  > rucio/etc/.secrets/ca.pem
 	mkdir -p postgres/etc/.secrets
+	vault kv get --field=client-secret secret/rubin/usdf-rucio/s3  > postgres/etc/.secrets/client-secret
+	vault kv get --field=client-id secret/rubin/usdf-rucio/s3  > postgres/etc/.secrets/client-id
 	vault kv get --field=username secret/rubin/usdf-rucio/database  > postgres/etc/.secrets/username
 	vault kv get --field=password secret/rubin/usdf-rucio/database  > postgres/etc/.secrets/password
 	#vault kv get --field=grid-certificates.tar.gz secret/rubin/usdf-rucio/rucio | base64 --decode --ignore-garbage > etc/.secrets/grid-certificates.tar.gz && cd etc/.secrets/ && tar xfvz grid-certificates.tar.gz && rm grid-certificates.tar.gz
