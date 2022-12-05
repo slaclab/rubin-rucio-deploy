@@ -15,6 +15,9 @@ patchesStrategicMerge:
 
 secretGenerator:
 # rucio
+- name: usdf-db-conn-str
+  files:
+  - db-conn-str.txt=etc/.secrets/db-conn-str.txt
 - name: usdf-server-hostcert
   files:
   - hostcert.pem=etc/.secrets/hostcert.pem

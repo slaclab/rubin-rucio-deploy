@@ -9,8 +9,11 @@ spec:
       containers:
       - name: rucio-daemons
         env:
-        - name: RUCIO_OVERRIDE_CONFIGS
-          value: /opt/rucio/etc/rucio.config.common.json /opt/rucio/etc/rucio.config.component.json
+        - name: RUCIO_CFG_DATABASE_DEFAULT
+          valueFrom:
+            secretKeyRef:
+              name: usdf-db-conn-str
+              key: db-conn-str.txt
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -22,8 +25,11 @@ spec:
       containers:
       - name: rucio-daemons
         env:
-        - name: RUCIO_OVERRIDE_CONFIGS
-          value: /opt/rucio/etc/rucio.config.common.json /opt/rucio/etc/rucio.config.component.json
+        - name: RUCIO_CFG_DATABASE_DEFAULT
+          valueFrom:
+            secretKeyRef:
+              name: usdf-db-conn-str
+              key: db-conn-str.txt
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -35,8 +41,11 @@ spec:
       containers:
       - name: rucio-ui
         env:
-        - name: RUCIO_OVERRIDE_CONFIGS
-          value: /opt/rucio/etc/rucio.config.common.json /opt/rucio/etc/rucio.config.component.json
+        - name: RUCIO_CFG_DATABASE_DEFAULT
+          valueFrom:
+            secretKeyRef:
+              name: usdf-db-conn-str
+              key: db-conn-str.txt
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -48,8 +57,11 @@ spec:
       containers:
       - name: rucio-server-auth
         env:
-        - name: RUCIO_OVERRIDE_CONFIGS
-          value:  /opt/rucio/etc/rucio.config.common.json
+        - name: RUCIO_CFG_DATABASE_DEFAULT
+          valueFrom:
+            secretKeyRef:
+              name: usdf-db-conn-str
+              key: db-conn-str.txt
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -61,8 +73,11 @@ spec:
       containers:
       - name: rucio-server
         env:
-        - name: RUCIO_OVERRIDE_CONFIGS
-          value:  /opt/rucio/etc/rucio.config.common.json
+        - name: RUCIO_CFG_DATABASE_DEFAULT
+          valueFrom:
+            secretKeyRef:
+              name: usdf-db-conn-str
+              key: db-conn-str.txt
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -74,8 +89,11 @@ spec:
       containers:
       - name: rucio-daemons
         env:
-        - name: RUCIO_OVERRIDE_CONFIGS
-          value:  /opt/rucio/etc/rucio.config.common.json /opt/rucio/etc/rucio.config.component.json
+        - name: RUCIO_CFG_DATABASE_DEFAULT
+          valueFrom:
+            secretKeyRef:
+              name: usdf-db-conn-str
+              key: db-conn-str.txt
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -87,8 +105,11 @@ spec:
       containers:
       - name: rucio-daemons
         env:
-        - name: RUCIO_OVERRIDE_CONFIGS
-          value:  /opt/rucio/etc/rucio.config.common.json /opt/rucio/etc/rucio.config.component.json
+        - name: RUCIO_CFG_DATABASE_DEFAULT
+          valueFrom:
+            secretKeyRef:
+              name: usdf-db-conn-str
+              key: db-conn-str.txt
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -100,8 +121,11 @@ spec:
       containers:
       - name: rucio-daemons
         env:
-        - name: RUCIO_OVERRIDE_CONFIGS
-          value:  /opt/rucio/etc/rucio.config.common.json /opt/rucio/etc/rucio.config.component.json
+        - name: RUCIO_CFG_DATABASE_DEFAULT
+          valueFrom:
+            secretKeyRef:
+              name: usdf-db-conn-str
+              key: db-conn-str.txt
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -113,8 +137,11 @@ spec:
       containers:
       - name: rucio-daemons
         env:
-        - name: RUCIO_OVERRIDE_CONFIGS
-          value:  /opt/rucio/etc/rucio.config.common.json /opt/rucio/etc/rucio.config.component.json
+        - name: RUCIO_CFG_DATABASE_DEFAULT
+          valueFrom:
+            secretKeyRef:
+              name: usdf-db-conn-str
+              key: db-conn-str.txt
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -126,8 +153,11 @@ spec:
       containers:
       - name: rucio-daemons
         env:
-        - name: RUCIO_OVERRIDE_CONFIGS
-          value:  /opt/rucio/etc/rucio.config.common.json /opt/rucio/etc/rucio.config.component.json
+        - name: RUCIO_CFG_DATABASE_DEFAULT
+          valueFrom:
+            secretKeyRef:
+              name: usdf-db-conn-str
+              key: db-conn-str.txt
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -139,8 +169,11 @@ spec:
       containers:
       - name: rucio-daemons
         env:
-        - name: RUCIO_OVERRIDE_CONFIGS
-          value:  /opt/rucio/etc/rucio.config.common.json /opt/rucio/etc/rucio.config.component.json
+        - name: RUCIO_CFG_DATABASE_DEFAULT
+          valueFrom:
+            secretKeyRef:
+              name: usdf-db-conn-str
+              key: db-conn-str.txt
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -152,8 +185,11 @@ spec:
       containers:
       - name: rucio-daemons
         env:
-        - name: RUCIO_OVERRIDE_CONFIGS
-          value:  /opt/rucio/etc/rucio.config.common.json /opt/rucio/etc/rucio.config.component.json
+        - name: RUCIO_CFG_DATABASE_DEFAULT
+          valueFrom:
+            secretKeyRef:
+              name: usdf-db-conn-str
+              key: db-conn-str.txt
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -165,8 +201,11 @@ spec:
       containers:
       - name: rucio-daemons
         env:
-        - name: RUCIO_OVERRIDE_CONFIGS
-          value:  /opt/rucio/etc/rucio.config.common.json /opt/rucio/etc/rucio.config.component.json
+        - name: RUCIO_CFG_DATABASE_DEFAULT
+          valueFrom:
+            secretKeyRef:
+              name: usdf-db-conn-str
+              key: db-conn-str.txt
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -178,8 +217,11 @@ spec:
       containers:
       - name: rucio-daemons
         env:
-        - name: RUCIO_OVERRIDE_CONFIGS
-          value:  /opt/rucio/etc/rucio.config.common.json /opt/rucio/etc/rucio.config.component.json
+        - name: RUCIO_CFG_DATABASE_DEFAULT
+          valueFrom:
+            secretKeyRef:
+              name: usdf-db-conn-str
+              key: db-conn-str.txt
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -191,8 +233,11 @@ spec:
       containers:
       - name: rucio-daemons
         env:
-        - name: RUCIO_OVERRIDE_CONFIGS
-          value:  /opt/rucio/etc/rucio.config.common.json /opt/rucio/etc/rucio.config.component.json
+        - name: RUCIO_CFG_DATABASE_DEFAULT
+          valueFrom:
+            secretKeyRef:
+              name: usdf-db-conn-str
+              key: db-conn-str.txt
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -204,8 +249,11 @@ spec:
       containers:
       - name: rucio-daemons
         env:
-        - name: RUCIO_OVERRIDE_CONFIGS
-          value:  /opt/rucio/etc/rucio.config.common.json /opt/rucio/etc/rucio.config.component.json
+        - name: RUCIO_CFG_DATABASE_DEFAULT
+          valueFrom:
+            secretKeyRef:
+              name: usdf-db-conn-str
+              key: db-conn-str.txt
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -217,8 +265,11 @@ spec:
       containers:
       - name: rucio-daemons
         env:
-        - name: RUCIO_OVERRIDE_CONFIGS
-          value:  /opt/rucio/etc/rucio.config.common.json /opt/rucio/etc/rucio.config.component.json
+        - name: RUCIO_CFG_DATABASE_DEFAULT
+          valueFrom:
+            secretKeyRef:
+              name: usdf-db-conn-str
+              key: db-conn-str.txt
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -230,5 +281,8 @@ spec:
       containers:
       - name: rucio-daemons
         env:
-        - name: RUCIO_OVERRIDE_CONFIGS
-          value:  /opt/rucio/etc/rucio.config.common.json /opt/rucio/etc/rucio.config.component.json
+        - name: RUCIO_CFG_DATABASE_DEFAULT
+          valueFrom:
+            secretKeyRef:
+              name: usdf-db-conn-str
+              key: db-conn-str.txt

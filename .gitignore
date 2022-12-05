@@ -2,6 +2,3 @@
 
 # Keep the DB password and cert/key out of the repo
 secret
-
-# Keep this out of the repo as the database password is only base64 encoded
-helm-rucio-*.yaml

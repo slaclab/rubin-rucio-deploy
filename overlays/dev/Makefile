@@ -3,13 +3,13 @@ helm:
 	helm repo update
 
 rucio-server: helm
-	helm template usdf rucio/rucio-server --values=rucio/values-rucio-server.yaml --values=rucio/etc/.secrets/db-conn.yaml > rucio/helm-rucio-server.yaml
+	helm template usdf rucio/rucio-server --values=rucio/values-rucio-server.yaml > rucio/helm-rucio-server.yaml
 
 rucio-daemons: helm
-	helm template usdf rucio/rucio-daemons --values=rucio/values-rucio-daemons.yaml --values=rucio/etc/.secrets/db-conn.yaml > rucio/helm-rucio-daemons.yaml
+	helm template usdf rucio/rucio-daemons --values=rucio/values-rucio-daemons.yaml > rucio/helm-rucio-daemons.yaml
 
 rucio-ui: helm
-	helm template usdf rucio/rucio-ui --values=rucio/values-rucio-ui.yaml --values=rucio/etc/.secrets/db-conn.yaml > rucio/helm-rucio-ui.yaml
+	helm template usdf rucio/rucio-ui --values=rucio/values-rucio-ui.yaml > rucio/helm-rucio-ui.yaml
 
 rucio: rucio-server rucio-daemons rucio-ui
 
@@ -25,10 +25,10 @@ store-reaper-certs: package-reaper-certs
 
 get-secrets:
 	mkdir -p rucio/etc/.secrets
-	vault kv get --field=usdf-db-conn secret/rubin/usdf-rucio-dev/rucio  > rucio/etc/.secrets/db-conn.yaml
 	vault kv get --field=usdf-server-hostkey secret/rubin/usdf-rucio-dev/rucio  > rucio/etc/.secrets/hostkey.pem
 	vault kv get --field=usdf-server-hostcert secret/rubin/usdf-rucio-dev/rucio  > rucio/etc/.secrets/hostcert.pem
 	vault kv get --field=usdf-server-cafile secret/rubin/usdf-rucio-dev/rucio  > rucio/etc/.secrets/ca.pem
+	vault kv get --field=usdf-db-conn-str secret/rubin/usdf-rucio-dev/rucio  > rucio/etc/.secrets/db-conn-str.txt
 	mkdir -p postgres/etc/.secrets
 	vault kv get --field=username secret/rubin/usdf-rucio-dev/database  > postgres/etc/.secrets/username
 	vault kv get --field=password secret/rubin/usdf-rucio-dev/database  > postgres/etc/.secrets/password
@@ -50,6 +50,6 @@ apply: get-secrets rucio run-apply clean-secrets
 run-destroy:
 	kubectl delete -k .
 
-destroy: get-secret rucio run-destroy clean-secrets
+destroy: get-secrets rucio run-destroy clean-secrets
 
 
