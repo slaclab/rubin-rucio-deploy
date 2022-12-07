@@ -5,7 +5,8 @@ metadata:
   name: usdf-rucio
   namespace: rucio-db
 spec:
-  retentionPolicy: "15d"
+  backup:
+    retentionPolicy: "15d"
     barmanObjectStore:
       destinationPath: s3://rubin-rucio-dev
       endpointURL: https://s3dfrgw.slac.stanford.edu:443
