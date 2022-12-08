@@ -13,7 +13,7 @@ secretGenerator:
   files:
   - etc/.secrets/username
   - etc/.secrets/password
-- name: s3-cred
+- name: s3-creds
   options:
     disableNameSuffixHash: true
   files:
