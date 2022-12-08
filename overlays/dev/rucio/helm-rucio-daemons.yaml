@@ -292,7 +292,7 @@ spec:
           secretName: usdf-rucio-ca-bundle
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.9"
+          image: "rucio/rucio-daemons:release-1.29.10"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -367,7 +367,7 @@ spec:
           secretName: usdf-rucio-ca-bundle
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.9"
+          image: "rucio/rucio-daemons:release-1.29.10"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -442,7 +442,7 @@ spec:
           secretName: usdf-rucio-ca-bundle
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.9"
+          image: "rucio/rucio-daemons:release-1.29.10"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -517,7 +517,7 @@ spec:
           secretName: usdf-rucio-ca-bundle
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.9"
+          image: "rucio/rucio-daemons:release-1.29.10"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -596,7 +596,7 @@ spec:
           secretName: usdf-rucio-ca-bundle
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.9"
+          image: "rucio/rucio-daemons:release-1.29.10"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -675,7 +675,7 @@ spec:
           secretName: usdf-rucio-ca-bundle
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.9"
+          image: "rucio/rucio-daemons:release-1.29.10"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -754,7 +754,7 @@ spec:
           secretName: usdf-rucio-ca-bundle
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.9"
+          image: "rucio/rucio-daemons:release-1.29.10"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -833,7 +833,7 @@ spec:
           secretName: usdf-rucio-ca-bundle
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.9"
+          image: "rucio/rucio-daemons:release-1.29.10"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -912,7 +912,7 @@ spec:
           secretName: usdf-rucio-ca-bundle
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.9"
+          image: "rucio/rucio-daemons:release-1.29.10"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -991,7 +991,7 @@ spec:
           secretName: usdf-rucio-ca-bundle
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.9"
+          image: "rucio/rucio-daemons:release-1.29.10"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -1070,7 +1070,7 @@ spec:
           secretName: usdf-rucio-ca-bundle
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.9"
+          image: "rucio/rucio-daemons:release-1.29.10"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -1149,7 +1149,7 @@ spec:
           secretName: usdf-rucio-ca-bundle
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.9"
+          image: "rucio/rucio-daemons:release-1.29.10"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -1228,7 +1228,7 @@ spec:
           secretName: usdf-rucio-ca-bundle-reaper
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.9"
+          image: "rucio/rucio-daemons:release-1.29.10"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -1313,7 +1313,7 @@ spec:
           secretName: usdf-rucio-ca-bundle
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.9"
+          image: "rucio/rucio-daemons:release-1.29.10"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -1389,7 +1389,7 @@ spec:
           secretName: usdf-rucio-x509up
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.9"
+          image: "rucio/rucio-daemons:release-1.29.10"
           imagePullPolicy: Always
           volumeMounts:
             - name: config
@@ -1440,7 +1440,7 @@ spec:
               secretName: usdf-fts-key
           containers:
             - name: renew-fts-cron
-              image: "bjwhitefnal/rubin-rucio-fts-cron:1.29.9"
+              image: "bjwhitefnal/rubin-rucio-fts-cron:1.29.10"
               imagePullPolicy: Always
               resources:
                 limits:
@@ -1487,7 +1487,7 @@ spec:
           secretName: usdf-fts-key
       containers:
         - name: renew-fts-cron
-          image: "bjwhitefnal/rubin-rucio-fts-cron:1.29.9"
+          image: "bjwhitefnal/rubin-rucio-fts-cron:1.29.10"
           imagePullPolicy: Always
           resources:
             limits:

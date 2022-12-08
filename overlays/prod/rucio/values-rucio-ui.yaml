@@ -18,7 +18,7 @@ service:
 
 image:
   repository: rucio/rucio-ui
-  tag: release-1.29.9
+  tag: release-1.29.10
   pullPolicy: Always
 
 strategy:
