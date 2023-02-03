@@ -34,7 +34,7 @@ metadata:
   name: usdf-rucio-server.cfg
   labels:
     app: rucio-server
-    chart: "rucio-server-1.30.1"
+    chart: "rucio-server-1.30.2"
     release: "usdf"
     heritage: "Helm"
 type: Opaque
@@ -61,7 +61,7 @@ metadata:
   name: usdf-rucio-server-auth
   labels:
     app: rucio-server-auth
-    chart: rucio-server-1.30.1
+    chart: rucio-server-1.30.2
     release: usdf
     heritage: Helm
 spec:
@@ -82,7 +82,7 @@ metadata:
   name: usdf-rucio-server
   labels:
     app: rucio-server
-    chart: rucio-server-1.30.1
+    chart: rucio-server-1.30.2
     release: usdf
     heritage: Helm
 spec:
@@ -103,7 +103,7 @@ metadata:
   name: usdf-rucio-server-auth
   labels:
     app: rucio-server-auth
-    chart: rucio-server-1.30.1
+    chart: rucio-server-1.30.2
     release: usdf
     heritage: Helm
 spec:
@@ -290,7 +290,7 @@ metadata:
   name: usdf-rucio-server
   labels:
     app: rucio-server
-    chart: rucio-server-1.30.1
+    chart: rucio-server-1.30.2
     release: usdf
     heritage: Helm
 spec:
@@ -475,7 +475,7 @@ metadata:
   name: usdf-rucio-server-auth
   labels:
     app: rucio-server-auth
-    chart: rucio-server-1.30.1
+    chart: rucio-server-1.30.2
     release: usdf
     heritage: Helm
   annotations:
@@ -502,7 +502,7 @@ metadata:
   name: usdf-rucio-server
   labels:
     app: rucio-server
-    chart: rucio-server-1.30.1
+    chart: rucio-server-1.30.2
     release: usdf
     heritage: Helm
   annotations:

@@ -860,10 +860,10 @@ spec:
           resources:
             limits:
               cpu: 700m
-              memory: 200Mi
+              memory: 2000Mi
             requests:
               cpu: 700m
-              memory: 200Mi
+              memory: 1000Mi
 ---
 # Source: rucio-daemons/templates/judge-injector.yaml
 apiVersion: apps/v1
