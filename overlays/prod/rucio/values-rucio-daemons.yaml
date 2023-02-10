@@ -66,7 +66,7 @@ abacusAccount:
   podAnnotations: {}
   resources:
     limits:
-      memory: "200Mi"
+      memory: "1000Mi"
       cpu: "700m"
     requests:
       memory: "200Mi"
@@ -77,7 +77,7 @@ abacusCollectionReplica:
   podAnnotations: {}
   resources:
     limits:
-      memory: "200Mi"
+      memory: "1000Mi"
       cpu: "700m"
     requests:
       memory: "200Mi"
@@ -89,7 +89,7 @@ abacusRse:
   podAnnotations: {}
   resources:
     limits:
-      memory: "200Mi"
+      memory: "1000Mi"
       cpu: "700m"
     requests:
       memory: "200Mi"
@@ -258,10 +258,10 @@ judgeInjector:
   podAnnotations: {}
   resources:
     limits:
-      memory: "200Mi"
+      memory: "2000Mi"
       cpu: "700m"
     requests:
-      memory: "200Mi"
+      memory: "1000Mi"
       cpu: "700m"
 
 judgeRepairer:
