@@ -11,7 +11,7 @@ metadata:
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJhcGkiOiB7CiAgICAiZW5kcG9pbnRzIjogImF1dGgsYWNjb3VudGxpbWl0cyxhY2NvdW50cyxjb25maWcsY3JlZGVudGlhbHMsZGlkcyxleHBvcnQsaGVhcnRiZWF0cyxpZGVudGl0aWVzLGltcG9ydCxsaWZldGltZV9leGNlcHRpb25zLGxvY2tzLG1ldGEscGluZyxyZWRpcmVjdCxyZXBsaWNhcyxyZXF1ZXN0cyxyc2VzLHJ1bGVzLHNjb3BlcyxzdWJzY3JpcHRpb25zIgogIH0sCiAgIm1vbml0b3IiOiBudWxsCn0="
+  common.json: "ewogICJhcGkiOiB7CiAgICAiZW5kcG9pbnRzIjogImF1dGgsYWNjb3VudGxpbWl0cyxhY2NvdW50cyxjb25maWcsY3JlZGVudGlhbHMsZGlkcyxleHBvcnQsaGVhcnRiZWF0cyxpZGVudGl0aWVzLGltcG9ydCxsaWZldGltZV9leGNlcHRpb25zLGxvY2tzLG1ldGEscGluZyxyZWRpcmVjdCxyZXBsaWNhcyxyZXF1ZXN0cyxyc2VzLHJ1bGVzLHNjb3BlcyxzdWJzY3JpcHRpb25zIgogIH0sCiAgImNvbnZleW9yIjogewogICAgInVzZXJjZXJ0IjogIi9vcHQvcHJveHkveDUwOSIKICB9LAogICJtb25pdG9yIjogbnVsbAp9"
 ---
 # Source: rucio-server/templates/deployment.yaml
 apiVersion: v1
@@ -25,7 +25,7 @@ metadata:
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJhcGkiOiB7CiAgICAiZW5kcG9pbnRzIjogImF1dGgsYWNjb3VudGxpbWl0cyxhY2NvdW50cyxjb25maWcsY3JlZGVudGlhbHMsZGlkcyxleHBvcnQsaGVhcnRiZWF0cyxpZGVudGl0aWVzLGltcG9ydCxsaWZldGltZV9leGNlcHRpb25zLGxvY2tzLG1ldGEscGluZyxyZWRpcmVjdCxyZXBsaWNhcyxyZXF1ZXN0cyxyc2VzLHJ1bGVzLHNjb3BlcyxzdWJzY3JpcHRpb25zIgogIH0sCiAgIm1vbml0b3IiOiBudWxsCn0="
+  common.json: "ewogICJhcGkiOiB7CiAgICAiZW5kcG9pbnRzIjogImF1dGgsYWNjb3VudGxpbWl0cyxhY2NvdW50cyxjb25maWcsY3JlZGVudGlhbHMsZGlkcyxleHBvcnQsaGVhcnRiZWF0cyxpZGVudGl0aWVzLGltcG9ydCxsaWZldGltZV9leGNlcHRpb25zLGxvY2tzLG1ldGEscGluZyxyZWRpcmVjdCxyZXBsaWNhcyxyZXF1ZXN0cyxyc2VzLHJ1bGVzLHNjb3BlcyxzdWJzY3JpcHRpb25zIgogIH0sCiAgImNvbnZleW9yIjogewogICAgInVzZXJjZXJ0IjogIi9vcHQvcHJveHkveDUwOSIKICB9LAogICJtb25pdG9yIjogbnVsbAp9"
 ---
 # Source: rucio-server/templates/secrets.yaml
 apiVersion: v1
@@ -34,7 +34,7 @@ metadata:
   name: usdf-rucio-server.cfg
   labels:
     app: rucio-server
-    chart: "rucio-server-1.30.2"
+    chart: "rucio-server-1.30.4"
     release: "usdf"
     heritage: "Helm"
 type: Opaque
@@ -61,7 +61,7 @@ metadata:
   name: usdf-rucio-server-auth
   labels:
     app: rucio-server-auth
-    chart: rucio-server-1.30.2
+    chart: rucio-server-1.30.4
     release: usdf
     heritage: Helm
 spec:
@@ -82,7 +82,7 @@ metadata:
   name: usdf-rucio-server
   labels:
     app: rucio-server
-    chart: rucio-server-1.30.2
+    chart: rucio-server-1.30.4
     release: usdf
     heritage: Helm
 spec:
@@ -103,7 +103,7 @@ metadata:
   name: usdf-rucio-server-auth
   labels:
     app: rucio-server-auth
-    chart: rucio-server-1.30.2
+    chart: rucio-server-1.30.4
     release: usdf
     heritage: Helm
 spec:
@@ -124,7 +124,7 @@ spec:
         app: rucio-server-auth
         release: usdf
       annotations:
-        checksum/config: 203c82b95fa04c001cf20c11a1cb54f752034401
+        checksum/config: fe5b8931c07a2b8c5b7ec45d86e5c7b920d6f449
     spec:
       volumes:
       - name: config
@@ -161,10 +161,10 @@ spec:
           resources:
             limits:
               cpu: 700m
-              memory: 600Mi
+              memory: 1200Mi
             requests:
               cpu: 200m
-              memory: 200Mi
+              memory: 600Mi
           ports:
             - name: http
               containerPort: 80
@@ -290,7 +290,7 @@ metadata:
   name: usdf-rucio-server
   labels:
     app: rucio-server
-    chart: rucio-server-1.30.2
+    chart: rucio-server-1.30.4
     release: usdf
     heritage: Helm
 spec:
@@ -311,7 +311,7 @@ spec:
         app: rucio-server
         release: usdf
       annotations:
-        checksum/config: 203c82b95fa04c001cf20c11a1cb54f752034401
+        checksum/config: fe5b8931c07a2b8c5b7ec45d86e5c7b920d6f449
     spec:
       volumes:
       - name: config
@@ -348,10 +348,10 @@ spec:
           resources:
             limits:
               cpu: 700m
-              memory: 600Mi
+              memory: 1200Mi
             requests:
               cpu: 200m
-              memory: 200Mi
+              memory: 600Mi
           volumeMounts:
           - name: config
             mountPath: /opt/rucio/etc/conf.d/10_common.json
@@ -475,7 +475,7 @@ metadata:
   name: usdf-rucio-server-auth
   labels:
     app: rucio-server-auth
-    chart: rucio-server-1.30.2
+    chart: rucio-server-1.30.4
     release: usdf
     heritage: Helm
   annotations:
@@ -502,7 +502,7 @@ metadata:
   name: usdf-rucio-server
   labels:
     app: rucio-server
-    chart: rucio-server-1.30.2
+    chart: rucio-server-1.30.4
     release: usdf
     heritage: Helm
   annotations:
