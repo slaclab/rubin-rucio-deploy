@@ -6,7 +6,7 @@ metadata:
   name: usdf-rucio-ui.config.yaml
   labels:
     app: rucio-ui
-    chart: rucio-ui-1.30.0
+    chart: rucio-ui-1.30.1
     release: "usdf"
     heritage: "Helm"
 type: Opaque
@@ -20,7 +20,7 @@ metadata:
   name: usdf-rucio-ui.cfg
   labels:
     app: rucio-ui
-    chart: "rucio-ui-1.30.0"
+    chart: "rucio-ui-1.30.1"
     release: "usdf"
     heritage: "Helm"
 type: Opaque
@@ -41,7 +41,7 @@ metadata:
   name: usdf-rucio-ui-aliases
   labels:
     app: usdf-rucio-ui
-    chart: "rucio-ui-1.30.0"
+    chart: "rucio-ui-1.30.1"
     release: "usdf"
     heritage: "Helm"
 data:
@@ -57,7 +57,7 @@ metadata:
   name: usdf-rucio-ui
   labels:
     app: rucio-ui
-    chart: rucio-ui-1.30.0
+    chart: rucio-ui-1.30.1
     release: usdf
     heritage: Helm
 spec:
@@ -78,7 +78,7 @@ metadata:
   name: usdf-rucio-ui
   labels:
     app: rucio-ui
-    chart: rucio-ui-1.30.0
+    chart: rucio-ui-1.30.1
     release: usdf
     heritage: Helm
 spec:
@@ -127,7 +127,7 @@ spec:
           - name: httpdlog
             mountPath: /var/log/httpd
         - name: rucio-ui
-          image: "rucio/rucio-ui:release-1.29.10"
+          image: "rucio/rucio-ui:release-1.29.11"
           imagePullPolicy: Always
           ports:
             - name: http
