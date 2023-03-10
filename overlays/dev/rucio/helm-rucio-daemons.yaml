@@ -5,229 +5,228 @@ kind: ServiceAccount
 metadata:
   name: usdf-rucio-edit
 ---
-# Source: rucio-daemons/templates/abacus-account.yaml
+# Source: rucio-daemons/templates/abacus.yaml
 apiVersion: v1
 kind: Secret
 metadata:
-  name: usdf-rucio-daemons.config.abacus-account.yaml
+  name: usdf-rucio-daemons.config.abacus-account
   labels:
     app: rucio-daemons-abacus-account
-    chart: "rucio-daemons-1.30.1"
+    chart: "rucio-daemons-1.30.12"
     release: "usdf"
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJjb252ZXlvciI6IHsKICAgICJjYWNlcnQiOiAiL29wdC9jZXJ0cy9jYS5wZW0iLAogICAgImZ0c2hvc3RzIjogImh0dHBzOi8vZnRzLWV2YWwwMS5zbGFjLnN0YW5mb3JkLmVkdTo4NDQ2IiwKICAgICJzY2hlbWUiOiAic3JtLGdzaWZ0cCxyb290LGh0dHAsaHR0cHMiLAogICAgInRyYW5zZmVydG9vbCI6ICJmdHMzIiwKICAgICJ1c2VyY2VydCI6ICIvb3B0L3Byb3h5L3g1MDl1cCIKICB9LAogICJtb25pdG9yIjogewogICAgImVuYWJsZV9tZXRyaWNzIjogIlRydWUiCiAgfQp9"
   component.json: "e30="
 ---
-# Source: rucio-daemons/templates/abacus-collection-replica.yaml
+# Source: rucio-daemons/templates/abacus.yaml
 apiVersion: v1
 kind: Secret
 metadata:
-  name: usdf-rucio-daemons.config.abacus-collection-replica.yaml
+  name: usdf-rucio-daemons.config.abacus-collection-replica
   labels:
     app: rucio-daemons-abacus-collection-replica
-    chart: "rucio-daemons-1.30.1"
+    chart: "rucio-daemons-1.30.12"
     release: "usdf"
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJjb252ZXlvciI6IHsKICAgICJjYWNlcnQiOiAiL29wdC9jZXJ0cy9jYS5wZW0iLAogICAgImZ0c2hvc3RzIjogImh0dHBzOi8vZnRzLWV2YWwwMS5zbGFjLnN0YW5mb3JkLmVkdTo4NDQ2IiwKICAgICJzY2hlbWUiOiAic3JtLGdzaWZ0cCxyb290LGh0dHAsaHR0cHMiLAogICAgInRyYW5zZmVydG9vbCI6ICJmdHMzIiwKICAgICJ1c2VyY2VydCI6ICIvb3B0L3Byb3h5L3g1MDl1cCIKICB9LAogICJtb25pdG9yIjogewogICAgImVuYWJsZV9tZXRyaWNzIjogIlRydWUiCiAgfQp9"
   component.json: "e30="
 ---
-# Source: rucio-daemons/templates/abacus-rse.yaml
+# Source: rucio-daemons/templates/abacus.yaml
 apiVersion: v1
 kind: Secret
 metadata:
-  name: usdf-rucio-daemons.config.abacus-rse.yaml
+  name: usdf-rucio-daemons.config.abacus-rse
   labels:
     app: rucio-daemons-abacus-rse
-    chart: "rucio-daemons-1.30.1"
+    chart: "rucio-daemons-1.30.12"
     release: "usdf"
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJjb252ZXlvciI6IHsKICAgICJjYWNlcnQiOiAiL29wdC9jZXJ0cy9jYS5wZW0iLAogICAgImZ0c2hvc3RzIjogImh0dHBzOi8vZnRzLWV2YWwwMS5zbGFjLnN0YW5mb3JkLmVkdTo4NDQ2IiwKICAgICJzY2hlbWUiOiAic3JtLGdzaWZ0cCxyb290LGh0dHAsaHR0cHMiLAogICAgInRyYW5zZmVydG9vbCI6ICJmdHMzIiwKICAgICJ1c2VyY2VydCI6ICIvb3B0L3Byb3h5L3g1MDl1cCIKICB9LAogICJtb25pdG9yIjogewogICAgImVuYWJsZV9tZXRyaWNzIjogIlRydWUiCiAgfQp9"
   component.json: "e30="
 ---
-# Source: rucio-daemons/templates/conveyor-finisher.yaml
+# Source: rucio-daemons/templates/conveyor.yaml
 apiVersion: v1
 kind: Secret
 metadata:
   name: usdf-rucio-daemons.config.conveyor-finisher
   labels:
     app: rucio-daemons-conveyor-finisher
-    chart: "rucio-daemons-1.30.1"
+    chart: "rucio-daemons-1.30.12"
     release: "usdf"
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJjb252ZXlvciI6IHsKICAgICJjYWNlcnQiOiAiL29wdC9jZXJ0cy9jYS5wZW0iLAogICAgImZ0c2hvc3RzIjogImh0dHBzOi8vZnRzLWV2YWwwMS5zbGFjLnN0YW5mb3JkLmVkdTo4NDQ2IiwKICAgICJzY2hlbWUiOiAic3JtLGdzaWZ0cCxyb290LGh0dHAsaHR0cHMiLAogICAgInRyYW5zZmVydG9vbCI6ICJmdHMzIiwKICAgICJ1c2VyY2VydCI6ICIvb3B0L3Byb3h5L3g1MDl1cCIKICB9LAogICJtb25pdG9yIjogewogICAgImVuYWJsZV9tZXRyaWNzIjogIlRydWUiCiAgfQp9"
   component.json: "e30="
 ---
-# Source: rucio-daemons/templates/conveyor-poller.yaml
+# Source: rucio-daemons/templates/conveyor.yaml
 apiVersion: v1
 kind: Secret
 metadata:
   name: usdf-rucio-daemons.config.conveyor-poller
   labels:
     app: rucio-daemons-conveyor-poller
-    chart: "rucio-daemons-1.30.1"
+    chart: "rucio-daemons-1.30.12"
     release: "usdf"
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJjb252ZXlvciI6IHsKICAgICJjYWNlcnQiOiAiL29wdC9jZXJ0cy9jYS5wZW0iLAogICAgImZ0c2hvc3RzIjogImh0dHBzOi8vZnRzLWV2YWwwMS5zbGFjLnN0YW5mb3JkLmVkdTo4NDQ2IiwKICAgICJzY2hlbWUiOiAic3JtLGdzaWZ0cCxyb290LGh0dHAsaHR0cHMiLAogICAgInRyYW5zZmVydG9vbCI6ICJmdHMzIiwKICAgICJ1c2VyY2VydCI6ICIvb3B0L3Byb3h5L3g1MDl1cCIKICB9LAogICJtb25pdG9yIjogewogICAgImVuYWJsZV9tZXRyaWNzIjogIlRydWUiCiAgfQp9"
   component.json: "e30="
 ---
-# Source: rucio-daemons/templates/conveyor-submitter.yaml
+# Source: rucio-daemons/templates/conveyor.yaml
 apiVersion: v1
 kind: Secret
 metadata:
   name: usdf-rucio-daemons.config.conveyor-submitter
   labels:
     app: rucio-daemons-conveyor-submitter
-    chart: "rucio-daemons-1.30.1"
+    chart: "rucio-daemons-1.30.12"
     release: "usdf"
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJjb252ZXlvciI6IHsKICAgICJjYWNlcnQiOiAiL29wdC9jZXJ0cy9jYS5wZW0iLAogICAgImZ0c2hvc3RzIjogImh0dHBzOi8vZnRzLWV2YWwwMS5zbGFjLnN0YW5mb3JkLmVkdTo4NDQ2IiwKICAgICJzY2hlbWUiOiAic3JtLGdzaWZ0cCxyb290LGh0dHAsaHR0cHMiLAogICAgInRyYW5zZmVydG9vbCI6ICJmdHMzIiwKICAgICJ1c2VyY2VydCI6ICIvb3B0L3Byb3h5L3g1MDl1cCIKICB9LAogICJtb25pdG9yIjogewogICAgImVuYWJsZV9tZXRyaWNzIjogIlRydWUiCiAgfQp9"
   component.json: "e30="
 ---
-# Source: rucio-daemons/templates/judge-cleaner.yaml
+# Source: rucio-daemons/templates/judge.yaml
 apiVersion: v1
 kind: Secret
 metadata:
-  name: usdf-rucio-daemons.config.judge-cleaner.yaml
+  name: usdf-rucio-daemons.config.judge-cleaner
   labels:
     app: rucio-daemons-judge-cleaner
-    chart: "rucio-daemons-1.30.1"
+    chart: "rucio-daemons-1.30.12"
     release: "usdf"
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJjb252ZXlvciI6IHsKICAgICJjYWNlcnQiOiAiL29wdC9jZXJ0cy9jYS5wZW0iLAogICAgImZ0c2hvc3RzIjogImh0dHBzOi8vZnRzLWV2YWwwMS5zbGFjLnN0YW5mb3JkLmVkdTo4NDQ2IiwKICAgICJzY2hlbWUiOiAic3JtLGdzaWZ0cCxyb290LGh0dHAsaHR0cHMiLAogICAgInRyYW5zZmVydG9vbCI6ICJmdHMzIiwKICAgICJ1c2VyY2VydCI6ICIvb3B0L3Byb3h5L3g1MDl1cCIKICB9LAogICJtb25pdG9yIjogewogICAgImVuYWJsZV9tZXRyaWNzIjogIlRydWUiCiAgfQp9"
   component.json: "e30="
 ---
-# Source: rucio-daemons/templates/judge-evaluator.yaml
+# Source: rucio-daemons/templates/judge.yaml
 apiVersion: v1
 kind: Secret
 metadata:
-  name: usdf-rucio-daemons.config.judge-evaluator.yaml
+  name: usdf-rucio-daemons.config.judge-evaluator
   labels:
     app: rucio-daemons-judge-evaluator
-    chart: "rucio-daemons-1.30.1"
+    chart: "rucio-daemons-1.30.12"
     release: "usdf"
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJjb252ZXlvciI6IHsKICAgICJjYWNlcnQiOiAiL29wdC9jZXJ0cy9jYS5wZW0iLAogICAgImZ0c2hvc3RzIjogImh0dHBzOi8vZnRzLWV2YWwwMS5zbGFjLnN0YW5mb3JkLmVkdTo4NDQ2IiwKICAgICJzY2hlbWUiOiAic3JtLGdzaWZ0cCxyb290LGh0dHAsaHR0cHMiLAogICAgInRyYW5zZmVydG9vbCI6ICJmdHMzIiwKICAgICJ1c2VyY2VydCI6ICIvb3B0L3Byb3h5L3g1MDl1cCIKICB9LAogICJtb25pdG9yIjogewogICAgImVuYWJsZV9tZXRyaWNzIjogIlRydWUiCiAgfQp9"
   component.json: "e30="
 ---
-# Source: rucio-daemons/templates/judge-injector.yaml
+# Source: rucio-daemons/templates/judge.yaml
 apiVersion: v1
 kind: Secret
 metadata:
-  name: usdf-rucio-daemons.config.judge-injector.yaml
+  name: usdf-rucio-daemons.config.judge-injector
   labels:
     app: rucio-daemons-judge-injector
-    chart: "rucio-daemons-1.30.1"
+    chart: "rucio-daemons-1.30.12"
     release: "usdf"
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJjb252ZXlvciI6IHsKICAgICJjYWNlcnQiOiAiL29wdC9jZXJ0cy9jYS5wZW0iLAogICAgImZ0c2hvc3RzIjogImh0dHBzOi8vZnRzLWV2YWwwMS5zbGFjLnN0YW5mb3JkLmVkdTo4NDQ2IiwKICAgICJzY2hlbWUiOiAic3JtLGdzaWZ0cCxyb290LGh0dHAsaHR0cHMiLAogICAgInRyYW5zZmVydG9vbCI6ICJmdHMzIiwKICAgICJ1c2VyY2VydCI6ICIvb3B0L3Byb3h5L3g1MDl1cCIKICB9LAogICJtb25pdG9yIjogewogICAgImVuYWJsZV9tZXRyaWNzIjogIlRydWUiCiAgfQp9"
   component.json: "e30="
 ---
-# Source: rucio-daemons/templates/judge-repairer.yaml
+# Source: rucio-daemons/templates/judge.yaml
 apiVersion: v1
 kind: Secret
 metadata:
-  name: usdf-rucio-daemons.config.judge-repairer.yaml
+  name: usdf-rucio-daemons.config.judge-repairer
   labels:
     app: rucio-daemons-judge-repairer
-    chart: "rucio-daemons-1.30.1"
+    chart: "rucio-daemons-1.30.12"
     release: "usdf"
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJjb252ZXlvciI6IHsKICAgICJjYWNlcnQiOiAiL29wdC9jZXJ0cy9jYS5wZW0iLAogICAgImZ0c2hvc3RzIjogImh0dHBzOi8vZnRzLWV2YWwwMS5zbGFjLnN0YW5mb3JkLmVkdTo4NDQ2IiwKICAgICJzY2hlbWUiOiAic3JtLGdzaWZ0cCxyb290LGh0dHAsaHR0cHMiLAogICAgInRyYW5zZmVydG9vbCI6ICJmdHMzIiwKICAgICJ1c2VyY2VydCI6ICIvb3B0L3Byb3h5L3g1MDl1cCIKICB9LAogICJtb25pdG9yIjogewogICAgImVuYWJsZV9tZXRyaWNzIjogIlRydWUiCiAgfQp9"
   component.json: "e30="
 ---
 # Source: rucio-daemons/templates/minos.yaml
 apiVersion: v1
 kind: Secret
 metadata:
-  name: usdf-rucio-daemons.config.minos.yaml
+  name: usdf-rucio-daemons.config.minos
   labels:
     app: rucio-daemons-minos
-    chart: "rucio-daemons-1.30.1"
+    chart: "rucio-daemons-1.30.12"
     release: "usdf"
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJjb252ZXlvciI6IHsKICAgICJjYWNlcnQiOiAiL29wdC9jZXJ0cy9jYS5wZW0iLAogICAgImZ0c2hvc3RzIjogImh0dHBzOi8vZnRzLWV2YWwwMS5zbGFjLnN0YW5mb3JkLmVkdTo4NDQ2IiwKICAgICJzY2hlbWUiOiAic3JtLGdzaWZ0cCxyb290LGh0dHAsaHR0cHMiLAogICAgInRyYW5zZmVydG9vbCI6ICJmdHMzIiwKICAgICJ1c2VyY2VydCI6ICIvb3B0L3Byb3h5L3g1MDl1cCIKICB9LAogICJtb25pdG9yIjogewogICAgImVuYWJsZV9tZXRyaWNzIjogIlRydWUiCiAgfQp9"
   component.json: "e30="
 ---
 # Source: rucio-daemons/templates/necromancer.yaml
 apiVersion: v1
 kind: Secret
 metadata:
-  name: usdf-rucio-daemons.config.necromancer.yaml
+  name: usdf-rucio-daemons.config.necromancer
   labels:
     app: rucio-daemons-necromancer
-    chart: "rucio-daemons-1.30.1"
+    chart: "rucio-daemons-1.30.12"
     release: "usdf"
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJjb252ZXlvciI6IHsKICAgICJjYWNlcnQiOiAiL29wdC9jZXJ0cy9jYS5wZW0iLAogICAgImZ0c2hvc3RzIjogImh0dHBzOi8vZnRzLWV2YWwwMS5zbGFjLnN0YW5mb3JkLmVkdTo4NDQ2IiwKICAgICJzY2hlbWUiOiAic3JtLGdzaWZ0cCxyb290LGh0dHAsaHR0cHMiLAogICAgInRyYW5zZmVydG9vbCI6ICJmdHMzIiwKICAgICJ1c2VyY2VydCI6ICIvb3B0L3Byb3h5L3g1MDl1cCIKICB9LAogICJtb25pdG9yIjogewogICAgImVuYWJsZV9tZXRyaWNzIjogIlRydWUiCiAgfQp9"
   component.json: "e30="
 ---
 # Source: rucio-daemons/templates/reaper.yaml
 apiVersion: v1
 kind: Secret
 metadata:
-  name: usdf-rucio-daemons.config.reaper.yaml
+  name: usdf-rucio-daemons.config.reaper
   labels:
     app: rucio-daemons-reaper
-    chart: "rucio-daemons-1.30.1"
+    chart: "rucio-daemons-1.30.12"
+    release: "usdf"
+    heritage: "Helm"
+type: Opaque
+data:
+  component.json: "e30="
+---
+# Source: rucio-daemons/templates/secrets.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: usdf-rucio-daemons.config.common
+  labels:
+    app: rucio-daemons
+    chart: "rucio-daemons-1.30.12"
     release: "usdf"
     heritage: "Helm"
 type: Opaque
 data:
   common.json: "ewogICJjb252ZXlvciI6IHsKICAgICJjYWNlcnQiOiAiL29wdC9jZXJ0cy9jYS5wZW0iLAogICAgImZ0c2hvc3RzIjogImh0dHBzOi8vZnRzLWV2YWwwMS5zbGFjLnN0YW5mb3JkLmVkdTo4NDQ2IiwKICAgICJzY2hlbWUiOiAic3JtLGdzaWZ0cCxyb290LGh0dHAsaHR0cHMiLAogICAgInRyYW5zZmVydG9vbCI6ICJmdHMzIiwKICAgICJ1c2VyY2VydCI6ICIvb3B0L3Byb3h5L3g1MDl1cCIKICB9LAogICJtb25pdG9yIjogewogICAgImVuYWJsZV9tZXRyaWNzIjogIlRydWUiCiAgfQp9"
-  component.json: "e30="
 ---
 # Source: rucio-daemons/templates/transmogrifier.yaml
 apiVersion: v1
 kind: Secret
 metadata:
-  name: usdf-rucio-daemons.config.transmogrifier.yaml
+  name: usdf-rucio-daemons.config.transmogrifier
   labels:
     app: rucio-daemons-transmogrifier
-    chart: "rucio-daemons-1.30.1"
+    chart: "rucio-daemons-1.30.12"
     release: "usdf"
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJjb252ZXlvciI6IHsKICAgICJjYWNlcnQiOiAiL29wdC9jZXJ0cy9jYS5wZW0iLAogICAgImZ0c2hvc3RzIjogImh0dHBzOi8vZnRzLWV2YWwwMS5zbGFjLnN0YW5mb3JkLmVkdTo4NDQ2IiwKICAgICJzY2hlbWUiOiAic3JtLGdzaWZ0cCxyb290LGh0dHAsaHR0cHMiLAogICAgInRyYW5zZmVydG9vbCI6ICJmdHMzIiwKICAgICJ1c2VyY2VydCI6ICIvb3B0L3Byb3h5L3g1MDl1cCIKICB9LAogICJtb25pdG9yIjogewogICAgImVuYWJsZV9tZXRyaWNzIjogIlRydWUiCiAgfQp9"
   component.json: "e30="
 ---
 # Source: rucio-daemons/templates/undertaker.yaml
 apiVersion: v1
 kind: Secret
 metadata:
-  name: usdf-rucio-daemons.config.undertaker.yaml
+  name: usdf-rucio-daemons.config.undertaker
   labels:
     app: rucio-daemons-undertaker
-    chart: "rucio-daemons-1.30.1"
+    chart: "rucio-daemons-1.30.12"
     release: "usdf"
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJjb252ZXlvciI6IHsKICAgICJjYWNlcnQiOiAiL29wdC9jZXJ0cy9jYS5wZW0iLAogICAgImZ0c2hvc3RzIjogImh0dHBzOi8vZnRzLWV2YWwwMS5zbGFjLnN0YW5mb3JkLmVkdTo4NDQ2IiwKICAgICJzY2hlbWUiOiAic3JtLGdzaWZ0cCxyb290LGh0dHAsaHR0cHMiLAogICAgInRyYW5zZmVydG9vbCI6ICJmdHMzIiwKICAgICJ1c2VyY2VydCI6ICIvb3B0L3Byb3h5L3g1MDl1cCIKICB9LAogICJtb25pdG9yIjogewogICAgImVuYWJsZV9tZXRyaWNzIjogIlRydWUiCiAgfQp9"
   component.json: "e30="
 ---
 # Source: rucio-daemons/templates/renew-fts-account.yaml
@@ -245,7 +244,7 @@ roleRef:
   name: edit
   apiGroup: rbac.authorization.k8s.io
 ---
-# Source: rucio-daemons/templates/abacus-account.yaml
+# Source: rucio-daemons/templates/abacus.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -253,7 +252,7 @@ metadata:
   labels:
     app: rucio-daemons-abacus-account
     app-group: rucio-daemons
-    chart: rucio-daemons-1.30.1
+    chart: rucio-daemons-1.30.12
     release: usdf
     heritage: Helm
 spec:
@@ -276,35 +275,48 @@ spec:
         release: usdf
         rucio-daemon: abacus-account
       annotations:
-        checksum/config: f650d3c84674b3f6ab1f46aa98027cb5241506eb
+        checksum/config: c851de1bab5e5695ac6678a1103432408e3d8a4e
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
       volumes:
-      - name: config
+      - name: config-common
         secret:
-          secretName: usdf-rucio-daemons.config.abacus-account.yaml
+          secretName: usdf-rucio-daemons.config.common
+      - name: config-component
+        secret:
+          secretName: usdf-rucio-daemons.config.abacus-account
       - name: proxy-volume
         secret:
           secretName: usdf-rucio-x509up
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
+      - name: usdf-lsst-schema-file
+        secret:
+          secretName: usdf-usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.10"
+          image: "rucio/rucio-daemons:release-1.29.11"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
               mountPath: /opt/proxy
             - name: ca-volume
               mountPath: /opt/certs
-            - name: config
+            - name: config-common
               mountPath: /opt/rucio/etc/conf.d/10_common.json
               subPath: common.json
-            - name: config
+            - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: usdf-lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
+          ports:
+            - name: metrics
+              containerPort: 8080
+              protocol: TCP
           env:
             - name: RUCIO_OVERRIDE_CONFIGS
               value: "/opt/rucio/etc/conf.d/"
@@ -315,12 +327,12 @@ spec:
           resources:
             limits:
               cpu: 700m
-              memory: 200Mi
+              memory: 600Mi
             requests:
               cpu: 700m
-              memory: 200Mi
+              memory: 600Mi
 ---
-# Source: rucio-daemons/templates/abacus-collection-replica.yaml
+# Source: rucio-daemons/templates/abacus.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -328,7 +340,7 @@ metadata:
   labels:
     app: rucio-daemons-abacus-collection-replica
     app-group: rucio-daemons
-    chart: rucio-daemons-1.30.1
+    chart: rucio-daemons-1.30.12
     release: usdf
     heritage: Helm
 spec:
@@ -351,35 +363,48 @@ spec:
         release: usdf
         rucio-daemon: abacus-collection-replica
       annotations:
-        checksum/config: f650d3c84674b3f6ab1f46aa98027cb5241506eb
+        checksum/config: c851de1bab5e5695ac6678a1103432408e3d8a4e
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
       volumes:
-      - name: config
+      - name: config-common
         secret:
-          secretName: usdf-rucio-daemons.config.abacus-collection-replica.yaml
+          secretName: usdf-rucio-daemons.config.common
+      - name: config-component
+        secret:
+          secretName: usdf-rucio-daemons.config.abacus-collection-replica
       - name: proxy-volume
         secret:
           secretName: usdf-rucio-x509up
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
+      - name: usdf-lsst-schema-file
+        secret:
+          secretName: usdf-usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.10"
+          image: "rucio/rucio-daemons:release-1.29.11"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
               mountPath: /opt/proxy
             - name: ca-volume
               mountPath: /opt/certs
-            - name: config
+            - name: config-common
               mountPath: /opt/rucio/etc/conf.d/10_common.json
               subPath: common.json
-            - name: config
+            - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: usdf-lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
+          ports:
+            - name: metrics
+              containerPort: 8080
+              protocol: TCP
           env:
             - name: RUCIO_OVERRIDE_CONFIGS
               value: "/opt/rucio/etc/conf.d/"
@@ -390,12 +415,12 @@ spec:
           resources:
             limits:
               cpu: 700m
-              memory: 200Mi
+              memory: 600Mi
             requests:
               cpu: 700m
-              memory: 200Mi
+              memory: 600Mi
 ---
-# Source: rucio-daemons/templates/abacus-rse.yaml
+# Source: rucio-daemons/templates/abacus.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -403,7 +428,7 @@ metadata:
   labels:
     app: rucio-daemons-abacus-rse
     app-group: rucio-daemons
-    chart: rucio-daemons-1.30.1
+    chart: rucio-daemons-1.30.12
     release: usdf
     heritage: Helm
 spec:
@@ -426,35 +451,48 @@ spec:
         release: usdf
         rucio-daemon: abacus-rse
       annotations:
-        checksum/config: f650d3c84674b3f6ab1f46aa98027cb5241506eb
+        checksum/config: c851de1bab5e5695ac6678a1103432408e3d8a4e
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
       volumes:
-      - name: config
+      - name: config-common
         secret:
-          secretName: usdf-rucio-daemons.config.abacus-rse.yaml
+          secretName: usdf-rucio-daemons.config.common
+      - name: config-component
+        secret:
+          secretName: usdf-rucio-daemons.config.abacus-rse
       - name: proxy-volume
         secret:
           secretName: usdf-rucio-x509up
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
+      - name: usdf-lsst-schema-file
+        secret:
+          secretName: usdf-usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.10"
+          image: "rucio/rucio-daemons:release-1.29.11"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
               mountPath: /opt/proxy
             - name: ca-volume
               mountPath: /opt/certs
-            - name: config
+            - name: config-common
               mountPath: /opt/rucio/etc/conf.d/10_common.json
               subPath: common.json
-            - name: config
+            - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: usdf-lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
+          ports:
+            - name: metrics
+              containerPort: 8080
+              protocol: TCP
           env:
             - name: RUCIO_OVERRIDE_CONFIGS
               value: "/opt/rucio/etc/conf.d/"
@@ -465,12 +503,12 @@ spec:
           resources:
             limits:
               cpu: 700m
-              memory: 200Mi
+              memory: 600Mi
             requests:
               cpu: 700m
-              memory: 200Mi
+              memory: 600Mi
 ---
-# Source: rucio-daemons/templates/conveyor-finisher.yaml
+# Source: rucio-daemons/templates/conveyor.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -478,7 +516,7 @@ metadata:
   labels:
     app: rucio-daemons-conveyor-finisher
     app-group: rucio-daemons
-    chart: rucio-daemons-1.30.1
+    chart: rucio-daemons-1.30.12
     release: usdf
     heritage: Helm
 spec:
@@ -506,7 +544,10 @@ spec:
         prometheus.io/scrape: "true"
     spec:
       volumes:
-      - name: config
+      - name: config-common
+        secret:
+          secretName: usdf-rucio-daemons.config.common
+      - name: config-component
         secret:
           secretName: usdf-rucio-daemons.config.conveyor-finisher
       - name: proxy-volume
@@ -515,21 +556,27 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
+      - name: usdf-lsst-schema-file
+        secret:
+          secretName: usdf-usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.10"
+          image: "rucio/rucio-daemons:release-1.29.11"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
               mountPath: /opt/proxy
             - name: ca-volume
               mountPath: /opt/certs
-            - name: config
+            - name: config-common
               mountPath: /opt/rucio/etc/conf.d/10_common.json
               subPath: common.json
-            - name: config
+            - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: usdf-lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
           ports:
             - name: metrics
               containerPort: 8080
@@ -544,12 +591,12 @@ spec:
           resources:
             limits:
               cpu: 700m
-              memory: 200Mi
+              memory: 600Mi
             requests:
               cpu: 700m
-              memory: 200Mi
+              memory: 600Mi
 ---
-# Source: rucio-daemons/templates/conveyor-poller.yaml
+# Source: rucio-daemons/templates/conveyor.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -557,7 +604,7 @@ metadata:
   labels:
     app: rucio-daemons-conveyor-poller
     app-group: rucio-daemons
-    chart: rucio-daemons-1.30.1
+    chart: rucio-daemons-1.30.12
     release: usdf
     heritage: Helm
 spec:
@@ -585,7 +632,10 @@ spec:
         prometheus.io/scrape: "true"
     spec:
       volumes:
-      - name: config
+      - name: config-common
+        secret:
+          secretName: usdf-rucio-daemons.config.common
+      - name: config-component
         secret:
           secretName: usdf-rucio-daemons.config.conveyor-poller
       - name: proxy-volume
@@ -594,21 +644,27 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
+      - name: usdf-lsst-schema-file
+        secret:
+          secretName: usdf-usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.10"
+          image: "rucio/rucio-daemons:release-1.29.11"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
               mountPath: /opt/proxy
             - name: ca-volume
               mountPath: /opt/certs
-            - name: config
+            - name: config-common
               mountPath: /opt/rucio/etc/conf.d/10_common.json
               subPath: common.json
-            - name: config
+            - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: usdf-lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
           ports:
             - name: metrics
               containerPort: 8080
@@ -623,12 +679,12 @@ spec:
           resources:
             limits:
               cpu: 700m
-              memory: 200Mi
+              memory: 600Mi
             requests:
               cpu: 700m
-              memory: 200Mi
+              memory: 600Mi
 ---
-# Source: rucio-daemons/templates/conveyor-submitter.yaml
+# Source: rucio-daemons/templates/conveyor.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -636,7 +692,7 @@ metadata:
   labels:
     app: rucio-daemons-conveyor-submitter
     app-group: rucio-daemons
-    chart: rucio-daemons-1.30.1
+    chart: rucio-daemons-1.30.12
     release: usdf
     heritage: Helm
 spec:
@@ -664,7 +720,10 @@ spec:
         prometheus.io/scrape: "true"
     spec:
       volumes:
-      - name: config
+      - name: config-common
+        secret:
+          secretName: usdf-rucio-daemons.config.common
+      - name: config-component
         secret:
           secretName: usdf-rucio-daemons.config.conveyor-submitter
       - name: proxy-volume
@@ -673,21 +732,27 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
+      - name: usdf-lsst-schema-file
+        secret:
+          secretName: usdf-usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.10"
+          image: "rucio/rucio-daemons:release-1.29.11"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
               mountPath: /opt/proxy
             - name: ca-volume
               mountPath: /opt/certs
-            - name: config
+            - name: config-common
               mountPath: /opt/rucio/etc/conf.d/10_common.json
               subPath: common.json
-            - name: config
+            - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: usdf-lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
           ports:
             - name: metrics
               containerPort: 8080
@@ -702,12 +767,12 @@ spec:
           resources:
             limits:
               cpu: 700m
-              memory: 200Mi
+              memory: 600Mi
             requests:
               cpu: 700m
-              memory: 200Mi
+              memory: 600Mi
 ---
-# Source: rucio-daemons/templates/judge-cleaner.yaml
+# Source: rucio-daemons/templates/judge.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -715,7 +780,7 @@ metadata:
   labels:
     app: rucio-daemons-judge-cleaner
     app-group: rucio-daemons
-    chart: rucio-daemons-1.30.1
+    chart: rucio-daemons-1.30.12
     release: usdf
     heritage: Helm
 spec:
@@ -743,30 +808,39 @@ spec:
         prometheus.io/scrape: "true"
     spec:
       volumes:
-      - name: config
+      - name: config-common
         secret:
-          secretName: usdf-rucio-daemons.config.judge-cleaner.yaml
+          secretName: usdf-rucio-daemons.config.common
+      - name: config-component
+        secret:
+          secretName: usdf-rucio-daemons.config.judge-cleaner
       - name: proxy-volume
         secret:
           secretName: usdf-rucio-x509up
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
+      - name: usdf-lsst-schema-file
+        secret:
+          secretName: usdf-usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.10"
+          image: "rucio/rucio-daemons:release-1.29.11"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
               mountPath: /opt/proxy
             - name: ca-volume
               mountPath: /opt/certs
-            - name: config
+            - name: config-common
               mountPath: /opt/rucio/etc/conf.d/10_common.json
               subPath: common.json
-            - name: config
+            - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: usdf-lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
           ports:
             - name: metrics
               containerPort: 8080
@@ -781,12 +855,12 @@ spec:
           resources:
             limits:
               cpu: 700m
-              memory: 200Mi
+              memory: 600Mi
             requests:
               cpu: 700m
-              memory: 200Mi
+              memory: 600Mi
 ---
-# Source: rucio-daemons/templates/judge-evaluator.yaml
+# Source: rucio-daemons/templates/judge.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -794,7 +868,7 @@ metadata:
   labels:
     app: rucio-daemons-judge-evaluator
     app-group: rucio-daemons
-    chart: rucio-daemons-1.30.1
+    chart: rucio-daemons-1.30.12
     release: usdf
     heritage: Helm
 spec:
@@ -822,30 +896,39 @@ spec:
         prometheus.io/scrape: "true"
     spec:
       volumes:
-      - name: config
+      - name: config-common
         secret:
-          secretName: usdf-rucio-daemons.config.judge-evaluator.yaml
+          secretName: usdf-rucio-daemons.config.common
+      - name: config-component
+        secret:
+          secretName: usdf-rucio-daemons.config.judge-evaluator
       - name: proxy-volume
         secret:
           secretName: usdf-rucio-x509up
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
+      - name: usdf-lsst-schema-file
+        secret:
+          secretName: usdf-usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.10"
+          image: "rucio/rucio-daemons:release-1.29.11"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
               mountPath: /opt/proxy
             - name: ca-volume
               mountPath: /opt/certs
-            - name: config
+            - name: config-common
               mountPath: /opt/rucio/etc/conf.d/10_common.json
               subPath: common.json
-            - name: config
+            - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: usdf-lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
           ports:
             - name: metrics
               containerPort: 8080
@@ -860,12 +943,12 @@ spec:
           resources:
             limits:
               cpu: 700m
-              memory: 200Mi
+              memory: 600Mi
             requests:
               cpu: 700m
-              memory: 200Mi
+              memory: 600Mi
 ---
-# Source: rucio-daemons/templates/judge-injector.yaml
+# Source: rucio-daemons/templates/judge.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -873,7 +956,7 @@ metadata:
   labels:
     app: rucio-daemons-judge-injector
     app-group: rucio-daemons
-    chart: rucio-daemons-1.30.1
+    chart: rucio-daemons-1.30.12
     release: usdf
     heritage: Helm
 spec:
@@ -901,30 +984,39 @@ spec:
         prometheus.io/scrape: "true"
     spec:
       volumes:
-      - name: config
+      - name: config-common
         secret:
-          secretName: usdf-rucio-daemons.config.judge-injector.yaml
+          secretName: usdf-rucio-daemons.config.common
+      - name: config-component
+        secret:
+          secretName: usdf-rucio-daemons.config.judge-injector
       - name: proxy-volume
         secret:
           secretName: usdf-rucio-x509up
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
+      - name: usdf-lsst-schema-file
+        secret:
+          secretName: usdf-usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.10"
+          image: "rucio/rucio-daemons:release-1.29.11"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
               mountPath: /opt/proxy
             - name: ca-volume
               mountPath: /opt/certs
-            - name: config
+            - name: config-common
               mountPath: /opt/rucio/etc/conf.d/10_common.json
               subPath: common.json
-            - name: config
+            - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: usdf-lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
           ports:
             - name: metrics
               containerPort: 8080
@@ -939,12 +1031,12 @@ spec:
           resources:
             limits:
               cpu: 700m
-              memory: 200Mi
+              memory: 600Mi
             requests:
               cpu: 700m
-              memory: 200Mi
+              memory: 600Mi
 ---
-# Source: rucio-daemons/templates/judge-repairer.yaml
+# Source: rucio-daemons/templates/judge.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -952,7 +1044,7 @@ metadata:
   labels:
     app: rucio-daemons-judge-repairer
     app-group: rucio-daemons
-    chart: rucio-daemons-1.30.1
+    chart: rucio-daemons-1.30.12
     release: usdf
     heritage: Helm
 spec:
@@ -980,30 +1072,39 @@ spec:
         prometheus.io/scrape: "true"
     spec:
       volumes:
-      - name: config
+      - name: config-common
         secret:
-          secretName: usdf-rucio-daemons.config.judge-repairer.yaml
+          secretName: usdf-rucio-daemons.config.common
+      - name: config-component
+        secret:
+          secretName: usdf-rucio-daemons.config.judge-repairer
       - name: proxy-volume
         secret:
           secretName: usdf-rucio-x509up
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
+      - name: usdf-lsst-schema-file
+        secret:
+          secretName: usdf-usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.10"
+          image: "rucio/rucio-daemons:release-1.29.11"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
               mountPath: /opt/proxy
             - name: ca-volume
               mountPath: /opt/certs
-            - name: config
+            - name: config-common
               mountPath: /opt/rucio/etc/conf.d/10_common.json
               subPath: common.json
-            - name: config
+            - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: usdf-lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
           ports:
             - name: metrics
               containerPort: 8080
@@ -1018,10 +1119,10 @@ spec:
           resources:
             limits:
               cpu: 700m
-              memory: 200Mi
+              memory: 600Mi
             requests:
               cpu: 700m
-              memory: 200Mi
+              memory: 600Mi
 ---
 # Source: rucio-daemons/templates/minos.yaml
 apiVersion: apps/v1
@@ -1031,7 +1132,7 @@ metadata:
   labels:
     app: rucio-daemons-minos
     app-group: rucio-daemons
-    chart: rucio-daemons-1.30.1
+    chart: rucio-daemons-1.30.12
     release: usdf
     heritage: Helm
 spec:
@@ -1059,30 +1160,39 @@ spec:
         prometheus.io/scrape: "true"
     spec:
       volumes:
-      - name: config
+      - name: config-common
         secret:
-          secretName: usdf-rucio-daemons.config.minos.yaml
+          secretName: usdf-rucio-daemons.config.common
+      - name: config-component
+        secret:
+          secretName: usdf-rucio-daemons.config.minos
       - name: proxy-volume
         secret:
           secretName: usdf-rucio-x509up
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
+      - name: usdf-lsst-schema-file
+        secret:
+          secretName: usdf-usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.10"
+          image: "rucio/rucio-daemons:release-1.29.11"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
               mountPath: /opt/proxy
             - name: ca-volume
               mountPath: /opt/certs
-            - name: config
+            - name: config-common
               mountPath: /opt/rucio/etc/conf.d/10_common.json
               subPath: common.json
-            - name: config
+            - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: usdf-lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
           ports:
             - name: metrics
               containerPort: 8080
@@ -1097,10 +1207,10 @@ spec:
           resources:
             limits:
               cpu: 700m
-              memory: 200Mi
+              memory: 600Mi
             requests:
               cpu: 100m
-              memory: 100Mi
+              memory: 400Mi
 ---
 # Source: rucio-daemons/templates/necromancer.yaml
 apiVersion: apps/v1
@@ -1110,7 +1220,7 @@ metadata:
   labels:
     app: rucio-daemons-necromancer
     app-group: rucio-daemons
-    chart: rucio-daemons-1.30.1
+    chart: rucio-daemons-1.30.12
     release: usdf
     heritage: Helm
 spec:
@@ -1138,30 +1248,39 @@ spec:
         prometheus.io/scrape: "true"
     spec:
       volumes:
-      - name: config
+      - name: config-common
         secret:
-          secretName: usdf-rucio-daemons.config.necromancer.yaml
+          secretName: usdf-rucio-daemons.config.common
+      - name: config-component
+        secret:
+          secretName: usdf-rucio-daemons.config.necromancer
       - name: proxy-volume
         secret:
           secretName: usdf-rucio-x509up
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
+      - name: usdf-lsst-schema-file 
+        secret:
+          secretName: usdf-usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.10"
+          image: "rucio/rucio-daemons:release-1.29.11"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
               mountPath: /opt/proxy
             - name: ca-volume
               mountPath: /opt/certs
-            - name: config
+            - name: config-common
               mountPath: /opt/rucio/etc/conf.d/10_common.json
               subPath: common.json
-            - name: config
+            - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: usdf-lsst-schema-file 
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
           ports:
             - name: metrics
               containerPort: 8080
@@ -1176,10 +1295,10 @@ spec:
           resources:
             limits:
               cpu: 700m
-              memory: 200Mi
+              memory: 600Mi
             requests:
               cpu: 100m
-              memory: 100Mi
+              memory: 400Mi
 ---
 # Source: rucio-daemons/templates/reaper.yaml
 apiVersion: apps/v1
@@ -1189,7 +1308,7 @@ metadata:
   labels:
     app: rucio-daemons-reaper
     app-group: rucio-daemons
-    chart: rucio-daemons-1.30.1
+    chart: rucio-daemons-1.30.12
     release: usdf
     heritage: Helm
 spec:
@@ -1217,30 +1336,39 @@ spec:
         prometheus.io/scrape: "true"
     spec:
       volumes:
-      - name: config
+      - name: config-common
         secret:
-          secretName: usdf-rucio-daemons.config.reaper.yaml
+          secretName: usdf-rucio-daemons.config.common
+      - name: config-component
+        secret:
+          secretName: usdf-rucio-daemons.config.reaper
       - name: proxy-volume
         secret:
           secretName: usdf-rucio-x509up
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle-reaper
+      - name: usdf-lsst-schema-file 
+        secret:
+          secretName: usdf-usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.10"
+          image: "rucio/rucio-daemons:release-1.29.11"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
               mountPath: /opt/proxy
             - name: ca-volume
               mountPath: /etc/grid-security/certificates
-            - name: config
+            - name: config-common
               mountPath: /opt/rucio/etc/conf.d/10_common.json
               subPath: common.json
-            - name: config
+            - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: usdf-lsst-schema-file 
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
           ports:
             - name: metrics
               containerPort: 8080
@@ -1261,10 +1389,10 @@ spec:
           resources:
             limits:
               cpu: 700m
-              memory: 200Mi
+              memory: 600Mi
             requests:
               cpu: 700m
-              memory: 200Mi
+              memory: 600Mi
 ---
 # Source: rucio-daemons/templates/transmogrifier.yaml
 apiVersion: apps/v1
@@ -1274,7 +1402,7 @@ metadata:
   labels:
     app: rucio-daemons-transmogrifier
     app-group: rucio-daemons
-    chart: rucio-daemons-1.30.1
+    chart: rucio-daemons-1.30.12
     release: usdf
     heritage: Helm
 spec:
@@ -1302,30 +1430,39 @@ spec:
         prometheus.io/scrape: "true"
     spec:
       volumes:
-      - name: config
+      - name: config-common
         secret:
-          secretName: usdf-rucio-daemons.config.transmogrifier.yaml
+          secretName: usdf-rucio-daemons.config.common
+      - name: config-component
+        secret:
+          secretName: usdf-rucio-daemons.config.transmogrifier
       - name: proxy-volume
         secret:
           secretName: usdf-rucio-x509up
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
+      - name: usdf-lsst-schema-file 
+        secret:
+          secretName: usdf-usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.10"
+          image: "rucio/rucio-daemons:release-1.29.11"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
               mountPath: /opt/proxy
             - name: ca-volume
               mountPath: /opt/certs
-            - name: config
+            - name: config-common
               mountPath: /opt/rucio/etc/conf.d/10_common.json
               subPath: common.json
-            - name: config
+            - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: usdf-lsst-schema-file 
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
           ports:
             - name: metrics
               containerPort: 8080
@@ -1340,10 +1477,10 @@ spec:
           resources:
             limits:
               cpu: 700m
-              memory: 200Mi
+              memory: 600Mi
             requests:
               cpu: 700m
-              memory: 200Mi
+              memory: 600Mi
 ---
 # Source: rucio-daemons/templates/undertaker.yaml
 apiVersion: apps/v1
@@ -1353,7 +1490,7 @@ metadata:
   labels:
     app: rucio-daemons-undertaker
     app-group: rucio-daemons
-    chart: rucio-daemons-1.30.1
+    chart: rucio-daemons-1.30.12
     release: usdf
     heritage: Helm
 spec:
@@ -1381,25 +1518,34 @@ spec:
         prometheus.io/scrape: "true"
     spec:
       volumes:
-      - name: config
+      - name: config-common
         secret:
-          secretName: usdf-rucio-daemons.config.undertaker.yaml
+          secretName: usdf-rucio-daemons.config.common
+      - name: config-component
+        secret:
+          secretName: usdf-rucio-daemons.config.undertaker
       - name: proxy-volume
         secret:
           secretName: usdf-rucio-x509up
+      - name: usdf-lsst-schema-file 
+        secret:
+          secretName: usdf-usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.10"
+          image: "rucio/rucio-daemons:release-1.29.11"
           imagePullPolicy: Always
           volumeMounts:
-            - name: config
+            - name: config-common
               mountPath: /opt/rucio/etc/conf.d/10_common.json
               subPath: common.json
-            - name: config
+            - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
             - name: proxy-volume
               mountPath: /opt/proxy
+            - name: usdf-lsst-schema-file 
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
           ports:
             - name: metrics
               containerPort: 8080
@@ -1414,10 +1560,10 @@ spec:
           resources:
             limits:
               cpu: 700m
-              memory: 200Mi
+              memory: 600Mi
             requests:
               cpu: 700m
-              memory: 200Mi
+              memory: 600Mi
 ---
 # Source: rucio-daemons/templates/renew-fts-cronjob.yaml
 apiVersion: batch/v1
@@ -1432,15 +1578,21 @@ spec:
         spec:        
           serviceAccountName: usdf-rucio-edit
           volumes:
+          - name: config-common
+            secret:
+              secretName: usdf-rucio-daemons.config.common
+          - name: usdf-lsst-schema-file
+            secret:
+              secretName: usdf-usdf-lsst-schema-file
           - name: usercert
             secret:
               secretName: usdf-fts-cert
           - name: userkey
             secret:
-              secretName: usdf-fts-key
+              secretName:  usdf-fts-key
           containers:
             - name: renew-fts-cron
-              image: "bjwhitefnal/rubin-rucio-fts-cron:1.29.10"
+              image: "bjwhitefnal/rubin-rucio-fts-cron:1.29.11"
               imagePullPolicy: Always
               resources:
                 limits:
@@ -1450,10 +1602,16 @@ spec:
                   cpu: 100m
                   memory: 128Mi
               volumeMounts:
+                - name: config-common
+                  mountPath: /opt/rucio/etc/conf.d/10_common.json
+                  subPath: common.json
                 - name: usercert
                   mountPath: /opt/rucio/certs/
                 - name: userkey
                   mountPath: /opt/rucio/keys/
+                - name: usdf-lsst-schema-file
+                  mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+                  subPath: "lsst.py"
               env:
                 - name: RUCIO_VO
                   value: "lsst"
@@ -1479,15 +1637,21 @@ spec:
     spec:    
       serviceAccountName: usdf-rucio-edit
       volumes:
+      - name: config-common
+        secret:
+          secretName: usdf-rucio-daemons.config.common
+      - name: usdf-lsst-schema-file
+        secret:
+          secretName: usdf-usdf-lsst-schema-file
       - name: usercert
         secret:
           secretName: usdf-fts-cert
       - name: userkey
         secret:
-          secretName: usdf-fts-key
+          secretName:  usdf-fts-key
       containers:
         - name: renew-fts-cron
-          image: "bjwhitefnal/rubin-rucio-fts-cron:1.29.10"
+          image: "bjwhitefnal/rubin-rucio-fts-cron:1.29.11"
           imagePullPolicy: Always
           resources:
             limits:
@@ -1497,10 +1661,16 @@ spec:
               cpu: 100m
               memory: 128Mi
           volumeMounts:
+            - name: config-common
+              mountPath: /opt/rucio/etc/conf.d/10_common.json
+              subPath: common.json
             - name: usercert
               mountPath: /opt/rucio/certs/
             - name: userkey
               mountPath: /opt/rucio/keys/
+            - name: usdf-lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
           env:
             - name: RUCIO_VO
               value: "lsst"
