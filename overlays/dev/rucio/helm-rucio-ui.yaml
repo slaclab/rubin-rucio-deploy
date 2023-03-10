@@ -119,6 +119,9 @@ spec:
       - name: cafile
         secret:
           secretName: usdf-cafile
+      - name: lsst-schema-file
+        secret:
+          secretName: usdf-lsst-schema-file
       containers:
         - name: httpd-error-log
           image: busybox
@@ -154,6 +157,9 @@ spec:
             - name: cafile
               mountPath: /etc/grid-security/ca.pem
               subPath: ca.pem
+            - name: lsst-schema-file 
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: lsst.py
           env:
             - name: RUCIO_HTTPD_LEGACY_DN
               valueFrom:

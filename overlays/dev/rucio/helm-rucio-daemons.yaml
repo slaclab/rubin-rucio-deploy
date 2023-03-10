@@ -292,9 +292,9 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
-      - name: usdf-lsst-schema-file
+      - name: lsst-schema-file
         secret:
-          secretName: usdf-usdf-lsst-schema-file
+          secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-1.29.11"
@@ -310,7 +310,7 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: usdf-lsst-schema-file
+            - name: lsst-schema-file
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
           ports:
@@ -380,9 +380,9 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
-      - name: usdf-lsst-schema-file
+      - name: lsst-schema-file
         secret:
-          secretName: usdf-usdf-lsst-schema-file
+          secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-1.29.11"
@@ -398,7 +398,7 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: usdf-lsst-schema-file
+            - name: lsst-schema-file
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
           ports:
@@ -468,9 +468,9 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
-      - name: usdf-lsst-schema-file
+      - name: lsst-schema-file
         secret:
-          secretName: usdf-usdf-lsst-schema-file
+          secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-1.29.11"
@@ -486,7 +486,7 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: usdf-lsst-schema-file
+            - name: lsst-schema-file
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
           ports:
@@ -556,9 +556,9 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
-      - name: usdf-lsst-schema-file
+      - name: lsst-schema-file
         secret:
-          secretName: usdf-usdf-lsst-schema-file
+          secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-1.29.11"
@@ -574,7 +574,7 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: usdf-lsst-schema-file
+            - name: lsst-schema-file
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
           ports:
@@ -644,9 +644,9 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
-      - name: usdf-lsst-schema-file
+      - name: lsst-schema-file
         secret:
-          secretName: usdf-usdf-lsst-schema-file
+          secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-1.29.11"
@@ -662,7 +662,7 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: usdf-lsst-schema-file
+            - name: lsst-schema-file
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
           ports:
@@ -732,9 +732,9 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
-      - name: usdf-lsst-schema-file
+      - name: lsst-schema-file
         secret:
-          secretName: usdf-usdf-lsst-schema-file
+          secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-1.29.11"
@@ -750,7 +750,7 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: usdf-lsst-schema-file
+            - name: lsst-schema-file
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
           ports:
@@ -820,9 +820,9 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
-      - name: usdf-lsst-schema-file
+      - name: lsst-schema-file
         secret:
-          secretName: usdf-usdf-lsst-schema-file
+          secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-1.29.11"
@@ -838,7 +838,7 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: usdf-lsst-schema-file
+            - name: lsst-schema-file
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
           ports:
@@ -908,9 +908,9 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
-      - name: usdf-lsst-schema-file
+      - name: lsst-schema-file
         secret:
-          secretName: usdf-usdf-lsst-schema-file
+          secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-1.29.11"
@@ -926,7 +926,7 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: usdf-lsst-schema-file
+            - name: lsst-schema-file
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
           ports:
@@ -996,9 +996,9 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
-      - name: usdf-lsst-schema-file
+      - name: lsst-schema-file
         secret:
-          secretName: usdf-usdf-lsst-schema-file
+          secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-1.29.11"
@@ -1014,7 +1014,7 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: usdf-lsst-schema-file
+            - name: lsst-schema-file
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
           ports:
@@ -1084,9 +1084,9 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
-      - name: usdf-lsst-schema-file
+      - name: lsst-schema-file
         secret:
-          secretName: usdf-usdf-lsst-schema-file
+          secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-1.29.11"
@@ -1102,7 +1102,7 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: usdf-lsst-schema-file
+            - name: lsst-schema-file
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
           ports:
@@ -1172,9 +1172,9 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
-      - name: usdf-lsst-schema-file
+      - name: lsst-schema-file
         secret:
-          secretName: usdf-usdf-lsst-schema-file
+          secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-1.29.11"
@@ -1190,7 +1190,7 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: usdf-lsst-schema-file
+            - name: lsst-schema-file
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
           ports:
@@ -1260,9 +1260,9 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
-      - name: usdf-lsst-schema-file 
+      - name: lsst-schema-file 
         secret:
-          secretName: usdf-usdf-lsst-schema-file
+          secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-1.29.11"
@@ -1278,7 +1278,7 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: usdf-lsst-schema-file 
+            - name: lsst-schema-file 
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
           ports:
@@ -1348,9 +1348,9 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle-reaper
-      - name: usdf-lsst-schema-file 
+      - name: lsst-schema-file 
         secret:
-          secretName: usdf-usdf-lsst-schema-file
+          secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-1.29.11"
@@ -1366,7 +1366,7 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: usdf-lsst-schema-file 
+            - name: lsst-schema-file 
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
           ports:
@@ -1442,9 +1442,9 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
-      - name: usdf-lsst-schema-file 
+      - name: lsst-schema-file 
         secret:
-          secretName: usdf-usdf-lsst-schema-file
+          secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-1.29.11"
@@ -1460,7 +1460,7 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: usdf-lsst-schema-file 
+            - name: lsst-schema-file 
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
           ports:
@@ -1527,9 +1527,9 @@ spec:
       - name: proxy-volume
         secret:
           secretName: usdf-rucio-x509up
-      - name: usdf-lsst-schema-file 
+      - name: lsst-schema-file 
         secret:
-          secretName: usdf-usdf-lsst-schema-file
+          secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-1.29.11"
@@ -1543,7 +1543,7 @@ spec:
               subPath: component.json
             - name: proxy-volume
               mountPath: /opt/proxy
-            - name: usdf-lsst-schema-file 
+            - name: lsst-schema-file 
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
           ports:
@@ -1581,9 +1581,9 @@ spec:
           - name: config-common
             secret:
               secretName: usdf-rucio-daemons.config.common
-          - name: usdf-lsst-schema-file
+          - name: lsst-schema-file
             secret:
-              secretName: usdf-usdf-lsst-schema-file
+              secretName: usdf-lsst-schema-file
           - name: usercert
             secret:
               secretName: usdf-fts-cert
@@ -1609,7 +1609,7 @@ spec:
                   mountPath: /opt/rucio/certs/
                 - name: userkey
                   mountPath: /opt/rucio/keys/
-                - name: usdf-lsst-schema-file
+                - name: lsst-schema-file
                   mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
                   subPath: "lsst.py"
               env:
@@ -1640,9 +1640,9 @@ spec:
       - name: config-common
         secret:
           secretName: usdf-rucio-daemons.config.common
-      - name: usdf-lsst-schema-file
+      - name: lsst-schema-file
         secret:
-          secretName: usdf-usdf-lsst-schema-file
+          secretName: usdf-lsst-schema-file
       - name: usercert
         secret:
           secretName: usdf-fts-cert
@@ -1668,7 +1668,7 @@ spec:
               mountPath: /opt/rucio/certs/
             - name: userkey
               mountPath: /opt/rucio/keys/
-            - name: usdf-lsst-schema-file
+            - name: lsst-schema-file
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
           env:

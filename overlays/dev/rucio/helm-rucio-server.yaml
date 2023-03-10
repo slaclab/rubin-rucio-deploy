@@ -132,6 +132,9 @@ spec:
           secretName: usdf-rucio-server-auth.config.yaml
       - name: httpdlog
         emptyDir: {}
+      - name: lsst-schema-file
+        secret:
+          secretName: usdf-lsst-schema-file
       - name: hostcert
         secret:
           secretName: usdf-auth-hostcert
@@ -194,6 +197,9 @@ spec:
               subPath: common.json
             - name: httpdlog
               mountPath: /var/log/httpd
+            - name: lsst-schema-file 
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: lsst.py
             - name: hostcert
               mountPath: /etc/grid-security/hostcert.pem
               subPath: hostcert.pem
@@ -327,6 +333,9 @@ spec:
           secretName: usdf-rucio-server.config.common
       - name: httpdlog
         emptyDir: {}
+      - name: lsst-schema-file
+        secret:
+          secretName: usdf-lsst-schema-file
       - name: hostcert
         secret:
           secretName: usdf-server-hostcert
@@ -366,6 +375,9 @@ spec:
             subPath: common.json
           - name: httpdlog
             mountPath: /var/log/httpd
+          - name: lsst-schema-file 
+            mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+            subPath: lsst.py
           - name: hostcert
             mountPath: /etc/grid-security/hostcert.pem
             subPath: hostcert.pem
