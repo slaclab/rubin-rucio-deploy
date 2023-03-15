@@ -11,7 +11,7 @@ metadata:
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJhcGkiOiB7CiAgICAiZW5kcG9pbnRzIjogImF1dGgsYWNjb3VudGxpbWl0cyxhY2NvdW50cyxjb25maWcsY3JlZGVudGlhbHMsZGlkcyxleHBvcnQsaGVhcnRiZWF0cyxpZGVudGl0aWVzLGltcG9ydCxsaWZldGltZV9leGNlcHRpb25zLGxvY2tzLG1ldGEscGluZyxyZWRpcmVjdCxyZXBsaWNhcyxyZXF1ZXN0cyxyc2VzLHJ1bGVzLHNjb3BlcyxzdWJzY3JpcHRpb25zIgogIH0sCiAgIm1vbml0b3IiOiBudWxsCn0="
+  common.json: "ewogICJhcGkiOiB7CiAgICAiZW5kcG9pbnRzIjogImF1dGgsYWNjb3VudGxpbWl0cyxhY2NvdW50cyxjb25maWcsY3JlZGVudGlhbHMsZGlkcyxleHBvcnQsaGVhcnRiZWF0cyxpZGVudGl0aWVzLGltcG9ydCxsaWZldGltZV9leGNlcHRpb25zLGxvY2tzLG1ldGEscGluZyxyZWRpcmVjdCxyZXBsaWNhcyxyZXF1ZXN0cyxyc2VzLHJ1bGVzLHNjb3BlcyxzdWJzY3JpcHRpb25zIgogIH0sCiAgInBvbGljeSI6IHsKICAgICJzY2hlbWEiOiAibHNzdCIKICB9Cn0="
 ---
 # Source: rucio-server/templates/secrets.yaml
 apiVersion: v1
@@ -25,7 +25,7 @@ metadata:
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJhcGkiOiB7CiAgICAiZW5kcG9pbnRzIjogImF1dGgsYWNjb3VudGxpbWl0cyxhY2NvdW50cyxjb25maWcsY3JlZGVudGlhbHMsZGlkcyxleHBvcnQsaGVhcnRiZWF0cyxpZGVudGl0aWVzLGltcG9ydCxsaWZldGltZV9leGNlcHRpb25zLGxvY2tzLG1ldGEscGluZyxyZWRpcmVjdCxyZXBsaWNhcyxyZXF1ZXN0cyxyc2VzLHJ1bGVzLHNjb3BlcyxzdWJzY3JpcHRpb25zIgogIH0sCiAgIm1vbml0b3IiOiBudWxsCn0="
+  common.json: "ewogICJhcGkiOiB7CiAgICAiZW5kcG9pbnRzIjogImF1dGgsYWNjb3VudGxpbWl0cyxhY2NvdW50cyxjb25maWcsY3JlZGVudGlhbHMsZGlkcyxleHBvcnQsaGVhcnRiZWF0cyxpZGVudGl0aWVzLGltcG9ydCxsaWZldGltZV9leGNlcHRpb25zLGxvY2tzLG1ldGEscGluZyxyZWRpcmVjdCxyZXBsaWNhcyxyZXF1ZXN0cyxyc2VzLHJ1bGVzLHNjb3BlcyxzdWJzY3JpcHRpb25zIgogIH0sCiAgInBvbGljeSI6IHsKICAgICJzY2hlbWEiOiAibHNzdCIKICB9Cn0="
 ---
 # Source: rucio-server/templates/secrets.yaml
 apiVersion: v1
@@ -124,7 +124,7 @@ spec:
         app: rucio-server-auth
         release: usdf
       annotations:
-        checksum/config: 203c82b95fa04c001cf20c11a1cb54f752034401
+        checksum/config: d2b9bf704a4d40ac99150648ddf74cade83df9c9
     spec:
       volumes:
       - name: config
@@ -325,7 +325,7 @@ spec:
         app: rucio-server
         release: usdf
       annotations:
-        checksum/config: 203c82b95fa04c001cf20c11a1cb54f752034401
+        checksum/config: d2b9bf704a4d40ac99150648ddf74cade83df9c9
     spec:
       volumes:
       - name: config

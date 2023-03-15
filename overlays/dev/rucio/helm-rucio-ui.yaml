@@ -11,7 +11,7 @@ metadata:
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJkYXRhYmFzZSI6IHt9Cn0="
+  common.json: "ewogICJkYXRhYmFzZSI6IHt9LAogICJwb2xpY3kiOiB7CiAgICAic2NoZW1hIjogImxzc3QiCiAgfQp9"
 ---
 # Source: rucio-ui/templates/secrets.yaml
 apiVersion: v1
@@ -99,7 +99,7 @@ spec:
         app: rucio-ui
         release: usdf
       annotations:
-        checksum/config: 748e92131bf516558198fb507cede09f5587ff64
+        checksum/config: b80bc1cf5c859b5c7d10efad11cb1c93dc98c656
     spec:
       volumes:
       - name: config
