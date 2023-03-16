@@ -356,10 +356,10 @@ spec:
           resources:
             limits:
               cpu: 700m
-              memory: 1200Mi
+              memory: 2000Mi
             requests:
               cpu: 200m
-              memory: 600Mi
+              memory: 1200Mi
           volumeMounts:
           - name: config
             mountPath: /opt/rucio/etc/conf.d/10_common.json
