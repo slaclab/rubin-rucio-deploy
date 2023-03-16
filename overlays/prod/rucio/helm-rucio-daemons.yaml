@@ -1058,10 +1058,10 @@ spec:
               value: "--threads 1"
           resources:
             limits:
-              cpu: 700m
+              cpu: 1400m
               memory: 1200Mi
             requests:
-              cpu: 700m
+              cpu: 1000m
               memory: 1200Mi
 ---
 # Source: rucio-daemons/templates/minos.yaml

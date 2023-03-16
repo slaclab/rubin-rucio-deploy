@@ -271,10 +271,10 @@ judgeRepairer:
   resources:
     limits:
       memory: "1200Mi"
-      cpu: "700m"
+      cpu: "1400m"
     requests:
       memory: "1200Mi"
-      cpu: "700m"
+      cpu: "1000m"
 
 oauthManager:
   threads: 1
