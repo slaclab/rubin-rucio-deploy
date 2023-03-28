@@ -199,7 +199,7 @@ metadata:
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJjb252ZXlvciI6IHsKICAgICJjYWNlcnQiOiAiL29wdC9jZXJ0cy9jYS5wZW0iLAogICAgImZ0c2hvc3RzIjogImh0dHBzOi8vZnRzLWV2YWwwMS5zbGFjLnN0YW5mb3JkLmVkdTo4NDQ2IiwKICAgICJzY2hlbWUiOiAic3JtLGdzaWZ0cCxyb290LGh0dHAsaHR0cHMiLAogICAgInRyYW5zZmVydG9vbCI6ICJmdHMzIiwKICAgICJ1c2VyY2VydCI6ICIvb3B0L3Byb3h5L3g1MDl1cCIKICB9LAogICJtb25pdG9yIjogewogICAgImVuYWJsZV9tZXRyaWNzIjogIlRydWUiCiAgfQp9"
+  common.json: "ewogICJjb252ZXlvciI6IHsKICAgICJjYWNlcnQiOiAiL29wdC9jZXJ0cy9jYS5wZW0iLAogICAgImZ0c2hvc3RzIjogImh0dHBzOi8vZnRzLWV2YWwwMS5zbGFjLnN0YW5mb3JkLmVkdTo4NDQ2LGh0dHBzOi8vbGNnZnRzMy5ncmlkcHAucmwuYWMudWs6ODQ0NiIsCiAgICAic2NoZW1lIjogInNybSxnc2lmdHAscm9vdCxodHRwLGh0dHBzIiwKICAgICJ0cmFuc2ZlcnRvb2wiOiAiZnRzMyIsCiAgICAidXNlcmNlcnQiOiAiL29wdC9wcm94eS94NTA5dXAiCiAgfSwKICAibW9uaXRvciI6IHsKICAgICJlbmFibGVfbWV0cmljcyI6ICJUcnVlIgogIH0KfQ=="
 ---
 # Source: rucio-daemons/templates/transmogrifier.yaml
 apiVersion: v1
@@ -521,7 +521,7 @@ spec:
         release: usdf
         rucio-daemon: conveyor-finisher
       annotations:
-        checksum/config: f650d3c84674b3f6ab1f46aa98027cb5241506eb
+        checksum/config: 45e6b3ab636011508f4bbe5824ec54d241d09ead
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -603,7 +603,7 @@ spec:
         release: usdf
         rucio-daemon: conveyor-poller
       annotations:
-        checksum/config: f650d3c84674b3f6ab1f46aa98027cb5241506eb
+        checksum/config: 45e6b3ab636011508f4bbe5824ec54d241d09ead
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -685,7 +685,7 @@ spec:
         release: usdf
         rucio-daemon: conveyor-submitter
       annotations:
-        checksum/config: f650d3c84674b3f6ab1f46aa98027cb5241506eb
+        checksum/config: 45e6b3ab636011508f4bbe5824ec54d241d09ead
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -767,7 +767,7 @@ spec:
         release: usdf
         rucio-daemon: judge-cleaner
       annotations:
-        checksum/config: f650d3c84674b3f6ab1f46aa98027cb5241506eb
+        checksum/config: 45e6b3ab636011508f4bbe5824ec54d241d09ead
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -849,7 +849,7 @@ spec:
         release: usdf
         rucio-daemon: judge-evaluator
       annotations:
-        checksum/config: f650d3c84674b3f6ab1f46aa98027cb5241506eb
+        checksum/config: 45e6b3ab636011508f4bbe5824ec54d241d09ead
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -931,7 +931,7 @@ spec:
         release: usdf
         rucio-daemon: judge-injector
       annotations:
-        checksum/config: f650d3c84674b3f6ab1f46aa98027cb5241506eb
+        checksum/config: 45e6b3ab636011508f4bbe5824ec54d241d09ead
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1013,7 +1013,7 @@ spec:
         release: usdf
         rucio-daemon: judge-repairer
       annotations:
-        checksum/config: f650d3c84674b3f6ab1f46aa98027cb5241506eb
+        checksum/config: 45e6b3ab636011508f4bbe5824ec54d241d09ead
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1095,7 +1095,7 @@ spec:
         release: usdf
         rucio-daemon: minos
       annotations:
-        checksum/config: f650d3c84674b3f6ab1f46aa98027cb5241506eb
+        checksum/config: 45e6b3ab636011508f4bbe5824ec54d241d09ead
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1177,7 +1177,7 @@ spec:
         release: usdf
         rucio-daemon: necromancer
       annotations:
-        checksum/config: f650d3c84674b3f6ab1f46aa98027cb5241506eb
+        checksum/config: 45e6b3ab636011508f4bbe5824ec54d241d09ead
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1259,7 +1259,7 @@ spec:
         release: usdf
         rucio-daemon: reaper
       annotations:
-        checksum/config: f650d3c84674b3f6ab1f46aa98027cb5241506eb
+        checksum/config: 45e6b3ab636011508f4bbe5824ec54d241d09ead
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1347,7 +1347,7 @@ spec:
         release: usdf
         rucio-daemon: transmogrifier
       annotations:
-        checksum/config: f650d3c84674b3f6ab1f46aa98027cb5241506eb
+        checksum/config: 45e6b3ab636011508f4bbe5824ec54d241d09ead
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1429,7 +1429,7 @@ spec:
         release: usdf
         rucio-daemon: undertaker
       annotations:
-        checksum/config: f650d3c84674b3f6ab1f46aa98027cb5241506eb
+        checksum/config: 45e6b3ab636011508f4bbe5824ec54d241d09ead
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1522,7 +1522,7 @@ spec:
                 - name: RUCIO_FTS_VOMS
                   value: "lsst:/lsst/Role=ddmopr"
                 - name: RUCIO_FTS_SERVERS
-                  value: "https://fts-eval01.slac.stanford.edu:8446"
+                  value: "https://fts-eval01.slac.stanford.edu:8446,https://lcgfts3.gridpp.rl.ac.uk:8446"
                 - name: RUCIO_FTS_SECRETS
                   value: "usdf-rucio-x509up"
           restartPolicy: OnFailure
@@ -1575,7 +1575,7 @@ spec:
             - name: RUCIO_FTS_VOMS
               value: "lsst:/lsst/Role=ddmopr"
             - name: RUCIO_FTS_SERVERS
-              value: "https://fts-eval01.slac.stanford.edu:8446"
+              value: "https://fts-eval01.slac.stanford.edu:8446,https://lcgfts3.gridpp.rl.ac.uk:8446"
             - name: RUCIO_FTS_SECRETS
               value: "usdf-rucio-x509up"
       restartPolicy: OnFailure
