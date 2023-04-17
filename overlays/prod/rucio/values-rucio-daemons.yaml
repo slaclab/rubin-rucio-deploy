@@ -33,7 +33,7 @@ necromancerCount: 1
 
 image:
   repository: rucio/rucio-daemons
-  tag: release-1.29.11
+  tag: release-1.29.12
   pullPolicy: Always
 
 strategy:
@@ -122,8 +122,8 @@ conveyorTransferSubmitter:
   threads: 1
   podAnnotations: {}
   groupBulk: 100
-  activities: "'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
-  sleepTime: 10
+  activities: "'User Subscriptions'"
+  sleepTime: 60
   archiveTimeout: ""
   resources:
     limits:

@@ -130,7 +130,7 @@ spec:
           - name: httpdlog
             mountPath: /var/log/httpd
         - name: rucio-ui
-          image: "rucio/rucio-ui:release-1.29.11"
+          image: "rucio/rucio-ui:release-1.29.12"
           imagePullPolicy: Always
           ports:
             - name: http

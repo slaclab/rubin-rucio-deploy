@@ -159,7 +159,7 @@ spec:
               cpu: 20m
               memory: 20Mi
         - name: rucio-server-auth
-          image: "rucio/rucio-server:release-1.29.11"
+          image: "rucio/rucio-server:release-1.29.12"
           imagePullPolicy: Always
           resources:
             limits:
@@ -360,7 +360,7 @@ spec:
               cpu: 20m
               memory: 20Mi
         - name: rucio-server
-          image: "rucio/rucio-server:release-1.29.11"
+          image: "rucio/rucio-server:release-1.29.12"
           imagePullPolicy: Always
           resources:
             limits:

@@ -297,7 +297,7 @@ spec:
           secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.11"
+          image: "rucio/rucio-daemons:release-1.29.12"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -385,7 +385,7 @@ spec:
           secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.11"
+          image: "rucio/rucio-daemons:release-1.29.12"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -473,7 +473,7 @@ spec:
           secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.11"
+          image: "rucio/rucio-daemons:release-1.29.12"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -561,7 +561,7 @@ spec:
           secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.11"
+          image: "rucio/rucio-daemons:release-1.29.12"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -649,7 +649,7 @@ spec:
           secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.11"
+          image: "rucio/rucio-daemons:release-1.29.12"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -737,7 +737,7 @@ spec:
           secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.11"
+          image: "rucio/rucio-daemons:release-1.29.12"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -825,7 +825,7 @@ spec:
           secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.11"
+          image: "rucio/rucio-daemons:release-1.29.12"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -913,7 +913,7 @@ spec:
           secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.11"
+          image: "rucio/rucio-daemons:release-1.29.12"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -1001,7 +1001,7 @@ spec:
           secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.11"
+          image: "rucio/rucio-daemons:release-1.29.12"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -1089,7 +1089,7 @@ spec:
           secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.11"
+          image: "rucio/rucio-daemons:release-1.29.12"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -1177,7 +1177,7 @@ spec:
           secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.11"
+          image: "rucio/rucio-daemons:release-1.29.12"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -1265,7 +1265,7 @@ spec:
           secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.11"
+          image: "rucio/rucio-daemons:release-1.29.12"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -1353,7 +1353,7 @@ spec:
           secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.11"
+          image: "rucio/rucio-daemons:release-1.29.12"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -1447,7 +1447,7 @@ spec:
           secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.11"
+          image: "rucio/rucio-daemons:release-1.29.12"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -1532,7 +1532,7 @@ spec:
           secretName: usdf-lsst-schema-file
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-1.29.11"
+          image: "rucio/rucio-daemons:release-1.29.12"
           imagePullPolicy: Always
           volumeMounts:
             - name: config-common
