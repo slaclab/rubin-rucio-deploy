@@ -73,3 +73,9 @@ secretGenerator:
 - name: usdf-fts-key
   files:
   - new_userkey.pem=etc/.secrets/hostkey.pem
+# lsst customization
+- name: usdf-lsst-schema-file
+  files:
+  - lsst.py=etc/lsst.py
+  options:
+    disableNameSuffixHash: true

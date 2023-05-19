@@ -11,7 +11,7 @@ metadata:
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJhcGkiOiB7CiAgICAiZW5kcG9pbnRzIjogImF1dGgsYWNjb3VudGxpbWl0cyxhY2NvdW50cyxjb25maWcsY3JlZGVudGlhbHMsZGlkcyxleHBvcnQsaGVhcnRiZWF0cyxpZGVudGl0aWVzLGltcG9ydCxsaWZldGltZV9leGNlcHRpb25zLGxvY2tzLG1ldGEscGluZyxyZWRpcmVjdCxyZXBsaWNhcyxyZXF1ZXN0cyxyc2VzLHJ1bGVzLHNjb3BlcyxzdWJzY3JpcHRpb25zIgogIH0sCiAgImNvbnZleW9yIjogewogICAgInVzZXJjZXJ0IjogIi9vcHQvcHJveHkveDUwOSIKICB9LAogICJtb25pdG9yIjogbnVsbAp9"
+  common.json: "ewogICJhcGkiOiB7CiAgICAiZW5kcG9pbnRzIjogImF1dGgsYWNjb3VudGxpbWl0cyxhY2NvdW50cyxjb25maWcsY3JlZGVudGlhbHMsZGlkcyxleHBvcnQsaGVhcnRiZWF0cyxpZGVudGl0aWVzLGltcG9ydCxsaWZldGltZV9leGNlcHRpb25zLGxvY2tzLG1ldGEscGluZyxyZWRpcmVjdCxyZXBsaWNhcyxyZXF1ZXN0cyxyc2VzLHJ1bGVzLHNjb3BlcyxzdWJzY3JpcHRpb25zIgogIH0sCiAgImNvbnZleW9yIjogewogICAgInVzZXJjZXJ0IjogIi9vcHQvcHJveHkveDUwOSIKICB9LAogICJtb25pdG9yIjogbnVsbCwKICAicG9saWN5IjogewogICAgInNjaGVtYSI6ICJsc3N0IgogIH0KfQ=="
 ---
 # Source: rucio-server/templates/secrets.yaml
 apiVersion: v1
@@ -25,7 +25,7 @@ metadata:
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJhcGkiOiB7CiAgICAiZW5kcG9pbnRzIjogImF1dGgsYWNjb3VudGxpbWl0cyxhY2NvdW50cyxjb25maWcsY3JlZGVudGlhbHMsZGlkcyxleHBvcnQsaGVhcnRiZWF0cyxpZGVudGl0aWVzLGltcG9ydCxsaWZldGltZV9leGNlcHRpb25zLGxvY2tzLG1ldGEscGluZyxyZWRpcmVjdCxyZXBsaWNhcyxyZXF1ZXN0cyxyc2VzLHJ1bGVzLHNjb3BlcyxzdWJzY3JpcHRpb25zIgogIH0sCiAgImNvbnZleW9yIjogewogICAgInVzZXJjZXJ0IjogIi9vcHQvcHJveHkveDUwOSIKICB9LAogICJtb25pdG9yIjogbnVsbAp9"
+  common.json: "ewogICJhcGkiOiB7CiAgICAiZW5kcG9pbnRzIjogImF1dGgsYWNjb3VudGxpbWl0cyxhY2NvdW50cyxjb25maWcsY3JlZGVudGlhbHMsZGlkcyxleHBvcnQsaGVhcnRiZWF0cyxpZGVudGl0aWVzLGltcG9ydCxsaWZldGltZV9leGNlcHRpb25zLGxvY2tzLG1ldGEscGluZyxyZWRpcmVjdCxyZXBsaWNhcyxyZXF1ZXN0cyxyc2VzLHJ1bGVzLHNjb3BlcyxzdWJzY3JpcHRpb25zIgogIH0sCiAgImNvbnZleW9yIjogewogICAgInVzZXJjZXJ0IjogIi9vcHQvcHJveHkveDUwOSIKICB9LAogICJtb25pdG9yIjogbnVsbCwKICAicG9saWN5IjogewogICAgInNjaGVtYSI6ICJsc3N0IgogIH0KfQ=="
 ---
 # Source: rucio-server/templates/secrets.yaml
 apiVersion: v1
@@ -124,7 +124,7 @@ spec:
         app: rucio-server-auth
         release: usdf
       annotations:
-        checksum/config: fe5b8931c07a2b8c5b7ec45d86e5c7b920d6f449
+        checksum/config: 348084240c211e8024b68257b2bb163d8bf0a9dc
     spec:
       volumes:
       - name: config
@@ -132,6 +132,9 @@ spec:
           secretName: usdf-rucio-server-auth.config.yaml
       - name: httpdlog
         emptyDir: {}
+      - name: lsst-schema-file
+        secret:
+          secretName: usdf-lsst-schema-file
       - name: hostcert
         secret:
           secretName: usdf-auth-hostcert
@@ -194,6 +197,9 @@ spec:
               subPath: common.json
             - name: httpdlog
               mountPath: /var/log/httpd
+            - name: lsst-schema-file 
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: lsst.py
             - name: hostcert
               mountPath: /etc/grid-security/hostcert.pem
               subPath: hostcert.pem
@@ -319,7 +325,7 @@ spec:
         app: rucio-server
         release: usdf
       annotations:
-        checksum/config: fe5b8931c07a2b8c5b7ec45d86e5c7b920d6f449
+        checksum/config: 348084240c211e8024b68257b2bb163d8bf0a9dc
     spec:
       volumes:
       - name: config
@@ -327,6 +333,9 @@ spec:
           secretName: usdf-rucio-server.config.common
       - name: httpdlog
         emptyDir: {}
+      - name: lsst-schema-file
+        secret:
+          secretName: usdf-lsst-schema-file
       - name: hostcert
         secret:
           secretName: usdf-server-hostcert
@@ -366,6 +375,9 @@ spec:
             subPath: common.json
           - name: httpdlog
             mountPath: /var/log/httpd
+          - name: lsst-schema-file 
+            mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+            subPath: lsst.py
           - name: hostcert
             mountPath: /etc/grid-security/hostcert.pem
             subPath: hostcert.pem
