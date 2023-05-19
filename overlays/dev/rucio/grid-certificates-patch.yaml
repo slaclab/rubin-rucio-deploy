@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usdf-reaper
+spec:
+  template:
+    spec:
+      initContainers:
+      - name: grid-certs
+        image: slaclab/grid-security-files:latest
+        command: 
+        - cp
+        - -a 
+        - /grid-certificates/.
+        - /out/
+        volumeMounts:
+        - name: ca-volume
+          mountPath: /out/
+      volumes:
+       - name: ca-volume
+         secret:
+           $patch: delete
+         emptyDir: {}

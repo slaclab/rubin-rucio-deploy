@@ -3,14 +3,14 @@
 # Declare variables to be passed into your templates.
 
 ## judgeCleanerCount gives the number of judge-cleaner pods to run
-abacusAccountCount: 0
-abacusCollectionReplicaCount: 0
-abacusRseCount: 0
+abacusAccountCount: 1
+abacusCollectionReplicaCount: 1
+abacusRseCount: 1
 automatixCount: 0
 cacheConsumerCount: 0
-conveyorTransferSubmitterCount: 0
-conveyorPollerCount: 0
-conveyorFinisherCount: 0
+conveyorTransferSubmitterCount: 1 
+conveyorPollerCount: 1
+conveyorFinisherCount: 1 
 conveyorReceiverCount: 0
 conveyorStagerCount: 0
 conveyorThrottlerCount: 0
@@ -18,22 +18,22 @@ conveyorPreparerCount: 0
 darkReaperCount: 0
 hermesCount: 0
 hermes2Count: 0
-judgeCleanerCount: 0
-judgeEvaluatorCount: 0
-judgeInjectorCount: 0
-judgeRepairerCount: 0
+judgeCleanerCount:  1
+judgeEvaluatorCount: 1 
+judgeInjectorCount: 1
+judgeRepairerCount: 1
 oauthManagerCount: 0
-undertakerCount: 0
-reaperCount: 0
-transmogrifierCount: 0
+undertakerCount: 1
+reaperCount: 1 
+transmogrifierCount: 1 
 tracerKronosCount: 0
-minosCount: 0
+minosCount: 1
 minosTemporaryExpirationCount: 0
-necromancerCount: 0
+necromancerCount: 1
 
 image:
   repository: rucio/rucio-daemons
-  tag: release-1.18.0
+  tag: release-1.29.12
   pullPolicy: Always
 
 strategy:
@@ -43,7 +43,10 @@ strategy:
     maxUnavailable: 1
 
 podLabels: {}
-podAnnotations: {}
+# Enable Prometheus scraping of metrics
+podAnnotations:
+    prometheus.io/port: "8080"
+    prometheus.io/scrape: "true"
 
 minReadySeconds: 5
 
@@ -63,10 +66,10 @@ abacusAccount:
   podAnnotations: {}
   resources:
     limits:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
     requests:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
 
 abacusCollectionReplica:
@@ -74,10 +77,10 @@ abacusCollectionReplica:
   podAnnotations: {}
   resources:
     limits:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
     requests:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
 
 abacusRse:
@@ -86,10 +89,10 @@ abacusRse:
   podAnnotations: {}
   resources:
     limits:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
     requests:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
 
 automatix:
@@ -98,10 +101,10 @@ automatix:
   podAnnotations: {}
   resources:
     limits:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
     requests:
-      memory: "100Mi"
+      memory: "400Mi"
       cpu: "100m"
 
 cacheConsumer:
@@ -109,46 +112,48 @@ cacheConsumer:
   podAnnotations: {}
   resources:
     limits:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
     requests:
-      memory: "100Mi"
+      memory: "400Mi"
       cpu: "100m"
 
 conveyorTransferSubmitter:
   threads: 1
   podAnnotations: {}
-  activities: "'test1' 'test2'"
+  activities: "'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
   sleepTime: 10
   archiveTimeout: ""
   resources:
     limits:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
     requests:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
 
 conveyorPoller:
   threads: 1
   podAnnotations: {}
+  activities: "'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
   resources:
     limits:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
     requests:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
 
 conveyorFinisher:
   threads: 1
   podAnnotations: {}
+  activities: "'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
   resources:
     limits:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
     requests:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
 
 conveyorReceiver:
@@ -156,10 +161,10 @@ conveyorReceiver:
   podAnnotations: {}
   resources:
     limits:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
     requests:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
 
 conveyorThrottler:
@@ -167,10 +172,10 @@ conveyorThrottler:
   podAnnotations: {}
   resources:
     limits:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
     requests:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
 
 conveyorPreparer:
@@ -178,10 +183,10 @@ conveyorPreparer:
   podAnnotations: {}
   resources:
     limits:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
     requests:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
 
 darkReaper:
@@ -194,10 +199,10 @@ darkReaper:
   podAnnotations: {}
   resources:
     limits:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
     requests:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
 
 hermes:
@@ -208,22 +213,22 @@ hermes:
   brokerTimeout: 3
   resources:
     limits:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
     requests:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
 
 hermes2:
   threads: 1
   podAnnotations: {}
-  bulk: 1000
+  bulk: 400
   resources:
     limits:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
     requests:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
 
 judgeCleaner:
@@ -231,10 +236,10 @@ judgeCleaner:
   podAnnotations: {}
   resources:
     limits:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
     requests:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
 
 judgeEvaluator:
@@ -242,10 +247,10 @@ judgeEvaluator:
   podAnnotations: {}
   resources:
     limits:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
     requests:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
 
 judgeInjector:
@@ -253,10 +258,10 @@ judgeInjector:
   podAnnotations: {}
   resources:
     limits:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
     requests:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
 
 judgeRepairer:
@@ -264,10 +269,10 @@ judgeRepairer:
   podAnnotations: {}
   resources:
     limits:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
     requests:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
 
 oauthManager:
@@ -275,10 +280,10 @@ oauthManager:
   podAnnotations: {}
   resources:
     limits:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
     requests:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
 
 undertaker:
@@ -286,10 +291,10 @@ undertaker:
   podAnnotations: {}
   resources:
     limits:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
     requests:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
 
 reaper:
@@ -300,10 +305,10 @@ reaper:
   podAnnotations: {}
   resources:
     limits:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
     requests:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
 
 transmogrifier:
@@ -311,10 +316,10 @@ transmogrifier:
   podAnnotations: {}
   resources:
     limits:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
     requests:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
 
 tracerKronos:
@@ -322,10 +327,10 @@ tracerKronos:
   podAnnotations: {}
   resources:
     limits:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
     requests:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
 
 minos:
@@ -333,10 +338,10 @@ minos:
   podAnnotations: {}
   resources:
     limits:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
     requests:
-      memory: "100Mi"
+      memory: "400Mi"
       cpu: "100m"
 
 minosTemporaryExpiration:
@@ -344,32 +349,32 @@ minosTemporaryExpiration:
   podAnnotations: {}
   resources:
     limits:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
     requests:
-      memory: "100Mi"
+      memory: "400Mi"
       cpu: "100m"
 
 necromancer:
   podAnnotations: {}
   resources:
     limits:
-      memory: "200Mi"
+      memory: "600Mi"
       cpu: "700m"
     requests:
-      memory: "100Mi"
+      memory: "400Mi"
       cpu: "100m"
 
 ftsRenewal:
-  enabled: 0
+  enabled: 1 
   schedule: "12 */6 * * *"
   image:
-    repository: rucio/fts-cron
-    tag: latest
+    repository: bjwhitefnal/rubin-rucio-fts-cron
+    tag: 1.29.11
     pullPolicy: Always
-  vo: "cms"
-  voms: "cms:/cms/Role=production"
-  servers: "https://fts3-devel.cern.ch:8446,https://cmsfts3.fnal.gov:8446,https://fts3.cern.ch:8446,https://lcgfts3.gridpp.rl.ac.uk:8446,https://fts3-pilot.cern.ch:8446"
+  vo: "lsst"
+  voms: "lsst:/lsst/Role=ddmopr"
+  servers: "https://fts-eval01.slac.stanford.edu:8446"
 
 automaticRestart:
   enabled: 0
@@ -379,11 +384,11 @@ automaticRestart:
     pullPolicy: IfNotPresent
   schedule: "0 0 * * *"
 
-additionalSecrets: {}
-  # gcssecret:
-  #   secretName: gcssecret
-  #   mountPath: /opt/rucio/etc/gcs_rucio.json
-  #   subPath: gcs_rucio.json
+additionalSecrets:
+  lsst-schema-file:
+    secretName: lsst-schema-file
+    mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+    subPath: lsst.py
 
 ## common config values used to configure the Rucio daemons
 config:
@@ -420,7 +425,9 @@ config:
     ## config.database.powuseraccount: password for user used to check the DB
     # powuserpassword: ""
 
-  # monitor:
+  monitor:
+    ## Turn on the Prometheus server for scraping of metrics (Default port 8080)
+    enable_metrics: "True"
     ## config.monitor.carbon_server: address of carbon server used for graphite monitoring (default: "localhost")
     # carbon_server: "localhost"
     ## config.monitor.carbon_port: port of carbon server used for graphite monitoring (default: "8125")
@@ -428,11 +435,11 @@ config:
     ## config.monitor.user_scope: scope used on the graphite server (default: "default_docker")
     # user_scope: "default_docker"
 
-  # policy:
+  policy:
     ## config.permission.policy: (default "generic")
     # permission: "generic"
     ## config.permission.schema: (default "generic")
-    # schema: "generic"
+    schema: "lsst"
     ## config.permission.lfn2pfn_algorithm_default: (default "hash")
     # lfn2pfn_algorithm_default: "hash"
     ## config.permission.support: (default "https://github.com/rucio/rucio/issues/")
@@ -447,10 +454,10 @@ config:
     # set_metadata: ""
 
   conveyor:
-    # scheme: "srm,gsiftp,root,http,https"
-    # transfertool: "fts3"
-    # ftshosts: "https://fts3-pilot.cern.ch:8446, https://fts3-pilot.cern.ch:8446"
-    cacert: "/opt/certs/CERN-bundle.pem"
+    scheme: "srm,gsiftp,root,http,https"
+    transfertool: "fts3"
+    ftshosts: "https://fts-eval01.slac.stanford.edu:8446"
+    cacert: "/opt/certs/ca.pem"
     usercert: "/opt/proxy/x509up"
     # cache_time: ""
     # user_deterministic_id: ""
@@ -504,7 +511,7 @@ config:
     # dataset_wait: 60
 
   # transmogrifier:
-    # maxdids: 100000
+    # maxdids: 40000
 
   # messaging-cache:
     # port: "61123"

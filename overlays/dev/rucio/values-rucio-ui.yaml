@@ -6,7 +6,7 @@
 replicaCount: 1
 
 # When set, run extra busybox containers in the relevant pods to also expose the error logs
-exposeErrorLogs: True
+exposeErrorLogs: True 
 
 service:
   type: ClusterIP # LoadBalancer
@@ -18,7 +18,7 @@ service:
 
 image:
   repository: rucio/rucio-ui
-  tag: release-1.21.12
+  tag: release-1.29.12
   pullPolicy: Always
 
 strategy:
@@ -36,30 +36,30 @@ proxy:
   #rucioAuthProxyScheme: "https"
   
 ingress:
-  enabled: true
+  enabled: false
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/ssl-passthrough: "true"
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
   path: /
-  hosts: []
-  #   - my.rucio.test
+  hosts:
+     - rubin-rucio-dev.slac.stanford.edu
 
-additionalSecrets: {}
-# gcssecret:
-#   secretName: gcssecret
-#   mountPath: /opt/rucio/etc/gcs_rucio.json
-#   subPath: gcs_rucio.json
+additionalSecrets:
+  lsst-schema-file:
+    secretName: lsst-schema-file
+    mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+    subPath: lsst.py
 
 ## values used to configure apache
-httpd_config: {}
-  # mpm_mode: "event"
-  # start_servers: "1"
-  # min_spare_threads: "1"
-  # max_spare_threads: "20"
-  # threads_per_child: "5"
-  # max_clients: "20"
-  # max_requests_per_child: "8192"
+httpd_config:
+  mpm_mode: "event"
+  start_servers: "1"
+  min_spare_threads: "1"
+  max_spare_threads: "20"
+  threads_per_child: "5"
+  max_clients: "20"
+  max_requests_per_child: "8192"
 
 ## values used to configure Rucio
 config:
@@ -93,11 +93,11 @@ config:
     ## config.database.powuseraccount: password for user used to check the DB
     # powuserpassword: ""
 
-  # policy:
+  policy:
     ## config.permission.policy: (default "generic")
     # permission: "generic"
     ## config.permission.schema: (default "generic")
-    # schema: "generic"
+    schema: "lsst"
     ## config.permission.lfn2pfn_algorithm_default: (default "hash")
     # lfn2pfn_algorithm_default: "hash"
     ## config.permission.support: (default "https://github.com/rucio/rucio/issues/")

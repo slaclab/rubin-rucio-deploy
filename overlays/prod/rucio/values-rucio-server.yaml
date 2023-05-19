@@ -21,21 +21,21 @@ errorLogsExporterResources:
 
 # Set to true to enable SSL support for the different servers to be able accept X509 certificates and proxies.
 useSSL:
-  server: false
-  authServer: false
-  traceServer: false
+  server: true
+  authServer: true
+  traceServer: true
 
 image:
   repository: rucio/rucio-server
-  tag: release-1.24.3
+  tag: release-1.29.12
   pullPolicy: Always
 
 service:
   type: ClusterIP
-  port: 80
-  targetPort: 80
+  port: 443 
+  targetPort: 443
   protocol: TCP
-  name: http
+  name: https-rucio-server
   annotations: {}
     # loadbalancer.openstack.org/network-id: "<id>"
     # service.beta.kubernetes.io/openstack-internal-load-balancer: "true"
@@ -43,18 +43,18 @@ service:
 
 authService:
   type: ClusterIP
-  port: 80
-  targetPort: 80
+  port: 443
+  targetPort: 443
   protocol: TCP
-  name: http
+  name: https-rucio-server-auth
   annotations: {}
 
 traceService:
   type: ClusterIP
-  port: 80
-  targetPort: 80
+  port: 443
+  targetPort: 443
   protocol: TCP
-  name: http
+  name: https-rucio-server-trace
   annotations: {}
 
 strategy:
@@ -83,8 +83,8 @@ livenessProbe:
     timeoutSeconds: 5
 
 serverType:
-  server: api
-  authServer: auth
+  server: flask 
+  authServer: flask 
   traceServer: trace
 
 logFormat:
@@ -111,17 +111,6 @@ metricsExporterResources:
    cpu: 20m
    memory: 20Mi
 
-ftsRenewal:
-  enabled: 0
-  schedule: "42 */6 * * *"
-  image:
-    repository: rucio/fts-cron
-    tag: latest
-    pullPolicy: Always
-  vo: "cms"
-  voms: "cms:/cms/Role=production"
-  servers: "https://fts3-devel.cern.ch:8446,https://cmsfts3.fnal.gov:8446,https://fts3.cern.ch:8446,https://lcgfts3.gridpp.rl.ac.uk:8446,https://fts3-pilot.cern.ch:8446"
-
 automaticRestart:
   enabled: 0
   image:
@@ -130,11 +119,11 @@ automaticRestart:
     pullPolicy: IfNotPresent
   schedule: "0 0 * * *"
 
-additionalSecrets: {}
-  # gcssecret:
-  #   secretName: gcssecret
-  #   mountPath: /opt/rucio/etc/gcs_rucio.json
-  #   subPath: gcs_rucio.json
+additionalSecrets:
+  lsst-schema-file:
+    secretName: lsst-schema-file
+    mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+    subPath: lsst.py
 
 wsgi:
   daemonProcesses: "4"
@@ -143,118 +132,52 @@ wsgi:
 httpd_config:
   mpm_mode: "event"
   enable_status: "True"
-  legacy_dn: "False"
-  # keep_alive: "On"
-  # keep_alive_timeout: "5"
-  # max_keep_alive_requests: "128"
-  # server_limit: "10"
-  # start_servers: "4"
-  # thread_limit: "128"
-  # threads_per_child: "128"
-  # min_spare_threads: "256"
-  # max_spare_threads: "512"
-  # max_request_workers: "1280"
-  # max_connections_per_child: "2048"
+  legacy_dn: "True"
+  keep_alive: "On"
+  keep_alive_timeout: "5"
+  max_keep_alive_requests: "128"
+  server_limit: "10"
+  start_servers: "4"
+  thread_limit: "128"
+  threads_per_child: "128"
+  min_spare_threads: "256"
+  max_spare_threads: "512"
+  max_request_workers: "1280"
+  max_connections_per_child: "2048"
 
 ingress:
-  enabled: false
-  annotations: {}
-    # kubernetes.io/ingress.class: traefik
-    # traefik.ingress.kubernetes.io/frontend-entry-points: http
-    # traefik.ingress.kubernetes.io/redirect-entry-point: https
+  enabled: true 
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
   path: /
-  hosts: []
-  #   - my.rucio.test
-  tls:
-    - secretName: rucio-server.tls-secret
-  secrets:
-  ## If you're providing your own certificates, please use this to add the certificates as secrets
-  ## key and certificate should start with -----BEGIN CERTIFICATE----- or
-  ## -----BEGIN RSA PRIVATE KEY-----
-  ##
-  ## name should line up with a tlsSecret set further up
-  ## If you're using kube-lego, this is unneeded, as it will create the secret for you if it is not set
-  ##
-  ## It is also possible to create and manage the certificates outside of this helm chart
-  ## Please see README.md for more information
-  # - name: rucio-server.tls-secret
-  #   key: |+
-  #     -----BEGIN RSA PRIVATE KEY-----
-  #     -----END RSA PRIVATE KEY-----
-  #   certificate: |+
-  #     -----BEGIN CERTIFICATE-----
-  #     -----END CERTIFICATE-----
+  hosts:
+     - rubin-rucio.slac.stanford.edu 
 
 authIngress:
-  enabled: false
-  annotations: {}
-    # kubernetes.io/ingress.class: traefik
-    # traefik.ingress.kubernetes.io/frontend-entry-points: http
-    # traefik.ingress.kubernetes.io/redirect-entry-point: https
+  enabled: true 
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
   path: /auth
-  hosts: []
-  #   - my.rucio.test
-  # tls:
-  #   - secretName: rucio-auth.tls-secret
-  secrets:
-  ## If you're providing your own certificates, please use this to add the certificates as secrets
-  ## key and certificate should start with -----BEGIN CERTIFICATE----- or
-  ## -----BEGIN RSA PRIVATE KEY-----
-  ##
-  ## name should line up with a tlsSecret set further up
-  ## If you're using kube-lego, this is unneeded, as it will create the secret for you if it is not set
-  ##
-  ## It is also possible to create and manage the certificates outside of this helm chart
-  ## Please see README.md for more information
-  # - name: rucio-auth.tls-secret
-  #   key: |+
-  #     -----BEGIN RSA PRIVATE KEY-----
-  #     -----END RSA PRIVATE KEY-----
-  #   certificate: |+
-  #     -----BEGIN CERTIFICATE-----
-  #     -----END CERTIFICATE-----
+  hosts:
+     - rubin-rucio.slac.stanford.edu 
 
 traceIngress:
   enabled: false
-  annotations: {}
-    # kubernetes.io/ingress.class: traefik
-    # traefik.ingress.kubernetes.io/frontend-entry-points: http
-    # traefik.ingress.kubernetes.io/redirect-entry-point: https
+  annotations:
+    kubernetes.io/ingress.class: nginx
   path: /traces
   hosts: []
-  #   - my.rucio.test
-  # tls:
-  #   - secretName: rucio-auth.tls-secret
-  secrets:
-  ## If you're providing your own certificates, please use this to add the certificates as secrets
-  ## key and certificate should start with -----BEGIN CERTIFICATE----- or
-  ## -----BEGIN RSA PRIVATE KEY-----
-  ##
-  ## name should line up with a tlsSecret set further up
-  ## If you're using kube-lego, this is unneeded, as it will create the secret for you if it is not set
-  ##
-  ## It is also possible to create and manage the certificates outside of this helm chart
-  ## Please see README.md for more information
-  # - name: rucio-auth.tls-secret
-  #   key: |+
-  #     -----BEGIN RSA PRIVATE KEY-----
-  #     -----END RSA PRIVATE KEY-----
-  #   certificate: |+
-  #     -----BEGIN CERTIFICATE-----
-  #     -----END CERTIFICATE-----
 
-## values used to configure apache
-httpd_config:
-  # mpm_mode: "worker"
-  # start_servers: "1"
-  # min_spare_threads: "1"
-  # max_spare_threads: "20"
-  # threads_per_child: "5"
-  # max_clients: "20"
-  # max_requests_per_child: "8192"
 
 ## values used to configure Rucio
 config:
+  api:
+    endpoints: auth,accountlimits,accounts,config,credentials,dids,export,heartbeats,identities,import,lifetime_exceptions,locks,meta,ping,redirect,replicas,requests,rses,rules,scopes,subscriptions
+
   # common:
     ## config.common.logdir: the default directoy to write logs to (default: "/var/log/rucio")
     # logdir: "/var/log/rucio"
@@ -262,6 +185,9 @@ config:
     # loglevel: "DEBUG"
     ## config.common.mailtemplatedir: directory containing the mail templates (default: "/opt/rucio/etc/mail_templates")
     # mailtemplatedir: "/opt/rucio/etc/mail_templates"
+
+  conveyor:
+    usercert: /opt/proxy/x509
 
   # database:
     ## config.database.default: the connection string for the database (default: "sqlite:////tmp/rucio.db")
@@ -285,7 +211,9 @@ config:
     ## config.database.powuseraccount: password for user used to check the DB
     # powuserpassword: ""
 
-  # monitor:
+  monitor:
+    ## Turn on the Prometheus server for scraping of metrics (Default port 8080)
+    #enable_metrics: "True"
     ## config.monitor.carbon_server: address of carbon server used for graphite monitoring (default: "localhost")
     # carbon_server: "localhost"
     ## config.monitor.carbon_port: port of carbon server used for graphite monitoring (default: "8125")
@@ -308,11 +236,11 @@ config:
     ## config.trace.password: password for the topic (if necessary)
     # password: ""
 
-  # policy:
+  policy:
     ## config.permission.policy: (default "generic")
     # permission: "generic"
     ## config.permission.schema: (default "generic")
-    # schema: "generic"
+    schema: "lsst"
     ## config.permission.lfn2pfn_algorithm_default: (default "hash")
     # lfn2pfn_algorithm_default: "hash"
     ## config.permission.support: (default "https://github.com/rucio/rucio/issues/")
@@ -325,8 +253,22 @@ config:
     ## config.webui.usercert:  (default "/opt/rucio/etc/usercert_with_key.pem")
     # usercert: "/opt/rucio/etc/usercert_with_key.pem"
 
-serverResources: {}
-authServerResources: {}
+serverResources:
+  limits:
+    memory: "2000Mi"
+    cpu: "700m"
+  requests:
+    memory: "1200Mi"
+    cpu: "200m"
+
+authServerResources:
+  limits:
+    memory: "1200Mi"
+    cpu: "700m"
+  requests:
+    memory: "600Mi"
+    cpu: "200m"
+
 traceServerResources: {}
   # limits:
   #  cpu: 100m

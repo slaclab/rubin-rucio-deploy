@@ -1,0 +1,4 @@
+*.swp
+
+# Keep the DB password and cert/key out of the repo
+secret
