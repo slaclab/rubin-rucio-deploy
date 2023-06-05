@@ -40,6 +40,7 @@ metadata:
 type: Opaque
 data:
   enable_status: "VHJ1ZQ=="
+  encoded_slashes: "VHJ1ZQ=="
   keep_alive: "T24="
   keep_alive_timeout: "NQ=="
   legacy_dn: "VHJ1ZQ=="
@@ -215,6 +216,11 @@ spec:
                 secretKeyRef:
                   name: usdf-rucio-server.cfg
                   key: enable_status
+            - name: RUCIO_HTTPD_ENCODED_SLASHES
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: encoded_slashes
             - name: RUCIO_HTTPD_KEEP_ALIVE
               valueFrom:
                 secretKeyRef:
@@ -416,6 +422,11 @@ spec:
                 secretKeyRef:
                   name: usdf-rucio-server.cfg
                   key: enable_status
+            - name: RUCIO_HTTPD_ENCODED_SLASHES
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: encoded_slashes
             - name: RUCIO_HTTPD_KEEP_ALIVE
               valueFrom:
                 secretKeyRef:

@@ -144,6 +144,7 @@ httpd_config:
   max_spare_threads: "512"
   max_request_workers: "1280"
   max_connections_per_child: "2048"
+  encoded_slashes: "True"
 
 ingress:
   enabled: true 
@@ -211,7 +212,7 @@ config:
     ## config.database.powuseraccount: password for user used to check the DB
     # powuserpassword: ""
 
-  monitor:
+  #monitor:
     ## Turn on the Prometheus server for scraping of metrics (Default port 8080)
     #enable_metrics: "True"
     ## config.monitor.carbon_server: address of carbon server used for graphite monitoring (default: "localhost")

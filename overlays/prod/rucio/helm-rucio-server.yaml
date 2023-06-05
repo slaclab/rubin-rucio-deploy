@@ -11,7 +11,7 @@ metadata:
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJhcGkiOiB7CiAgICAiZW5kcG9pbnRzIjogImF1dGgsYWNjb3VudGxpbWl0cyxhY2NvdW50cyxjb25maWcsY3JlZGVudGlhbHMsZGlkcyxleHBvcnQsaGVhcnRiZWF0cyxpZGVudGl0aWVzLGltcG9ydCxsaWZldGltZV9leGNlcHRpb25zLGxvY2tzLG1ldGEscGluZyxyZWRpcmVjdCxyZXBsaWNhcyxyZXF1ZXN0cyxyc2VzLHJ1bGVzLHNjb3BlcyxzdWJzY3JpcHRpb25zIgogIH0sCiAgImNvbnZleW9yIjogewogICAgInVzZXJjZXJ0IjogIi9vcHQvcHJveHkveDUwOSIKICB9LAogICJtb25pdG9yIjogbnVsbCwKICAicG9saWN5IjogewogICAgInNjaGVtYSI6ICJsc3N0IgogIH0KfQ=="
+  common.json: "ewogICJhcGkiOiB7CiAgICAiZW5kcG9pbnRzIjogImF1dGgsYWNjb3VudGxpbWl0cyxhY2NvdW50cyxjb25maWcsY3JlZGVudGlhbHMsZGlkcyxleHBvcnQsaGVhcnRiZWF0cyxpZGVudGl0aWVzLGltcG9ydCxsaWZldGltZV9leGNlcHRpb25zLGxvY2tzLG1ldGEscGluZyxyZWRpcmVjdCxyZXBsaWNhcyxyZXF1ZXN0cyxyc2VzLHJ1bGVzLHNjb3BlcyxzdWJzY3JpcHRpb25zIgogIH0sCiAgImNvbnZleW9yIjogewogICAgInVzZXJjZXJ0IjogIi9vcHQvcHJveHkveDUwOSIKICB9LAogICJwb2xpY3kiOiB7CiAgICAic2NoZW1hIjogImxzc3QiCiAgfQp9"
 ---
 # Source: rucio-server/templates/secrets.yaml
 apiVersion: v1
@@ -25,7 +25,7 @@ metadata:
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJhcGkiOiB7CiAgICAiZW5kcG9pbnRzIjogImF1dGgsYWNjb3VudGxpbWl0cyxhY2NvdW50cyxjb25maWcsY3JlZGVudGlhbHMsZGlkcyxleHBvcnQsaGVhcnRiZWF0cyxpZGVudGl0aWVzLGltcG9ydCxsaWZldGltZV9leGNlcHRpb25zLGxvY2tzLG1ldGEscGluZyxyZWRpcmVjdCxyZXBsaWNhcyxyZXF1ZXN0cyxyc2VzLHJ1bGVzLHNjb3BlcyxzdWJzY3JpcHRpb25zIgogIH0sCiAgImNvbnZleW9yIjogewogICAgInVzZXJjZXJ0IjogIi9vcHQvcHJveHkveDUwOSIKICB9LAogICJtb25pdG9yIjogbnVsbCwKICAicG9saWN5IjogewogICAgInNjaGVtYSI6ICJsc3N0IgogIH0KfQ=="
+  common.json: "ewogICJhcGkiOiB7CiAgICAiZW5kcG9pbnRzIjogImF1dGgsYWNjb3VudGxpbWl0cyxhY2NvdW50cyxjb25maWcsY3JlZGVudGlhbHMsZGlkcyxleHBvcnQsaGVhcnRiZWF0cyxpZGVudGl0aWVzLGltcG9ydCxsaWZldGltZV9leGNlcHRpb25zLGxvY2tzLG1ldGEscGluZyxyZWRpcmVjdCxyZXBsaWNhcyxyZXF1ZXN0cyxyc2VzLHJ1bGVzLHNjb3BlcyxzdWJzY3JpcHRpb25zIgogIH0sCiAgImNvbnZleW9yIjogewogICAgInVzZXJjZXJ0IjogIi9vcHQvcHJveHkveDUwOSIKICB9LAogICJwb2xpY3kiOiB7CiAgICAic2NoZW1hIjogImxzc3QiCiAgfQp9"
 ---
 # Source: rucio-server/templates/secrets.yaml
 apiVersion: v1
@@ -40,6 +40,7 @@ metadata:
 type: Opaque
 data:
   enable_status: "VHJ1ZQ=="
+  encoded_slashes: "VHJ1ZQ=="
   keep_alive: "T24="
   keep_alive_timeout: "NQ=="
   legacy_dn: "VHJ1ZQ=="
@@ -124,7 +125,7 @@ spec:
         app: rucio-server-auth
         release: usdf
       annotations:
-        checksum/config: 348084240c211e8024b68257b2bb163d8bf0a9dc
+        checksum/config: 3c74d911feeaf2e95bfa450c453715b8018f50ea
     spec:
       volumes:
       - name: config
@@ -215,6 +216,11 @@ spec:
                 secretKeyRef:
                   name: usdf-rucio-server.cfg
                   key: enable_status
+            - name: RUCIO_HTTPD_ENCODED_SLASHES
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: encoded_slashes
             - name: RUCIO_HTTPD_KEEP_ALIVE
               valueFrom:
                 secretKeyRef:
@@ -325,7 +331,7 @@ spec:
         app: rucio-server
         release: usdf
       annotations:
-        checksum/config: 348084240c211e8024b68257b2bb163d8bf0a9dc
+        checksum/config: 3c74d911feeaf2e95bfa450c453715b8018f50ea
     spec:
       volumes:
       - name: config
@@ -416,6 +422,11 @@ spec:
                 secretKeyRef:
                   name: usdf-rucio-server.cfg
                   key: enable_status
+            - name: RUCIO_HTTPD_ENCODED_SLASHES
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: encoded_slashes
             - name: RUCIO_HTTPD_KEEP_ALIVE
               valueFrom:
                 secretKeyRef:
