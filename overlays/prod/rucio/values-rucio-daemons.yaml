@@ -122,7 +122,7 @@ conveyorTransferSubmitter:
   threads: 1
   podAnnotations: {}
   groupBulk: 100
-  activities: "'User Subscriptions'"
+  activities: "'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
   sleepTime: 60
   archiveTimeout: ""
   resources:
