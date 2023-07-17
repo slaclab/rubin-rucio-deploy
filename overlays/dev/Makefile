@@ -38,6 +38,7 @@ get-secrets:
 	vault kv get --field=client-id secret/rubin/usdf-rucio-dev/s3  > postgres/etc/.secrets/client-id
 	vault kv get --field=username secret/rubin/usdf-rucio-dev/database  > postgres/etc/.secrets/username
 	vault kv get --field=password secret/rubin/usdf-rucio-dev/database  > postgres/etc/.secrets/password
+	vault kv get --field=redis secret/rubin/usdf-rucio-dev/data-backbone > data-backbone/etc/.secrets/redis
 
 clean-secrets:
 	rm -rf rucio/etc/.secrets postgres/etc/.secrets

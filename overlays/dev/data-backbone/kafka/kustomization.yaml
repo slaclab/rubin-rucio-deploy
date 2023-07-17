@@ -1,0 +1,5 @@
+namespace: usdf-kafka
+
+resources:
+  - ns.yaml
+  - kafka-persistent.yaml 
