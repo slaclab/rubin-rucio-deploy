@@ -6,7 +6,7 @@
 abacusAccountCount: 1
 abacusCollectionReplicaCount: 1
 abacusRseCount: 1
-automatixCount: 0
+automatixCount: 1
 cacheConsumerCount: 0
 conveyorTransferSubmitterCount: 1 
 conveyorPollerCount: 1
@@ -32,8 +32,10 @@ minosTemporaryExpirationCount: 0
 necromancerCount: 1
 
 image:
-  repository: rucio/rucio-daemons
-  tag: release-1.29.12
+  ##repository: rucio/rucio-daemons
+  ##tag: release-1.29.12
+  repository: yuyiguo/rucio-daemons
+  tag: release-1.29.12.yuyi-ca-sleep3
   pullPolicy: Always
 
 strategy:
@@ -96,16 +98,17 @@ abacusRse:
       cpu: "700m"
 
 automatix:
+  sleep_time: 40
   threads: 1
-  sleepTime: 30
+  inputFile: "/opt/rucio/etc/automatix.json"
   podAnnotations: {}
   resources:
     limits:
-      memory: "600Mi"
+      memory: "1200Mi"
       cpu: "700m"
     requests:
-      memory: "400Mi"
-      cpu: "100m"
+      memory: "1200Mi"
+      cpu: "700m"
 
 cacheConsumer:
   threads: 1
@@ -389,10 +392,25 @@ additionalSecrets:
     secretName: lsst-schema-file
     mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
     subPath: lsst.py
+  rucio-automatix-input-file:
+    secretName: rucio-automatix-input-file
+    mountPath: /opt/rucio/etc/automatix.json
+    subPath: automatix.json
 
 ## common config values used to configure the Rucio daemons
 config:
-  # accounts:
+  client:
+    rucio_host: "https://rubin-rucio-dev.slac.stanford.edu:8443"
+    auth_host: "https://rubin-rucio-dev.slac.stanford.edu:8443"
+    auth_type: "x509_proxy"
+    account: "test"
+    vo: "lsst"
+    client_x509_proxy: "/opt/proxy/x509up"
+    #ca_cert: "/etc/grid-security/certificates"
+    #ca_cert: "/opt/certs"
+    ca_cert:  "/etc/grid-security2/certificate-550.tar.gz/certificates"
+    protocol_stat_retries: 6
+    request_retries: 6
     # special_accounts: "panda, tier0"
 
   # common:
@@ -447,11 +465,18 @@ config:
     ## config.permission.support_rucio: (default "https://github.com/rucio/rucio/issues/")
     # support_rucio: "https://github.com/rucio/rucio/issues/"
 
-  # automatix:
-    # sites: ""
-    # sleep_time: ""
-    # database_lifetime: ""
-    # set_metadata: ""
+  automatix:
+    rses: "RAL_ECHO_TESTDISK, SLAC_TESTDISK"
+    sleep_time: 30
+    dataset_lifetime: 14
+    set_metadata: "True"
+    account: "test"
+    scope: "user.test"
+    did_prefix: "automatix"
+    separator: "-"
+    file_pattern: "did_prefix-date-uuid-dsn"
+    dataset_pattern: "did_prefix-date-uuid"
+    
 
   conveyor:
     scheme: "srm,gsiftp,root,http,https"
@@ -510,8 +535,8 @@ config:
     # password: ""
     # dataset_wait: 60
 
-  # transmogrifier:
-    # maxdids: 40000
+  transmogrifier:
+    maxdids: 40000
 
   # messaging-cache:
     # port: "61123"

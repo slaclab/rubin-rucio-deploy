@@ -234,11 +234,11 @@ kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: usdf-rucio-edit
-  namespace: default
+  namespace: rucio-db
 subjects:
 - kind: ServiceAccount
   name: usdf-rucio-edit
-  namespace: default
+  namespace: rucio-db
 roleRef:
   kind: ClusterRole
   name: edit
@@ -1389,7 +1389,7 @@ spec:
             - name: RUCIO_DAEMON
               value: "transmogrifier"
             - name: RUCIO_DAEMON_ARGS
-              value: " --threads 1"
+              value: " --threads 1 --bulk 1"
           resources:
             limits:
               cpu: 700m
