@@ -2,15 +2,8 @@ images:
 - name: docker.io/redis
   newTag: "7.0.8"
 
-namespace: usdf-kafka
-
 resources:
 - strimzi/clusterRoleBinding
 - strimzi/operator
 - redis
 - kafka
-
-secretGenerator:
-- name: redis
-  files:
-  - redis-password=etc/.secrets/redis
