@@ -10,8 +10,6 @@ resources:
 patchesStrategicMerge:
 - rucio-env-patch.yaml
 - grid-certificates-patch.yaml
-#- patches-rucio-ui.yaml
-
 
 secretGenerator:
 # rucio
@@ -51,6 +49,13 @@ secretGenerator:
 - name: usdf-rucio-ca-bundle
   files:
   - ca.pem=etc/.secrets/ca.pem
+  options:
+    disableNameSuffixHash: true
+- name: usdf-rucio-ca-bundle-reaper
+  files:
+  - ca.pem=etc/.secrets/ca.pem
+  options:
+    disableNameSuffixHash: true
 # ingress
 - name: rucio-server.tls-secret
   files:
@@ -77,5 +82,11 @@ secretGenerator:
 - name: usdf-lsst-schema-file
   files:
   - lsst.py=etc/lsst.py
+  options:
+    disableNameSuffixHash: true
+# automatix input
+- name: usdf-rucio-automatix-input-file
+  files:
+  - automatix.json=etc/.secrets/automatix.json
   options:
     disableNameSuffixHash: true

@@ -314,6 +314,7 @@ reaper:
 
 transmogrifier:
   threads: 1
+  bulk: 1
   podAnnotations: {}
   resources:
     limits:
