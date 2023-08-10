@@ -32,10 +32,10 @@ minosTemporaryExpirationCount: 0
 necromancerCount: 1
 
 image:
-  ##repository: rucio/rucio-daemons
-  ##tag: release-1.29.12
-  repository: yuyiguo/rucio-daemons
-  tag: release-1.29.12.yuyi-ca-sleep3
+  #repository: rucio/rucio-daemons
+  #tag: release-1.29.12
+  repository: bjwhitefnal/rucio-daemons
+  tag: latest
   pullPolicy: Always
 
 strategy:
@@ -406,9 +406,7 @@ config:
     account: "test"
     vo: "lsst"
     client_x509_proxy: "/opt/proxy/x509up"
-    #ca_cert: "/etc/grid-security/certificates"
-    #ca_cert: "/opt/certs"
-    ca_cert:  "/etc/grid-security2/certificate-550.tar.gz/certificates"
+    ca_cert: "/opt/certs"
     protocol_stat_retries: 6
     request_retries: 6
     # special_accounts: "panda, tier0"
