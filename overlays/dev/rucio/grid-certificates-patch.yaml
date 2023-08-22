@@ -8,11 +8,7 @@ spec:
       initContainers:
       - name: grid-certs
         image: docker.io/bjwhitefnal/grid-security-files:latest
-        command:
-        - cp
-        - -rL
-        - /grid-certificates/.
-        - /out/
+        command: ["/bin/bash", "-c", "chmod 755 /out/ && cp -rL /grid-certificates/* /out/"]
         volumeMounts:
         - name: ca-volume
           mountPath: /out/
@@ -33,11 +29,7 @@ spec:
       initContainers:
       - name: grid-certs
         image: docker.io/bjwhitefnal/grid-security-files:latest
-        command:
-        - cp
-        - -rL
-        - /grid-certificates/.
-        - /out/
+        command: ["/bin/bash", "-c", "chmod 755 /out/ && cp -rL /grid-certificates/* /out/"]
         volumeMounts:
         - name: ca-volume
           mountPath: /out/
