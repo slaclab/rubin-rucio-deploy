@@ -1,0 +1,10 @@
+namespace: redis
+
+resources:
+  - ns.yaml
+  - redis-deploy.yaml
+
+secretGenerator:
+  - name: redis
+    files:
+      - redis-password=etc/.secrets/redis-secret
