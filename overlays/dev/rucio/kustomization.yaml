@@ -34,12 +34,6 @@ secretGenerator:
 - name: usdf-auth-cafile
   files:
   - ca.pem=etc/.secrets/ca.pem
-- name: usdf-rucio-fts-cert
-  files:
-  - usercert.pem=etc/.secrets/hostcert.pem
-- name: usdf-rucio-fts-key
-  files:
-  - new_userkey.pem=etc/.secrets/hostkey.pem
 - name: usdf-rucio-x509up
   files:
   - hostcert.pem=etc/.secrets/hostcert.pem
