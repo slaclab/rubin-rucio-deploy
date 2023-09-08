@@ -1,0 +1,14 @@
+# This patches the hermes2 Deployment containers to utilize the 
+# image built for a Rubin custom Hermes daemon with Kafka support
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usdf-hermes2
+spec:
+  template:
+    spec:
+      containers:
+        - name: rucio-daemons
+          image: "docker.io/srp3/rucio-daemons-hermesk:1.0"
+ 

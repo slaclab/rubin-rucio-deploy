@@ -1,3 +1,9 @@
+# Add needed environment variables to Deployment containers.
+# This is the mechanism by which the Database password is
+# both protected and distributed to the Rucio daemon containers
+# Environment variables which derive their values from a Kubernetes
+# Secret are patched into the Kubernetes resource configurations.
+
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -291,6 +297,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: usdf-abacus-account
+spec:
+  template:
+    spec:
+      containers:
+      - name: rucio-daemons
+        env:
+        - name: RUCIO_CFG_DATABASE_DEFAULT
+          valueFrom:
+            secretKeyRef:
+              name: usdf-db-conn-str
+              key: db-conn-str.txt
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usdf-hermes2
 spec:
   template:
     spec:
