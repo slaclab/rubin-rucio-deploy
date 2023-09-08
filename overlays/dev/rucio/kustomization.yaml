@@ -10,6 +10,7 @@ resources:
 patchesStrategicMerge:
 - rucio-env-patch.yaml
 - grid-certificates-patch.yaml
+- hermesk-image-patch.yaml
 
 secretGenerator:
 # rucio
@@ -82,5 +83,10 @@ secretGenerator:
 - name: usdf-rucio-automatix-input-file
   files:
   - automatix.json=etc/.secrets/automatix.json
+  options:
+    disableNameSuffixHash: true
+- name: usdf-hermeskafka-constants
+  files:
+  - constants.py=etc/constants.py
   options:
     disableNameSuffixHash: true
