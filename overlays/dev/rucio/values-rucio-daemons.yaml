@@ -396,6 +396,10 @@ additionalSecrets:
     secretName: rucio-automatix-input-file
     mountPath: /opt/rucio/etc/automatix.json
     subPath: automatix.json
+  hermeskafka-constants:
+    secretName: hermeskafka-constants
+    mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+    subPath: constants.py
 
 ## common config values used to configure the Rucio daemons
 config:
