@@ -408,7 +408,7 @@ config:
     auth_host: "https://rubin-rucio-dev.slac.stanford.edu:8443"
     auth_type: "x509_proxy"
     account: "test"
-    vo: "lsst"
+    #vo: "lsst"
     client_x509_proxy: "/opt/proxy/x509up"
     ca_cert: "/opt/certs"
     protocol_stat_retries: 6
@@ -468,7 +468,7 @@ config:
     # support_rucio: "https://github.com/rucio/rucio/issues/"
 
   automatix:
-    rses: "RAL_ECHO_TESTDISK, SLAC_TESTDISK"
+    rses: "RAL_ECHO_TEST_DISK, SLAC_TEST_DISK"
     sleep_time: 30
     dataset_lifetime: 14
     set_metadata: "True"
