@@ -408,7 +408,6 @@ config:
     auth_host: "https://rubin-rucio-dev.slac.stanford.edu:8443"
     auth_type: "x509_proxy"
     account: "test"
-    #vo: "lsst"
     client_x509_proxy: "/opt/proxy/x509up"
     ca_cert: "/opt/certs"
     protocol_stat_retries: 6
