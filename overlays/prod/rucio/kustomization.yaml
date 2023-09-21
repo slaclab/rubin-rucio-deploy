@@ -1,6 +1,4 @@
 
-namespace: rucio
-
 resources:
 - ns.yaml
 - helm-rucio-server.yaml

@@ -7,13 +7,13 @@ helm:
 	helm repo update
 
 rucio-server: helm
-	helm template usdf rucio/rucio-server --version=${SERVER_CHART_VERSION} --values=rucio/values-rucio-server.yaml > rucio/helm-rucio-server.yaml
+	helm template usdf rucio/rucio-server -n rucio --version=${SERVER_CHART_VERSION} --values=rucio/values-rucio-server.yaml > rucio/helm-rucio-server.yaml
 
 rucio-daemons: helm
-	helm template usdf rucio/rucio-daemons --version=${DAEMON_CHART_VERSION} --values=rucio/values-rucio-daemons.yaml > rucio/helm-rucio-daemons.yaml
+	helm template usdf rucio/rucio-daemons -n rucio --version=${DAEMON_CHART_VERSION} --values=rucio/values-rucio-daemons.yaml > rucio/helm-rucio-daemons.yaml
 
 rucio-ui: helm
-	helm template usdf rucio/rucio-ui --version=${UI_CHART_VERSION} --values=rucio/values-rucio-ui.yaml > rucio/helm-rucio-ui.yaml
+	helm template usdf rucio/rucio-ui -n rucio --version=${UI_CHART_VERSION} --values=rucio/values-rucio-ui.yaml > rucio/helm-rucio-ui.yaml
 
 rucio: rucio-server rucio-daemons rucio-ui
 
