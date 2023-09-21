@@ -7,7 +7,7 @@ spec:
     spec:
       initContainers:
       - name: grid-certs
-        image: slaclab/grid-security-files:latest
+        image: docker.io/bjwhitefnal/grid-security-files:32
         command: ["/bin/bash", "-c", "chmod 755 /out/ && cp -rv --preserve=links /grid-certificates/* /out/"]
         volumeMounts:
         - name: ca-volume
