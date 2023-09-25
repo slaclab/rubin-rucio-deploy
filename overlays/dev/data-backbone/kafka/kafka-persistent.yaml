@@ -58,5 +58,5 @@ spec:
       deleteClaim: false
   entityOperator:
     topicOperator: 
-      watchedNamespace: rucio
+      watchedNamespace: usdf-kafka
     userOperator: {}
