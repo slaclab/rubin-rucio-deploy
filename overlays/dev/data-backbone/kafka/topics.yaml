@@ -1,0 +1,12 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: slac-test-disk
+  labels:
+    strimzi.io/cluster: rucio-kafka
+spec:
+  partitions: 3
+  replicas: 2
+  config:
+    retention.ms: 7200000
+    segment.bytes: 1073741824

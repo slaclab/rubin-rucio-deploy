@@ -46,12 +46,14 @@ spec:
       volumes:
       - id: 0
         type: persistent-claim
+        class: wekafs--sdf-k8s01
         size: 1Gi
         deleteClaim: false
   zookeeper:
     replicas: 3
     storage:
       type: persistent-claim
+      class: wekafs--sdf-k8s01
       size: 1Gi
       deleteClaim: false
   entityOperator:
