@@ -5,6 +5,35 @@ metadata:
   labels:
     strimzi.io/cluster: rucio-kafka
 spec:
+  topicName: SLAC_TEST_DISK
+  partitions: 3
+  replicas: 2
+  config:
+    retention.ms: 7200000
+    segment.bytes: 1073741824
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: butler-frdf-test
+  labels:
+    strimzi.io/cluster: rucio-kafka
+spec:
+  topicName: BUTLER_FRDF_TEST
+  partitions: 3
+  replicas: 2
+  config:
+    retention.ms: 7200000
+    segment.bytes: 1073741824
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: butler-ukdf-test
+  labels:
+    strimzi.io/cluster: rucio-kafka
+spec:
+  topicName: BUTLER_UKDF_TEST
   partitions: 3
   replicas: 2
   config:
