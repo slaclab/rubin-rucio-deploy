@@ -33,7 +33,7 @@ get-secrets:
 	vault kv get --field=usdf-server-hostcert secret/rubin/usdf-rucio-dev/rucio  > rucio/etc/.secrets/hostcert.pem
 	vault kv get --field=usdf-server-cafile secret/rubin/usdf-rucio-dev/rucio  > rucio/etc/.secrets/ca.pem
 	vault kv get --field=usdf-db-conn-str secret/rubin/usdf-rucio-dev/rucio  > rucio/etc/.secrets/db-conn-str.txt
-	curl https://raw.githubusercontent.com/rucio/rucio/master/etc/automatix.json > rucio/etc/.secrets/automatix.json
+	curl https://raw.githubusercontent.com/yuyiguo/rucio/automatix-config/etc/automatix.json > rucio/etc/.secrets/automatix.json
 	mkdir -p postgres/etc/.secrets
 	vault kv get --field=client-secret secret/rubin/usdf-rucio-dev/s3  > postgres/etc/.secrets/client-secret
 	vault kv get --field=client-id secret/rubin/usdf-rucio-dev/s3  > postgres/etc/.secrets/client-id
