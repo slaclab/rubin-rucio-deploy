@@ -9,7 +9,7 @@ spec:
   partitions: 3
   replicas: 2
   config:
-    retention.ms: 7200000
+    retention.ms: 604800000
     segment.bytes: 1073741824
 ---
 apiVersion: kafka.strimzi.io/v1beta2
@@ -23,7 +23,7 @@ spec:
   partitions: 3
   replicas: 2
   config:
-    retention.ms: 7200000
+    retention.ms: 604800000
     segment.bytes: 1073741824
 ---
 apiVersion: kafka.strimzi.io/v1beta2
@@ -37,5 +37,5 @@ spec:
   partitions: 3
   replicas: 2
   config:
-    retention.ms: 7200000
+    retention.ms: 604800000
     segment.bytes: 1073741824
