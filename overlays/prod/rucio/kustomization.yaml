@@ -1,3 +1,4 @@
+namespace: rucio
 
 resources:
 - ns.yaml

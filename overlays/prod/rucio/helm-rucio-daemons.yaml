@@ -1473,7 +1473,7 @@ spec:
             - name: RUCIO_DAEMON
               value: "transmogrifier"
             - name: RUCIO_DAEMON_ARGS
-              value: " --threads 1 --bulk 1"
+              value: " --threads 1"
           resources:
             limits:
               cpu: 700m
