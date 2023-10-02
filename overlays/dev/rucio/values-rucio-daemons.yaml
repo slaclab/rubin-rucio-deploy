@@ -467,16 +467,16 @@ config:
     # support_rucio: "https://github.com/rucio/rucio/issues/"
 
   automatix:
-    rses: "RAL_ECHO_TEST_DISK, SLAC_TEST_DISK"
+    rses: "RAL_TEST_DISK"
     sleep_time: 30
-    dataset_lifetime: 14
+    dataset_lifetime: 36000
     set_metadata: "True"
     account: "test"
     scope: "user.test"
     did_prefix: "automatix"
-    separator: "-"
-    file_pattern: "did_prefix-date-uuid-dsn"
-    dataset_pattern: "did_prefix-date-uuid"
+    separator: "/"
+    file_pattern: "dsn/uuid"
+    dataset_pattern: "did_prefix/date/uuid"
     
 
   conveyor:
