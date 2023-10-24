@@ -306,6 +306,15 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
+      - name: lsst-schema-file
+        secret:
+          secretName: usdf-lsst-schema-file
+      - name: rucio-automatix-input-file
+        secret:
+          secretName: usdf-rucio-automatix-input-file
+      - name: hermeskafka-constants
+        secret:
+          secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.5.0"
@@ -321,6 +330,15 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
+            - name: rucio-automatix-input-file
+              mountPath: /opt/rucio/etc/automatix.json
+              subPath: "automatix.json"
+            - name: hermeskafka-constants
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              subPath: "constants.py"
           ports:
             - name: metrics
               containerPort: 8080
@@ -332,6 +350,11 @@ spec:
               value: "abacus-account"
             - name: RUCIO_DAEMON_ARGS
               value: "--threads 1"
+            - name: RUCIO_CFG_DATABASE_DEFAULT
+              valueFrom:
+                secretKeyRef:
+                  key: db-conn-str.txt
+                  name: usdf-db-conn-str
           resources:
             limits:
               cpu: 700m
@@ -388,6 +411,15 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
+      - name: lsst-schema-file
+        secret:
+          secretName: usdf-lsst-schema-file
+      - name: rucio-automatix-input-file
+        secret:
+          secretName: usdf-rucio-automatix-input-file
+      - name: hermeskafka-constants
+        secret:
+          secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.5.0"
@@ -403,6 +435,15 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
+            - name: rucio-automatix-input-file
+              mountPath: /opt/rucio/etc/automatix.json
+              subPath: "automatix.json"
+            - name: hermeskafka-constants
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              subPath: "constants.py"
           ports:
             - name: metrics
               containerPort: 8080
@@ -414,6 +455,11 @@ spec:
               value: "abacus-collection-replica"
             - name: RUCIO_DAEMON_ARGS
               value: "--threads 1"
+            - name: RUCIO_CFG_DATABASE_DEFAULT
+              valueFrom:
+                secretKeyRef:
+                  key: db-conn-str.txt
+                  name: usdf-db-conn-str
           resources:
             limits:
               cpu: 700m
@@ -470,6 +516,15 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
+      - name: lsst-schema-file
+        secret:
+          secretName: usdf-lsst-schema-file
+      - name: rucio-automatix-input-file
+        secret:
+          secretName: usdf-rucio-automatix-input-file
+      - name: hermeskafka-constants
+        secret:
+          secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.5.0"
@@ -485,6 +540,15 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
+            - name: rucio-automatix-input-file
+              mountPath: /opt/rucio/etc/automatix.json
+              subPath: "automatix.json"
+            - name: hermeskafka-constants
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              subPath: "constants.py"
           ports:
             - name: metrics
               containerPort: 8080
@@ -496,6 +560,11 @@ spec:
               value: "abacus-rse"
             - name: RUCIO_DAEMON_ARGS
               value: "--threads 1"
+            - name: RUCIO_CFG_DATABASE_DEFAULT
+              valueFrom:
+                secretKeyRef:
+                  key: db-conn-str.txt
+                  name: usdf-db-conn-str
           resources:
             limits:
               cpu: 700m
@@ -555,6 +624,15 @@ spec:
       - name: ca-volume-reaper
         secret:
           secretName: usdf-rucio-ca-bundle-reaper
+      - name: lsst-schema-file
+        secret:
+          secretName: usdf-lsst-schema-file
+      - name: rucio-automatix-input-file
+        secret:
+          secretName: usdf-rucio-automatix-input-file
+      - name: hermeskafka-constants
+        secret:
+          secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.5.0"
@@ -572,6 +650,15 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
+            - name: rucio-automatix-input-file
+              mountPath: /opt/rucio/etc/automatix.json
+              subPath: "automatix.json"
+            - name: hermeskafka-constants
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              subPath: "constants.py"
           ports:
             - name: metrics
               containerPort: 8080
@@ -585,6 +672,11 @@ spec:
               value: " --threads-per-process 1 --input-file /opt/rucio/etc/automatix.json --sleep-time 30"
             - name: X509_USER_PROXY
               value: "/opt/proxy/x509up"
+            - name: RUCIO_CFG_DATABASE_DEFAULT
+              valueFrom:
+                secretKeyRef:
+                  key: db-conn-str.txt
+                  name: usdf-db-conn-str
           resources:
             limits:
               cpu: 700m
@@ -641,6 +733,15 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
+      - name: lsst-schema-file
+        secret:
+          secretName: usdf-lsst-schema-file
+      - name: rucio-automatix-input-file
+        secret:
+          secretName: usdf-rucio-automatix-input-file
+      - name: hermeskafka-constants
+        secret:
+          secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.5.0"
@@ -656,6 +757,15 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
+            - name: rucio-automatix-input-file
+              mountPath: /opt/rucio/etc/automatix.json
+              subPath: "automatix.json"
+            - name: hermeskafka-constants
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              subPath: "constants.py"
           ports:
             - name: metrics
               containerPort: 8080
@@ -667,6 +777,11 @@ spec:
               value: "conveyor-finisher"
             - name: RUCIO_DAEMON_ARGS
               value: " --total-threads 1 --activities 'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
+            - name: RUCIO_CFG_DATABASE_DEFAULT
+              valueFrom:
+                secretKeyRef:
+                  key: db-conn-str.txt
+                  name: usdf-db-conn-str
           resources:
             limits:
               cpu: 700m
@@ -723,6 +838,15 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
+      - name: lsst-schema-file
+        secret:
+          secretName: usdf-lsst-schema-file
+      - name: rucio-automatix-input-file
+        secret:
+          secretName: usdf-rucio-automatix-input-file
+      - name: hermeskafka-constants
+        secret:
+          secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.5.0"
@@ -738,6 +862,15 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
+            - name: rucio-automatix-input-file
+              mountPath: /opt/rucio/etc/automatix.json
+              subPath: "automatix.json"
+            - name: hermeskafka-constants
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              subPath: "constants.py"
           ports:
             - name: metrics
               containerPort: 8080
@@ -749,6 +882,11 @@ spec:
               value: "conveyor-poller"
             - name: RUCIO_DAEMON_ARGS
               value: " --total-threads 1  --activities 'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
+            - name: RUCIO_CFG_DATABASE_DEFAULT
+              valueFrom:
+                secretKeyRef:
+                  key: db-conn-str.txt
+                  name: usdf-db-conn-str
           resources:
             limits:
               cpu: 700m
@@ -805,6 +943,15 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
+      - name: lsst-schema-file
+        secret:
+          secretName: usdf-lsst-schema-file
+      - name: rucio-automatix-input-file
+        secret:
+          secretName: usdf-rucio-automatix-input-file
+      - name: hermeskafka-constants
+        secret:
+          secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.5.0"
@@ -820,6 +967,15 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
+            - name: rucio-automatix-input-file
+              mountPath: /opt/rucio/etc/automatix.json
+              subPath: "automatix.json"
+            - name: hermeskafka-constants
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              subPath: "constants.py"
           ports:
             - name: metrics
               containerPort: 8080
@@ -831,6 +987,11 @@ spec:
               value: "conveyor-submitter"
             - name: RUCIO_DAEMON_ARGS
               value: " --total-threads 1 --sleep-time 10 --activities 'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
+            - name: RUCIO_CFG_DATABASE_DEFAULT
+              valueFrom:
+                secretKeyRef:
+                  key: db-conn-str.txt
+                  name: usdf-db-conn-str
           resources:
             limits:
               cpu: 700m
@@ -887,6 +1048,15 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
+      - name: lsst-schema-file
+        secret:
+          secretName: usdf-lsst-schema-file
+      - name: rucio-automatix-input-file
+        secret:
+          secretName: usdf-rucio-automatix-input-file
+      - name: hermeskafka-constants
+        secret:
+          secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.5.0"
@@ -902,6 +1072,15 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
+            - name: rucio-automatix-input-file
+              mountPath: /opt/rucio/etc/automatix.json
+              subPath: "automatix.json"
+            - name: hermeskafka-constants
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              subPath: "constants.py"
           ports:
             - name: metrics
               containerPort: 8080
@@ -913,6 +1092,11 @@ spec:
               value: "judge-cleaner"
             - name: RUCIO_DAEMON_ARGS
               value: "--threads 1"
+            - name: RUCIO_CFG_DATABASE_DEFAULT
+              valueFrom:
+                secretKeyRef:
+                  key: db-conn-str.txt
+                  name: usdf-db-conn-str
           resources:
             limits:
               cpu: 700m
@@ -969,6 +1153,15 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
+      - name: lsst-schema-file
+        secret:
+          secretName: usdf-lsst-schema-file
+      - name: rucio-automatix-input-file
+        secret:
+          secretName: usdf-rucio-automatix-input-file
+      - name: hermeskafka-constants
+        secret:
+          secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.5.0"
@@ -984,6 +1177,15 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
+            - name: rucio-automatix-input-file
+              mountPath: /opt/rucio/etc/automatix.json
+              subPath: "automatix.json"
+            - name: hermeskafka-constants
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              subPath: "constants.py"
           ports:
             - name: metrics
               containerPort: 8080
@@ -995,6 +1197,11 @@ spec:
               value: "judge-evaluator"
             - name: RUCIO_DAEMON_ARGS
               value: "--threads 1"
+            - name: RUCIO_CFG_DATABASE_DEFAULT
+              valueFrom:
+                secretKeyRef:
+                  key: db-conn-str.txt
+                  name: usdf-db-conn-str
           resources:
             limits:
               cpu: 700m
@@ -1051,6 +1258,15 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
+      - name: lsst-schema-file
+        secret:
+          secretName: usdf-lsst-schema-file
+      - name: rucio-automatix-input-file
+        secret:
+          secretName: usdf-rucio-automatix-input-file
+      - name: hermeskafka-constants
+        secret:
+          secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.5.0"
@@ -1066,6 +1282,15 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
+            - name: rucio-automatix-input-file
+              mountPath: /opt/rucio/etc/automatix.json
+              subPath: "automatix.json"
+            - name: hermeskafka-constants
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              subPath: "constants.py"
           ports:
             - name: metrics
               containerPort: 8080
@@ -1077,6 +1302,11 @@ spec:
               value: "judge-injector"
             - name: RUCIO_DAEMON_ARGS
               value: "--threads 1"
+            - name: RUCIO_CFG_DATABASE_DEFAULT
+              valueFrom:
+                secretKeyRef:
+                  key: db-conn-str.txt
+                  name: usdf-db-conn-str
           resources:
             limits:
               cpu: 700m
@@ -1133,6 +1363,15 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
+      - name: lsst-schema-file
+        secret:
+          secretName: usdf-lsst-schema-file
+      - name: rucio-automatix-input-file
+        secret:
+          secretName: usdf-rucio-automatix-input-file
+      - name: hermeskafka-constants
+        secret:
+          secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.5.0"
@@ -1148,6 +1387,15 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
+            - name: rucio-automatix-input-file
+              mountPath: /opt/rucio/etc/automatix.json
+              subPath: "automatix.json"
+            - name: hermeskafka-constants
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              subPath: "constants.py"
           ports:
             - name: metrics
               containerPort: 8080
@@ -1159,6 +1407,11 @@ spec:
               value: "judge-repairer"
             - name: RUCIO_DAEMON_ARGS
               value: "--threads 1"
+            - name: RUCIO_CFG_DATABASE_DEFAULT
+              valueFrom:
+                secretKeyRef:
+                  key: db-conn-str.txt
+                  name: usdf-db-conn-str
           resources:
             limits:
               cpu: 700m
@@ -1215,6 +1468,15 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
+      - name: lsst-schema-file
+        secret:
+          secretName: usdf-lsst-schema-file
+      - name: rucio-automatix-input-file
+        secret:
+          secretName: usdf-rucio-automatix-input-file
+      - name: hermeskafka-constants
+        secret:
+          secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.5.0"
@@ -1230,6 +1492,15 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
+            - name: rucio-automatix-input-file
+              mountPath: /opt/rucio/etc/automatix.json
+              subPath: "automatix.json"
+            - name: hermeskafka-constants
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              subPath: "constants.py"
           ports:
             - name: metrics
               containerPort: 8080
@@ -1241,6 +1512,11 @@ spec:
               value: "minos"
             - name: RUCIO_DAEMON_ARGS
               value: " --threads 1"
+            - name: RUCIO_CFG_DATABASE_DEFAULT
+              valueFrom:
+                secretKeyRef:
+                  key: db-conn-str.txt
+                  name: usdf-db-conn-str
           resources:
             limits:
               cpu: 700m
@@ -1297,6 +1573,15 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
+      - name: lsst-schema-file
+        secret:
+          secretName: usdf-lsst-schema-file
+      - name: rucio-automatix-input-file
+        secret:
+          secretName: usdf-rucio-automatix-input-file
+      - name: hermeskafka-constants
+        secret:
+          secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.5.0"
@@ -1312,6 +1597,15 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
+            - name: rucio-automatix-input-file
+              mountPath: /opt/rucio/etc/automatix.json
+              subPath: "automatix.json"
+            - name: hermeskafka-constants
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              subPath: "constants.py"
           ports:
             - name: metrics
               containerPort: 8080
@@ -1323,6 +1617,11 @@ spec:
               value: "necromancer"
             - name: RUCIO_DAEMON_ARGS
               value: ""
+            - name: RUCIO_CFG_DATABASE_DEFAULT
+              valueFrom:
+                secretKeyRef:
+                  key: db-conn-str.txt
+                  name: usdf-db-conn-str
           resources:
             limits:
               cpu: 700m
@@ -1379,6 +1678,15 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle-reaper
+      - name: lsst-schema-file
+        secret:
+          secretName: usdf-lsst-schema-file
+      - name: rucio-automatix-input-file
+        secret:
+          secretName: usdf-rucio-automatix-input-file
+      - name: hermeskafka-constants
+        secret:
+          secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.5.0"
@@ -1394,6 +1702,15 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
+            - name: rucio-automatix-input-file
+              mountPath: /opt/rucio/etc/automatix.json
+              subPath: "automatix.json"
+            - name: hermeskafka-constants
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              subPath: "constants.py"
           ports:
             - name: metrics
               containerPort: 8080
@@ -1411,6 +1728,11 @@ spec:
               value: "/opt/rucio/reaper"
             - name: X509_USER_PROXY
               value: "/opt/proxy/x509up"
+            - name: RUCIO_CFG_DATABASE_DEFAULT
+              valueFrom:
+                secretKeyRef:
+                  key: db-conn-str.txt
+                  name: usdf-db-conn-str
           resources:
             limits:
               cpu: 700m
@@ -1467,6 +1789,15 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
+      - name: lsst-schema-file
+        secret:
+          secretName: usdf-lsst-schema-file
+      - name: rucio-automatix-input-file
+        secret:
+          secretName: usdf-rucio-automatix-input-file
+      - name: hermeskafka-constants
+        secret:
+          secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.5.0"
@@ -1482,6 +1813,15 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
+            - name: lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
+            - name: rucio-automatix-input-file
+              mountPath: /opt/rucio/etc/automatix.json
+              subPath: "automatix.json"
+            - name: hermeskafka-constants
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              subPath: "constants.py"
           ports:
             - name: metrics
               containerPort: 8080
@@ -1493,6 +1833,11 @@ spec:
               value: "transmogrifier"
             - name: RUCIO_DAEMON_ARGS
               value: " --threads 1"
+            - name: RUCIO_CFG_DATABASE_DEFAULT
+              valueFrom:
+                secretKeyRef:
+                  key: db-conn-str.txt
+                  name: usdf-db-conn-str
           resources:
             limits:
               cpu: 700m
@@ -1546,6 +1891,15 @@ spec:
       - name: proxy-volume
         secret:
           secretName: usdf-rucio-x509up
+      - name: lsst-schema-file
+        secret:
+          secretName: usdf-lsst-schema-file
+      - name: rucio-automatix-input-file
+        secret:
+          secretName: usdf-rucio-automatix-input-file
+      - name: hermeskafka-constants
+        secret:
+          secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.5.0"
@@ -1559,6 +1913,15 @@ spec:
               subPath: component.json
             - name: proxy-volume
               mountPath: /opt/proxy
+            - name: lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
+            - name: rucio-automatix-input-file
+              mountPath: /opt/rucio/etc/automatix.json
+              subPath: "automatix.json"
+            - name: hermeskafka-constants
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              subPath: "constants.py"
           ports:
             - name: metrics
               containerPort: 8080
@@ -1570,6 +1933,11 @@ spec:
               value: "undertaker"
             - name: RUCIO_DAEMON_ARGS
               value: " --total-workers 1"
+            - name: RUCIO_CFG_DATABASE_DEFAULT
+              valueFrom:
+                secretKeyRef:
+                  key: db-conn-str.txt
+                  name: usdf-db-conn-str
           resources:
             limits:
               cpu: 700m
@@ -1594,6 +1962,9 @@ spec:
           - name: config-common
             secret:
               secretName: usdf-rucio-daemons.config.common
+          - name: vomses
+            secret:
+              secretName: usdf-vomses
           - name: usercert
             secret:
               secretName: usdf-fts-cert
@@ -1602,7 +1973,7 @@ spec:
               secretName:  usdf-fts-key
           containers:
             - name: renew-fts-cron
-              image: "bjwhitefnal/rubin-rucio-fts-cron:1.29.11"
+              image: "rucio/fts-cron:latest"
               imagePullPolicy: Always
               resources:
                 limits:
@@ -1619,15 +1990,29 @@ spec:
                   mountPath: /opt/rucio/certs/
                 - name: userkey
                   mountPath: /opt/rucio/keys/
+                - name: vomses
+                  mountPath: /etc/vomses
               env:
                 - name: RUCIO_VO
                   value: "lsst"
                 - name: RUCIO_FTS_VOMS
                   value: "lsst:/lsst/Role=ddmopr"
+                - name: RUCIO_FTS_SCRIPT
+                  value: "default"
+                - name: RUCIO_FTS_VO_COUNT
+                  value: "1"
+                - name: RUCIO_FTS_VO_0
+                  value: lsst
+                - name: RUCIO_FTS_VOMS_0
+                  value: lsst:/lsst/Role=ddmopr
                 - name: RUCIO_FTS_SERVERS
                   value: "https://fts-eval01.slac.stanford.edu:8446"
                 - name: RUCIO_FTS_SECRETS
                   value: "usdf-rucio-x509up"
+                - name: USERCERT_NAME
+                  value: usercert.pem
+                - name: USERKEY_NAME
+                  value: new_userkey.pem
           restartPolicy: OnFailure
 ---
 # Source: rucio-daemons/templates/renew-fts-cronjob.yaml
@@ -1647,6 +2032,9 @@ spec:
       - name: config-common
         secret:
           secretName: usdf-rucio-daemons.config.common
+      - name: vomses
+        secret:
+          secretName: usdf-vomses
       - name: usercert
         secret:
           secretName: usdf-fts-cert
@@ -1655,7 +2043,7 @@ spec:
           secretName:  usdf-fts-key
       containers:
         - name: renew-fts-cron
-          image: "bjwhitefnal/rubin-rucio-fts-cron:1.29.11"
+          image: "rucio/fts-cron:latest"
           imagePullPolicy: Always
           resources:
             limits:
@@ -1672,13 +2060,27 @@ spec:
               mountPath: /opt/rucio/certs/
             - name: userkey
               mountPath: /opt/rucio/keys/
+            - name: vomses
+              mountPath: /etc/vomses
           env:
             - name: RUCIO_VO
               value: "lsst"
             - name: RUCIO_FTS_VOMS
               value: "lsst:/lsst/Role=ddmopr"
+            - name: RUCIO_FTS_SCRIPT
+              value: "default"
+            - name: RUCIO_FTS_VO_COUNT
+              value: "1"
+            - name: RUCIO_FTS_VO_0
+              value: lsst
+            - name: RUCIO_FTS_VOMS_0
+              value: lsst:/lsst/Role=ddmopr
             - name: RUCIO_FTS_SERVERS
               value: "https://fts-eval01.slac.stanford.edu:8446"
             - name: RUCIO_FTS_SECRETS
               value: "usdf-rucio-x509up"
+            - name: USERCERT_NAME
+              value: usercert.pem
+            - name: USERKEY_NAME
+              value: new_userkey.pem
       restartPolicy: OnFailure

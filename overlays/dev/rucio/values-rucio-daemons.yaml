@@ -74,6 +74,12 @@ abacusAccount:
     requests:
       memory: "600Mi"
       cpu: "700m"
+  additionalEnvs:
+    - name: RUCIO_CFG_DATABASE_DEFAULT
+      valueFrom:
+        secretKeyRef:
+          name: usdf-db-conn-str
+          key: db-conn-str.txt
 
 abacusCollectionReplica:
   threads: 1
@@ -85,6 +91,12 @@ abacusCollectionReplica:
     requests:
       memory: "600Mi"
       cpu: "700m"
+  additionalEnvs:
+    - name: RUCIO_CFG_DATABASE_DEFAULT
+      valueFrom:
+        secretKeyRef:
+          name: usdf-db-conn-str
+          key: db-conn-str.txt
 
 abacusRse:
   fillHistoryTable: 0
@@ -97,6 +109,12 @@ abacusRse:
     requests:
       memory: "600Mi"
       cpu: "700m"
+  additionalEnvs:
+    - name: RUCIO_CFG_DATABASE_DEFAULT
+      valueFrom:
+        secretKeyRef:
+          name: usdf-db-conn-str
+          key: db-conn-str.txt
 
 automatix:
   sleep_time: 40
@@ -110,6 +128,12 @@ automatix:
     requests:
       memory: "1200Mi"
       cpu: "700m"
+  additionalEnvs:
+    - name: RUCIO_CFG_DATABASE_DEFAULT
+      valueFrom:
+        secretKeyRef:
+          name: usdf-db-conn-str
+          key: db-conn-str.txt
 
 cacheConsumer:
   threads: 1
@@ -121,6 +145,12 @@ cacheConsumer:
     requests:
       memory: "400Mi"
       cpu: "100m"
+  additionalEnvs:
+    - name: RUCIO_CFG_DATABASE_DEFAULT
+      valueFrom:
+        secretKeyRef:
+          name: usdf-db-conn-str
+          key: db-conn-str.txt
 
 conveyorTransferSubmitter:
   threads: 1
@@ -135,6 +165,12 @@ conveyorTransferSubmitter:
     requests:
       memory: "600Mi"
       cpu: "700m"
+  additionalEnvs:
+    - name: RUCIO_CFG_DATABASE_DEFAULT
+      valueFrom:
+        secretKeyRef:
+          name: usdf-db-conn-str
+          key: db-conn-str.txt
 
 conveyorPoller:
   threads: 1
@@ -147,6 +183,12 @@ conveyorPoller:
     requests:
       memory: "600Mi"
       cpu: "700m"
+  additionalEnvs:
+    - name: RUCIO_CFG_DATABASE_DEFAULT
+      valueFrom:
+        secretKeyRef:
+          name: usdf-db-conn-str
+          key: db-conn-str.txt
 
 conveyorFinisher:
   threads: 1
@@ -159,6 +201,12 @@ conveyorFinisher:
     requests:
       memory: "600Mi"
       cpu: "700m"
+  additionalEnvs:
+    - name: RUCIO_CFG_DATABASE_DEFAULT
+      valueFrom:
+        secretKeyRef:
+          name: usdf-db-conn-str
+          key: db-conn-str.txt
 
 conveyorReceiver:
   threads: 1
@@ -170,6 +218,12 @@ conveyorReceiver:
     requests:
       memory: "600Mi"
       cpu: "700m"
+  additionalEnvs:
+    - name: RUCIO_CFG_DATABASE_DEFAULT
+      valueFrom:
+        secretKeyRef:
+          name: usdf-db-conn-str
+          key: db-conn-str.txt
 
 conveyorThrottler:
   threads: 1
@@ -181,6 +235,12 @@ conveyorThrottler:
     requests:
       memory: "600Mi"
       cpu: "700m"
+  additionalEnvs:
+    - name: RUCIO_CFG_DATABASE_DEFAULT
+      valueFrom:
+        secretKeyRef:
+          name: usdf-db-conn-str
+          key: db-conn-str.txt
 
 conveyorPreparer:
   threads: 1
@@ -192,6 +252,12 @@ conveyorPreparer:
     requests:
       memory: "600Mi"
       cpu: "700m"
+  additionalEnvs:
+    - name: RUCIO_CFG_DATABASE_DEFAULT
+      valueFrom:
+        secretKeyRef:
+          name: usdf-db-conn-str
+          key: db-conn-str.txt
 
 darkReaper:
   workers: 1
@@ -208,6 +274,12 @@ darkReaper:
     requests:
       memory: "600Mi"
       cpu: "700m"
+  additionalEnvs:
+    - name: RUCIO_CFG_DATABASE_DEFAULT
+      valueFrom:
+        secretKeyRef:
+          name: usdf-db-conn-str
+          key: db-conn-str.txt
 
 hermes:
   threads: 1
@@ -215,18 +287,6 @@ hermes:
   bulk: 100
   delay: 10
   brokerTimeout: 3
-  resources:
-    limits:
-      memory: "600Mi"
-      cpu: "700m"
-    requests:
-      memory: "600Mi"
-      cpu: "700m"
-
-hermes2:
-  threads: 1
-  podAnnotations: {}
-  bulk: 400
   resources:
     limits:
       memory: "600Mi"
@@ -245,6 +305,12 @@ judgeCleaner:
     requests:
       memory: "600Mi"
       cpu: "700m"
+  additionalEnvs:
+    - name: RUCIO_CFG_DATABASE_DEFAULT
+      valueFrom:
+        secretKeyRef:
+          name: usdf-db-conn-str
+          key: db-conn-str.txt
 
 judgeEvaluator:
   threads: 1
@@ -256,6 +322,12 @@ judgeEvaluator:
     requests:
       memory: "600Mi"
       cpu: "700m"
+  additionalEnvs:
+    - name: RUCIO_CFG_DATABASE_DEFAULT
+      valueFrom:
+        secretKeyRef:
+          name: usdf-db-conn-str
+          key: db-conn-str.txt
 
 judgeInjector:
   threads: 1
@@ -267,6 +339,12 @@ judgeInjector:
     requests:
       memory: "600Mi"
       cpu: "700m"
+  additionalEnvs:
+    - name: RUCIO_CFG_DATABASE_DEFAULT
+      valueFrom:
+        secretKeyRef:
+          name: usdf-db-conn-str
+          key: db-conn-str.txt
 
 judgeRepairer:
   threads: 1
@@ -278,6 +356,12 @@ judgeRepairer:
     requests:
       memory: "600Mi"
       cpu: "700m"
+  additionalEnvs:
+    - name: RUCIO_CFG_DATABASE_DEFAULT
+      valueFrom:
+        secretKeyRef:
+          name: usdf-db-conn-str
+          key: db-conn-str.txt
 
 oauthManager:
   threads: 1
@@ -289,6 +373,12 @@ oauthManager:
     requests:
       memory: "600Mi"
       cpu: "700m"
+  additionalEnvs:
+    - name: RUCIO_CFG_DATABASE_DEFAULT
+      valueFrom:
+        secretKeyRef:
+          name: usdf-db-conn-str
+          key: db-conn-str.txt
 
 undertaker:
   threads: 1
@@ -300,6 +390,12 @@ undertaker:
     requests:
       memory: "600Mi"
       cpu: "700m"
+  additionalEnvs:
+    - name: RUCIO_CFG_DATABASE_DEFAULT
+      valueFrom:
+        secretKeyRef:
+          name: usdf-db-conn-str
+          key: db-conn-str.txt
 
 reaper:
   greedy: 0
@@ -314,6 +410,12 @@ reaper:
     requests:
       memory: "600Mi"
       cpu: "700m"
+  additionalEnvs:
+    - name: RUCIO_CFG_DATABASE_DEFAULT
+      valueFrom:
+        secretKeyRef:
+          name: usdf-db-conn-str
+          key: db-conn-str.txt
 
 transmogrifier:
   threads: 1
@@ -325,6 +427,12 @@ transmogrifier:
     requests:
       memory: "600Mi"
       cpu: "700m"
+  additionalEnvs:
+    - name: RUCIO_CFG_DATABASE_DEFAULT
+      valueFrom:
+        secretKeyRef:
+          name: usdf-db-conn-str
+          key: db-conn-str.txt
 
 tracerKronos:
   threads: 1
@@ -336,6 +444,12 @@ tracerKronos:
     requests:
       memory: "600Mi"
       cpu: "700m"
+  additionalEnvs:
+    - name: RUCIO_CFG_DATABASE_DEFAULT
+      valueFrom:
+        secretKeyRef:
+          name: usdf-db-conn-str
+          key: db-conn-str.txt
 
 minos:
   threads: 1
@@ -347,6 +461,12 @@ minos:
     requests:
       memory: "400Mi"
       cpu: "100m"
+  additionalEnvs:
+    - name: RUCIO_CFG_DATABASE_DEFAULT
+      valueFrom:
+        secretKeyRef:
+          name: usdf-db-conn-str
+          key: db-conn-str.txt
 
 minosTemporaryExpiration:
   threads: 1
@@ -358,6 +478,12 @@ minosTemporaryExpiration:
     requests:
       memory: "400Mi"
       cpu: "100m"
+  additionalEnvs:
+    - name: RUCIO_CFG_DATABASE_DEFAULT
+      valueFrom:
+        secretKeyRef:
+          name: usdf-db-conn-str
+          key: db-conn-str.txt
 
 necromancer:
   podAnnotations: {}
@@ -368,17 +494,58 @@ necromancer:
     requests:
       memory: "400Mi"
       cpu: "100m"
+  additionalEnvs:
+    - name: RUCIO_CFG_DATABASE_DEFAULT
+      valueFrom:
+        secretKeyRef:
+          name: usdf-db-conn-str
+          key: db-conn-str.txt
 
 ftsRenewal:
-  enabled: 1 
+  enabled: 1
   schedule: "12 */6 * * *"
   image:
-    repository: bjwhitefnal/rubin-rucio-fts-cron
-    tag: 1.29.11
+    repository: rucio/fts-cron
+    tag: latest
     pullPolicy: Always
-  vo: "lsst"
-  voms: "lsst:/lsst/Role=ddmopr"
   servers: "https://fts-eval01.slac.stanford.edu:8446"
+  script: 'default'  # one of: 'default', 'atlas', 'dteam', 'multi_vo', 'tutorial', 'escape'. The associated scripts can be found here: https://github.com/rucio/containers/tree/master/fts-cron
+  vos:
+    - vo: "lsst"
+      voms: "lsst:/lsst/Role=ddmopr"
+  secretMounts:
+    - secretName: vomses
+      mountPath: /etc/vomses
+    #- secretName: fts-cert
+    #  mountPath: /opt/rucio/certs/usercert.pem
+    #  subPath: usercert.pem
+    #- secretName: fts-key
+    #  mountPath: /opt/rucio/keys/new_userkey.pem
+    #  subPath: new_userkey.pem
+    # - secretName: longproxy
+    #   mountPath: /opt/rucio/certs/long.proxy
+    #   subPath: long.proxy
+  additionalEnvs:
+    #- name: RUCIO_FTS_SECRETS
+    #  value: fnal-rucio-x509up
+    - name: USERCERT_NAME
+      value: "usercert.pem"
+    - name: USERKEY_NAME
+      value: "new_userkey.pem"
+    # - name: RUCIO_LONG_PROXY
+    #   value: long.proxy
+    # - name: GRID_PASSPHRASE
+    #   valueFrom:
+    #     secretKeyRef:
+    #       name:
+    #       key:
+  resources:
+    limits:
+      cpu: 500m
+      memory: 256Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
 
 automaticRestart:
   enabled: 0
@@ -388,17 +555,14 @@ automaticRestart:
     pullPolicy: IfNotPresent
   schedule: "0 0 * * *"
 
-additionalSecrets:
-  lsst-schema-file:
-    secretName: lsst-schema-file
+secretMounts:
+  - secretName: lsst-schema-file
     mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
     subPath: lsst.py
-  rucio-automatix-input-file:
-    secretName: rucio-automatix-input-file
+  - secretName: rucio-automatix-input-file
     mountPath: /opt/rucio/etc/automatix.json
     subPath: automatix.json
-  hermeskafka-constants:
-    secretName: hermeskafka-constants
+  - secretName: hermeskafka-constants
     mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
     subPath: constants.py
 
