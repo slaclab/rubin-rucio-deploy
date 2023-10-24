@@ -4,14 +4,13 @@ namespace: rucio
 resources:
 - ns.yaml
 - helm-rucio-server.yaml
-- helm-rucio-daemons.yaml
-- helm-rucio-ui.yaml
+#- helm-rucio-daemons.yaml
+#- helm-rucio-ui.yaml
 
 patchesStrategicMerge:
 - patch-ingress.yaml
-- rucio-env-patch.yaml
-- grid-certificates-patch.yaml
-- hermesk-image-patch.yaml
+#- grid-certificates-patch.yaml
+#- hermesk-image-patch.yaml
 
 secretGenerator:
 # rucio
