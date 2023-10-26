@@ -1962,12 +1962,12 @@ spec:
           - name: config-common
             secret:
               secretName: usdf-rucio-daemons.config.common
-          - name: usdf-vomses
+          - name: voms-servers-file
             secret:
-              secretName: usdf-usdf-vomses
-          - name: usdf-lsst-vomsdir
+              secretName: usdf-voms-servers-file
+          - name: lsst-vomsdir
             secret:
-              secretName: usdf-usdf-lsst-vomsdir
+              secretName: usdf-lsst-vomsdir
           - name: usercert
             secret:
               secretName: usdf-fts-cert
@@ -1993,10 +1993,10 @@ spec:
                   mountPath: /opt/rucio/certs/
                 - name: userkey
                   mountPath: /opt/rucio/keys/
-                - name: usdf-vomses
-                  mountPath: /etc/vomses
+                - name: voms-servers-file
+                  mountPath: /etc/vomses/vomses
                   subPath: "vomses"
-                - name: usdf-lsst-vomsdir
+                - name: lsst-vomsdir
                   mountPath: /etc/grid-security/vomsdir
               env:
                 - name: RUCIO_VO
@@ -2038,12 +2038,12 @@ spec:
       - name: config-common
         secret:
           secretName: usdf-rucio-daemons.config.common
-      - name: usdf-vomses
+      - name: voms-servers-file
         secret:
-          secretName: usdf-usdf-vomses
-      - name: usdf-lsst-vomsdir
+          secretName: usdf-voms-servers-file
+      - name: lsst-vomsdir
         secret:
-          secretName: usdf-usdf-lsst-vomsdir
+          secretName: usdf-lsst-vomsdir
       - name: usercert
         secret:
           secretName: usdf-fts-cert
@@ -2069,10 +2069,10 @@ spec:
               mountPath: /opt/rucio/certs/
             - name: userkey
               mountPath: /opt/rucio/keys/
-            - name: usdf-vomses
-              mountPath: /etc/vomses
+            - name: voms-servers-file
+              mountPath: /etc/vomses/vomses
               subPath: "vomses"
-            - name: usdf-lsst-vomsdir
+            - name: lsst-vomsdir
               mountPath: /etc/grid-security/vomsdir
           env:
             - name: RUCIO_VO

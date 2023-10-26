@@ -91,7 +91,7 @@ secretGenerator:
     disableNameSuffixHash: true
 
 # VOMS server information files
-- name: usdf-vomses
+- name: usdf-voms-servers-file
   files:
   - vomses=etc/vomses
   options:

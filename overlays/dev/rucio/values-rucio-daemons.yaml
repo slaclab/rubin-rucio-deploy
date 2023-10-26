@@ -514,6 +514,11 @@ ftsRenewal:
     - vo: "lsst"
       voms: "lsst:/lsst/Role=ddmopr"
   secretMounts:
+    - secretName: voms-servers-file
+      mountPath: /etc/vomses/vomses
+      subPath: vomses
+    - secretName: lsst-vomsdir
+      mountPath: /etc/grid-security/vomsdir
     #- secretName: fts-cert
     #  mountPath: /opt/rucio/certs/usercert.pem
     #  subPath: usercert.pem
@@ -563,11 +568,6 @@ secretMounts:
   - secretName: hermeskafka-constants
     mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
     subPath: constants.py
-  - secretName: vomses
-    mountPath: /etc/vomses
-    subPath: vomses
-  - secretName: lsst-vomsdir
-    mountPath: /etc/grid-security/vomsdir
 
 ## common config values used to configure the Rucio daemons
 config:
