@@ -2012,7 +2012,7 @@ spec:
                 - name: RUCIO_FTS_VOMS_0
                   value: lsst:/lsst/Role=ddmopr
                 - name: RUCIO_FTS_SERVERS
-                  value: "https://fts-eval01.slac.stanford.edu:8446"
+                  value: "https://fts-eval01.slac.stanford.edu:8446,https://lcgfts3.gridpp.rl.ac.uk:8446"
                 - name: RUCIO_FTS_SECRETS
                   value: "usdf-rucio-x509up"
                 - name: USERCERT_NAME
@@ -2088,7 +2088,7 @@ spec:
             - name: RUCIO_FTS_VOMS_0
               value: lsst:/lsst/Role=ddmopr
             - name: RUCIO_FTS_SERVERS
-              value: "https://fts-eval01.slac.stanford.edu:8446"
+              value: "https://fts-eval01.slac.stanford.edu:8446,https://lcgfts3.gridpp.rl.ac.uk:8446"
             - name: RUCIO_FTS_SECRETS
               value: "usdf-rucio-x509up"
             - name: USERCERT_NAME
