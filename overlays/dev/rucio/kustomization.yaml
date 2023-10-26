@@ -4,12 +4,12 @@ namespace: rucio
 resources:
 - ns.yaml
 - helm-rucio-server.yaml
-#- helm-rucio-daemons.yaml
+- helm-rucio-daemons.yaml
 #- helm-rucio-ui.yaml
 
 patchesStrategicMerge:
 - patch-ingress.yaml
-#- grid-certificates-patch.yaml
+- grid-certificates-patch.yaml
 #- hermesk-image-patch.yaml
 
 secretGenerator:
@@ -87,5 +87,18 @@ secretGenerator:
 - name: usdf-hermeskafka-constants
   files:
   - constants.py=etc/constants.py
+  options:
+    disableNameSuffixHash: true
+
+# VOMS server information files
+- name: usdf-vomses
+  files:
+  - vomses=etc/vomses
+  options:
+    disableNameSuffixHash: true
+- name: usdf-lsst-vomsdir
+  files:
+  - voms.slac.stanford.edu.lsc=etc/voms.slac.stanford.edu.lsc
+  - voms1.slac.stanford.edu.lsc=etc/voms1.slac.stanford.edu.lsc
   options:
     disableNameSuffixHash: true

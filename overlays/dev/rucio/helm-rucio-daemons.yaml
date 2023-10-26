@@ -1962,9 +1962,12 @@ spec:
           - name: config-common
             secret:
               secretName: usdf-rucio-daemons.config.common
-          - name: vomses
+          - name: usdf-vomses
             secret:
-              secretName: usdf-vomses
+              secretName: usdf-usdf-vomses
+          - name: usdf-lsst-vomsdir
+            secret:
+              secretName: usdf-usdf-lsst-vomsdir
           - name: usercert
             secret:
               secretName: usdf-fts-cert
@@ -1990,8 +1993,11 @@ spec:
                   mountPath: /opt/rucio/certs/
                 - name: userkey
                   mountPath: /opt/rucio/keys/
-                - name: vomses
+                - name: usdf-vomses
                   mountPath: /etc/vomses
+                  subPath: "vomses"
+                - name: usdf-lsst-vomsdir
+                  mountPath: /etc/grid-security/vomsdir
               env:
                 - name: RUCIO_VO
                   value: "lsst"
@@ -2032,9 +2038,12 @@ spec:
       - name: config-common
         secret:
           secretName: usdf-rucio-daemons.config.common
-      - name: vomses
+      - name: usdf-vomses
         secret:
-          secretName: usdf-vomses
+          secretName: usdf-usdf-vomses
+      - name: usdf-lsst-vomsdir
+        secret:
+          secretName: usdf-usdf-lsst-vomsdir
       - name: usercert
         secret:
           secretName: usdf-fts-cert
@@ -2060,8 +2069,11 @@ spec:
               mountPath: /opt/rucio/certs/
             - name: userkey
               mountPath: /opt/rucio/keys/
-            - name: vomses
+            - name: usdf-vomses
               mountPath: /etc/vomses
+              subPath: "vomses"
+            - name: usdf-lsst-vomsdir
+              mountPath: /etc/grid-security/vomsdir
           env:
             - name: RUCIO_VO
               value: "lsst"

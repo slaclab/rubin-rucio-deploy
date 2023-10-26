@@ -514,8 +514,6 @@ ftsRenewal:
     - vo: "lsst"
       voms: "lsst:/lsst/Role=ddmopr"
   secretMounts:
-    - secretName: vomses
-      mountPath: /etc/vomses
     #- secretName: fts-cert
     #  mountPath: /opt/rucio/certs/usercert.pem
     #  subPath: usercert.pem
@@ -565,6 +563,11 @@ secretMounts:
   - secretName: hermeskafka-constants
     mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
     subPath: constants.py
+  - secretName: vomses
+    mountPath: /etc/vomses
+    subPath: vomses
+  - secretName: lsst-vomsdir
+    mountPath: /etc/grid-security/vomsdir
 
 ## common config values used to configure the Rucio daemons
 config:
@@ -681,10 +684,6 @@ config:
     # voname: "atlas"
     # email_from: "Rucio <atlas-adc-ddm-support@cern.ch"
     # email_test: ""
-
-  # messaging-hermes2:
-    # elastic_endpoint:  # _bulk endpoint
-    # influxdb_endpoint: # write endpoint
 
   hermes:
     services_list: kafka
