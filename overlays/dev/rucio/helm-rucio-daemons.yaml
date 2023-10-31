@@ -103,6 +103,20 @@ type: Opaque
 data:
   component.json: "e30="
 ---
+# Source: rucio-daemons/templates/hermes.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: usdf-rucio-daemons.config.hermes
+  labels:
+    app: rucio-daemons-hermes
+    chart: "rucio-daemons-32.0.2"
+    release: "usdf"
+    heritage: "Helm"
+type: Opaque
+data:
+  component.json: "e30="
+---
 # Source: rucio-daemons/templates/judge.yaml
 apiVersion: v1
 kind: Secret
@@ -987,6 +1001,103 @@ spec:
               value: "conveyor-submitter"
             - name: RUCIO_DAEMON_ARGS
               value: " --total-threads 1 --sleep-time 10 --activities 'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
+            - name: RUCIO_CFG_DATABASE_DEFAULT
+              valueFrom:
+                secretKeyRef:
+                  key: db-conn-str.txt
+                  name: usdf-db-conn-str
+          resources:
+            limits:
+              cpu: 700m
+              memory: 600Mi
+            requests:
+              cpu: 700m
+              memory: 600Mi
+---
+# Source: rucio-daemons/templates/hermes.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usdf-hermes
+  labels:
+    app: rucio-daemons-hermes
+    app-group: rucio-daemons
+    chart: rucio-daemons-32.0.2
+    release: usdf
+    heritage: Helm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rucio-daemons-hermes
+      release: usdf
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5
+  template:
+    metadata:
+      labels:
+        app: rucio-daemons-hermes
+        app-group: rucio-daemons
+        release: usdf
+        rucio-daemon: hermes
+      annotations:
+        checksum/config: 93d44e056c2a4ffbee0abdbb25c258d39531a91d
+        prometheus.io/port: "8080"
+        prometheus.io/scrape: "true"
+    spec:
+      volumes:
+        - name: config-common
+          secret:
+            secretName: usdf-rucio-daemons.config.common
+        - name: config-component
+          secret:
+            secretName: usdf-rucio-daemons.config.hermes
+
+        - name: lsst-schema-file
+          secret:
+            secretName: usdf-lsst-schema-file
+        - name: rucio-automatix-input-file
+          secret:
+            secretName: usdf-rucio-automatix-input-file
+        - name: hermeskafka-constants
+          secret:
+            secretName: usdf-hermeskafka-constants
+      containers:
+        - name: rucio-daemons
+          image: "rucio/rucio-daemons:release-32.5.0.post1"
+          imagePullPolicy: Always
+          volumeMounts:
+
+            - name: config-common
+              mountPath: /opt/rucio/etc/conf.d/10_common.json
+              subPath: common.json
+            - name: config-component
+              mountPath: /opt/rucio/etc/conf.d/20_component.json
+              subPath: component.json
+            - name: lsst-schema-file
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              subPath: "lsst.py"
+            - name: rucio-automatix-input-file
+              mountPath: /opt/rucio/etc/automatix.json
+              subPath: "automatix.json"
+            - name: hermeskafka-constants
+              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              subPath: "constants.py"
+          ports:
+            - name: metrics
+              containerPort: 8080
+              protocol: TCP
+          env:
+            - name: RUCIO_OVERRIDE_CONFIGS
+              value: "/opt/rucio/etc/conf.d/"
+            - name: RUCIO_DAEMON
+              value: "hermes"
+            - name: RUCIO_DAEMON_ARGS
+              value: " --threads 1  --bulk 100"
             - name: RUCIO_CFG_DATABASE_DEFAULT
               valueFrom:
                 secretKeyRef:
