@@ -1,9 +1,0 @@
-FROM alpine:latest
-
-WORKDIR grid-certificates
-COPY grid-certificates/ .
-
-RUN apk update && apk upgrade
-RUN apk add bash bash-doc bash-completion
-
-#ENTRYPOINT ["/bin/bash", "-l", "-c"]

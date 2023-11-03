@@ -763,7 +763,7 @@ spec:
             - name: RUCIO_DAEMON
               value: "conveyor-submitter"
             - name: RUCIO_DAEMON_ARGS
-              value: " --total-threads 1 --group-bulk 100 --sleep-time 60 --activities 'User Subscriptions'"
+              value: " --total-threads 1 --group-bulk 100 --sleep-time 60 --activities 'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
           resources:
             limits:
               cpu: 700m

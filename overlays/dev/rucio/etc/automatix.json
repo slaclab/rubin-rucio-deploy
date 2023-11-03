@@ -1,0 +1,42 @@
+{
+"type1": {
+                "probability": 10,
+                "nbfiles": 200,
+                "filesize" : 200,
+                "metadata":
+                {
+                        "project": "user",
+                        "prod_step": "evgen"
+                }
+        },
+"type2": {
+                "probability": 10,
+                "nbfiles": 200,
+                "filesize" : 200,
+                "metadata":
+                {
+                        "project": "user",
+                        "prod_step": "simul"
+                }
+        },
+"type3": {
+                "probability": 10,
+                "nbfiles": 200,
+                "filesize" : 200,
+                "metadata":
+                {
+                        "project": "user",
+                        "prod_step": "merge"
+                }
+        },
+"type4": {
+                "probability": 10,
+                "nbfiles": 200,
+                "filesize" : 200,
+                "metadata":
+                {
+                        "project": "user",
+                        "prod_step": "recon"
+                }
+        }
+}
