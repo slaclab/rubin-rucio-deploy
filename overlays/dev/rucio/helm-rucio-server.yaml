@@ -25,7 +25,9 @@ metadata:
     heritage: "Helm"
 type: Opaque
 data:
+  encoded_slashes: "VHJ1ZQ=="
   grid_site_enabled: "VHJ1ZQ=="
+  legacy_dn: "VHJ1ZQ=="
 ---
 # Source: rucio-server/templates/service.yaml
 apiVersion: v1
@@ -162,11 +164,21 @@ spec:
             periodSeconds: 20
             timeoutSeconds: 5
           env:
+            - name: RUCIO_HTTPD_ENCODED_SLASHES
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: encoded_slashes
             - name: RUCIO_HTTPD_GRID_SITE_ENABLED
               valueFrom:
                 secretKeyRef:
                   name: usdf-rucio-server.cfg
                   key: grid_site_enabled
+            - name: RUCIO_HTTPD_LEGACY_DN
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: legacy_dn
             - name: RUCIO_ENABLE_SSL
               value: "True"
             - name: OPENSSL_ALLOW_PROXY_CERTS
@@ -186,8 +198,6 @@ spec:
                 secretKeyRef:
                   key: db-conn-str.txt
                   name: usdf-db-conn-str
-            - name: RUCIO_HTTPD_LEGACY_DN
-              value: "True"
       affinity:
 ---
 # Source: rucio-server/templates/ingress.yaml
