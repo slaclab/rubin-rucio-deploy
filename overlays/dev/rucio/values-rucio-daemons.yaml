@@ -116,7 +116,7 @@ abacusRse:
           key: db-conn-str.txt
 
 automatix:
-  sleep_time: 40
+  sleep_time: 42
   threads: 1
   inputFile: "/opt/rucio/etc/automatix.json"
   podAnnotations: {}
@@ -580,7 +580,7 @@ config:
     rucio_host: "https://rubin-rucio-dev.slac.stanford.edu:8443"
     auth_host: "https://rubin-rucio-dev.slac.stanford.edu:8443"
     auth_type: "x509_proxy"
-    account: "test"
+    account: "automatix"
     client_x509_proxy: "/opt/proxy/x509up"
     ca_cert: "/opt/certs"
     protocol_stat_retries: 6
@@ -641,11 +641,10 @@ config:
 
   automatix:
     rses: "SLAC_TEST_DISK, RAL_TEST_DISK, IN2P3_TEST_DISK"
-    sleep_time: 30
     dataset_lifetime: 36000
     set_metadata: "True"
-    account: "test"
-    scope: "user.test"
+    account: "automatix"
+    scope: "user.automatix"
     did_prefix: "automatix"
     separator: "/"
     file_pattern: "dsn/uuid"
