@@ -82,4 +82,4 @@ rucio-admin -a root rse add-distance --distance 3 IN2P3_TEST_DISK SLAC_TEST_DISK
 rucio-admin -a root rse add-distance --distance 2 IN2P3_TEST_DISK RAL_TEST_DISK
 
 ### ADD Automatix Subscription ###
-# Todo
+rucio-admin -a root scope add --scope user.automatix --account automatix
