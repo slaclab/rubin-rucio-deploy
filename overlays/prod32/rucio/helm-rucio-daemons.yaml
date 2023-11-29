@@ -317,7 +317,7 @@ spec:
           secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-32.5.1"
+          image: "rucio/rucio-daemons:release-32.6.0"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -422,7 +422,7 @@ spec:
           secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-32.5.1"
+          image: "rucio/rucio-daemons:release-32.6.0"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -527,7 +527,7 @@ spec:
           secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-32.5.1"
+          image: "rucio/rucio-daemons:release-32.6.0"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -632,7 +632,7 @@ spec:
           secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-32.5.1"
+          image: "rucio/rucio-daemons:release-32.6.0"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -737,7 +737,7 @@ spec:
           secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-32.5.1"
+          image: "rucio/rucio-daemons:release-32.6.0"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -842,7 +842,7 @@ spec:
           secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-32.5.1"
+          image: "rucio/rucio-daemons:release-32.6.0"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -942,7 +942,7 @@ spec:
             secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-32.5.1"
+          image: "rucio/rucio-daemons:release-32.6.0"
           imagePullPolicy: Always
           volumeMounts:
 
@@ -1044,7 +1044,7 @@ spec:
           secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-32.5.1"
+          image: "rucio/rucio-daemons:release-32.6.0"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -1149,7 +1149,7 @@ spec:
           secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-32.5.1"
+          image: "rucio/rucio-daemons:release-32.6.0"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -1254,7 +1254,7 @@ spec:
           secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-32.5.1"
+          image: "rucio/rucio-daemons:release-32.6.0"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -1359,7 +1359,7 @@ spec:
           secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-32.5.1"
+          image: "rucio/rucio-daemons:release-32.6.0"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -1464,7 +1464,7 @@ spec:
           secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-32.5.1"
+          image: "rucio/rucio-daemons:release-32.6.0"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -1569,7 +1569,7 @@ spec:
           secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-32.5.1"
+          image: "rucio/rucio-daemons:release-32.6.0"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -1674,7 +1674,7 @@ spec:
           secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-32.5.1"
+          image: "rucio/rucio-daemons:release-32.6.0"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -1785,7 +1785,7 @@ spec:
           secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-32.5.1"
+          image: "rucio/rucio-daemons:release-32.6.0"
           imagePullPolicy: Always
           volumeMounts:
             - name: proxy-volume
@@ -1887,7 +1887,7 @@ spec:
           secretName: usdf-hermeskafka-constants
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-32.5.1"
+          image: "rucio/rucio-daemons:release-32.6.0"
           imagePullPolicy: Always
           volumeMounts:
             - name: config-common
