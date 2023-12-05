@@ -16,24 +16,40 @@ spec:
         port: 9093
         type: internal
         tls: true
+      #- name: external
+      #  port: 9094
+      #  type: loadbalancer
+      #  tls: false
+      #  configuration:
+      #    bootstrap:
+      #      annotations:
+      #        metallb.universe.tf/address-pool: sdf-dmz
+      #    brokers:
+      #      - broker: 0
+      #        annotations:
+      #          metallb.universe.tf/address-pool: sdf-dmz
+      #      - broker: 1
+      #        annotations:
+      #          metallb.universe.tf/address-pool: sdf-dmz
+      #      - broker: 2
+      #        annotations:
+      #          metallb.universe.tf/address-pool: sdf-dmz
       - name: external
         port: 9094
-        type: loadbalancer
-        tls: false
+        type: ingress
+        tls: true
+        authentication:
+          type: tls
         configuration:
           bootstrap:
-            annotations:
-              metallb.universe.tf/address-pool: sdf-dmz
+            host: bootstrap.usdf-rucio-dev.slac.stanford.edu
           brokers:
             - broker: 0
-              annotations:
-                metallb.universe.tf/address-pool: sdf-dmz
+              host: broker0.usdf-rucio-dev.slac.stanford.edu
             - broker: 1
-              annotations:
-                metallb.universe.tf/address-pool: sdf-dmz
+              host: broker1.usdf-rucio-dev.slac.stanford.edu
             - broker: 2
-              annotations:
-                metallb.universe.tf/address-pool: sdf-dmz
+              host: broker2.usdf-rucio-dev.slac.stanford.edu
     config:
       offsets.topic.replication.factor: 3
       transaction.state.log.replication.factor: 3
