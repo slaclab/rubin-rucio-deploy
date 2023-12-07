@@ -51,7 +51,7 @@ ingress:
 additionalSecrets:
   lsst-schema-file:
     secretName: lsst-schema-file
-    mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+    mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/schema/lsst.py
     subPath: lsst.py
 
 ## values used to configure apache

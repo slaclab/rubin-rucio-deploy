@@ -262,11 +262,11 @@ kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: usdf-rucio-edit
-  namespace: default
+  namespace: rucio
 subjects:
 - kind: ServiceAccount
   name: usdf-rucio-edit
-  namespace: default
+  namespace: rucio
 roleRef:
   kind: ClusterRole
   name: edit
@@ -345,13 +345,13 @@ spec:
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
             - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
             - name: hermeskafka-constants
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/constants.py
               subPath: "constants.py"
           ports:
             - name: metrics
@@ -450,13 +450,13 @@ spec:
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
             - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
             - name: hermeskafka-constants
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/constants.py
               subPath: "constants.py"
           ports:
             - name: metrics
@@ -555,13 +555,13 @@ spec:
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
             - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
             - name: hermeskafka-constants
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/constants.py
               subPath: "constants.py"
           ports:
             - name: metrics
@@ -665,13 +665,13 @@ spec:
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
             - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
             - name: hermeskafka-constants
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/constants.py
               subPath: "constants.py"
           ports:
             - name: metrics
@@ -772,13 +772,13 @@ spec:
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
             - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
             - name: hermeskafka-constants
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/constants.py
               subPath: "constants.py"
           ports:
             - name: metrics
@@ -877,13 +877,13 @@ spec:
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
             - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
             - name: hermeskafka-constants
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/constants.py
               subPath: "constants.py"
           ports:
             - name: metrics
@@ -982,13 +982,13 @@ spec:
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
             - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
             - name: hermeskafka-constants
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/constants.py
               subPath: "constants.py"
           ports:
             - name: metrics
@@ -1079,13 +1079,13 @@ spec:
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
             - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
             - name: hermeskafka-constants
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/constants.py
               subPath: "constants.py"
           ports:
             - name: metrics
@@ -1184,13 +1184,13 @@ spec:
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
             - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
             - name: hermeskafka-constants
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/constants.py
               subPath: "constants.py"
           ports:
             - name: metrics
@@ -1289,13 +1289,13 @@ spec:
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
             - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
             - name: hermeskafka-constants
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/constants.py
               subPath: "constants.py"
           ports:
             - name: metrics
@@ -1394,13 +1394,13 @@ spec:
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
             - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
             - name: hermeskafka-constants
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/constants.py
               subPath: "constants.py"
           ports:
             - name: metrics
@@ -1499,13 +1499,13 @@ spec:
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
             - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
             - name: hermeskafka-constants
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/constants.py
               subPath: "constants.py"
           ports:
             - name: metrics
@@ -1604,13 +1604,13 @@ spec:
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
             - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
             - name: hermeskafka-constants
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/constants.py
               subPath: "constants.py"
           ports:
             - name: metrics
@@ -1709,13 +1709,13 @@ spec:
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
             - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
             - name: hermeskafka-constants
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/constants.py
               subPath: "constants.py"
           ports:
             - name: metrics
@@ -1814,13 +1814,13 @@ spec:
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
             - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
             - name: hermeskafka-constants
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/constants.py
               subPath: "constants.py"
           ports:
             - name: metrics
@@ -1925,13 +1925,13 @@ spec:
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
             - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
             - name: hermeskafka-constants
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/constants.py
               subPath: "constants.py"
           ports:
             - name: metrics
@@ -2025,13 +2025,13 @@ spec:
             - name: proxy-volume
               mountPath: /opt/proxy
             - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/schema/lsst.py
               subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
             - name: hermeskafka-constants
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/constants.py
               subPath: "constants.py"
           ports:
             - name: metrics
