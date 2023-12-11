@@ -102,3 +102,10 @@ secretGenerator:
   - voms1.slac.stanford.edu.lsc=etc/voms1.slac.stanford.edu.lsc
   options:
     disableNameSuffixHash: true
+
+# The desired policy package implementation files
+- name: usdf-policy-package
+  files:
+  - __init__.py=etc/policy-package/__init__.py
+  - permission.py=etc/policy-package/permission.py
+  - schema.py=etc/policy-package/schema.py

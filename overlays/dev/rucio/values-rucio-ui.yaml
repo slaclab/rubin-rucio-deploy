@@ -48,9 +48,10 @@ ingress:
   hosts:
      - rubin-rucio-dev.slac.stanford.edu
 
-additionalSecrets:
-  lsst-schema-file:
-    secretName: lsst-schema-file
+secretMounts:
+  - secretName: policy-package
+    mountPath: /opt/rucio/permissions/rubin
+  - secretName: lsst-schema-file
     mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/schema/lsst.py
     subPath: lsst.py
 
@@ -63,6 +64,9 @@ httpd_config:
   threads_per_child: "5"
   max_clients: "20"
   max_requests_per_child: "8192"
+
+optional_config:
+  pythonpath: /opt/rucio/permissions
 
 ## values used to configure Rucio
 config:
@@ -97,10 +101,11 @@ config:
     # powuserpassword: ""
 
   policy:
+    package: rubin
     ## config.permission.policy: (default "generic")
     # permission: "generic"
     ## config.permission.schema: (default "generic")
-    schema: "lsst"
+    # schema: "lsst"
     ## config.permission.lfn2pfn_algorithm_default: (default "hash")
     # lfn2pfn_algorithm_default: "hash"
     ## config.permission.support: (default "https://github.com/rucio/rucio/issues/")
