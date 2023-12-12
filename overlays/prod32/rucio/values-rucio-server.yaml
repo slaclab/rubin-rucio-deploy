@@ -83,9 +83,6 @@ automaticRestart:
   schedule: "0 0 * * *"
 
 secretMounts:
-  - secretName: lsst-schema-file
-    mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
-    subPath: lsst.py
   - secretName: policy-package
     mountPath: /opt/rucio/permissions/rubin
 

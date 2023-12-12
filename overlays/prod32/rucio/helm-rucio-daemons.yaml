@@ -306,9 +306,6 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
-      - name: lsst-schema-file
-        secret:
-          secretName: usdf-lsst-schema-file
       - name: rucio-automatix-input-file
         secret:
           secretName: usdf-rucio-automatix-input-file
@@ -333,9 +330,6 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
-              subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
@@ -418,9 +412,6 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
-      - name: lsst-schema-file
-        secret:
-          secretName: usdf-lsst-schema-file
       - name: rucio-automatix-input-file
         secret:
           secretName: usdf-rucio-automatix-input-file
@@ -445,9 +436,6 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
-              subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
@@ -530,9 +518,6 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
-      - name: lsst-schema-file
-        secret:
-          secretName: usdf-lsst-schema-file
       - name: rucio-automatix-input-file
         secret:
           secretName: usdf-rucio-automatix-input-file
@@ -557,9 +542,6 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
-              subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
@@ -642,9 +624,6 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
-      - name: lsst-schema-file
-        secret:
-          secretName: usdf-lsst-schema-file
       - name: rucio-automatix-input-file
         secret:
           secretName: usdf-rucio-automatix-input-file
@@ -669,9 +648,6 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
-              subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
@@ -754,9 +730,6 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
-      - name: lsst-schema-file
-        secret:
-          secretName: usdf-lsst-schema-file
       - name: rucio-automatix-input-file
         secret:
           secretName: usdf-rucio-automatix-input-file
@@ -781,9 +754,6 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
-              subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
@@ -866,9 +836,6 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
-      - name: lsst-schema-file
-        secret:
-          secretName: usdf-lsst-schema-file
       - name: rucio-automatix-input-file
         secret:
           secretName: usdf-rucio-automatix-input-file
@@ -893,9 +860,6 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
-              subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
@@ -973,9 +937,6 @@ spec:
           secret:
             secretName: usdf-rucio-daemons.config.hermes
 
-        - name: lsst-schema-file
-          secret:
-            secretName: usdf-lsst-schema-file
         - name: rucio-automatix-input-file
           secret:
             secretName: usdf-rucio-automatix-input-file
@@ -997,9 +958,6 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
-              subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
@@ -1082,9 +1040,6 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
-      - name: lsst-schema-file
-        secret:
-          secretName: usdf-lsst-schema-file
       - name: rucio-automatix-input-file
         secret:
           secretName: usdf-rucio-automatix-input-file
@@ -1109,9 +1064,6 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
-              subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
@@ -1194,9 +1146,6 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
-      - name: lsst-schema-file
-        secret:
-          secretName: usdf-lsst-schema-file
       - name: rucio-automatix-input-file
         secret:
           secretName: usdf-rucio-automatix-input-file
@@ -1221,9 +1170,6 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
-              subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
@@ -1306,9 +1252,6 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
-      - name: lsst-schema-file
-        secret:
-          secretName: usdf-lsst-schema-file
       - name: rucio-automatix-input-file
         secret:
           secretName: usdf-rucio-automatix-input-file
@@ -1333,9 +1276,6 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
-              subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
@@ -1418,9 +1358,6 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
-      - name: lsst-schema-file
-        secret:
-          secretName: usdf-lsst-schema-file
       - name: rucio-automatix-input-file
         secret:
           secretName: usdf-rucio-automatix-input-file
@@ -1445,9 +1382,6 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
-              subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
@@ -1530,9 +1464,6 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
-      - name: lsst-schema-file
-        secret:
-          secretName: usdf-lsst-schema-file
       - name: rucio-automatix-input-file
         secret:
           secretName: usdf-rucio-automatix-input-file
@@ -1557,9 +1488,6 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
-              subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
@@ -1642,9 +1570,6 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
-      - name: lsst-schema-file
-        secret:
-          secretName: usdf-lsst-schema-file
       - name: rucio-automatix-input-file
         secret:
           secretName: usdf-rucio-automatix-input-file
@@ -1669,9 +1594,6 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
-              subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
@@ -1754,9 +1676,6 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle-reaper
-      - name: lsst-schema-file
-        secret:
-          secretName: usdf-lsst-schema-file
       - name: rucio-automatix-input-file
         secret:
           secretName: usdf-rucio-automatix-input-file
@@ -1781,9 +1700,6 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
-              subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
@@ -1872,9 +1788,6 @@ spec:
       - name: ca-volume
         secret:
           secretName: usdf-rucio-ca-bundle
-      - name: lsst-schema-file
-        secret:
-          secretName: usdf-lsst-schema-file
       - name: rucio-automatix-input-file
         secret:
           secretName: usdf-rucio-automatix-input-file
@@ -1899,9 +1812,6 @@ spec:
             - name: config-component
               mountPath: /opt/rucio/etc/conf.d/20_component.json
               subPath: component.json
-            - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
-              subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"
@@ -1981,9 +1891,6 @@ spec:
       - name: proxy-volume
         secret:
           secretName: usdf-rucio-x509up
-      - name: lsst-schema-file
-        secret:
-          secretName: usdf-lsst-schema-file
       - name: rucio-automatix-input-file
         secret:
           secretName: usdf-rucio-automatix-input-file
@@ -2006,9 +1913,6 @@ spec:
               subPath: component.json
             - name: proxy-volume
               mountPath: /opt/proxy
-            - name: lsst-schema-file
-              mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
-              subPath: "lsst.py"
             - name: rucio-automatix-input-file
               mountPath: /opt/rucio/etc/automatix.json
               subPath: "automatix.json"

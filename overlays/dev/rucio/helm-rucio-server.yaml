@@ -86,9 +86,6 @@ spec:
           secretName: usdf-rucio-server.config.common
       - name: httpdlog
         emptyDir: {}
-      - name: lsst-schema-file
-        secret:
-          secretName: usdf-lsst-schema-file
       - name: policy-package
         secret:
           secretName: usdf-policy-package
@@ -131,9 +128,6 @@ spec:
             subPath: common.json
           - name: httpdlog
             mountPath: /var/log/httpd
-          - name: lsst-schema-file
-            mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/schema/lsst.py
-            subPath: lsst.py
           - name: policy-package
             mountPath: /opt/rucio/permissions/rubin
             subPath: 
