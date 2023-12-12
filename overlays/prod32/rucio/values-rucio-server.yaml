@@ -86,8 +86,12 @@ secretMounts:
   - secretName: lsst-schema-file
     mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
     subPath: lsst.py
+  - secretName: policy-package
+    mountPath: /opt/rucio/permissions/rubin
 
 additionalEnvs:
+  - name: PYTHONPATH
+    value: /opt/rucio/permissions
   - name: RUCIO_CFG_DATABASE_DEFAULT
     valueFrom:
       secretKeyRef:
@@ -184,10 +188,11 @@ config:
     # password: ""
 
   policy:
+    package: rubin
     ## config.permission.policy: (default "generic")
     # permission: "generic"
     ## config.permission.schema: (default "generic")
-    schema: "lsst"
+    # schema: "lsst"
     ## config.permission.lfn2pfn_algorithm_default: (default "hash")
     # lfn2pfn_algorithm_default: "hash"
     ## config.permission.support: (default "https://github.com/rucio/rucio/issues/")

@@ -213,7 +213,7 @@ metadata:
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJhdXRvbWF0aXgiOiB7CiAgICAiYWNjb3VudCI6ICJhdXRvbWF0aXgiLAogICAgImRhdGFzZXRfbGlmZXRpbWUiOiAzNjAwMCwKICAgICJkYXRhc2V0X3BhdHRlcm4iOiAiZGlkX3ByZWZpeC9kYXRlL3V1aWQiLAogICAgImRpZF9wcmVmaXgiOiAiYXV0b21hdGl4IiwKICAgICJmaWxlX3BhdHRlcm4iOiAiZHNuL3V1aWQiLAogICAgInJzZXMiOiAiU0xBQ19URVNUX0RJU0ssIFJBTF9URVNUX0RJU0ssIElOMlAzX1RFU1RfRElTSyIsCiAgICAic2NvcGUiOiAidXNlci5hdXRvbWF0aXgiLAogICAgInNlcGFyYXRvciI6ICIvIiwKICAgICJzZXRfbWV0YWRhdGEiOiAiVHJ1ZSIKICB9LAogICJjbGllbnQiOiB7CiAgICAiYWNjb3VudCI6ICJhdXRvbWF0aXgiLAogICAgImF1dGhfaG9zdCI6ICJodHRwczovL3J1YmluLXJ1Y2lvLnNsYWMuc3RhbmZvcmQuZWR1Ojg0NDMiLAogICAgImF1dGhfdHlwZSI6ICJ4NTA5X3Byb3h5IiwKICAgICJjYV9jZXJ0IjogIi9vcHQvY2VydHMiLAogICAgImNsaWVudF94NTA5X3Byb3h5IjogIi9vcHQvcHJveHkveDUwOXVwIiwKICAgICJwcm90b2NvbF9zdGF0X3JldHJpZXMiOiA2LAogICAgInJlcXVlc3RfcmV0cmllcyI6IDYsCiAgICAicnVjaW9faG9zdCI6ICJodHRwczovL3J1YmluLXJ1Y2lvLnNsYWMuc3RhbmZvcmQuZWR1Ojg0NDMiCiAgfSwKICAiY29udmV5b3IiOiB7CiAgICAiY2FjZXJ0IjogIi9vcHQvY2VydHMvY2EucGVtIiwKICAgICJmdHNob3N0cyI6ICJodHRwczovL2Z0cy1ldmFsMDEuc2xhYy5zdGFuZm9yZC5lZHU6ODQ0NixodHRwczovL2xjZ2Z0czMuZ3JpZHBwLnJsLmFjLnVrOjg0NDYiLAogICAgInNjaGVtZSI6ICJzcm0sZ3NpZnRwLHJvb3QsaHR0cCxodHRwcyIsCiAgICAidHJhbnNmZXJ0b29sIjogImZ0czMiLAogICAgInVzZXJjZXJ0IjogIi9vcHQvcHJveHkveDUwOXVwIgogIH0sCiAgImhlcm1lcyI6IHsKICAgICJzZXJ2aWNlc19saXN0IjogImthZmthIgogIH0sCiAgIm1lc3NhZ2luZy1oZXJtZXMta2Fma2EiOiB7CiAgICAiYnJva2VyIjogIjEzNC43OS4yMy4yMjE6OTA5NCwxMzQuNzkuMjMuMjIyOjkwOTQsMTM0Ljc5LjIzLjIyMzo5MDk0IiwKICAgICJtZXNzYWdlX2ZpbHRlciI6ICJydWNpby5kYWVtb25zLmhlcm1lcy5rYWZrYS5maWx0ZXJzLmZpbHRlcmVkX2xpc3QiLAogICAgIm5vbnNzbF9wb3J0IjogOTA5MiwKICAgICJwb3J0IjogOTA5MiwKICAgICJ0b3BpY19saXN0IjogIlVTREZfU1RTX0RJU0ssRlJERl9TVFNfRElTSyIsCiAgICAidXNlX3NzbCI6IGZhbHNlCiAgfSwKICAibW9uaXRvciI6IHsKICAgICJlbmFibGVfbWV0cmljcyI6ICJUcnVlIgogIH0sCiAgInBvbGljeSI6IHsKICAgICJzY2hlbWEiOiAibHNzdCIKICB9LAogICJ0cmFuc21vZ3JpZmllciI6IHsKICAgICJtYXhkaWRzIjogNDAwMDAKICB9Cn0="
+  common.json: "ewogICJhdXRvbWF0aXgiOiB7CiAgICAiYWNjb3VudCI6ICJhdXRvbWF0aXgiLAogICAgImRhdGFzZXRfbGlmZXRpbWUiOiAzNjAwMCwKICAgICJkYXRhc2V0X3BhdHRlcm4iOiAiZGlkX3ByZWZpeC9kYXRlL3V1aWQiLAogICAgImRpZF9wcmVmaXgiOiAiYXV0b21hdGl4IiwKICAgICJmaWxlX3BhdHRlcm4iOiAiZHNuL3V1aWQiLAogICAgInJzZXMiOiAiU0xBQ19URVNUX0RJU0ssIFJBTF9URVNUX0RJU0ssIElOMlAzX1RFU1RfRElTSyIsCiAgICAic2NvcGUiOiAidXNlci5hdXRvbWF0aXgiLAogICAgInNlcGFyYXRvciI6ICIvIiwKICAgICJzZXRfbWV0YWRhdGEiOiAiVHJ1ZSIKICB9LAogICJjbGllbnQiOiB7CiAgICAiYWNjb3VudCI6ICJhdXRvbWF0aXgiLAogICAgImF1dGhfaG9zdCI6ICJodHRwczovL3J1YmluLXJ1Y2lvLnNsYWMuc3RhbmZvcmQuZWR1Ojg0NDMiLAogICAgImF1dGhfdHlwZSI6ICJ4NTA5X3Byb3h5IiwKICAgICJjYV9jZXJ0IjogIi9vcHQvY2VydHMiLAogICAgImNsaWVudF94NTA5X3Byb3h5IjogIi9vcHQvcHJveHkveDUwOXVwIiwKICAgICJwcm90b2NvbF9zdGF0X3JldHJpZXMiOiA2LAogICAgInJlcXVlc3RfcmV0cmllcyI6IDYsCiAgICAicnVjaW9faG9zdCI6ICJodHRwczovL3J1YmluLXJ1Y2lvLnNsYWMuc3RhbmZvcmQuZWR1Ojg0NDMiCiAgfSwKICAiY29udmV5b3IiOiB7CiAgICAiY2FjZXJ0IjogIi9vcHQvY2VydHMvY2EucGVtIiwKICAgICJmdHNob3N0cyI6ICJodHRwczovL2Z0cy1ldmFsMDEuc2xhYy5zdGFuZm9yZC5lZHU6ODQ0NixodHRwczovL2xjZ2Z0czMuZ3JpZHBwLnJsLmFjLnVrOjg0NDYiLAogICAgInNjaGVtZSI6ICJzcm0sZ3NpZnRwLHJvb3QsaHR0cCxodHRwcyIsCiAgICAidHJhbnNmZXJ0b29sIjogImZ0czMiLAogICAgInVzZXJjZXJ0IjogIi9vcHQvcHJveHkveDUwOXVwIgogIH0sCiAgImhlcm1lcyI6IHsKICAgICJzZXJ2aWNlc19saXN0IjogImthZmthIgogIH0sCiAgIm1lc3NhZ2luZy1oZXJtZXMta2Fma2EiOiB7CiAgICAiYnJva2VyIjogIjEzNC43OS4yMy4yMjE6OTA5NCwxMzQuNzkuMjMuMjIyOjkwOTQsMTM0Ljc5LjIzLjIyMzo5MDk0IiwKICAgICJtZXNzYWdlX2ZpbHRlciI6ICJydWNpby5kYWVtb25zLmhlcm1lcy5rYWZrYS5maWx0ZXJzLmZpbHRlcmVkX2xpc3QiLAogICAgIm5vbnNzbF9wb3J0IjogOTA5MiwKICAgICJwb3J0IjogOTA5MiwKICAgICJ0b3BpY19saXN0IjogIlVTREZfU1RTX0RJU0ssRlJERl9TVFNfRElTSyIsCiAgICAidXNlX3NzbCI6IGZhbHNlCiAgfSwKICAibW9uaXRvciI6IHsKICAgICJlbmFibGVfbWV0cmljcyI6ICJUcnVlIgogIH0sCiAgInBvbGljeSI6IHsKICAgICJwYWNrYWdlIjogInJ1YmluIgogIH0sCiAgInRyYW5zbW9ncmlmaWVyIjogewogICAgIm1heGRpZHMiOiA0MDAwMAogIH0KfQ=="
 ---
 # Source: rucio-daemons/templates/transmogrifier.yaml
 apiVersion: v1
@@ -315,6 +315,9 @@ spec:
       - name: hermeskafka-constants
         secret:
           secretName: usdf-hermeskafka-constants
+      - name: policy-package
+        secret:
+          secretName: usdf-policy-package
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.6.0"
@@ -339,6 +342,8 @@ spec:
             - name: hermeskafka-constants
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
               subPath: "constants.py"
+            - name: policy-package
+              mountPath: /opt/rucio/permissions/rubin
           ports:
             - name: metrics
               containerPort: 8080
@@ -350,6 +355,8 @@ spec:
               value: "abacus-account"
             - name: RUCIO_DAEMON_ARGS
               value: "--threads 1"
+            - name: PYTHONPATH
+              value: /opt/rucio/permissions
             - name: RUCIO_CFG_DATABASE_DEFAULT
               valueFrom:
                 secretKeyRef:
@@ -420,6 +427,9 @@ spec:
       - name: hermeskafka-constants
         secret:
           secretName: usdf-hermeskafka-constants
+      - name: policy-package
+        secret:
+          secretName: usdf-policy-package
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.6.0"
@@ -444,6 +454,8 @@ spec:
             - name: hermeskafka-constants
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
               subPath: "constants.py"
+            - name: policy-package
+              mountPath: /opt/rucio/permissions/rubin
           ports:
             - name: metrics
               containerPort: 8080
@@ -455,6 +467,8 @@ spec:
               value: "abacus-collection-replica"
             - name: RUCIO_DAEMON_ARGS
               value: "--threads 1"
+            - name: PYTHONPATH
+              value: /opt/rucio/permissions
             - name: RUCIO_CFG_DATABASE_DEFAULT
               valueFrom:
                 secretKeyRef:
@@ -525,6 +539,9 @@ spec:
       - name: hermeskafka-constants
         secret:
           secretName: usdf-hermeskafka-constants
+      - name: policy-package
+        secret:
+          secretName: usdf-policy-package
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.6.0"
@@ -549,6 +566,8 @@ spec:
             - name: hermeskafka-constants
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
               subPath: "constants.py"
+            - name: policy-package
+              mountPath: /opt/rucio/permissions/rubin
           ports:
             - name: metrics
               containerPort: 8080
@@ -560,6 +579,8 @@ spec:
               value: "abacus-rse"
             - name: RUCIO_DAEMON_ARGS
               value: "--threads 1"
+            - name: PYTHONPATH
+              value: /opt/rucio/permissions
             - name: RUCIO_CFG_DATABASE_DEFAULT
               valueFrom:
                 secretKeyRef:
@@ -604,7 +625,7 @@ spec:
         release: usdf
         rucio-daemon: conveyor-finisher
       annotations:
-        checksum/config: c65e4dcaedde0543c1a2c2ac43b4a227700e3c83
+        checksum/config: 04c1a6a2b8de40204531851d9116fc2248c34d4a
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -630,6 +651,9 @@ spec:
       - name: hermeskafka-constants
         secret:
           secretName: usdf-hermeskafka-constants
+      - name: policy-package
+        secret:
+          secretName: usdf-policy-package
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.6.0"
@@ -654,6 +678,8 @@ spec:
             - name: hermeskafka-constants
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
               subPath: "constants.py"
+            - name: policy-package
+              mountPath: /opt/rucio/permissions/rubin
           ports:
             - name: metrics
               containerPort: 8080
@@ -665,6 +691,8 @@ spec:
               value: "conveyor-finisher"
             - name: RUCIO_DAEMON_ARGS
               value: " --total-threads 1 --activities 'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
+            - name: PYTHONPATH
+              value: /opt/rucio/permissions
             - name: RUCIO_CFG_DATABASE_DEFAULT
               valueFrom:
                 secretKeyRef:
@@ -709,7 +737,7 @@ spec:
         release: usdf
         rucio-daemon: conveyor-poller
       annotations:
-        checksum/config: c65e4dcaedde0543c1a2c2ac43b4a227700e3c83
+        checksum/config: 04c1a6a2b8de40204531851d9116fc2248c34d4a
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -735,6 +763,9 @@ spec:
       - name: hermeskafka-constants
         secret:
           secretName: usdf-hermeskafka-constants
+      - name: policy-package
+        secret:
+          secretName: usdf-policy-package
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.6.0"
@@ -759,6 +790,8 @@ spec:
             - name: hermeskafka-constants
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
               subPath: "constants.py"
+            - name: policy-package
+              mountPath: /opt/rucio/permissions/rubin
           ports:
             - name: metrics
               containerPort: 8080
@@ -770,6 +803,8 @@ spec:
               value: "conveyor-poller"
             - name: RUCIO_DAEMON_ARGS
               value: " --total-threads 1  --activities 'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
+            - name: PYTHONPATH
+              value: /opt/rucio/permissions
             - name: RUCIO_CFG_DATABASE_DEFAULT
               valueFrom:
                 secretKeyRef:
@@ -814,7 +849,7 @@ spec:
         release: usdf
         rucio-daemon: conveyor-submitter
       annotations:
-        checksum/config: c65e4dcaedde0543c1a2c2ac43b4a227700e3c83
+        checksum/config: 04c1a6a2b8de40204531851d9116fc2248c34d4a
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -840,6 +875,9 @@ spec:
       - name: hermeskafka-constants
         secret:
           secretName: usdf-hermeskafka-constants
+      - name: policy-package
+        secret:
+          secretName: usdf-policy-package
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.6.0"
@@ -864,6 +902,8 @@ spec:
             - name: hermeskafka-constants
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
               subPath: "constants.py"
+            - name: policy-package
+              mountPath: /opt/rucio/permissions/rubin
           ports:
             - name: metrics
               containerPort: 8080
@@ -875,6 +915,8 @@ spec:
               value: "conveyor-submitter"
             - name: RUCIO_DAEMON_ARGS
               value: " --total-threads 1 --sleep-time 10 --activities 'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
+            - name: PYTHONPATH
+              value: /opt/rucio/permissions
             - name: RUCIO_CFG_DATABASE_DEFAULT
               valueFrom:
                 secretKeyRef:
@@ -919,7 +961,7 @@ spec:
         release: usdf
         rucio-daemon: hermes
       annotations:
-        checksum/config: c65e4dcaedde0543c1a2c2ac43b4a227700e3c83
+        checksum/config: 04c1a6a2b8de40204531851d9116fc2248c34d4a
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -940,6 +982,9 @@ spec:
         - name: hermeskafka-constants
           secret:
             secretName: usdf-hermeskafka-constants
+        - name: policy-package
+          secret:
+            secretName: usdf-policy-package
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.6.0"
@@ -961,6 +1006,8 @@ spec:
             - name: hermeskafka-constants
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
               subPath: "constants.py"
+            - name: policy-package
+              mountPath: /opt/rucio/permissions/rubin
           ports:
             - name: metrics
               containerPort: 8080
@@ -972,6 +1019,8 @@ spec:
               value: "hermes"
             - name: RUCIO_DAEMON_ARGS
               value: " --threads 1  --bulk 100"
+            - name: PYTHONPATH
+              value: /opt/rucio/permissions
             - name: RUCIO_CFG_DATABASE_DEFAULT
               valueFrom:
                 secretKeyRef:
@@ -1016,7 +1065,7 @@ spec:
         release: usdf
         rucio-daemon: judge-cleaner
       annotations:
-        checksum/config: c65e4dcaedde0543c1a2c2ac43b4a227700e3c83
+        checksum/config: 04c1a6a2b8de40204531851d9116fc2248c34d4a
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1042,6 +1091,9 @@ spec:
       - name: hermeskafka-constants
         secret:
           secretName: usdf-hermeskafka-constants
+      - name: policy-package
+        secret:
+          secretName: usdf-policy-package
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.6.0"
@@ -1066,6 +1118,8 @@ spec:
             - name: hermeskafka-constants
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
               subPath: "constants.py"
+            - name: policy-package
+              mountPath: /opt/rucio/permissions/rubin
           ports:
             - name: metrics
               containerPort: 8080
@@ -1077,6 +1131,8 @@ spec:
               value: "judge-cleaner"
             - name: RUCIO_DAEMON_ARGS
               value: "--threads 1"
+            - name: PYTHONPATH
+              value: /opt/rucio/permissions
             - name: RUCIO_CFG_DATABASE_DEFAULT
               valueFrom:
                 secretKeyRef:
@@ -1121,7 +1177,7 @@ spec:
         release: usdf
         rucio-daemon: judge-evaluator
       annotations:
-        checksum/config: c65e4dcaedde0543c1a2c2ac43b4a227700e3c83
+        checksum/config: 04c1a6a2b8de40204531851d9116fc2248c34d4a
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1147,6 +1203,9 @@ spec:
       - name: hermeskafka-constants
         secret:
           secretName: usdf-hermeskafka-constants
+      - name: policy-package
+        secret:
+          secretName: usdf-policy-package
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.6.0"
@@ -1171,6 +1230,8 @@ spec:
             - name: hermeskafka-constants
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
               subPath: "constants.py"
+            - name: policy-package
+              mountPath: /opt/rucio/permissions/rubin
           ports:
             - name: metrics
               containerPort: 8080
@@ -1182,6 +1243,8 @@ spec:
               value: "judge-evaluator"
             - name: RUCIO_DAEMON_ARGS
               value: "--threads 1"
+            - name: PYTHONPATH
+              value: /opt/rucio/permissions
             - name: RUCIO_CFG_DATABASE_DEFAULT
               valueFrom:
                 secretKeyRef:
@@ -1226,7 +1289,7 @@ spec:
         release: usdf
         rucio-daemon: judge-injector
       annotations:
-        checksum/config: c65e4dcaedde0543c1a2c2ac43b4a227700e3c83
+        checksum/config: 04c1a6a2b8de40204531851d9116fc2248c34d4a
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1252,6 +1315,9 @@ spec:
       - name: hermeskafka-constants
         secret:
           secretName: usdf-hermeskafka-constants
+      - name: policy-package
+        secret:
+          secretName: usdf-policy-package
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.6.0"
@@ -1276,6 +1342,8 @@ spec:
             - name: hermeskafka-constants
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
               subPath: "constants.py"
+            - name: policy-package
+              mountPath: /opt/rucio/permissions/rubin
           ports:
             - name: metrics
               containerPort: 8080
@@ -1287,6 +1355,8 @@ spec:
               value: "judge-injector"
             - name: RUCIO_DAEMON_ARGS
               value: "--threads 1"
+            - name: PYTHONPATH
+              value: /opt/rucio/permissions
             - name: RUCIO_CFG_DATABASE_DEFAULT
               valueFrom:
                 secretKeyRef:
@@ -1331,7 +1401,7 @@ spec:
         release: usdf
         rucio-daemon: judge-repairer
       annotations:
-        checksum/config: c65e4dcaedde0543c1a2c2ac43b4a227700e3c83
+        checksum/config: 04c1a6a2b8de40204531851d9116fc2248c34d4a
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1357,6 +1427,9 @@ spec:
       - name: hermeskafka-constants
         secret:
           secretName: usdf-hermeskafka-constants
+      - name: policy-package
+        secret:
+          secretName: usdf-policy-package
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.6.0"
@@ -1381,6 +1454,8 @@ spec:
             - name: hermeskafka-constants
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
               subPath: "constants.py"
+            - name: policy-package
+              mountPath: /opt/rucio/permissions/rubin
           ports:
             - name: metrics
               containerPort: 8080
@@ -1392,6 +1467,8 @@ spec:
               value: "judge-repairer"
             - name: RUCIO_DAEMON_ARGS
               value: "--threads 1"
+            - name: PYTHONPATH
+              value: /opt/rucio/permissions
             - name: RUCIO_CFG_DATABASE_DEFAULT
               valueFrom:
                 secretKeyRef:
@@ -1436,7 +1513,7 @@ spec:
         release: usdf
         rucio-daemon: minos
       annotations:
-        checksum/config: c65e4dcaedde0543c1a2c2ac43b4a227700e3c83
+        checksum/config: 04c1a6a2b8de40204531851d9116fc2248c34d4a
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1462,6 +1539,9 @@ spec:
       - name: hermeskafka-constants
         secret:
           secretName: usdf-hermeskafka-constants
+      - name: policy-package
+        secret:
+          secretName: usdf-policy-package
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.6.0"
@@ -1486,6 +1566,8 @@ spec:
             - name: hermeskafka-constants
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
               subPath: "constants.py"
+            - name: policy-package
+              mountPath: /opt/rucio/permissions/rubin
           ports:
             - name: metrics
               containerPort: 8080
@@ -1497,6 +1579,8 @@ spec:
               value: "minos"
             - name: RUCIO_DAEMON_ARGS
               value: " --threads 1"
+            - name: PYTHONPATH
+              value: /opt/rucio/permissions
             - name: RUCIO_CFG_DATABASE_DEFAULT
               valueFrom:
                 secretKeyRef:
@@ -1541,7 +1625,7 @@ spec:
         release: usdf
         rucio-daemon: necromancer
       annotations:
-        checksum/config: c65e4dcaedde0543c1a2c2ac43b4a227700e3c83
+        checksum/config: 04c1a6a2b8de40204531851d9116fc2248c34d4a
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1567,6 +1651,9 @@ spec:
       - name: hermeskafka-constants
         secret:
           secretName: usdf-hermeskafka-constants
+      - name: policy-package
+        secret:
+          secretName: usdf-policy-package
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.6.0"
@@ -1591,6 +1678,8 @@ spec:
             - name: hermeskafka-constants
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
               subPath: "constants.py"
+            - name: policy-package
+              mountPath: /opt/rucio/permissions/rubin
           ports:
             - name: metrics
               containerPort: 8080
@@ -1602,6 +1691,8 @@ spec:
               value: "necromancer"
             - name: RUCIO_DAEMON_ARGS
               value: ""
+            - name: PYTHONPATH
+              value: /opt/rucio/permissions
             - name: RUCIO_CFG_DATABASE_DEFAULT
               valueFrom:
                 secretKeyRef:
@@ -1646,7 +1737,7 @@ spec:
         release: usdf
         rucio-daemon: reaper
       annotations:
-        checksum/config: c65e4dcaedde0543c1a2c2ac43b4a227700e3c83
+        checksum/config: 04c1a6a2b8de40204531851d9116fc2248c34d4a
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1672,6 +1763,9 @@ spec:
       - name: hermeskafka-constants
         secret:
           secretName: usdf-hermeskafka-constants
+      - name: policy-package
+        secret:
+          secretName: usdf-policy-package
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.6.0"
@@ -1696,6 +1790,8 @@ spec:
             - name: hermeskafka-constants
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
               subPath: "constants.py"
+            - name: policy-package
+              mountPath: /opt/rucio/permissions/rubin
           ports:
             - name: metrics
               containerPort: 8080
@@ -1713,6 +1809,8 @@ spec:
               value: "/opt/rucio/reaper"
             - name: X509_USER_PROXY
               value: "/opt/proxy/x509up"
+            - name: PYTHONPATH
+              value: /opt/rucio/permissions
             - name: RUCIO_CFG_DATABASE_DEFAULT
               valueFrom:
                 secretKeyRef:
@@ -1757,7 +1855,7 @@ spec:
         release: usdf
         rucio-daemon: transmogrifier
       annotations:
-        checksum/config: c65e4dcaedde0543c1a2c2ac43b4a227700e3c83
+        checksum/config: 04c1a6a2b8de40204531851d9116fc2248c34d4a
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1783,6 +1881,9 @@ spec:
       - name: hermeskafka-constants
         secret:
           secretName: usdf-hermeskafka-constants
+      - name: policy-package
+        secret:
+          secretName: usdf-policy-package
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.6.0"
@@ -1807,6 +1908,8 @@ spec:
             - name: hermeskafka-constants
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
               subPath: "constants.py"
+            - name: policy-package
+              mountPath: /opt/rucio/permissions/rubin
           ports:
             - name: metrics
               containerPort: 8080
@@ -1818,6 +1921,8 @@ spec:
               value: "transmogrifier"
             - name: RUCIO_DAEMON_ARGS
               value: " --threads 1"
+            - name: PYTHONPATH
+              value: /opt/rucio/permissions
             - name: RUCIO_CFG_DATABASE_DEFAULT
               valueFrom:
                 secretKeyRef:
@@ -1862,7 +1967,7 @@ spec:
         release: usdf
         rucio-daemon: undertaker
       annotations:
-        checksum/config: c65e4dcaedde0543c1a2c2ac43b4a227700e3c83
+        checksum/config: 04c1a6a2b8de40204531851d9116fc2248c34d4a
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1885,6 +1990,9 @@ spec:
       - name: hermeskafka-constants
         secret:
           secretName: usdf-hermeskafka-constants
+      - name: policy-package
+        secret:
+          secretName: usdf-policy-package
       containers:
         - name: rucio-daemons
           image: "rucio/rucio-daemons:release-32.6.0"
@@ -1907,6 +2015,8 @@ spec:
             - name: hermeskafka-constants
               mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
               subPath: "constants.py"
+            - name: policy-package
+              mountPath: /opt/rucio/permissions/rubin
           ports:
             - name: metrics
               containerPort: 8080
@@ -1918,6 +2028,8 @@ spec:
               value: "undertaker"
             - name: RUCIO_DAEMON_ARGS
               value: " --total-workers 1"
+            - name: PYTHONPATH
+              value: /opt/rucio/permissions
             - name: RUCIO_CFG_DATABASE_DEFAULT
               valueFrom:
                 secretKeyRef:

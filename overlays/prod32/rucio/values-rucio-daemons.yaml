@@ -74,6 +74,8 @@ abacusAccount:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
+    - name: PYTHONPATH
+      value: /opt/rucio/permissions
     - name: RUCIO_CFG_DATABASE_DEFAULT
       valueFrom:
         secretKeyRef:
@@ -91,6 +93,8 @@ abacusCollectionReplica:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
+    - name: PYTHONPATH
+      value: /opt/rucio/permissions
     - name: RUCIO_CFG_DATABASE_DEFAULT
       valueFrom:
         secretKeyRef:
@@ -109,6 +113,8 @@ abacusRse:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
+    - name: PYTHONPATH
+      value: /opt/rucio/permissions
     - name: RUCIO_CFG_DATABASE_DEFAULT
       valueFrom:
         secretKeyRef:
@@ -128,6 +134,8 @@ automatix:
       memory: "1200Mi"
       cpu: "700m"
   additionalEnvs:
+    - name: PYTHONPATH
+      value: /opt/rucio/permissions
     - name: RUCIO_CFG_DATABASE_DEFAULT
       valueFrom:
         secretKeyRef:
@@ -145,6 +153,8 @@ cacheConsumer:
       memory: "400Mi"
       cpu: "100m"
   additionalEnvs:
+    - name: PYTHONPATH
+      value: /opt/rucio/permissions
     - name: RUCIO_CFG_DATABASE_DEFAULT
       valueFrom:
         secretKeyRef:
@@ -165,6 +175,8 @@ conveyorTransferSubmitter:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
+    - name: PYTHONPATH
+      value: /opt/rucio/permissions
     - name: RUCIO_CFG_DATABASE_DEFAULT
       valueFrom:
         secretKeyRef:
@@ -183,6 +195,8 @@ conveyorPoller:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
+    - name: PYTHONPATH
+      value: /opt/rucio/permissions
     - name: RUCIO_CFG_DATABASE_DEFAULT
       valueFrom:
         secretKeyRef:
@@ -201,6 +215,8 @@ conveyorFinisher:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
+    - name: PYTHONPATH
+      value: /opt/rucio/permissions
     - name: RUCIO_CFG_DATABASE_DEFAULT
       valueFrom:
         secretKeyRef:
@@ -218,6 +234,8 @@ conveyorReceiver:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
+    - name: PYTHONPATH
+      value: /opt/rucio/permissions
     - name: RUCIO_CFG_DATABASE_DEFAULT
       valueFrom:
         secretKeyRef:
@@ -235,6 +253,8 @@ conveyorThrottler:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
+    - name: PYTHONPATH
+      value: /opt/rucio/permissions
     - name: RUCIO_CFG_DATABASE_DEFAULT
       valueFrom:
         secretKeyRef:
@@ -252,6 +272,8 @@ conveyorPreparer:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
+    - name: PYTHONPATH
+      value: /opt/rucio/permissions
     - name: RUCIO_CFG_DATABASE_DEFAULT
       valueFrom:
         secretKeyRef:
@@ -274,6 +296,8 @@ darkReaper:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
+    - name: PYTHONPATH
+      value: /opt/rucio/permissions
     - name: RUCIO_CFG_DATABASE_DEFAULT
       valueFrom:
         secretKeyRef:
@@ -294,6 +318,8 @@ hermes:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
+    - name: PYTHONPATH
+      value: /opt/rucio/permissions
     - name: RUCIO_CFG_DATABASE_DEFAULT
       valueFrom:
         secretKeyRef:
@@ -311,6 +337,8 @@ judgeCleaner:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
+    - name: PYTHONPATH
+      value: /opt/rucio/permissions
     - name: RUCIO_CFG_DATABASE_DEFAULT
       valueFrom:
         secretKeyRef:
@@ -328,6 +356,8 @@ judgeEvaluator:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
+    - name: PYTHONPATH
+      value: /opt/rucio/permissions
     - name: RUCIO_CFG_DATABASE_DEFAULT
       valueFrom:
         secretKeyRef:
@@ -345,6 +375,8 @@ judgeInjector:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
+    - name: PYTHONPATH
+      value: /opt/rucio/permissions
     - name: RUCIO_CFG_DATABASE_DEFAULT
       valueFrom:
         secretKeyRef:
@@ -362,6 +394,8 @@ judgeRepairer:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
+    - name: PYTHONPATH
+      value: /opt/rucio/permissions
     - name: RUCIO_CFG_DATABASE_DEFAULT
       valueFrom:
         secretKeyRef:
@@ -379,6 +413,8 @@ oauthManager:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
+    - name: PYTHONPATH
+      value: /opt/rucio/permissions
     - name: RUCIO_CFG_DATABASE_DEFAULT
       valueFrom:
         secretKeyRef:
@@ -396,6 +432,8 @@ undertaker:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
+    - name: PYTHONPATH
+      value: /opt/rucio/permissions
     - name: RUCIO_CFG_DATABASE_DEFAULT
       valueFrom:
         secretKeyRef:
@@ -416,6 +454,8 @@ reaper:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
+    - name: PYTHONPATH
+      value: /opt/rucio/permissions
     - name: RUCIO_CFG_DATABASE_DEFAULT
       valueFrom:
         secretKeyRef:
@@ -433,6 +473,8 @@ transmogrifier:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
+    - name: PYTHONPATH
+      value: /opt/rucio/permissions
     - name: RUCIO_CFG_DATABASE_DEFAULT
       valueFrom:
         secretKeyRef:
@@ -450,6 +492,8 @@ tracerKronos:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
+    - name: PYTHONPATH
+      value: /opt/rucio/permissions
     - name: RUCIO_CFG_DATABASE_DEFAULT
       valueFrom:
         secretKeyRef:
@@ -467,6 +511,8 @@ minos:
       memory: "400Mi"
       cpu: "100m"
   additionalEnvs:
+    - name: PYTHONPATH
+      value: /opt/rucio/permissions
     - name: RUCIO_CFG_DATABASE_DEFAULT
       valueFrom:
         secretKeyRef:
@@ -484,6 +530,8 @@ minosTemporaryExpiration:
       memory: "400Mi"
       cpu: "100m"
   additionalEnvs:
+    - name: PYTHONPATH
+      value: /opt/rucio/permissions
     - name: RUCIO_CFG_DATABASE_DEFAULT
       valueFrom:
         secretKeyRef:
@@ -500,6 +548,8 @@ necromancer:
       memory: "400Mi"
       cpu: "100m"
   additionalEnvs:
+    - name: PYTHONPATH
+      value: /opt/rucio/permissions
     - name: RUCIO_CFG_DATABASE_DEFAULT
       valueFrom:
         secretKeyRef:
@@ -573,6 +623,8 @@ secretMounts:
   - secretName: hermeskafka-constants
     mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
     subPath: constants.py
+  - secretName: policy-package
+    mountPath: /opt/rucio/permissions/rubin
 
 ## common config values used to configure the Rucio daemons
 config:
@@ -628,10 +680,11 @@ config:
     # user_scope: "default_docker"
 
   policy:
+    package: rubin
     ## config.permission.policy: (default "generic")
     # permission: "generic"
     ## config.permission.schema: (default "generic")
-    schema: "lsst"
+    # schema: "lsst"
     ## config.permission.lfn2pfn_algorithm_default: (default "hash")
     # lfn2pfn_algorithm_default: "hash"
     ## config.permission.support: (default "https://github.com/rucio/rucio/issues/")

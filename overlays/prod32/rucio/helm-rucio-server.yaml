@@ -11,7 +11,7 @@ metadata:
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJwb2xpY3kiOiB7CiAgICAic2NoZW1hIjogImxzc3QiCiAgfQp9"
+  common.json: "ewogICJwb2xpY3kiOiB7CiAgICAicGFja2FnZSI6ICJydWJpbiIKICB9Cn0="
 ---
 # Source: rucio-server/templates/secrets.yaml
 apiVersion: v1
@@ -78,7 +78,7 @@ spec:
         app: rucio-server
         release: usdf
       annotations:
-        checksum/config: 5742ace8009f3260df3d9e2a005d68310813a7ae
+        checksum/config: 9daab51dd5fa90f53aa89073f339158a6d86ed3f
     spec:
       volumes:
       - name: config
@@ -89,6 +89,9 @@ spec:
       - name: lsst-schema-file
         secret:
           secretName: usdf-lsst-schema-file
+      - name: policy-package
+        secret:
+          secretName: usdf-policy-package
       - name: hostcert
         secret:
           secretName: usdf-server-hostcert
@@ -131,6 +134,9 @@ spec:
           - name: lsst-schema-file
             mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
             subPath: lsst.py
+          - name: policy-package
+            mountPath: /opt/rucio/permissions/rubin
+            subPath: 
           - name: hostcert
             mountPath: /etc/grid-security/hostcert.pem
             subPath: hostcert.pem
@@ -193,6 +199,8 @@ spec:
               value: "4"
             - name: RUCIO_WSGI_DAEMON_THREADS
               value: "4"
+            - name: PYTHONPATH
+              value: /opt/rucio/permissions
             - name: RUCIO_CFG_DATABASE_DEFAULT
               valueFrom:
                 secretKeyRef:
