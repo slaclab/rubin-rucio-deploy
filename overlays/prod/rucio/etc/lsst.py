@@ -47,7 +47,7 @@ SCOPE_LENGTH = 25
 
 SCOPE = {"description": "Scope name",
          "type": "string",
-         "pattern": "^[a-zA-Z_\\-.0-9]{1,%s}$" % SCOPE_LENGTH}
+         "pattern": "^[a-zA-Z_\\\-\.0-9]{1,%s}$" % SCOPE_LENGTH}
 
 R_SCOPE = {"description": "Scope name",
            "type": "string",
@@ -368,7 +368,7 @@ ACCOUNT_ATTRIBUTE = {"description": "Account attribute",
                      "type": "string",
                      "pattern": r'^[a-zA-Z0-9-_\\/\\.]{1,30}$'}
 
-SCOPE_NAME_REGEXP = '/(\w.*?)/(.*)'
+SCOPE_NAME_REGEXP = '(\w.*?):(.*)'
 
 DISTANCE = {"description": "RSE distance",
             "type": "object",

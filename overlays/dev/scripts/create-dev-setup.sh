@@ -44,6 +44,12 @@ rucio-admin -a root account add register_service
 rucio-admin -a root identity add --account register_service --type SSH --email 'ktl@slac.stanford.edu' --id 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCdrexNG31GpEoRjrgvO8B2I7OzYUwuMPe3Zb28jO8rR1ZczHcVeYKGIIKTMMCX27wZk42+HLs/THaO7xGVEKKYjE/oSwuju/hzL2B2jVN97BvnIFTonDk4XUIzcZS+9cV85g9Ty+zEICvAa/N+gFhtgnNSPC/XlM0oobf1FjwRjf39y5zuRkRoRoHmU7pf6+HZYK9gAkQGMa1hGMyKDfqY685ieKxLNgccTbH5lriVDE/Hd96qLcVXXgfGNq5hSMGzVqLcx1rvkTI4jrkS354MkJFMvDBhtam1eot2bwoLbrGBJN/Uod7eEZoDzsPItxfHHJt7dpMw+NdjbtwDvG1bqwOGX/byYD02QGQXG7v/MuIix0N0igitLbEJh3iSggCqw2HN+i2AS/dLBukjRwkCrWUnm5qEZVBNBOOOtF9CxJM5nCofWTovNJanaKyB5x4BZnzfOGbFTVgLkbkZ0aRofX/y5lXsnBTZjXY0NPJRlom/M3Y3/ZiG0jI1njeQ3Wk= registersvc@usdf'
 rucio-admin -a root account add-attribute --key admin --value True register_service
 
+# Automatix
+user=automatix
+rucio-admin -a root account add ${user}
+rucio-admin -a root identity add --account ${user} --type X509 --email 'bjwhite@fnal.gov' --id '/DC=org/DC=incommon/C=US/ST=California/O=Stanford University/CN=rubin-rucio-dev.slac.stanford.edu'
+rucio-admin -a root account add-attribute --key admin --value True ${user}
+
 ### ADD RSES ####
 rse=SLAC_TEST_DISK
 rucio-admin -a root rse add ${rse}
@@ -76,4 +82,4 @@ rucio-admin -a root rse add-distance --distance 3 IN2P3_TEST_DISK SLAC_TEST_DISK
 rucio-admin -a root rse add-distance --distance 2 IN2P3_TEST_DISK RAL_TEST_DISK
 
 ### ADD Automatix Subscription ###
-# Todo
+rucio-admin -a root scope add --scope user.automatix --account automatix

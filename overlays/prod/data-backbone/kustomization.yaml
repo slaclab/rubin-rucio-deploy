@@ -1,0 +1,9 @@
+images:
+- name: docker.io/redis
+  newTag: "7.0.8"
+
+resources:
+- strimzi/clusterRoleBinding
+- strimzi/operator
+- redis
+- kafka

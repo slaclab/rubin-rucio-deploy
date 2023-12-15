@@ -20,7 +20,7 @@ useSSL: true
 
 image:
   repository: rucio/rucio-server
-  tag: release-32.5.0.post1
+  tag: release-33.0.0
   pullPolicy: Always
 
 service:
@@ -83,18 +83,17 @@ automaticRestart:
   schedule: "0 0 * * *"
 
 secretMounts:
-  - secretName: lsst-schema-file
-    mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
-    subPath: lsst.py
+  - secretName: policy-package
+    mountPath: /opt/rucio/permissions/rubin
 
 additionalEnvs:
+  - name: PYTHONPATH
+    value: /opt/rucio/permissions
   - name: RUCIO_CFG_DATABASE_DEFAULT
     valueFrom:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
-  - name: RUCIO_HTTPD_LEGACY_DN
-    value: "True"
 
 wsgi:
   daemonProcesses: "4"
@@ -102,9 +101,10 @@ wsgi:
 
 httpd_config:
   grid_site_enabled: "True"
+  encoded_slashes: "True"
+  legacy_dn: "True"
   #mpm_mode: "event"
   #enable_status: "True"
-  #legacy_dn: "True"
   #keep_alive: "On"
   #keep_alive_timeout: "5"
   #max_keep_alive_requests: "128"
@@ -116,7 +116,6 @@ httpd_config:
   #max_spare_threads: "512"
   #max_request_workers: "1280"
   #max_connections_per_child: "2048"
-  #encoded_slashes: "True"
 
 ingress:
   enabled: true 
@@ -186,10 +185,11 @@ config:
     # password: ""
 
   policy:
+    package: rubin
     ## config.permission.policy: (default "generic")
     # permission: "generic"
     ## config.permission.schema: (default "generic")
-    schema: "lsst"
+    # schema: "lsst"
     ## config.permission.lfn2pfn_algorithm_default: (default "hash")
     # lfn2pfn_algorithm_default: "hash"
     ## config.permission.support: (default "https://github.com/rucio/rucio/issues/")

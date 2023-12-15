@@ -1,0 +1,286 @@
+## replicaCount gives the number of server pods to run
+replicaCount: 1
+
+## authReplicaCount gives the number of authentication server pods to run
+authReplicaCount: 1
+traceReplicaCount: 0
+
+# When set, run extra busybox containers in the relevant pods to also expose the error logs
+exposeErrorLogs:
+  server: True
+  authServer: True
+  traceServer: True
+
+errorLogsExporterResources:
+  limits:
+   cpu: 30m
+   memory: 50Mi
+  requests:
+   cpu: 20m
+   memory: 20Mi
+
+# Set to true to enable SSL support for the different servers to be able accept X509 certificates and proxies.
+useSSL:
+  server: true
+  authServer: true
+  traceServer: true
+
+image:
+  repository: rucio/rucio-server
+  tag: release-1.29.12
+  pullPolicy: Always
+
+service:
+  type: ClusterIP
+  port: 443 
+  targetPort: 443
+  protocol: TCP
+  name: https-rucio-server
+  annotations: {}
+    # loadbalancer.openstack.org/network-id: "<id>"
+    # service.beta.kubernetes.io/openstack-internal-load-balancer: "true"
+    # loadbalancer.openstack.org/cascade-delete: "false"
+
+authService:
+  type: ClusterIP
+  port: 443
+  targetPort: 443
+  protocol: TCP
+  name: https-rucio-server-auth
+  annotations: {}
+
+traceService:
+  type: ClusterIP
+  port: 443
+  targetPort: 443
+  protocol: TCP
+  name: https-rucio-server-trace
+  annotations: {}
+
+strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 1
+
+minReadySeconds:
+  server: 5
+  authServer: 5
+  traceServer: 5
+
+livenessProbe:
+  server:
+    initialDelaySeconds: 10
+    periodSeconds: 20
+    timeoutSeconds: 5
+  authServer:
+    initialDelaySeconds: 10
+    periodSeconds: 20
+    timeoutSeconds: 5
+  traceServer:
+    initialDelaySeconds: 10
+    periodSeconds: 20
+    timeoutSeconds: 5
+
+serverType:
+  server: flask 
+  authServer: flask 
+  traceServer: trace
+
+logFormat:
+  server: '[%{%Y-%m-%d %H:%M:%S}t]\t%v\t%h\t%{X-Forwarded-For}i\t%{X-Rucio-RequestId}i\t%>s\t%I\t%B\t%D\t\"%r\"\t\"%{X-Rucio-Auth-Token}i\"\t\"%{User-Agent}i\"\t%{X-Rucio-Script}i'
+  authServer: '[%{%Y-%m-%d %H:%M:%S}t]\t%v\t%h\t%{X-Forwarded-For}i\t%{X-Rucio-RequestId}i\t%>s\t%I\t%B\t%D\t\"%r\"\t\"%{X-Rucio-Auth-Token}i\"\t\"%{User-Agent}i\"\t%{X-Rucio-Script}i'
+  traceServer: '[%{%Y-%m-%d %H:%M:%S}t]\t%v\t%h\t%{X-Forwarded-For}i\t%{X-Rucio-RequestId}i\t%>s\t%I\t%B\t%D\t\"%r\"\t\"%{X-Rucio-Auth-Token}i\"\t\"%{User-Agent}i\"\t%{X-Rucio-Script}i'
+
+monitoring:
+  enabled: false
+  exporterPort: 8080
+  targetPort: 8080
+  nativeMetricsPort: 8081
+  interval: 30s
+  telemetryPath: /metrics
+  namespace: monitoring
+  labels:
+    release: prometheus-operator
+
+metricsExporterResources:
+  limits:
+   cpu: 30m
+   memory: 50Mi
+  requests:
+   cpu: 20m
+   memory: 20Mi
+
+automaticRestart:
+  enabled: 0
+  image:
+    repository: bitnami/kubectl
+    tag: latest
+    pullPolicy: IfNotPresent
+  schedule: "0 0 * * *"
+
+additionalSecrets:
+  lsst-schema-file:
+    secretName: lsst-schema-file
+    mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
+    subPath: lsst.py
+
+wsgi:
+  daemonProcesses: "4"
+  daemonThreads: "4"
+
+httpd_config:
+  mpm_mode: "event"
+  enable_status: "True"
+  legacy_dn: "True"
+  keep_alive: "On"
+  keep_alive_timeout: "5"
+  max_keep_alive_requests: "128"
+  server_limit: "10"
+  start_servers: "4"
+  thread_limit: "128"
+  threads_per_child: "128"
+  min_spare_threads: "256"
+  max_spare_threads: "512"
+  max_request_workers: "1280"
+  max_connections_per_child: "2048"
+  encoded_slashes: "True"
+
+ingress:
+  enabled: true 
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+  path: /
+  hosts:
+     - rubin-rucio.slac.stanford.edu 
+
+authIngress:
+  enabled: true 
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+  path: /auth
+  hosts:
+     - rubin-rucio.slac.stanford.edu 
+
+traceIngress:
+  enabled: false
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  path: /traces
+  hosts: []
+
+
+## values used to configure Rucio
+config:
+  api:
+    endpoints: auth,accountlimits,accounts,config,credentials,dids,export,heartbeats,identities,import,lifetime_exceptions,locks,meta,ping,redirect,replicas,requests,rses,rules,scopes,subscriptions
+
+  # common:
+    ## config.common.logdir: the default directoy to write logs to (default: "/var/log/rucio")
+    # logdir: "/var/log/rucio"
+    ## config.common.logdir: the max loglevel (default: "DEBUG")
+    # loglevel: "DEBUG"
+    ## config.common.mailtemplatedir: directory containing the mail templates (default: "/opt/rucio/etc/mail_templates")
+    # mailtemplatedir: "/opt/rucio/etc/mail_templates"
+
+  conveyor:
+    usercert: /opt/proxy/x509
+
+  # database:
+    ## config.database.default: the connection string for the database (default: "sqlite:////tmp/rucio.db")
+    # default: "sqlite:////tmp/rucio.db"
+    ## config.database.schema: the schema used in the DB. only necessary when using Oracle.
+    # schema: ""
+    ## config.database.pool_reset_on_return: set the “reset on return” behavior of the pool (default: "rollback")
+    # pool_reset_on_return: "rollback"
+    ## config.database.echo: flag to control the logging of all statements to stdout (default: "0")
+    # echo: "0"
+    ## config.database.po0l_recycle: this setting causes the pool to recycle connections after the given number of seconds has passed (default: "600")
+    # pool_recycle: "600"
+    ## config.database.pool_size: the number of connections to keep open inside the connection pool
+    # pool_size: ""
+    ## config.database.pool_timeout: number of seconds to wait before giving up on getting a connection from the pool
+    # pool_timeout: ""
+    ## config.database.maxoverflow: the number of connections to allow in connection pool "overflow"
+    # max_overflow: ""
+    ## config.database.powuseraccount: user used to check the DB
+    # powuseraccount: ""
+    ## config.database.powuseraccount: password for user used to check the DB
+    # powuserpassword: ""
+
+  #monitor:
+    ## Turn on the Prometheus server for scraping of metrics (Default port 8080)
+    #enable_metrics: "True"
+    ## config.monitor.carbon_server: address of carbon server used for graphite monitoring (default: "localhost")
+    # carbon_server: "localhost"
+    ## config.monitor.carbon_port: port of carbon server used for graphite monitoring (default: "8125")
+    # carbon_server: "8125"
+    ## config.monitor.user_scope: scope used on the graphite server (default: "default_docker")
+    # user_scope: "default_docker"
+
+  ## only necessary if the server is configurated to receive traces
+  # trace:
+    ## config.trace.tracedir: directory where traces are written to (default "/var/log/rucio/trace")
+    # tracedir: "/var/log/rucio/trace"
+    ## config.trace.brokers: address of ActiveMQ brokers (default: "localhost")
+    # brokers: "localhost"
+    ## config.trace.brokers: port of ActiveMQ brokers (default: "61013")
+    # port: "61013"
+    ## config.trace.brokers: port of ActiveMQ brokers (default: "/topic/rucio.trace")
+    # topic: "/topic/rucio.tracer"
+    ## config.trace.username: username for the topic (if necessary)
+    # username: ""
+    ## config.trace.password: password for the topic (if necessary)
+    # password: ""
+
+  policy:
+    ## config.permission.policy: (default "generic")
+    # permission: "generic"
+    ## config.permission.schema: (default "generic")
+    schema: "lsst"
+    ## config.permission.lfn2pfn_algorithm_default: (default "hash")
+    # lfn2pfn_algorithm_default: "hash"
+    ## config.permission.support: (default "https://github.com/rucio/rucio/issues/")
+    # support: "https://github.com/rucio/rucio/issues/"
+    ## config.permission.support_rucio: (default "https://github.com/rucio/rucio/issues/")
+    # support_rucio: "https://github.com/rucio/rucio/issues/"
+
+  ## Only necessary for webui deployments
+  # webui:
+    ## config.webui.usercert:  (default "/opt/rucio/etc/usercert_with_key.pem")
+    # usercert: "/opt/rucio/etc/usercert_with_key.pem"
+
+serverResources:
+  limits:
+    memory: "2000Mi"
+    cpu: "700m"
+  requests:
+    memory: "1200Mi"
+    cpu: "200m"
+
+authServerResources:
+  limits:
+    memory: "1200Mi"
+    cpu: "700m"
+  requests:
+    memory: "600Mi"
+    cpu: "200m"
+
+traceServerResources: {}
+  # limits:
+  #  cpu: 100m
+  #  memory: 128Mi
+  # requests:
+  #  cpu: 100m
+  #  memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+

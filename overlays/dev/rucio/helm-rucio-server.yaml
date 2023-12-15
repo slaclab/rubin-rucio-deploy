@@ -11,7 +11,7 @@ metadata:
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJwb2xpY3kiOiB7CiAgICAic2NoZW1hIjogImxzc3QiCiAgfQp9"
+  common.json: "ewogICJwb2xpY3kiOiB7CiAgICAicGFja2FnZSI6ICJydWJpbiIKICB9Cn0="
 ---
 # Source: rucio-server/templates/secrets.yaml
 apiVersion: v1
@@ -25,7 +25,9 @@ metadata:
     heritage: "Helm"
 type: Opaque
 data:
+  encoded_slashes: "VHJ1ZQ=="
   grid_site_enabled: "VHJ1ZQ=="
+  legacy_dn: "VHJ1ZQ=="
 ---
 # Source: rucio-server/templates/service.yaml
 apiVersion: v1
@@ -76,7 +78,7 @@ spec:
         app: rucio-server
         release: usdf
       annotations:
-        checksum/config: 5742ace8009f3260df3d9e2a005d68310813a7ae
+        checksum/config: 9daab51dd5fa90f53aa89073f339158a6d86ed3f
     spec:
       volumes:
       - name: config
@@ -84,9 +86,9 @@ spec:
           secretName: usdf-rucio-server.config.common
       - name: httpdlog
         emptyDir: {}
-      - name: lsst-schema-file
+      - name: policy-package
         secret:
-          secretName: usdf-lsst-schema-file
+          secretName: usdf-policy-package
       - name: hostcert
         secret:
           secretName: usdf-server-hostcert
@@ -111,7 +113,7 @@ spec:
               cpu: 20m
               memory: 20Mi
         - name: rucio-server
-          image: "rucio/rucio-server:release-32.5.0.post1"
+          image: "rucio/rucio-server:release-33.0.0"
           imagePullPolicy: Always
           resources:
             limits:
@@ -126,9 +128,9 @@ spec:
             subPath: common.json
           - name: httpdlog
             mountPath: /var/log/httpd
-          - name: lsst-schema-file
-            mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/schema/lsst.py
-            subPath: lsst.py
+          - name: policy-package
+            mountPath: /opt/rucio/permissions/rubin
+            subPath: 
           - name: hostcert
             mountPath: /etc/grid-security/hostcert.pem
             subPath: hostcert.pem
@@ -162,11 +164,21 @@ spec:
             periodSeconds: 20
             timeoutSeconds: 5
           env:
+            - name: RUCIO_HTTPD_ENCODED_SLASHES
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: encoded_slashes
             - name: RUCIO_HTTPD_GRID_SITE_ENABLED
               valueFrom:
                 secretKeyRef:
                   name: usdf-rucio-server.cfg
                   key: grid_site_enabled
+            - name: RUCIO_HTTPD_LEGACY_DN
+              valueFrom:
+                secretKeyRef:
+                  name: usdf-rucio-server.cfg
+                  key: legacy_dn
             - name: RUCIO_ENABLE_SSL
               value: "True"
             - name: OPENSSL_ALLOW_PROXY_CERTS
@@ -181,13 +193,13 @@ spec:
               value: "4"
             - name: RUCIO_WSGI_DAEMON_THREADS
               value: "4"
+            - name: PYTHONPATH
+              value: /opt/rucio/permissions
             - name: RUCIO_CFG_DATABASE_DEFAULT
               valueFrom:
                 secretKeyRef:
                   key: db-conn-str.txt
                   name: usdf-db-conn-str
-            - name: RUCIO_HTTPD_LEGACY_DN
-              value: "True"
       affinity:
 ---
 # Source: rucio-server/templates/ingress.yaml
