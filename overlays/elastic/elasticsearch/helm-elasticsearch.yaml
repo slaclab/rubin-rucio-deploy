@@ -10,15 +10,34 @@ metadata:
     app.kubernetes.io/instance: elasticsearch
     app.kubernetes.io/managed-by: Helm
   annotations:
-    eck.k8s.elastic.co/license: enterprise
+    eck.k8s.elastic.co/license: basic
 spec:
   version: 8.11.0
   nodeSets:
     
     - config:
+        node.roles:
+        - master
         node.store.allow_mmap: false
-      count: 1
-      name: default
+      count: 3
+      name: master
+      podTemplate:
+        spec:
+          containers:
+          - name: elasticsearch
+            resources:
+              limits:
+                memory: 2Gi
+              requests:
+                memory: 2Gi
+    - config:
+        node.roles:
+        - data
+        - ingest
+        - transform
+        node.store.allow_mmap: false
+      count: 3
+      name: worker
       podTemplate:
         spec:
           containers:

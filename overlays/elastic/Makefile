@@ -6,9 +6,9 @@ helm:
 	helm repo add elastic https://helm.elastic.co
 	helm repo update elastic
 
-
 elasticsearch-deployment:
 	helm template elasticsearch elastic/eck-elasticsearch --version=${ELASTIC_VERSION} --values=elasticsearch/values-elasticsearch.yaml > elasticsearch/helm-elasticsearch.yaml
+	vi elasticsearch/helm-elasticsearch.yaml -c ":%s/enterprise/basic/g" -c ":wq"
 
 elasticsearch: helm elasticsearch-deployment
 
