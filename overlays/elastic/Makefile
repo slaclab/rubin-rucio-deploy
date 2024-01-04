@@ -1,16 +1,16 @@
 
 
-ELASTIC_VERSION := v8.5.1
+ELASTIC_VERSION := 0.8.0
 
 helm:
 	helm repo add elastic https://helm.elastic.co
 	helm repo update elastic
 
 
-elasticSearch-deployment:
-	helm template elasticsearch elastic/elasticsearch --version=${ELASTIC_VERSION} --values=elasticsearch/values-elasticsearch.yaml > elasticsearch/helm-elasticsearch.yaml
+elasticsearch-deployment:
+	helm template elasticsearch elastic/eck-elasticsearch --version=${ELASTIC_VERSION} --values=elasticsearch/values-elasticsearch.yaml > elasticsearch/helm-elasticsearch.yaml
 
-elasticsearch: helm elasticSearch-deployment
+elasticsearch: helm elasticsearch-deployment
 
 run-dump: 
 	kubectl kustomize .
