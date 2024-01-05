@@ -676,6 +676,9 @@ config:
     ## config.monitor.user_scope: scope used on the graphite server (default: "default_docker")
     # user_scope: "default_docker"
 
+  transfers:
+    multihop_rse_expression: ""
+
   policy:
     package: rubin
     ## config.permission.policy: (default "generic")
