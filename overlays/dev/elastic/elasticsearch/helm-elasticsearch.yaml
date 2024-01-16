@@ -12,7 +12,17 @@ metadata:
   annotations:
     eck.k8s.elastic.co/license: basic
 spec:
+  updateStrategy:
+    changeBudget:
+      maxSurge: 3
+      maxUnavailable: 1
+  http:
+    tls:
+      selfSignedCertificate:
+        disabled: true
   version: 8.11.0
+  volumeClaimDeletePolicy:
+    DeleteOnScaledownOnly
   nodeSets:
     
     - config:
@@ -27,9 +37,11 @@ spec:
           - name: elasticsearch
             resources:
               limits:
-                memory: 2Gi
+                cpu: 2
+                memory: 5Gi
               requests:
-                memory: 2Gi
+                cpu: 1
+                memory: 3Gi
     - config:
         node.roles:
         - data
@@ -44,6 +56,8 @@ spec:
           - name: elasticsearch
             resources:
               limits:
-                memory: 2Gi
+                cpu: 3
+                memory: 9Gi
               requests:
-                memory: 2Gi
+                cpu: 1
+                memory: 5Gi
