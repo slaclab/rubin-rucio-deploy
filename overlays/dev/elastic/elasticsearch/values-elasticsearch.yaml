@@ -61,10 +61,7 @@ transport: {}
 
 # Settings to control how Elasticsearch will be accessed.
 # ref: https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-accessing-elastic-services.html
-http:
-  tls:
-    selfSignedCertificate:
-      disabled: true
+#http:
 # service:
 #   metadata:
 #     labels:
