@@ -307,16 +307,16 @@ darkReaper:
 hermes:
   threads: 1
   podAnnotations: {}
-  bulk: 100000
+  bulk: 10000
   delay: 0
   brokerTimeout: 3
   resources:
     limits:
-      memory: "2000Mi"
-      cpu: "2100m"
-    requests:
       memory: "1000Mi"
-      cpu: "1400m"
+      cpu: "1000m"
+    requests:
+      memory: "500Mi"
+      cpu: "400m"
   additionalEnvs:
   - name: PYTHONPATH
     value: /opt/rucio/permissions
