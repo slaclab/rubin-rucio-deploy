@@ -567,7 +567,7 @@ necromancer:
         key: db-conn-str.txt
 
 ftsRenewal:
-  enabled: 1
+  enabled: 0
   schedule: "12 */6 * * *"
   image:
     repository: rucio/fts-cron
