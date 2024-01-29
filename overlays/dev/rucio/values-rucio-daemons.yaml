@@ -122,7 +122,7 @@ abacusRse:
         key: db-conn-str.txt
 
 automatix:
-  sleep_time: 42
+  sleep_time: 300
   threads: 1
   inputFile: "/opt/rucio/etc/automatix.json"
   podAnnotations: {}
@@ -703,8 +703,8 @@ config:
     # support_rucio: "https://github.com/rucio/rucio/issues/"
 
   automatix:
-    rses: "SLAC_TEST_DISK, RAL_TEST_DISK, IN2P3_TEST_DISK"
-    dataset_lifetime: 36000
+    rses: "RAL_TEST_DISK"
+    dataset_lifetime: 18000
     set_metadata: "True"
     account: "automatix"
     scope: "user.automatix"
