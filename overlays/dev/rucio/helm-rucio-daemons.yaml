@@ -251,6 +251,21 @@ type: Opaque
 data:
   component.json: "e30="
 ---
+# Source: rucio-daemons/templates/renew-fts-account.yaml
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: usdf-rucio-edit
+  namespace: rucio
+subjects:
+- kind: ServiceAccount
+  name: usdf-rucio-edit
+  namespace: rucio
+roleRef:
+  kind: ClusterRole
+  name: edit
+  apiGroup: rbac.authorization.k8s.io
+---
 # Source: rucio-daemons/templates/abacus.yaml
 apiVersion: apps/v1
 kind: Deployment
