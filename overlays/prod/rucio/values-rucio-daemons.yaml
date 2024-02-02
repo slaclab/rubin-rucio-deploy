@@ -743,7 +743,8 @@ config:
     # email_test: ""
 
   hermes:
-    services_list: kafka
+    services_list: activemq
+    #services_list: kafka
 
   messaging-hermes-kafka:
     port: 9092
