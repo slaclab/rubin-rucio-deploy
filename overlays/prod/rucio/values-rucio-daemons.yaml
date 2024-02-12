@@ -32,7 +32,7 @@ necromancerCount: 1
 
 image:
   repository: rucio/rucio-daemons
-  tag: release-33.3.0
+  tag: release-33.4.0.post1
   pullPolicy: Always
 
 strategy:
@@ -618,7 +618,7 @@ secretMounts:
     mountPath: /opt/rucio/etc/automatix.json
     subPath: automatix.json
   - secretName: hermeskafka-constants
-    mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+    mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/constants.py
     subPath: constants.py
   - secretName: policy-package
     mountPath: /opt/rucio/permissions/rubin
@@ -743,8 +743,7 @@ config:
     # email_test: ""
 
   hermes:
-    services_list: activemq
-    #services_list: kafka
+    services_list: kafka
 
   messaging-hermes-kafka:
     port: 9092

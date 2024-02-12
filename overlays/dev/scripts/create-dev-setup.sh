@@ -56,7 +56,7 @@ rucio-admin -a root rse add ${rse}
 rucio-admin -a root rse set-attribute --rse ${rse} --key fts --value ${FTS_SERVERS}
 rucio-admin -a root rse set-attribute --rse ${rse} --key greedyDeletion --value True
 rucio-admin -a root rse add-protocol --scheme root --hostname sdfdtn005.slac.stanford.edu --port 1094 --prefix '//lsst/testdisk/rucio' --domain-json '{"lan": {"read": 1, "write": 1, "delete": 1}, "wan": {"read": 2, "write": 2, "delete": 2, "third_party_copy_read": 2, "third_party_copy_write": 2}}' ${rse}
-rucio-admin -a root rse add-protocol --scheme davs --hostname sdfdtn005.slac.stanford.edu --port 1094 --prefix '/lsst/testdisk/rucio' --domain-json '{"lan": {"read": 1, "write": 1, "delete": 1}, "wan": {"read": 2, "write": 2, "delete": 2, "third_party_copy_read": 2, "third_party_copy_write": 2}}' ${rse}
+rucio-admin -a root rse add-protocol --scheme davs --hostname sdfdtn005.slac.stanford.edu --port 1094 --prefix '/lsst/testdisk/rucio' --domain-json '{"lan": {"read": 2, "write": 2, "delete": 2}, "wan": {"read": 1, "write": 1, "delete": 1, "third_party_copy_read": 1, "third_party_copy_write": 1}}' ${rse}
 
 rse=RAL_TEST_DISK
 rucio-admin -a root rse add ${rse}
@@ -69,7 +69,7 @@ rse=IN2P3_TEST_DISK
 rucio-admin -a root rse add ${rse}
 rucio-admin -a root rse set-attribute --rse ${rse} --key fts --value ${FTS_SERVERS}
 rucio-admin -a root rse set-attribute --rse ${rse} --key greedyDeletion --value True
-rucio-admin -a root rse add-protocol --scheme davs --hostname ccdavrubin.in2p3.fr --port 2880 --prefix '/pnfs/in2p3.fr/lsst/rucio/test' --domain-json '{"lan": {"read": 1, "write": 1, "delete": 1}, "wan": {"read": 2, "write": 2, "delete": 2, "third_party_copy_read": 2, "third_party_copy_write": 2}}' ${rse}
+rucio-admin -a root rse add-protocol --scheme davs --hostname ccdavrubin.in2p3.fr --port 2880 --prefix '/pnfs/in2p3.fr/lsst/rucio/test' --domain-json '{"lan": {"read": 1, "write": 1, "delete": 1}, "wan": {"read": 1, "write": 1, "delete": 1, "third_party_copy_read": 1, "third_party_copy_write": 1}}' ${rse}
 
 ### ADD DISTANCES ###
 rucio-admin -a root rse add-distance --distance 3 SLAC_TEST_DISK RAL_TEST_DISK
