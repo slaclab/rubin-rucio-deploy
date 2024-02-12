@@ -700,7 +700,7 @@ config:
     # support_rucio: "https://github.com/rucio/rucio/issues/"
 
   automatix:
-    rses: "RAL_TEST_DISK"
+    rses: "RAL_TEST_DISK, IN2P3_TEST_DISK"
     dataset_lifetime: 18000
     set_metadata: "True"
     account: "automatix"
