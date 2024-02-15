@@ -12,6 +12,7 @@ rucio-admin -a root scope add --account bjwhite --scope user.bjwhite
 # Yuyi Guo
 rucio-admin -a root account add yuyi 
 rucio-admin -a root identity add --account yuyi --type X509 --email 'yuyi@fnal.gov' --id '/DC=org/DC=cilogon/C=US/O=Fermi National Accelerator Laboratory/OU=People/CN=Yuyi Guo/CN=UID:yuyi'
+rucio-admin -a root identity add --account yuyi --type SSH --id "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCpA0YUN8KYeXCKgO4WWlpNZlmQkNIk6JlmkqoIuf7VI902+G+J27k7iyRA+F2T/2i3BL4uRHdDD39uCgJLR8UizzeKWSCHgYeqXReaDbAMwYYLoysYHhGLWt9IEA0qUdiSrwVNU+swbKIBguL2h5a/evj7Ljz3pqWzGFklaG7FoR3V8+LlVW1uGpEGCo5bZBmXK6iqLu8i2Q0AIoOQNTU7jBujR5Zt20fdFuTix8FN/edqjP+wnuH5PFu4iN56WN1jk4MonV7hMT9+LvYjBiFd8VtblWT8I1lIJ/O1G0A3YQa5FSfz0DyHdrNgrsPZISK3HxT7byztF32o8hvh2flDoaCWrD15MgWtMZjR5acXl5VUdSJ7c3+/FmJY/OKu96cYjpBKf1VinIRd+f9Kvg+SiBCeQaB3hUqBnXjQbJ6ITY41K01v3QKpGSkvBL0YPfen/LpBjqo5/kqXaRyWfOF7MvGhu+SHTua5mI9Fqe/CrjCrJpJlsj2n6d48t0xGRMTTZhFqj+cHiMmz8KBcOBLmcRFUVobdt8/ndGjl8SZZf5Z62P/zo9S+Lp0/pCtDwulx48WpGfa2Ic9Yzl5++QkKj26PEDF77xc9Znttnec6d5MT8wCTzhjWpJNocngfkeUK06IaEhZE7WWY+XcVN62dBrMyB/mk0YovAZdR0Bdapw== yuyi-mac-140589" --email yuyi@fnal.gov
 rucio-admin -a root account add-attribute --key admin --value True yuyi
 rucio-admin -a root scope add --account yuyi --scope user.yuyi
 
@@ -49,6 +50,8 @@ rucio-admin -a root account add-attribute --key admin --value True register_serv
 user=automatix
 rucio-admin -a root account add ${user}
 rucio-admin -a root identity add --account ${user} --type X509 --email 'bjwhite@fnal.gov' --id '/DC=org/DC=incommon/C=US/ST=California/O=Stanford University/CN=rubin-rucio-dev.slac.stanford.edu'
+rucio-admin -a root identity add --account ${user} --type X509 --email 'yuyi@fnal.gov' --id '/DC=org/DC=cilogon/C=US/O=Fermi National Accelerator Laboratory/OU=People/CN=Yuyi Guo/CN=UID:yuyi' 
+rucio-admin -a root identity add --account ${user} --type SSH --id "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCpA0YUN8KYeXCKgO4WWlpNZlmQkNIk6JlmkqoIuf7VI902+G+J27k7iyRA+F2T/2i3BL4uRHdDD39uCgJLR8UizzeKWSCHgYeqXReaDbAMwYYLoysYHhGLWt9IEA0qUdiSrwVNU+swbKIBguL2h5a/evj7Ljz3pqWzGFklaG7FoR3V8+LlVW1uGpEGCo5bZBmXK6iqLu8i2Q0AIoOQNTU7jBujR5Zt20fdFuTix8FN/edqjP+wnuH5PFu4iN56WN1jk4MonV7hMT9+LvYjBiFd8VtblWT8I1lIJ/O1G0A3YQa5FSfz0DyHdrNgrsPZISK3HxT7byztF32o8hvh2flDoaCWrD15MgWtMZjR5acXl5VUdSJ7c3+/FmJY/OKu96cYjpBKf1VinIRd+f9Kvg+SiBCeQaB3hUqBnXjQbJ6ITY41K01v3QKpGSkvBL0YPfen/LpBjqo5/kqXaRyWfOF7MvGhu+SHTua5mI9Fqe/CrjCrJpJlsj2n6d48t0xGRMTTZhFqj+cHiMmz8KBcOBLmcRFUVobdt8/ndGjl8SZZf5Z62P/zo9S+Lp0/pCtDwulx48WpGfa2Ic9Yzl5++QkKj26PEDF77xc9Znttnec6d5MT8wCTzhjWpJNocngfkeUK06IaEhZE7WWY+XcVN62dBrMyB/mk0YovAZdR0Bdapw== yuyi-mac-140589" --email yuyi@fnal.gov
 rucio-admin -a root account add-attribute --key admin --value True ${user}
 
 ### ADD RSES ####
