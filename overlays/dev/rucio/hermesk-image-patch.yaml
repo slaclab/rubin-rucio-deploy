@@ -4,11 +4,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: usdf-hermes2
+  name: usdf-hermes
 spec:
   template:
     spec:
       containers:
         - name: rucio-daemons
-          image: "docker.io/srp3/rucio-daemons-hermesk:2.0"
+          image: "docker.io/srp3/rucio-daemons-hermesk:33.3.0.1"
  

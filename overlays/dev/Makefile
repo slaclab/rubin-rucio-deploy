@@ -1,10 +1,12 @@
 SERVER_CHART_VERSION := 32.0.0
 DAEMON_CHART_VERSION := 32.0.2
 UI_CHART_VERSION := 32.0.1
+ELASTIC_VERSION := 0.8.0
 
 helm:
 	helm repo add rucio https://rucio.github.io/helm-charts
-	helm repo update
+	helm repo add elastic https://helm.elastic.co
+	helm repo update rucio elastic
 
 rucio-server: helm
 	helm template usdf rucio/rucio-server --version=${SERVER_CHART_VERSION} --values=rucio/values-rucio-server.yaml > rucio/helm-rucio-server.yaml
@@ -17,15 +19,11 @@ rucio-ui: helm
 
 rucio: rucio-server rucio-daemons rucio-ui
 
-package-reaper-certs:
-	rm -rf etc/.secrets/grid-certificates
-	mkdir -p etc/.secrets/grid-certificates
-	cp /etc/grid-security/certificates/*.0 etc/.secrets/grid-certificates/
-	cp /etc/grid-security/certificates/*.signing_policy etc/.secrets/grid-certificates/
-	cd etc/.secrets && tar cfz grid-certificates.tar.gz grid-certificates/
+elasticsearch:
+	helm template elasticsearch elastic/eck-elasticsearch --version=${ELASTIC_VERSION} --values=elastic/elasticsearch/values-elasticsearch.yaml > elastic/elasticsearch/helm-elasticsearch.yaml
+	vi elastic/elasticsearch/helm-elasticsearch.yaml -c ":%s/enterprise/basic/g" -c ":wq"
 
-store-reaper-certs: package-reaper-certs
-	base64 --wrap=0 etc/.secrets/grid-certificates.tar.gz | vault kv patch secret/rubin/usdf-rucio-dev/rucio grid-certificates.tar.gz=-
+elastic: elasticsearch
 
 get-secrets:
 	mkdir -p rucio/etc/.secrets
@@ -33,6 +31,7 @@ get-secrets:
 	vault kv get --field=usdf-server-hostcert secret/rubin/usdf-rucio-dev/rucio  > rucio/etc/.secrets/hostcert.pem
 	vault kv get --field=usdf-server-cafile secret/rubin/usdf-rucio-dev/rucio  > rucio/etc/.secrets/ca.pem
 	vault kv get --field=usdf-db-conn-str secret/rubin/usdf-rucio-dev/rucio  > rucio/etc/.secrets/db-conn-str.txt
+	vault kv get --field=usdf-elasticsearch-password secret/rubin/usdf-rucio-dev/rucio  > rucio/etc/.secrets/usdf-elasticsearch-password
 	cp rucio/etc/automatix.json rucio/etc/.secrets/automatix.json
 	mkdir -p postgres/etc/.secrets
 	vault kv get --field=client-secret secret/rubin/usdf-rucio-dev/s3  > postgres/etc/.secrets/client-secret
@@ -48,16 +47,16 @@ clean-secrets:
 run-dump: 
 	kubectl kustomize .
 
-dump: get-secrets rucio run-dump clean-secrets
+dump: get-secrets rucio elastic run-dump clean-secrets 
 
 run-apply:  
 	kubectl apply -k .
 
-apply: get-secrets rucio run-apply clean-secrets
+apply: get-secrets rucio elastic run-apply clean-secrets 
 
 run-destroy:
 	kubectl delete -k .
 
-destroy: get-secrets rucio run-destroy clean-secrets
+destroy: get-secrets rucio elastic run-destroy clean-secrets 
 
 

@@ -8,23 +8,23 @@ abacusCollectionReplicaCount: 1
 abacusRseCount: 1
 automatixCount: 1
 cacheConsumerCount: 0
-conveyorTransferSubmitterCount: 1 
+conveyorTransferSubmitterCount: 1
 conveyorPollerCount: 1
-conveyorFinisherCount: 1 
+conveyorFinisherCount: 1
 conveyorReceiverCount: 0
 conveyorStagerCount: 0
 conveyorThrottlerCount: 0
 conveyorPreparerCount: 0
 darkReaperCount: 0
 hermesCount: 1
-judgeCleanerCount:  1
-judgeEvaluatorCount: 1 
+judgeCleanerCount: 1
+judgeEvaluatorCount: 1
 judgeInjectorCount: 1
 judgeRepairerCount: 1
 oauthManagerCount: 0
 undertakerCount: 1
-reaperCount: 1 
-transmogrifierCount: 1 
+reaperCount: 1
+transmogrifierCount: 1
 tracerKronosCount: 0
 minosCount: 1
 minosTemporaryExpirationCount: 0
@@ -32,7 +32,7 @@ necromancerCount: 1
 
 image:
   repository: rucio/rucio-daemons
-  tag: release-33.0.0
+  tag: release-33.5.0
   pullPolicy: Always
 
 strategy:
@@ -47,8 +47,8 @@ use_deprecated_implicit_secrets: true
 podLabels: {}
 # Enable Prometheus scraping of metrics
 podAnnotations:
-    prometheus.io/port: "8080"
-    prometheus.io/scrape: "true"
+  prometheus.io/port: "8080"
+  prometheus.io/scrape: "true"
 
 minReadySeconds: 5
 
@@ -74,13 +74,13 @@ abacusAccount:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
-    - name: PYTHONPATH
-      value: /opt/rucio/permissions
-    - name: RUCIO_CFG_DATABASE_DEFAULT
-      valueFrom:
-        secretKeyRef:
-          name: usdf-db-conn-str
-          key: db-conn-str.txt
+  - name: PYTHONPATH
+    value: /opt/rucio/permissions
+  - name: RUCIO_CFG_DATABASE_DEFAULT
+    valueFrom:
+      secretKeyRef:
+        name: usdf-db-conn-str
+        key: db-conn-str.txt
 
 abacusCollectionReplica:
   threads: 1
@@ -93,13 +93,13 @@ abacusCollectionReplica:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
-    - name: PYTHONPATH
-      value: /opt/rucio/permissions
-    - name: RUCIO_CFG_DATABASE_DEFAULT
-      valueFrom:
-        secretKeyRef:
-          name: usdf-db-conn-str
-          key: db-conn-str.txt
+  - name: PYTHONPATH
+    value: /opt/rucio/permissions
+  - name: RUCIO_CFG_DATABASE_DEFAULT
+    valueFrom:
+      secretKeyRef:
+        name: usdf-db-conn-str
+        key: db-conn-str.txt
 
 abacusRse:
   fillHistoryTable: 0
@@ -113,16 +113,16 @@ abacusRse:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
-    - name: PYTHONPATH
-      value: /opt/rucio/permissions
-    - name: RUCIO_CFG_DATABASE_DEFAULT
-      valueFrom:
-        secretKeyRef:
-          name: usdf-db-conn-str
-          key: db-conn-str.txt
+  - name: PYTHONPATH
+    value: /opt/rucio/permissions
+  - name: RUCIO_CFG_DATABASE_DEFAULT
+    valueFrom:
+      secretKeyRef:
+        name: usdf-db-conn-str
+        key: db-conn-str.txt
 
 automatix:
-  sleep_time: 42
+  sleep_time: 300
   threads: 1
   inputFile: "/opt/rucio/etc/automatix.json"
   podAnnotations: {}
@@ -134,13 +134,13 @@ automatix:
       memory: "1200Mi"
       cpu: "700m"
   additionalEnvs:
-    - name: PYTHONPATH
-      value: /opt/rucio/permissions
-    - name: RUCIO_CFG_DATABASE_DEFAULT
-      valueFrom:
-        secretKeyRef:
-          name: usdf-db-conn-str
-          key: db-conn-str.txt
+  - name: PYTHONPATH
+    value: /opt/rucio/permissions
+  - name: RUCIO_CFG_DATABASE_DEFAULT
+    valueFrom:
+      secretKeyRef:
+        name: usdf-db-conn-str
+        key: db-conn-str.txt
 
 cacheConsumer:
   threads: 1
@@ -153,13 +153,13 @@ cacheConsumer:
       memory: "400Mi"
       cpu: "100m"
   additionalEnvs:
-    - name: PYTHONPATH
-      value: /opt/rucio/permissions
-    - name: RUCIO_CFG_DATABASE_DEFAULT
-      valueFrom:
-        secretKeyRef:
-          name: usdf-db-conn-str
-          key: db-conn-str.txt
+  - name: PYTHONPATH
+    value: /opt/rucio/permissions
+  - name: RUCIO_CFG_DATABASE_DEFAULT
+    valueFrom:
+      secretKeyRef:
+        name: usdf-db-conn-str
+        key: db-conn-str.txt
 
 conveyorTransferSubmitter:
   threads: 1
@@ -175,13 +175,13 @@ conveyorTransferSubmitter:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
-    - name: PYTHONPATH
-      value: /opt/rucio/permissions
-    - name: RUCIO_CFG_DATABASE_DEFAULT
-      valueFrom:
-        secretKeyRef:
-          name: usdf-db-conn-str
-          key: db-conn-str.txt
+  - name: PYTHONPATH
+    value: /opt/rucio/permissions
+  - name: RUCIO_CFG_DATABASE_DEFAULT
+    valueFrom:
+      secretKeyRef:
+        name: usdf-db-conn-str
+        key: db-conn-str.txt
 
 conveyorPoller:
   threads: 1
@@ -195,13 +195,13 @@ conveyorPoller:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
-    - name: PYTHONPATH
-      value: /opt/rucio/permissions
-    - name: RUCIO_CFG_DATABASE_DEFAULT
-      valueFrom:
-        secretKeyRef:
-          name: usdf-db-conn-str
-          key: db-conn-str.txt
+  - name: PYTHONPATH
+    value: /opt/rucio/permissions
+  - name: RUCIO_CFG_DATABASE_DEFAULT
+    valueFrom:
+      secretKeyRef:
+        name: usdf-db-conn-str
+        key: db-conn-str.txt
 
 conveyorFinisher:
   threads: 1
@@ -215,13 +215,13 @@ conveyorFinisher:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
-    - name: PYTHONPATH
-      value: /opt/rucio/permissions
-    - name: RUCIO_CFG_DATABASE_DEFAULT
-      valueFrom:
-        secretKeyRef:
-          name: usdf-db-conn-str
-          key: db-conn-str.txt
+  - name: PYTHONPATH
+    value: /opt/rucio/permissions
+  - name: RUCIO_CFG_DATABASE_DEFAULT
+    valueFrom:
+      secretKeyRef:
+        name: usdf-db-conn-str
+        key: db-conn-str.txt
 
 conveyorReceiver:
   threads: 1
@@ -234,13 +234,13 @@ conveyorReceiver:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
-    - name: PYTHONPATH
-      value: /opt/rucio/permissions
-    - name: RUCIO_CFG_DATABASE_DEFAULT
-      valueFrom:
-        secretKeyRef:
-          name: usdf-db-conn-str
-          key: db-conn-str.txt
+  - name: PYTHONPATH
+    value: /opt/rucio/permissions
+  - name: RUCIO_CFG_DATABASE_DEFAULT
+    valueFrom:
+      secretKeyRef:
+        name: usdf-db-conn-str
+        key: db-conn-str.txt
 
 conveyorThrottler:
   threads: 1
@@ -253,13 +253,13 @@ conveyorThrottler:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
-    - name: PYTHONPATH
-      value: /opt/rucio/permissions
-    - name: RUCIO_CFG_DATABASE_DEFAULT
-      valueFrom:
-        secretKeyRef:
-          name: usdf-db-conn-str
-          key: db-conn-str.txt
+  - name: PYTHONPATH
+    value: /opt/rucio/permissions
+  - name: RUCIO_CFG_DATABASE_DEFAULT
+    valueFrom:
+      secretKeyRef:
+        name: usdf-db-conn-str
+        key: db-conn-str.txt
 
 conveyorPreparer:
   threads: 1
@@ -272,13 +272,13 @@ conveyorPreparer:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
-    - name: PYTHONPATH
-      value: /opt/rucio/permissions
-    - name: RUCIO_CFG_DATABASE_DEFAULT
-      valueFrom:
-        secretKeyRef:
-          name: usdf-db-conn-str
-          key: db-conn-str.txt
+  - name: PYTHONPATH
+    value: /opt/rucio/permissions
+  - name: RUCIO_CFG_DATABASE_DEFAULT
+    valueFrom:
+      secretKeyRef:
+        name: usdf-db-conn-str
+        key: db-conn-str.txt
 
 darkReaper:
   workers: 1
@@ -296,35 +296,42 @@ darkReaper:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
-    - name: PYTHONPATH
-      value: /opt/rucio/permissions
-    - name: RUCIO_CFG_DATABASE_DEFAULT
-      valueFrom:
-        secretKeyRef:
-          name: usdf-db-conn-str
-          key: db-conn-str.txt
+  - name: PYTHONPATH
+    value: /opt/rucio/permissions
+  - name: RUCIO_CFG_DATABASE_DEFAULT
+    valueFrom:
+      secretKeyRef:
+        name: usdf-db-conn-str
+        key: db-conn-str.txt
 
 hermes:
   threads: 1
   podAnnotations: {}
-  bulk: 100
-  delay: 10
+  bulk: 10000
+  delay: 0
   brokerTimeout: 3
   resources:
     limits:
-      memory: "600Mi"
-      cpu: "700m"
+      memory: "1000Mi"
+      cpu: "1000m"
     requests:
-      memory: "600Mi"
-      cpu: "700m"
+      memory: "500Mi"
+      cpu: "400m"
   additionalEnvs:
-    - name: PYTHONPATH
-      value: /opt/rucio/permissions
-    - name: RUCIO_CFG_DATABASE_DEFAULT
-      valueFrom:
-        secretKeyRef:
-          name: usdf-db-conn-str
-          key: db-conn-str.txt
+  - name: PYTHONPATH
+    value: /opt/rucio/permissions
+  - name: RUCIO_CFG_DATABASE_DEFAULT
+    valueFrom:
+      secretKeyRef:
+        name: usdf-db-conn-str
+        key: db-conn-str.txt
+  - name: RUCIO_CFG_HERMES_ELASTIC_USERNAME
+    value: elastic
+  - name: RUCIO_CFG_HERMES_ELASTIC_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: usdf-rucio-elastic
+        key: PASSWORD
 
 judgeCleaner:
   threads: 1
@@ -337,13 +344,13 @@ judgeCleaner:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
-    - name: PYTHONPATH
-      value: /opt/rucio/permissions
-    - name: RUCIO_CFG_DATABASE_DEFAULT
-      valueFrom:
-        secretKeyRef:
-          name: usdf-db-conn-str
-          key: db-conn-str.txt
+  - name: PYTHONPATH
+    value: /opt/rucio/permissions
+  - name: RUCIO_CFG_DATABASE_DEFAULT
+    valueFrom:
+      secretKeyRef:
+        name: usdf-db-conn-str
+        key: db-conn-str.txt
 
 judgeEvaluator:
   threads: 1
@@ -356,13 +363,13 @@ judgeEvaluator:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
-    - name: PYTHONPATH
-      value: /opt/rucio/permissions
-    - name: RUCIO_CFG_DATABASE_DEFAULT
-      valueFrom:
-        secretKeyRef:
-          name: usdf-db-conn-str
-          key: db-conn-str.txt
+  - name: PYTHONPATH
+    value: /opt/rucio/permissions
+  - name: RUCIO_CFG_DATABASE_DEFAULT
+    valueFrom:
+      secretKeyRef:
+        name: usdf-db-conn-str
+        key: db-conn-str.txt
 
 judgeInjector:
   threads: 1
@@ -375,13 +382,13 @@ judgeInjector:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
-    - name: PYTHONPATH
-      value: /opt/rucio/permissions
-    - name: RUCIO_CFG_DATABASE_DEFAULT
-      valueFrom:
-        secretKeyRef:
-          name: usdf-db-conn-str
-          key: db-conn-str.txt
+  - name: PYTHONPATH
+    value: /opt/rucio/permissions
+  - name: RUCIO_CFG_DATABASE_DEFAULT
+    valueFrom:
+      secretKeyRef:
+        name: usdf-db-conn-str
+        key: db-conn-str.txt
 
 judgeRepairer:
   threads: 1
@@ -394,13 +401,13 @@ judgeRepairer:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
-    - name: PYTHONPATH
-      value: /opt/rucio/permissions
-    - name: RUCIO_CFG_DATABASE_DEFAULT
-      valueFrom:
-        secretKeyRef:
-          name: usdf-db-conn-str
-          key: db-conn-str.txt
+  - name: PYTHONPATH
+    value: /opt/rucio/permissions
+  - name: RUCIO_CFG_DATABASE_DEFAULT
+    valueFrom:
+      secretKeyRef:
+        name: usdf-db-conn-str
+        key: db-conn-str.txt
 
 oauthManager:
   threads: 1
@@ -413,13 +420,13 @@ oauthManager:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
-    - name: PYTHONPATH
-      value: /opt/rucio/permissions
-    - name: RUCIO_CFG_DATABASE_DEFAULT
-      valueFrom:
-        secretKeyRef:
-          name: usdf-db-conn-str
-          key: db-conn-str.txt
+  - name: PYTHONPATH
+    value: /opt/rucio/permissions
+  - name: RUCIO_CFG_DATABASE_DEFAULT
+    valueFrom:
+      secretKeyRef:
+        name: usdf-db-conn-str
+        key: db-conn-str.txt
 
 undertaker:
   threads: 1
@@ -432,13 +439,13 @@ undertaker:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
-    - name: PYTHONPATH
-      value: /opt/rucio/permissions
-    - name: RUCIO_CFG_DATABASE_DEFAULT
-      valueFrom:
-        secretKeyRef:
-          name: usdf-db-conn-str
-          key: db-conn-str.txt
+  - name: PYTHONPATH
+    value: /opt/rucio/permissions
+  - name: RUCIO_CFG_DATABASE_DEFAULT
+    valueFrom:
+      secretKeyRef:
+        name: usdf-db-conn-str
+        key: db-conn-str.txt
 
 reaper:
   greedy: 0
@@ -454,13 +461,13 @@ reaper:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
-    - name: PYTHONPATH
-      value: /opt/rucio/permissions
-    - name: RUCIO_CFG_DATABASE_DEFAULT
-      valueFrom:
-        secretKeyRef:
-          name: usdf-db-conn-str
-          key: db-conn-str.txt
+  - name: PYTHONPATH
+    value: /opt/rucio/permissions
+  - name: RUCIO_CFG_DATABASE_DEFAULT
+    valueFrom:
+      secretKeyRef:
+        name: usdf-db-conn-str
+        key: db-conn-str.txt
 
 transmogrifier:
   threads: 1
@@ -473,13 +480,13 @@ transmogrifier:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
-    - name: PYTHONPATH
-      value: /opt/rucio/permissions
-    - name: RUCIO_CFG_DATABASE_DEFAULT
-      valueFrom:
-        secretKeyRef:
-          name: usdf-db-conn-str
-          key: db-conn-str.txt
+  - name: PYTHONPATH
+    value: /opt/rucio/permissions
+  - name: RUCIO_CFG_DATABASE_DEFAULT
+    valueFrom:
+      secretKeyRef:
+        name: usdf-db-conn-str
+        key: db-conn-str.txt
 
 tracerKronos:
   threads: 1
@@ -492,13 +499,13 @@ tracerKronos:
       memory: "600Mi"
       cpu: "700m"
   additionalEnvs:
-    - name: PYTHONPATH
-      value: /opt/rucio/permissions
-    - name: RUCIO_CFG_DATABASE_DEFAULT
-      valueFrom:
-        secretKeyRef:
-          name: usdf-db-conn-str
-          key: db-conn-str.txt
+  - name: PYTHONPATH
+    value: /opt/rucio/permissions
+  - name: RUCIO_CFG_DATABASE_DEFAULT
+    valueFrom:
+      secretKeyRef:
+        name: usdf-db-conn-str
+        key: db-conn-str.txt
 
 minos:
   threads: 1
@@ -511,13 +518,13 @@ minos:
       memory: "400Mi"
       cpu: "100m"
   additionalEnvs:
-    - name: PYTHONPATH
-      value: /opt/rucio/permissions
-    - name: RUCIO_CFG_DATABASE_DEFAULT
-      valueFrom:
-        secretKeyRef:
-          name: usdf-db-conn-str
-          key: db-conn-str.txt
+  - name: PYTHONPATH
+    value: /opt/rucio/permissions
+  - name: RUCIO_CFG_DATABASE_DEFAULT
+    valueFrom:
+      secretKeyRef:
+        name: usdf-db-conn-str
+        key: db-conn-str.txt
 
 minosTemporaryExpiration:
   threads: 1
@@ -530,13 +537,13 @@ minosTemporaryExpiration:
       memory: "400Mi"
       cpu: "100m"
   additionalEnvs:
-    - name: PYTHONPATH
-      value: /opt/rucio/permissions
-    - name: RUCIO_CFG_DATABASE_DEFAULT
-      valueFrom:
-        secretKeyRef:
-          name: usdf-db-conn-str
-          key: db-conn-str.txt
+  - name: PYTHONPATH
+    value: /opt/rucio/permissions
+  - name: RUCIO_CFG_DATABASE_DEFAULT
+    valueFrom:
+      secretKeyRef:
+        name: usdf-db-conn-str
+        key: db-conn-str.txt
 
 necromancer:
   podAnnotations: {}
@@ -548,13 +555,13 @@ necromancer:
       memory: "400Mi"
       cpu: "100m"
   additionalEnvs:
-    - name: PYTHONPATH
-      value: /opt/rucio/permissions
-    - name: RUCIO_CFG_DATABASE_DEFAULT
-      valueFrom:
-        secretKeyRef:
-          name: usdf-db-conn-str
-          key: db-conn-str.txt
+  - name: PYTHONPATH
+    value: /opt/rucio/permissions
+  - name: RUCIO_CFG_DATABASE_DEFAULT
+    valueFrom:
+      secretKeyRef:
+        name: usdf-db-conn-str
+        key: db-conn-str.txt
 
 ftsRenewal:
   enabled: 1
@@ -564,16 +571,16 @@ ftsRenewal:
     tag: latest
     pullPolicy: Always
   servers: "https://fts-eval01.slac.stanford.edu:8446,https://lcgfts3.gridpp.rl.ac.uk:8446"
-  script: 'default'  # one of: 'default', 'atlas', 'dteam', 'multi_vo', 'tutorial', 'escape'. The associated scripts can be found here: https://github.com/rucio/containers/tree/master/fts-cron
+  script: 'default' # one of: 'default', 'atlas', 'dteam', 'multi_vo', 'tutorial', 'escape'. The associated scripts can be found here: https://github.com/rucio/containers/tree/master/fts-cron
   vos:
-    - vo: "lsst"
-      voms: "lsst:/lsst/Role=ddmopr"
+  - vo: "lsst"
+    voms: "lsst:/lsst/Role=ddmopr"
   secretMounts:
-    - secretName: voms-servers-file
-      mountPath: /etc/vomses/vomses
-      subPath: vomses
-    - secretName: lsst-vomsdir
-      mountPath: /etc/grid-security/vomsdir
+  - secretName: voms-servers-file
+    mountPath: /etc/vomses/vomses
+    subPath: vomses
+  - secretName: lsst-vomsdir
+    mountPath: /etc/grid-security/vomsdir
     #- secretName: fts-cert
     #  mountPath: /opt/rucio/certs/usercert.pem
     #  subPath: usercert.pem
@@ -584,12 +591,12 @@ ftsRenewal:
     #   mountPath: /opt/rucio/certs/long.proxy
     #   subPath: long.proxy
   additionalEnvs:
-    #- name: RUCIO_FTS_SECRETS
-    #  value: fnal-rucio-x509up
-    - name: USERCERT_NAME
-      value: "usercert.pem"
-    - name: USERKEY_NAME
-      value: "new_userkey.pem"
+  #- name: RUCIO_FTS_SECRETS
+  #  value: fnal-rucio-x509up
+  - name: USERCERT_NAME
+    value: "usercert.pem"
+  - name: USERKEY_NAME
+    value: "new_userkey.pem"
     # - name: RUCIO_LONG_PROXY
     #   value: long.proxy
     # - name: GRID_PASSPHRASE
@@ -614,14 +621,14 @@ automaticRestart:
   schedule: "0 0 * * *"
 
 secretMounts:
-  - secretName: rucio-automatix-input-file
-    mountPath: /opt/rucio/etc/automatix.json
-    subPath: automatix.json
-  - secretName: hermeskafka-constants
-    mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/constants.py
-    subPath: constants.py
-  - secretName: policy-package
-    mountPath: /opt/rucio/permissions/rubin
+- secretName: rucio-automatix-input-file
+  mountPath: /opt/rucio/etc/automatix.json
+  subPath: automatix.json
+- secretName: hermeskafka-constants
+  mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/constants.py
+  subPath: constants.py
+- secretName: policy-package
+  mountPath: /opt/rucio/permissions/rubin
 
 ## common config values used to configure the Rucio daemons
 config:
@@ -637,34 +644,34 @@ config:
     # special_accounts: "panda, tier0"
 
   # common:
-    ## config.common.logdir: the default directoy to write logs to (default: "/var/log/rucio")
-    # logdir: "/var/log/rucio"
-    ## config.common.logdir: the max loglevel (default: "DEBUG")
-    # loglevel: "DEBUG"
-    ## config.common.mailtemplatedir: directory containing the mail templates (default: "/opt/rucio/etc/mail_templates")
-    # mailtemplatedir: "/opt/rucio/etc/mail_templates"
+  ## config.common.logdir: the default directoy to write logs to (default: "/var/log/rucio")
+  # logdir: "/var/log/rucio"
+  ## config.common.logdir: the max loglevel (default: "DEBUG")
+  # loglevel: "DEBUG"
+  ## config.common.mailtemplatedir: directory containing the mail templates (default: "/opt/rucio/etc/mail_templates")
+  # mailtemplatedir: "/opt/rucio/etc/mail_templates"
 
   # database:
-    ## config.database.default: the connection string for the database (default: "sqlite:////tmp/rucio.db")
-    # default: "sqlite:////tmp/rucio.db"
-    ## config.database.schema: the schema used in the DB. only necessary when using Oracle.
-    # schema: ""
-    ## config.database.pool_reset_on_return: set the “reset on return” behavior of the pool (default: "rollback")
-    # pool_reset_on_return: "rollback"
-    ## config.database.echo: flag to control the logging of all statements to stdout (default: "0")
-    # echo: "0"
-    ## config.database.po0l_recycle: this setting causes the pool to recycle connections after the given number of seconds has passed (default: "600")
-    # pool_recycle: "600"
-    ## config.database.pool_size: the number of connections to keep open inside the connection pool
-    # pool_size: ""
-    ## config.database.pool_timeout: number of seconds to wait before giving up on getting a connection from the pool
-    # pool_timeout: ""
-    ## config.database.maxoverflow: the number of connections to allow in connection pool "overflow"
-    # max_overflow: ""
-    ## config.database.powuseraccount: user used to check the DB
-    # powuseraccount: ""
-    ## config.database.powuseraccount: password for user used to check the DB
-    # powuserpassword: ""
+  ## config.database.default: the connection string for the database (default: "sqlite:////tmp/rucio.db")
+  # default: "sqlite:////tmp/rucio.db"
+  ## config.database.schema: the schema used in the DB. only necessary when using Oracle.
+  # schema: ""
+  ## config.database.pool_reset_on_return: set the “reset on return” behavior of the pool (default: "rollback")
+  # pool_reset_on_return: "rollback"
+  ## config.database.echo: flag to control the logging of all statements to stdout (default: "0")
+  # echo: "0"
+  ## config.database.po0l_recycle: this setting causes the pool to recycle connections after the given number of seconds has passed (default: "600")
+  # pool_recycle: "600"
+  ## config.database.pool_size: the number of connections to keep open inside the connection pool
+  # pool_size: ""
+  ## config.database.pool_timeout: number of seconds to wait before giving up on getting a connection from the pool
+  # pool_timeout: ""
+  ## config.database.maxoverflow: the number of connections to allow in connection pool "overflow"
+  # max_overflow: ""
+  ## config.database.powuseraccount: user used to check the DB
+  # powuseraccount: ""
+  ## config.database.powuseraccount: password for user used to check the DB
+  # powuserpassword: ""
 
   monitor:
     ## Turn on the Prometheus server for scraping of metrics (Default port 8080)
@@ -675,6 +682,9 @@ config:
     # carbon_server: "8125"
     ## config.monitor.user_scope: scope used on the graphite server (default: "default_docker")
     # user_scope: "default_docker"
+
+  transfers:
+    multihop_rse_expression: ""
 
   policy:
     package: rubin
@@ -690,8 +700,8 @@ config:
     # support_rucio: "https://github.com/rucio/rucio/issues/"
 
   automatix:
-    rses: "SLAC_TEST_DISK, RAL_TEST_DISK, IN2P3_TEST_DISK"
-    dataset_lifetime: 36000
+    rses: "RAL_TEST_DISK, IN2P3_TEST_DISK, SLAC_TEST_DISK"
+    dataset_lifetime: 18000
     set_metadata: "True"
     account: "automatix"
     scope: "user.automatix"
@@ -699,7 +709,7 @@ config:
     separator: "/"
     file_pattern: "dsn/uuid"
     dataset_pattern: "did_prefix/date/uuid"
-    
+
 
   conveyor:
     scheme: "srm,gsiftp,root,http,https"
@@ -718,29 +728,30 @@ config:
     # ftsmonhosts: ""
 
   # messaging-fts3:
-    # port: "61123"
-    # ssl_key_file: "/etc/grid-security/hostkey.pem"
-    # ssl_cert_file: "/etc/grid-security/hostcert.pem"
-    # destination: "/topic/transfer.fts_monitoring_queue_state"
-    # brokers: "dashb-test-mb.cern.ch"
-    # voname: "atlas"
+  # port: "61123"
+  # ssl_key_file: "/etc/grid-security/hostkey.pem"
+  # ssl_cert_file: "/etc/grid-security/hostcert.pem"
+  # destination: "/topic/transfer.fts_monitoring_queue_state"
+  # brokers: "dashb-test-mb.cern.ch"
+  # voname: "atlas"
 
   # messaging-hermes:
-    # username: ""
-    # password: ""
-    # port: "61023"
-    # nonssl_port: ""
-    # use_ssl: ""
-    # ssl_key_file: "/etc/grid-security/hostkey.pem"
-    # ssl_cert_file: "/etc/grid-security/hostcert.pem"
-    # destination: "/topic/rucio.events"
-    # brokers: "atlas-test-mb.cern.ch"
-    # voname: "atlas"
-    # email_from: "Rucio <atlas-adc-ddm-support@cern.ch"
-    # email_test: ""
+  # username: ""
+  # password: ""
+  # port: "61023"
+  # nonssl_port: ""
+  # use_ssl: ""
+  # ssl_key_file: "/etc/grid-security/hostkey.pem"
+  # ssl_cert_file: "/etc/grid-security/hostcert.pem"
+  # destination: "/topic/rucio.events"
+  # brokers: "atlas-test-mb.cern.ch"
+  # voname: "atlas"
+  # email_from: "Rucio <atlas-adc-ddm-support@cern.ch"
+  # email_test: ""
 
   hermes:
-    services_list: kafka
+    services_list: kafka, elastic
+    elastic_endpoint: "http://elasticsearch-eck-elasticsearch-es-worker.elastic-system.svc.cluster.local:9200/rucio_events/_bulk"
 
   messaging-hermes-kafka:
     port: 9092
@@ -751,35 +762,35 @@ config:
     topic_list: USDF_STS_DISK,FRDF_STS_DISK
 
   # tracer-kronos:
-    # brokers: "atlas-test-mb.cern.ch"
-    # port: "61013"
-    # ssl_key_file: "/etc/grid-security/hostkey.pem"
-    # ssl_cert_file: "/etc/grid-security/hostcert.pem"
-    # queue: "/queue/Consumer.kronos.rucio.tracer"
-    # prefetch_size: "10"
-    # chunksize: "10"
-    # subscription_id: "rucio-tracer-listener"
-    # use_ssl: "False"
-    # reconnect_attempts: "100"
-    # excluded_usrdns: ""
-    # username: ""
-    # password: ""
-    # dataset_wait: 60
+  # brokers: "atlas-test-mb.cern.ch"
+  # port: "61013"
+  # ssl_key_file: "/etc/grid-security/hostkey.pem"
+  # ssl_cert_file: "/etc/grid-security/hostcert.pem"
+  # queue: "/queue/Consumer.kronos.rucio.tracer"
+  # prefetch_size: "10"
+  # chunksize: "10"
+  # subscription_id: "rucio-tracer-listener"
+  # use_ssl: "False"
+  # reconnect_attempts: "100"
+  # excluded_usrdns: ""
+  # username: ""
+  # password: ""
+  # dataset_wait: 60
 
   transmogrifier:
     maxdids: 40000
 
   # messaging-cache:
-    # port: "61123"
-    # ssl_key_file: "/etc/grid-security/hostkey.pem"
-    # ssl_cert_file: "/etc/grid-security/hostcert.pem"
-    # destination: "/topic/rucio.cache"
-    # brokers: "dashb-test-mb.cern.ch"
-    # voname: "atlas"
-    # account: "ddm"
+  # port: "61123"
+  # ssl_key_file: "/etc/grid-security/hostkey.pem"
+  # ssl_cert_file: "/etc/grid-security/hostcert.pem"
+  # destination: "/topic/rucio.cache"
+  # brokers: "dashb-test-mb.cern.ch"
+  # voname: "atlas"
+  # account: "ddm"
 
   # credentials:
-    # gcs: "/opt/rucio/etc/google-cloud-storage-test.json"
-    # signature_lifetime: "3600"
+  # gcs: "/opt/rucio/etc/google-cloud-storage-test.json"
+  # signature_lifetime: "3600"
 
 

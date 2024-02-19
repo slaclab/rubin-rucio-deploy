@@ -16,7 +16,7 @@ conveyorStagerCount: 0
 conveyorThrottlerCount: 0
 conveyorPreparerCount: 0
 darkReaperCount: 0
-hermesCount: 1
+hermesCount: 0
 judgeCleanerCount:  1
 judgeEvaluatorCount: 1 
 judgeInjectorCount: 1
@@ -32,7 +32,7 @@ necromancerCount: 1
 
 image:
   repository: rucio/rucio-daemons
-  tag: release-33.0.0
+  tag: release-33.5.0
   pullPolicy: Always
 
 strategy:
@@ -165,7 +165,7 @@ conveyorTransferSubmitter:
   threads: 1
   podAnnotations: {}
   activities: "'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
-  sleepTime: 10
+  sleepTime: 120
   archiveTimeout: ""
   resources:
     limits:
@@ -618,7 +618,7 @@ secretMounts:
     mountPath: /opt/rucio/etc/automatix.json
     subPath: automatix.json
   - secretName: hermeskafka-constants
-    mountPath: /usr/local/lib/python3.6/site-packages/rucio/common/constants.py
+    mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/constants.py
     subPath: constants.py
   - secretName: policy-package
     mountPath: /opt/rucio/permissions/rubin
@@ -675,6 +675,9 @@ config:
     # carbon_server: "8125"
     ## config.monitor.user_scope: scope used on the graphite server (default: "default_docker")
     # user_scope: "default_docker"
+
+  transfers:
+    multihop_rse_expression: ""
 
   policy:
     package: rubin
