@@ -6,7 +6,7 @@
 abacusAccountCount: 1
 abacusCollectionReplicaCount: 1
 abacusRseCount: 1
-automatixCount: 0
+automatixCount: 1
 cacheConsumerCount: 0
 conveyorTransferSubmitterCount: 1 
 conveyorPollerCount: 1
@@ -122,7 +122,7 @@ abacusRse:
           key: db-conn-str.txt
 
 automatix:
-  sleep_time: 42
+  sleep_time: 300
   threads: 1
   inputFile: "/opt/rucio/etc/automatix.json"
   podAnnotations: {}
@@ -693,8 +693,8 @@ config:
     # support_rucio: "https://github.com/rucio/rucio/issues/"
 
   automatix:
-    rses: "SLAC_TEST_DISK, RAL_TEST_DISK, IN2P3_TEST_DISK"
-    dataset_lifetime: 36000
+    rses: "IN2P3_BUTLER_DISK, LANCS_BUTLER_DISK, RAL_BUTLER_DISK, RAL_DATA_DISK, IN2P3_DATA_DISK, LANCS_DATA_DISK"
+    dataset_lifetime: 18000
     set_metadata: "True"
     account: "automatix"
     scope: "user.automatix"
