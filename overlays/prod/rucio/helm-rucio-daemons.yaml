@@ -213,7 +213,7 @@ metadata:
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJhdXRvbWF0aXgiOiB7CiAgICAiYWNjb3VudCI6ICJhdXRvbWF0aXgiLAogICAgImRhdGFzZXRfbGlmZXRpbWUiOiAxODAwMCwKICAgICJkYXRhc2V0X3BhdHRlcm4iOiAiZGlkX3ByZWZpeC9kYXRlL3V1aWQiLAogICAgImRpZF9wcmVmaXgiOiAiYXV0b21hdGl4IiwKICAgICJmaWxlX3BhdHRlcm4iOiAiZHNuL3V1aWQiLAogICAgInJzZXMiOiAiSU4yUDNfQlVUTEVSX0RJU0ssIExBTkNTX0JVVExFUl9ESVNLLCBSQUxfQlVUTEVSX0RJU0ssIFJBTF9EQVRBX0RJU0ssIElOMlAzX0RBVEFfRElTSywgTEFOQ1NfREFUQV9ESVNLIiwKICAgICJzY29wZSI6ICJ1c2VyLmF1dG9tYXRpeCIsCiAgICAic2VwYXJhdG9yIjogIi8iLAogICAgInNldF9tZXRhZGF0YSI6ICJUcnVlIgogIH0sCiAgImNsaWVudCI6IHsKICAgICJhY2NvdW50IjogImF1dG9tYXRpeCIsCiAgICAiYXV0aF9ob3N0IjogImh0dHBzOi8vcnViaW4tcnVjaW8uc2xhYy5zdGFuZm9yZC5lZHU6ODQ0MyIsCiAgICAiYXV0aF90eXBlIjogIng1MDlfcHJveHkiLAogICAgImNhX2NlcnQiOiAiL29wdC9jZXJ0cyIsCiAgICAiY2xpZW50X3g1MDlfcHJveHkiOiAiL29wdC9wcm94eS94NTA5dXAiLAogICAgInByb3RvY29sX3N0YXRfcmV0cmllcyI6IDYsCiAgICAicmVxdWVzdF9yZXRyaWVzIjogNiwKICAgICJydWNpb19ob3N0IjogImh0dHBzOi8vcnViaW4tcnVjaW8uc2xhYy5zdGFuZm9yZC5lZHU6ODQ0MyIKICB9LAogICJjb252ZXlvciI6IHsKICAgICJjYWNlcnQiOiAiL29wdC9jZXJ0cy9jYS5wZW0iLAogICAgImZ0c2hvc3RzIjogImh0dHBzOi8vZnRzLWV2YWwwMS5zbGFjLnN0YW5mb3JkLmVkdTo4NDQ2LGh0dHBzOi8vbGNnZnRzMy5ncmlkcHAucmwuYWMudWs6ODQ0NiIsCiAgICAic2NoZW1lIjogInNybSxnc2lmdHAscm9vdCxodHRwLGh0dHBzIiwKICAgICJ0cmFuc2ZlcnRvb2wiOiAiZnRzMyIsCiAgICAidXNlcmNlcnQiOiAiL29wdC9wcm94eS94NTA5dXAiCiAgfSwKICAiaGVybWVzIjogewogICAgInNlcnZpY2VzX2xpc3QiOiAia2Fma2EiCiAgfSwKICAibWVzc2FnaW5nLWhlcm1lcy1rYWZrYSI6IHsKICAgICJicm9rZXIiOiAiMTM0Ljc5LjIzLjIyMTo5MDk0LDEzNC43OS4yMy4yMjI6OTA5NCwxMzQuNzkuMjMuMjIzOjkwOTQiLAogICAgIm1lc3NhZ2VfZmlsdGVyIjogInJ1Y2lvLmRhZW1vbnMuaGVybWVzLmthZmthLmZpbHRlcnMuZmlsdGVyZWRfbGlzdCIsCiAgICAibm9uc3NsX3BvcnQiOiA5MDkyLAogICAgInBvcnQiOiA5MDkyLAogICAgInRvcGljX2xpc3QiOiAiVVNERl9TVFNfRElTSyxGUkRGX1NUU19ESVNLIiwKICAgICJ1c2Vfc3NsIjogZmFsc2UKICB9LAogICJtb25pdG9yIjogewogICAgImVuYWJsZV9tZXRyaWNzIjogIlRydWUiCiAgfSwKICAicG9saWN5IjogewogICAgInBhY2thZ2UiOiAicnViaW4iCiAgfSwKICAidHJhbnNmZXJzIjogewogICAgIm11bHRpaG9wX3JzZV9leHByZXNzaW9uIjogIiIKICB9LAogICJ0cmFuc21vZ3JpZmllciI6IHsKICAgICJtYXhkaWRzIjogNDAwMDAKICB9Cn0="
+  common.json: "ewogICJhdXRvbWF0aXgiOiB7CiAgICAiYWNjb3VudCI6ICJhdXRvbWF0aXgiLAogICAgImRhdGFzZXRfbGlmZXRpbWUiOiAxODAwMCwKICAgICJkYXRhc2V0X3BhdHRlcm4iOiAiZGlkX3ByZWZpeC9kYXRlL3V1aWQiLAogICAgImRpZF9wcmVmaXgiOiAiYXV0b21hdGl4IiwKICAgICJmaWxlX3BhdHRlcm4iOiAiZHNuL3V1aWQiLAogICAgInJzZXMiOiAiRlJERl9TVFNfRElTSywgSU4yUDNfQlVUTEVSX0RJU0ssIExBTkNTX0JVVExFUl9ESVNLLCBSQUxfQlVUTEVSX0RJU0ssIFJBTF9EQVRBX0RJU0ssIElOMlAzX0RBVEFfRElTSywgTEFOQ1NfREFUQV9ESVNLLCBTTEFDX0RBVEFESVNLIiwKICAgICJzY29wZSI6ICJ1c2VyLmF1dG9tYXRpeCIsCiAgICAic2VwYXJhdG9yIjogIi8iLAogICAgInNldF9tZXRhZGF0YSI6ICJUcnVlIgogIH0sCiAgImNsaWVudCI6IHsKICAgICJhY2NvdW50IjogImF1dG9tYXRpeCIsCiAgICAiYXV0aF9ob3N0IjogImh0dHBzOi8vcnViaW4tcnVjaW8uc2xhYy5zdGFuZm9yZC5lZHU6ODQ0MyIsCiAgICAiYXV0aF90eXBlIjogIng1MDlfcHJveHkiLAogICAgImNhX2NlcnQiOiAiL29wdC9jZXJ0cyIsCiAgICAiY2xpZW50X3g1MDlfcHJveHkiOiAiL29wdC9wcm94eS94NTA5dXAiLAogICAgInByb3RvY29sX3N0YXRfcmV0cmllcyI6IDYsCiAgICAicmVxdWVzdF9yZXRyaWVzIjogNiwKICAgICJydWNpb19ob3N0IjogImh0dHBzOi8vcnViaW4tcnVjaW8uc2xhYy5zdGFuZm9yZC5lZHU6ODQ0MyIKICB9LAogICJjb252ZXlvciI6IHsKICAgICJjYWNlcnQiOiAiL29wdC9jZXJ0cy9jYS5wZW0iLAogICAgImZ0c2hvc3RzIjogImh0dHBzOi8vZnRzLWV2YWwwMS5zbGFjLnN0YW5mb3JkLmVkdTo4NDQ2LGh0dHBzOi8vbGNnZnRzMy5ncmlkcHAucmwuYWMudWs6ODQ0NiIsCiAgICAic2NoZW1lIjogInNybSxnc2lmdHAscm9vdCxodHRwLGh0dHBzIiwKICAgICJ0cmFuc2ZlcnRvb2wiOiAiZnRzMyIsCiAgICAidXNlcmNlcnQiOiAiL29wdC9wcm94eS94NTA5dXAiCiAgfSwKICAiaGVybWVzIjogewogICAgInNlcnZpY2VzX2xpc3QiOiAia2Fma2EiCiAgfSwKICAibWVzc2FnaW5nLWhlcm1lcy1rYWZrYSI6IHsKICAgICJicm9rZXIiOiAiMTM0Ljc5LjIzLjIyMTo5MDk0LDEzNC43OS4yMy4yMjI6OTA5NCwxMzQuNzkuMjMuMjIzOjkwOTQiLAogICAgIm1lc3NhZ2VfZmlsdGVyIjogInJ1Y2lvLmRhZW1vbnMuaGVybWVzLmthZmthLmZpbHRlcnMuZmlsdGVyZWRfbGlzdCIsCiAgICAibm9uc3NsX3BvcnQiOiA5MDkyLAogICAgInBvcnQiOiA5MDkyLAogICAgInRvcGljX2xpc3QiOiAiVVNERl9TVFNfRElTSyxGUkRGX1NUU19ESVNLIiwKICAgICJ1c2Vfc3NsIjogZmFsc2UKICB9LAogICJtb25pdG9yIjogewogICAgImVuYWJsZV9tZXRyaWNzIjogIlRydWUiCiAgfSwKICAicG9saWN5IjogewogICAgInBhY2thZ2UiOiAicnViaW4iCiAgfSwKICAidHJhbnNmZXJzIjogewogICAgIm11bHRpaG9wX3JzZV9leHByZXNzaW9uIjogIiIKICB9LAogICJ0cmFuc21vZ3JpZmllciI6IHsKICAgICJtYXhkaWRzIjogNDAwMDAKICB9Cn0="
 ---
 # Source: rucio-daemons/templates/transmogrifier.yaml
 apiVersion: v1
@@ -607,7 +607,7 @@ spec:
         release: usdf
         rucio-daemon: automatix
       annotations:
-        checksum/config: 239829666a2328dd380f8e7f733d82c56a1d95c7
+        checksum/config: 22e57223623d813134071fcfe4fc1287a503b636
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -720,7 +720,7 @@ spec:
         release: usdf
         rucio-daemon: conveyor-finisher
       annotations:
-        checksum/config: 239829666a2328dd380f8e7f733d82c56a1d95c7
+        checksum/config: 22e57223623d813134071fcfe4fc1287a503b636
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -826,7 +826,7 @@ spec:
         release: usdf
         rucio-daemon: conveyor-poller
       annotations:
-        checksum/config: 239829666a2328dd380f8e7f733d82c56a1d95c7
+        checksum/config: 22e57223623d813134071fcfe4fc1287a503b636
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -932,7 +932,7 @@ spec:
         release: usdf
         rucio-daemon: conveyor-submitter
       annotations:
-        checksum/config: 239829666a2328dd380f8e7f733d82c56a1d95c7
+        checksum/config: 22e57223623d813134071fcfe4fc1287a503b636
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1038,7 +1038,7 @@ spec:
         release: usdf
         rucio-daemon: judge-cleaner
       annotations:
-        checksum/config: 239829666a2328dd380f8e7f733d82c56a1d95c7
+        checksum/config: 22e57223623d813134071fcfe4fc1287a503b636
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1144,7 +1144,7 @@ spec:
         release: usdf
         rucio-daemon: judge-evaluator
       annotations:
-        checksum/config: 239829666a2328dd380f8e7f733d82c56a1d95c7
+        checksum/config: 22e57223623d813134071fcfe4fc1287a503b636
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1250,7 +1250,7 @@ spec:
         release: usdf
         rucio-daemon: judge-injector
       annotations:
-        checksum/config: 239829666a2328dd380f8e7f733d82c56a1d95c7
+        checksum/config: 22e57223623d813134071fcfe4fc1287a503b636
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1356,7 +1356,7 @@ spec:
         release: usdf
         rucio-daemon: judge-repairer
       annotations:
-        checksum/config: 239829666a2328dd380f8e7f733d82c56a1d95c7
+        checksum/config: 22e57223623d813134071fcfe4fc1287a503b636
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1462,7 +1462,7 @@ spec:
         release: usdf
         rucio-daemon: minos
       annotations:
-        checksum/config: 239829666a2328dd380f8e7f733d82c56a1d95c7
+        checksum/config: 22e57223623d813134071fcfe4fc1287a503b636
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1568,7 +1568,7 @@ spec:
         release: usdf
         rucio-daemon: necromancer
       annotations:
-        checksum/config: 239829666a2328dd380f8e7f733d82c56a1d95c7
+        checksum/config: 22e57223623d813134071fcfe4fc1287a503b636
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1674,7 +1674,7 @@ spec:
         release: usdf
         rucio-daemon: reaper
       annotations:
-        checksum/config: 239829666a2328dd380f8e7f733d82c56a1d95c7
+        checksum/config: 22e57223623d813134071fcfe4fc1287a503b636
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1786,7 +1786,7 @@ spec:
         release: usdf
         rucio-daemon: transmogrifier
       annotations:
-        checksum/config: 239829666a2328dd380f8e7f733d82c56a1d95c7
+        checksum/config: 22e57223623d813134071fcfe4fc1287a503b636
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1892,7 +1892,7 @@ spec:
         release: usdf
         rucio-daemon: undertaker
       annotations:
-        checksum/config: 239829666a2328dd380f8e7f733d82c56a1d95c7
+        checksum/config: 22e57223623d813134071fcfe4fc1287a503b636
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
