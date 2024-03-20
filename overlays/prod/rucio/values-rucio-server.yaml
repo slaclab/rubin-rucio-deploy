@@ -20,7 +20,7 @@ useSSL: true
 
 image:
   repository: rucio/rucio-server
-  tag: release-33.5.0
+  tag: release-33.6.1
   pullPolicy: Always
 
 service:
