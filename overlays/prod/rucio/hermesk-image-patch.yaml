@@ -10,5 +10,5 @@ spec:
     spec:
       containers:
         - name: rucio-daemons
-          image: "docker.io/srp3/rucio-daemons-hermesk:2.0"
- 
+          image: "docker.io/srp3/rucio-daemons-hermesk:33.5.0.1"
+
