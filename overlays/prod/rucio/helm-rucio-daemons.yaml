@@ -262,11 +262,11 @@ kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: usdf-rucio-edit
-  namespace: default
+  namespace: rucio
 subjects:
 - kind: ServiceAccount
   name: usdf-rucio-edit
-  namespace: default
+  namespace: rucio
 roleRef:
   kind: ClusterRole
   name: edit
@@ -1075,7 +1075,7 @@ spec:
             secretName: usdf-policy-package
       containers:
         - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-33.5.0"
+          image: "rucio/rucio-daemons:release-34.0.0"
           imagePullPolicy: Always
           volumeMounts:
 
