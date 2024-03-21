@@ -703,7 +703,7 @@ config:
     # support_rucio: "https://github.com/rucio/rucio/issues/"
 
   automatix:
-    rses: "IN2P3_BUTLER_DISK, LANCS_BUTLER_DISK, RAL_BUTLER_DISK, RAL_DATA_DISK, IN2P3_DATA_DISK, LANCS_DATA_DISK"
+    rses: "FRDF_STS_DISK, IN2P3_BUTLER_DISK, LANCS_BUTLER_DISK, RAL_BUTLER_DISK, RAL_DATA_DISK, IN2P3_DATA_DISK, LANCS_DATA_DISK"
     dataset_lifetime: 18000
     set_metadata: "True"
     account: "automatix"
