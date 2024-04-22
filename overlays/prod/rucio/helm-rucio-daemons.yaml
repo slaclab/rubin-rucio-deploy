@@ -47,20 +47,6 @@ type: Opaque
 data:
   component.json: "e30="
 ---
-# Source: rucio-daemons/templates/automatix.yaml
-apiVersion: v1
-kind: Secret
-metadata:
-  name: usdf-rucio-daemons.config.automatix
-  labels:
-    app: rucio-daemons-automatix
-    chart: "rucio-daemons-32.0.2"
-    release: "usdf"
-    heritage: "Helm"
-type: Opaque
-data:
-  component.json: "e30="
----
 # Source: rucio-daemons/templates/conveyor.yaml
 apiVersion: v1
 kind: Secret
@@ -227,7 +213,7 @@ metadata:
     heritage: "Helm"
 type: Opaque
 data:
-  common.json: "ewogICJhdXRvbWF0aXgiOiB7CiAgICAiYWNjb3VudCI6ICJhdXRvbWF0aXgiLAogICAgImRhdGFzZXRfbGlmZXRpbWUiOiAxODAwMCwKICAgICJkYXRhc2V0X3BhdHRlcm4iOiAiZGlkX3ByZWZpeC9kYXRlL3V1aWQiLAogICAgImRpZF9wcmVmaXgiOiAiYXV0b21hdGl4IiwKICAgICJmaWxlX3BhdHRlcm4iOiAiZHNuL3V1aWQiLAogICAgInJzZXMiOiAiSU4yUDNfQlVUTEVSX0RJU0ssIExBTkNTX0JVVExFUl9ESVNLLCBSQUxfQlVUTEVSX0RJU0ssIFJBTF9EQVRBX0RJU0ssIElOMlAzX0RBVEFfRElTSywgTEFOQ1NfREFUQV9ESVNLIiwKICAgICJzY29wZSI6ICJ1c2VyLmF1dG9tYXRpeCIsCiAgICAic2VwYXJhdG9yIjogIi8iLAogICAgInNldF9tZXRhZGF0YSI6ICJUcnVlIgogIH0sCiAgImNsaWVudCI6IHsKICAgICJhY2NvdW50IjogImF1dG9tYXRpeCIsCiAgICAiYXV0aF9ob3N0IjogImh0dHBzOi8vcnViaW4tcnVjaW8uc2xhYy5zdGFuZm9yZC5lZHU6ODQ0MyIsCiAgICAiYXV0aF90eXBlIjogIng1MDlfcHJveHkiLAogICAgImNhX2NlcnQiOiAiL29wdC9jZXJ0cyIsCiAgICAiY2xpZW50X3g1MDlfcHJveHkiOiAiL29wdC9wcm94eS94NTA5dXAiLAogICAgInByb3RvY29sX3N0YXRfcmV0cmllcyI6IDYsCiAgICAicmVxdWVzdF9yZXRyaWVzIjogNiwKICAgICJydWNpb19ob3N0IjogImh0dHBzOi8vcnViaW4tcnVjaW8uc2xhYy5zdGFuZm9yZC5lZHU6ODQ0MyIKICB9LAogICJjb252ZXlvciI6IHsKICAgICJjYWNlcnQiOiAiL29wdC9jZXJ0cy9jYS5wZW0iLAogICAgImZ0c2hvc3RzIjogImh0dHBzOi8vZnRzLWV2YWwwMS5zbGFjLnN0YW5mb3JkLmVkdTo4NDQ2LGh0dHBzOi8vbGNnZnRzMy5ncmlkcHAucmwuYWMudWs6ODQ0NiIsCiAgICAic2NoZW1lIjogInNybSxnc2lmdHAscm9vdCxodHRwLGh0dHBzIiwKICAgICJ0cmFuc2ZlcnRvb2wiOiAiZnRzMyIsCiAgICAidXNlcmNlcnQiOiAiL29wdC9wcm94eS94NTA5dXAiCiAgfSwKICAiaGVybWVzIjogewogICAgImVsYXN0aWNfZW5kcG9pbnQiOiAiaHR0cDovL2VsYXN0aWNzZWFyY2gtZWNrLWVsYXN0aWNzZWFyY2gtZXMtd29ya2VyLmVsYXN0aWMtc3lzdGVtLnN2Yy5jbHVzdGVyLmxvY2FsOjkyMDAvcnVjaW9fZXZlbnRzL19idWxrIiwKICAgICJzZXJ2aWNlc19saXN0IjogImthZmthLCBlbGFzdGljIgogIH0sCiAgIm1lc3NhZ2luZy1oZXJtZXMta2Fma2EiOiB7CiAgICAiYnJva2VyIjogIjEzNC43OS4yMy4yMjE6OTA5NCwxMzQuNzkuMjMuMjIyOjkwOTQsMTM0Ljc5LjIzLjIyMzo5MDk0IiwKICAgICJtZXNzYWdlX2ZpbHRlciI6ICJydWNpby5kYWVtb25zLmhlcm1lcy5rYWZrYS5maWx0ZXJzLmZpbHRlcmVkX2xpc3QiLAogICAgIm5vbnNzbF9wb3J0IjogOTA5MiwKICAgICJwb3J0IjogOTA5MiwKICAgICJ0b3BpY19saXN0IjogIlVTREZfU1RTX0RJU0ssRlJERl9TVFNfRElTSyIsCiAgICAidXNlX3NzbCI6IGZhbHNlCiAgfSwKICAibW9uaXRvciI6IHsKICAgICJlbmFibGVfbWV0cmljcyI6ICJUcnVlIgogIH0sCiAgInBvbGljeSI6IHsKICAgICJwYWNrYWdlIjogInJ1YmluIgogIH0sCiAgInRyYW5zZmVycyI6IHsKICAgICJtdWx0aWhvcF9yc2VfZXhwcmVzc2lvbiI6ICIiCiAgfSwKICAidHJhbnNtb2dyaWZpZXIiOiB7CiAgICAibWF4ZGlkcyI6IDQwMDAwCiAgfQp9"
+  common.json: "ewogICJhdXRvbWF0aXgiOiB7CiAgICAiYWNjb3VudCI6ICJhdXRvbWF0aXgiLAogICAgImRhdGFzZXRfbGlmZXRpbWUiOiAxODAwMCwKICAgICJkYXRhc2V0X3BhdHRlcm4iOiAiZGlkX3ByZWZpeC9kYXRlL3V1aWQiLAogICAgImRpZF9wcmVmaXgiOiAiYXV0b21hdGl4IiwKICAgICJmaWxlX3BhdHRlcm4iOiAiZHNuL3V1aWQiLAogICAgInJzZXMiOiAiSU4yUDNfQlVUTEVSX0RJU0ssIExBTkNTX0JVVExFUl9ESVNLLCBSQUxfQlVUTEVSX0RJU0ssIFJBTF9EQVRBX0RJU0ssIElOMlAzX0RBVEFfRElTSywgTEFOQ1NfREFUQV9ESVNLIiwKICAgICJzY29wZSI6ICJ1c2VyLmF1dG9tYXRpeCIsCiAgICAic2VwYXJhdG9yIjogIi8iLAogICAgInNldF9tZXRhZGF0YSI6ICJUcnVlIgogIH0sCiAgImNsaWVudCI6IHsKICAgICJhY2NvdW50IjogImF1dG9tYXRpeCIsCiAgICAiYXV0aF9ob3N0IjogImh0dHBzOi8vcnViaW4tcnVjaW8uc2xhYy5zdGFuZm9yZC5lZHU6ODQ0MyIsCiAgICAiYXV0aF90eXBlIjogIng1MDlfcHJveHkiLAogICAgImNhX2NlcnQiOiAiL29wdC9jZXJ0cyIsCiAgICAiY2xpZW50X3g1MDlfcHJveHkiOiAiL29wdC9wcm94eS94NTA5dXAiLAogICAgInByb3RvY29sX3N0YXRfcmV0cmllcyI6IDYsCiAgICAicmVxdWVzdF9yZXRyaWVzIjogNiwKICAgICJydWNpb19ob3N0IjogImh0dHBzOi8vcnViaW4tcnVjaW8uc2xhYy5zdGFuZm9yZC5lZHU6ODQ0MyIKICB9LAogICJjb252ZXlvciI6IHsKICAgICJjYWNlcnQiOiAiL29wdC9jZXJ0cy9jYS5wZW0iLAogICAgImZ0c2hvc3RzIjogImh0dHBzOi8vZnRzLWV2YWwwMS5zbGFjLnN0YW5mb3JkLmVkdTo4NDQ2LGh0dHBzOi8vbGNnZnRzMy5ncmlkcHAucmwuYWMudWs6ODQ0NiIsCiAgICAic2NoZW1lIjogImRhdnMsZ3NpZnRwLGh0dHAsaHR0cHMscm9vdCxzcm0iLAogICAgInRyYW5zZmVydG9vbCI6ICJmdHMzIiwKICAgICJ1c2VyY2VydCI6ICIvb3B0L3Byb3h5L3g1MDl1cCIKICB9LAogICJoZXJtZXMiOiB7CiAgICAiZWxhc3RpY19lbmRwb2ludCI6ICJodHRwOi8vZWxhc3RpY3NlYXJjaC1lY2stZWxhc3RpY3NlYXJjaC1lcy13b3JrZXIuZWxhc3RpYy1zeXN0ZW0uc3ZjLmNsdXN0ZXIubG9jYWw6OTIwMC9ydWNpb19ldmVudHMvX2J1bGsiLAogICAgInNlcnZpY2VzX2xpc3QiOiAia2Fma2EsIGVsYXN0aWMiCiAgfSwKICAibWVzc2FnaW5nLWhlcm1lcy1rYWZrYSI6IHsKICAgICJicm9rZXIiOiAiMTM0Ljc5LjIzLjIyMTo5MDk0LDEzNC43OS4yMy4yMjI6OTA5NCwxMzQuNzkuMjMuMjIzOjkwOTQiLAogICAgIm1lc3NhZ2VfZmlsdGVyIjogInJ1Y2lvLmRhZW1vbnMuaGVybWVzLmthZmthLmZpbHRlcnMuZmlsdGVyZWRfbGlzdCIsCiAgICAibm9uc3NsX3BvcnQiOiA5MDkyLAogICAgInBvcnQiOiA5MDkyLAogICAgInRvcGljX2xpc3QiOiAiVVNERl9TVFNfRElTSyxGUkRGX1NUU19ESVNLIiwKICAgICJ1c2Vfc3NsIjogZmFsc2UKICB9LAogICJtb25pdG9yIjogewogICAgImVuYWJsZV9tZXRyaWNzIjogIlRydWUiCiAgfSwKICAicG9saWN5IjogewogICAgInBhY2thZ2UiOiAicnViaW4iCiAgfSwKICAidHJhbnNmZXJzIjogewogICAgIm11bHRpaG9wX3JzZV9leHByZXNzaW9uIjogIiIKICB9LAogICJ0cmFuc21vZ3JpZmllciI6IHsKICAgICJtYXhkaWRzIjogNDAwMDAKICB9Cn0="
 ---
 # Source: rucio-daemons/templates/transmogrifier.yaml
 apiVersion: v1
@@ -590,119 +576,6 @@ spec:
               cpu: 700m
               memory: 600Mi
 ---
-# Source: rucio-daemons/templates/automatix.yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: usdf-automatix
-  labels:
-    app: rucio-daemons-automatix
-    app-group: rucio-daemons
-    chart: rucio-daemons-32.0.2
-    release: usdf
-    heritage: Helm
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: rucio-daemons-automatix
-      release: usdf
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
-  minReadySeconds: 5
-  template:
-    metadata:
-      labels:
-        app: rucio-daemons-automatix
-        app-group: rucio-daemons
-        release: usdf
-        rucio-daemon: automatix
-      annotations:
-        checksum/config: 32f0b60f84ffdda08d432c47de4eb3dda9ee227b
-        prometheus.io/port: "8080"
-        prometheus.io/scrape: "true"
-    spec:
-      volumes:
-      - name: config-common
-        secret:
-          secretName: usdf-rucio-daemons.config.common
-      - name: config-component
-        secret:
-          secretName: usdf-rucio-daemons.config.automatix
-      - name: proxy-volume
-        secret:
-          secretName: usdf-rucio-x509up
-      - name: ca-volume
-        secret:
-          secretName: usdf-rucio-ca-bundle
-      - name: ca-volume-reaper
-        secret:
-          secretName: usdf-rucio-ca-bundle-reaper
-      - name: rucio-automatix-input-file
-        secret:
-          secretName: usdf-rucio-automatix-input-file
-      - name: hermeskafka-constants
-        secret:
-          secretName: usdf-hermeskafka-constants
-      - name: policy-package
-        secret:
-          secretName: usdf-policy-package
-      containers:
-        - name: rucio-daemons
-          image: "rucio/rucio-daemons:release-34.0.0"
-          imagePullPolicy: Always
-          volumeMounts:
-            - name: proxy-volume
-              mountPath: /opt/proxy
-            - name: ca-volume
-              mountPath: /opt/certs
-            - name: ca-volume-reaper
-              mountPath: /etc/grid-security/certificates
-            - name: config-common
-              mountPath: /opt/rucio/etc/conf.d/10_common.json
-              subPath: common.json
-            - name: config-component
-              mountPath: /opt/rucio/etc/conf.d/20_component.json
-              subPath: component.json
-            - name: rucio-automatix-input-file
-              mountPath: /opt/rucio/etc/automatix.json
-              subPath: "automatix.json"
-            - name: hermeskafka-constants
-              mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/constants.py
-              subPath: "constants.py"
-            - name: policy-package
-              mountPath: /opt/rucio/permissions/rubin
-          ports:
-            - name: metrics
-              containerPort: 8080
-              protocol: TCP
-          env:
-            - name: RUCIO_OVERRIDE_CONFIGS
-              value: "/opt/rucio/etc/conf.d/"
-            - name: RUCIO_DAEMON
-              value: "automatix"
-            - name: RUCIO_DAEMON_ARGS
-              value: " --threads-per-process 1 --input-file /opt/rucio/etc/automatix.json --sleep-time 30"
-            - name: X509_USER_PROXY
-              value: "/opt/proxy/x509up"
-            - name: PYTHONPATH
-              value: /opt/rucio/permissions
-            - name: RUCIO_CFG_DATABASE_DEFAULT
-              valueFrom:
-                secretKeyRef:
-                  key: db-conn-str.txt
-                  name: usdf-db-conn-str
-          resources:
-            limits:
-              cpu: 700m
-              memory: 1200Mi
-            requests:
-              cpu: 700m
-              memory: 1200Mi
----
 # Source: rucio-daemons/templates/conveyor.yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -734,7 +607,7 @@ spec:
         release: usdf
         rucio-daemon: conveyor-finisher
       annotations:
-        checksum/config: 32f0b60f84ffdda08d432c47de4eb3dda9ee227b
+        checksum/config: 180af43735b07cb6a078ae8818f139eea38e1780
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -840,7 +713,7 @@ spec:
         release: usdf
         rucio-daemon: conveyor-poller
       annotations:
-        checksum/config: 32f0b60f84ffdda08d432c47de4eb3dda9ee227b
+        checksum/config: 180af43735b07cb6a078ae8818f139eea38e1780
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -946,7 +819,7 @@ spec:
         release: usdf
         rucio-daemon: conveyor-submitter
       annotations:
-        checksum/config: 32f0b60f84ffdda08d432c47de4eb3dda9ee227b
+        checksum/config: 180af43735b07cb6a078ae8818f139eea38e1780
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1052,7 +925,7 @@ spec:
         release: usdf
         rucio-daemon: hermes
       annotations:
-        checksum/config: 32f0b60f84ffdda08d432c47de4eb3dda9ee227b
+        checksum/config: 180af43735b07cb6a078ae8818f139eea38e1780
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1160,7 +1033,7 @@ spec:
         release: usdf
         rucio-daemon: judge-cleaner
       annotations:
-        checksum/config: 32f0b60f84ffdda08d432c47de4eb3dda9ee227b
+        checksum/config: 180af43735b07cb6a078ae8818f139eea38e1780
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1266,7 +1139,7 @@ spec:
         release: usdf
         rucio-daemon: judge-evaluator
       annotations:
-        checksum/config: 32f0b60f84ffdda08d432c47de4eb3dda9ee227b
+        checksum/config: 180af43735b07cb6a078ae8818f139eea38e1780
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1372,7 +1245,7 @@ spec:
         release: usdf
         rucio-daemon: judge-injector
       annotations:
-        checksum/config: 32f0b60f84ffdda08d432c47de4eb3dda9ee227b
+        checksum/config: 180af43735b07cb6a078ae8818f139eea38e1780
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1478,7 +1351,7 @@ spec:
         release: usdf
         rucio-daemon: judge-repairer
       annotations:
-        checksum/config: 32f0b60f84ffdda08d432c47de4eb3dda9ee227b
+        checksum/config: 180af43735b07cb6a078ae8818f139eea38e1780
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1584,7 +1457,7 @@ spec:
         release: usdf
         rucio-daemon: minos
       annotations:
-        checksum/config: 32f0b60f84ffdda08d432c47de4eb3dda9ee227b
+        checksum/config: 180af43735b07cb6a078ae8818f139eea38e1780
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1690,7 +1563,7 @@ spec:
         release: usdf
         rucio-daemon: necromancer
       annotations:
-        checksum/config: 32f0b60f84ffdda08d432c47de4eb3dda9ee227b
+        checksum/config: 180af43735b07cb6a078ae8818f139eea38e1780
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1796,7 +1669,7 @@ spec:
         release: usdf
         rucio-daemon: reaper
       annotations:
-        checksum/config: 32f0b60f84ffdda08d432c47de4eb3dda9ee227b
+        checksum/config: 180af43735b07cb6a078ae8818f139eea38e1780
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -1908,7 +1781,7 @@ spec:
         release: usdf
         rucio-daemon: transmogrifier
       annotations:
-        checksum/config: 32f0b60f84ffdda08d432c47de4eb3dda9ee227b
+        checksum/config: 180af43735b07cb6a078ae8818f139eea38e1780
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
@@ -2014,7 +1887,7 @@ spec:
         release: usdf
         rucio-daemon: undertaker
       annotations:
-        checksum/config: 32f0b60f84ffdda08d432c47de4eb3dda9ee227b
+        checksum/config: 180af43735b07cb6a078ae8818f139eea38e1780
         prometheus.io/port: "8080"
         prometheus.io/scrape: "true"
     spec:
