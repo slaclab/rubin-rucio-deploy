@@ -715,7 +715,7 @@ config:
 
 
   conveyor:
-    scheme: "srm,gsiftp,root,http,https"
+    scheme: "davs,gsiftp,http,https,root,srm"
     transfertool: "fts3"
     ftshosts: "https://fts-eval01.slac.stanford.edu:8446,https://lcgfts3.gridpp.rl.ac.uk:8446"
     cacert: "/opt/certs/ca.pem"
