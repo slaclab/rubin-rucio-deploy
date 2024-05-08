@@ -61,7 +61,7 @@ metadata:
     release: usdf
     heritage: Helm
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: rucio-server
@@ -117,11 +117,11 @@ spec:
           imagePullPolicy: Always
           resources:
             limits:
-              cpu: 700m
-              memory: 600Mi
+              cpu: 1000m
+              memory: 2000Mi
             requests:
-              cpu: 200m
-              memory: 200Mi
+              cpu: 700m
+              memory: 2000Mi
           volumeMounts:
           - name: config
             mountPath: /opt/rucio/etc/conf.d/10_common.json
