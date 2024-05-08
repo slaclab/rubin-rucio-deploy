@@ -326,14 +326,11 @@ hermes:
         name: usdf-db-conn-str
         key: db-conn-str.txt
   - name: RUCIO_CFG_HERMES_ELASTIC_USERNAME
-    valueFrom:
-      secretKeyRef:
-        name: usdf-elasticsearch
-        key: USERNAME
+    value: elastic
   - name: RUCIO_CFG_HERMES_ELASTIC_PASSWORD
     valueFrom:
       secretKeyRef:
-        name: usdf-elasticsearch
+        name: usdf-rucio-elastic
         key: PASSWORD
 
 judgeCleaner:
