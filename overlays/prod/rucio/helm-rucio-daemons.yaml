@@ -358,8 +358,8 @@ spec:
                   name: usdf-db-conn-str
           resources:
             limits:
-              cpu: 700m
-              memory: 600Mi
+              cpu: 900m
+              memory: 800Mi
             requests:
               cpu: 700m
               memory: 600Mi
@@ -464,8 +464,8 @@ spec:
                   name: usdf-db-conn-str
           resources:
             limits:
-              cpu: 700m
-              memory: 600Mi
+              cpu: 900m
+              memory: 800Mi
             requests:
               cpu: 700m
               memory: 600Mi
@@ -570,8 +570,8 @@ spec:
                   name: usdf-db-conn-str
           resources:
             limits:
-              cpu: 700m
-              memory: 600Mi
+              cpu: 900m
+              memory: 800Mi
             requests:
               cpu: 700m
               memory: 600Mi
@@ -666,7 +666,7 @@ spec:
             - name: RUCIO_DAEMON
               value: "conveyor-finisher"
             - name: RUCIO_DAEMON_ARGS
-              value: " --total-threads 1 --activities 'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
+              value: " --total-threads 8 --activities 'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
             - name: PYTHONPATH
               value: /opt/rucio/permissions
             - name: RUCIO_CFG_DATABASE_DEFAULT
@@ -676,10 +676,10 @@ spec:
                   name: usdf-db-conn-str
           resources:
             limits:
-              cpu: 700m
-              memory: 600Mi
+              cpu: 2000m
+              memory: 800Mi
             requests:
-              cpu: 700m
+              cpu: 1000m
               memory: 600Mi
 ---
 # Source: rucio-daemons/templates/conveyor.yaml
@@ -772,7 +772,7 @@ spec:
             - name: RUCIO_DAEMON
               value: "conveyor-poller"
             - name: RUCIO_DAEMON_ARGS
-              value: " --total-threads 1  --activities 'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
+              value: " --total-threads 8  --activities 'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
             - name: PYTHONPATH
               value: /opt/rucio/permissions
             - name: RUCIO_CFG_DATABASE_DEFAULT
@@ -782,11 +782,11 @@ spec:
                   name: usdf-db-conn-str
           resources:
             limits:
-              cpu: 700m
-              memory: 600Mi
+              cpu: 900m
+              memory: 1500Mi
             requests:
               cpu: 700m
-              memory: 600Mi
+              memory: 1000Mi
 ---
 # Source: rucio-daemons/templates/conveyor.yaml
 apiVersion: apps/v1
@@ -878,7 +878,7 @@ spec:
             - name: RUCIO_DAEMON
               value: "conveyor-submitter"
             - name: RUCIO_DAEMON_ARGS
-              value: " --total-threads 1 --sleep-time 120 --activities 'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
+              value: " --total-threads 8 --sleep-time 120 --activities 'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
             - name: PYTHONPATH
               value: /opt/rucio/permissions
             - name: RUCIO_CFG_DATABASE_DEFAULT
@@ -888,11 +888,11 @@ spec:
                   name: usdf-db-conn-str
           resources:
             limits:
-              cpu: 700m
-              memory: 600Mi
+              cpu: 1200m
+              memory: 1000Mi
             requests:
-              cpu: 700m
-              memory: 600Mi
+              cpu: 1000m
+              memory: 900Mi
 ---
 # Source: rucio-daemons/templates/hermes.yaml
 apiVersion: apps/v1
@@ -1089,7 +1089,7 @@ spec:
             - name: RUCIO_DAEMON
               value: "judge-cleaner"
             - name: RUCIO_DAEMON_ARGS
-              value: "--threads 1"
+              value: "--threads 4"
             - name: PYTHONPATH
               value: /opt/rucio/permissions
             - name: RUCIO_CFG_DATABASE_DEFAULT
@@ -1099,8 +1099,8 @@ spec:
                   name: usdf-db-conn-str
           resources:
             limits:
-              cpu: 700m
-              memory: 600Mi
+              cpu: 900m
+              memory: 800Mi
             requests:
               cpu: 700m
               memory: 600Mi
@@ -1195,7 +1195,7 @@ spec:
             - name: RUCIO_DAEMON
               value: "judge-evaluator"
             - name: RUCIO_DAEMON_ARGS
-              value: "--threads 1"
+              value: "--threads 12"
             - name: PYTHONPATH
               value: /opt/rucio/permissions
             - name: RUCIO_CFG_DATABASE_DEFAULT
@@ -1205,11 +1205,11 @@ spec:
                   name: usdf-db-conn-str
           resources:
             limits:
-              cpu: 700m
-              memory: 600Mi
+              cpu: 1200m
+              memory: 2800Mi
             requests:
-              cpu: 700m
-              memory: 600Mi
+              cpu: 1000m
+              memory: 900Mi
 ---
 # Source: rucio-daemons/templates/judge.yaml
 apiVersion: apps/v1
@@ -1301,7 +1301,7 @@ spec:
             - name: RUCIO_DAEMON
               value: "judge-injector"
             - name: RUCIO_DAEMON_ARGS
-              value: "--threads 1"
+              value: "--threads 5"
             - name: PYTHONPATH
               value: /opt/rucio/permissions
             - name: RUCIO_CFG_DATABASE_DEFAULT
@@ -1312,9 +1312,9 @@ spec:
           resources:
             limits:
               cpu: 700m
-              memory: 600Mi
+              memory: 900Mi
             requests:
-              cpu: 700m
+              cpu: 500m
               memory: 600Mi
 ---
 # Source: rucio-daemons/templates/judge.yaml
@@ -1407,7 +1407,7 @@ spec:
             - name: RUCIO_DAEMON
               value: "judge-repairer"
             - name: RUCIO_DAEMON_ARGS
-              value: "--threads 1"
+              value: "--threads 12"
             - name: PYTHONPATH
               value: /opt/rucio/permissions
             - name: RUCIO_CFG_DATABASE_DEFAULT
@@ -1418,10 +1418,10 @@ spec:
           resources:
             limits:
               cpu: 700m
-              memory: 600Mi
+              memory: 1800Mi
             requests:
-              cpu: 700m
-              memory: 600Mi
+              cpu: 500m
+              memory: 1200Mi
 ---
 # Source: rucio-daemons/templates/minos.yaml
 apiVersion: apps/v1
@@ -1523,10 +1523,10 @@ spec:
                   name: usdf-db-conn-str
           resources:
             limits:
-              cpu: 700m
+              cpu: 1200m
               memory: 600Mi
             requests:
-              cpu: 100m
+              cpu: 1000m
               memory: 400Mi
 ---
 # Source: rucio-daemons/templates/necromancer.yaml
@@ -1632,7 +1632,7 @@ spec:
               cpu: 700m
               memory: 600Mi
             requests:
-              cpu: 100m
+              cpu: 500m
               memory: 400Mi
 ---
 # Source: rucio-daemons/templates/reaper.yaml
@@ -1725,7 +1725,7 @@ spec:
             - name: RUCIO_DAEMON
               value: "reaper"
             - name: RUCIO_DAEMON_ARGS
-              value: ' --threads 4'
+              value: ' --threads 8'
             - name: GLOBUS_THREAD_MODEL
               value: "pthread"
             - name: RUCIO_HOME
@@ -1741,11 +1741,11 @@ spec:
                   name: usdf-db-conn-str
           resources:
             limits:
-              cpu: 700m
-              memory: 600Mi
+              cpu: 1700m
+              memory: 2200Mi
             requests:
-              cpu: 700m
-              memory: 600Mi
+              cpu: 1000m
+              memory: 2000Mi
 ---
 # Source: rucio-daemons/templates/transmogrifier.yaml
 apiVersion: apps/v1
@@ -1847,8 +1847,8 @@ spec:
                   name: usdf-db-conn-str
           resources:
             limits:
-              cpu: 700m
-              memory: 600Mi
+              cpu: 900m
+              memory: 800Mi
             requests:
               cpu: 700m
               memory: 600Mi
@@ -1938,7 +1938,7 @@ spec:
             - name: RUCIO_DAEMON
               value: "undertaker"
             - name: RUCIO_DAEMON_ARGS
-              value: " --total-workers 1"
+              value: " --total-workers 6"
             - name: PYTHONPATH
               value: /opt/rucio/permissions
             - name: RUCIO_CFG_DATABASE_DEFAULT
@@ -1948,8 +1948,8 @@ spec:
                   name: usdf-db-conn-str
           resources:
             limits:
-              cpu: 700m
-              memory: 600Mi
+              cpu: 900m
+              memory: 800Mi
             requests:
               cpu: 700m
               memory: 600Mi
