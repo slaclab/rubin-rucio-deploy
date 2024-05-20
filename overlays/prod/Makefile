@@ -2,6 +2,7 @@ SERVER_CHART_VERSION := 32.0.0
 DAEMON_CHART_VERSION := 32.0.2
 UI_CHART_VERSION := 32.0.1
 ELASTIC_VERSION := 0.8.0
+OPEN_VERSION := 2.13.0
 
 helm:
 	helm repo add rucio https://rucio.github.io/helm-charts
@@ -77,6 +78,6 @@ apply: get-secrets rucio elastic run-apply clean-secrets
 run-destroy:
 	kubectl delete -k .
 
-destroy: get-secrets rucio elastic run-destroy clean-secrets
+destroy: get-secrets rucio elastic run-destroy clean-secrets opensearch
 
 
