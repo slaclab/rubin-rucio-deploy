@@ -7,7 +7,8 @@ OPEN_VERSION := 2.13.0
 helm:
 	helm repo add rucio https://rucio.github.io/helm-charts
 	helm repo add elastic https://helm.elastic.co
-	helm repo update rucio elastic
+	helm repo add opensearch https://opensearch-project.github.io/helm-charts/
+	helm repo update rucio elastic opensearch
 
 rucio-server: helm
 	helm template usdf rucio/rucio-server --version=${SERVER_CHART_VERSION} --values=rucio/values-rucio-server.yaml > rucio/helm-rucio-server.yaml
