@@ -25,6 +25,16 @@ elasticsearch:
 
 elastic: elasticsearch
 
+open-deployment:
+	helm template opensearch opensearch/opensearch --version=${OPEN_VERSION} --values=opensearch/values-opensearch-master.yaml > opensearch/helm-opensearch-master.yaml
+	helm template opensearch opensearch/opensearch --version=${OPEN_VERSION} --values=opensearch/values-opensearch-worker.yaml > opensearch/helm-opensearch-worker.yaml
+
+opensearch: helm open-deployment
+
+opensearch-apply:  opensearch run-apply
+
+opensearch-destry: opensearch run-destroy
+
 package-reaper-certs:
 	rm -rf etc/.secrets/grid-certificates
 	mkdir -p etc/.secrets/grid-certificates
