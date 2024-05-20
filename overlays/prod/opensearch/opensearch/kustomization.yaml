@@ -3,7 +3,7 @@ namespace: opensearch-system
 resources:
 - helm-opensearch-master.yaml
 - helm-opensearch-worker.yaml
-#- ns.yaml
+- ns.yaml
 
 
 patchesStrategicMerge: []
