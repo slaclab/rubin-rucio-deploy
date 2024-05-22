@@ -1,5 +1,5 @@
 ## replicaCount gives the number of server pods to run
-replicaCount: 1
+replicaCount: 3
 
 # Instead of specifying secrets explicitly, use ones with "expected" names as per "old" rucio
 use_deprecated_implicit_secrets: true
@@ -207,11 +207,11 @@ config:
 
 serverResources:
   limits:
-    memory: "600Mi"
-    cpu: "700m"
+    memory: "2000Mi"
+    cpu: "1000m"
   requests:
-    memory: "200Mi"
-    cpu: "200m"
+    memory: "2000Mi"
+    cpu: "700m"
 
 nodeSelector: {}
 

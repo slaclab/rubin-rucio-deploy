@@ -99,7 +99,7 @@ secretGenerator:
 - name: usdf-lsst-vomsdir
   files:
   - voms.slac.stanford.edu.lsc=etc/voms.slac.stanford.edu.lsc
-  - voms1.slac.stanford.edu.lsc=etc/voms1.slac.stanford.edu.lsc
+  - voms.hec.lancs.ac.uk=etc/voms.hec.lancs.ac.uk
   options:
     disableNameSuffixHash: true
 
