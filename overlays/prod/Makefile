@@ -35,7 +35,7 @@ opensearch: helm open-deployment
 
 opensearch-apply:  opensearch run-apply
 
-opensearch-destry: opensearch run-destroy
+opensearch-destroy: opensearch run-destroy
 
 package-reaper-certs:
 	rm -rf etc/.secrets/grid-certificates
@@ -74,7 +74,7 @@ dump: get-secrets rucio elastic run-dump clean-secrets
 run-apply:  
 	kubectl apply -k .
 
-apply: get-secrets rucio elastic run-apply clean-secrets
+apply: get-secrets rucio elastic run-apply clean-secrets opensearch
 
 run-destroy:
 	kubectl delete -k .
