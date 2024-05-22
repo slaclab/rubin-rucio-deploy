@@ -6,8 +6,8 @@ helm:
 
 
 open-deployment:
-	helm template opensearch opensearch/opensearch --version=${OPEN_VERSION} --values=opensearch/values-opensearch-master.yaml > opensearch/helm-opensearch-master.yaml
-	helm template opensearch opensearch/opensearch --version=${OPEN_VERSION} --values=opensearch/values-opensearch-worker.yaml > opensearch/helm-opensearch-worker.yaml
+	helm template opensearch opensearch/opensearch --version=${OPEN_VERSION} --values=values-opensearch-master.yaml > helm-opensearch-master.yaml
+	helm template opensearch opensearch/opensearch --version=${OPEN_VERSION} --values=values-opensearch-worker.yaml > helm-opensearch-worker.yaml
 
 
 opensearch: helm open-deployment

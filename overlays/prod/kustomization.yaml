@@ -4,4 +4,4 @@ bases:
 - rucio/
 - data-backbone/
 - elastic/
-- opensearch
+- opensearch/

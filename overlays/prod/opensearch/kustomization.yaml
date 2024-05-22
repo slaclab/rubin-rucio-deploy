@@ -1,2 +1,11 @@
+namespace: opensearch-system
+
 resources:
-- opensearch/
+- helm-opensearch-master.yaml
+- helm-opensearch-worker.yaml
+- ns.yaml
+
+
+patchesStrategicMerge: []
+
+secretGenerator: []
