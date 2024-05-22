@@ -6,7 +6,7 @@
 abacusAccountCount: 1
 abacusCollectionReplicaCount: 1
 abacusRseCount: 1
-automatixCount: 1
+automatixCount: 0
 cacheConsumerCount: 0
 conveyorTransferSubmitterCount: 1
 conveyorPollerCount: 1
@@ -68,8 +68,8 @@ abacusAccount:
   podAnnotations: {}
   resources:
     limits:
-      memory: "600Mi"
-      cpu: "700m"
+      memory: "800Mi"
+      cpu: "900m"
     requests:
       memory: "600Mi"
       cpu: "700m"
@@ -87,8 +87,8 @@ abacusCollectionReplica:
   podAnnotations: {}
   resources:
     limits:
-      memory: "600Mi"
-      cpu: "700m"
+      memory: "800Mi"
+      cpu: "900m"
     requests:
       memory: "600Mi"
       cpu: "700m"
@@ -107,8 +107,8 @@ abacusRse:
   podAnnotations: {}
   resources:
     limits:
-      memory: "600Mi"
-      cpu: "700m"
+      memory: "800Mi"
+      cpu: "900m"
     requests:
       memory: "600Mi"
       cpu: "700m"
@@ -122,14 +122,14 @@ abacusRse:
         key: db-conn-str.txt
 
 automatix:
-  sleep_time: 300
+  sleep_time: 600
   threads: 1
   inputFile: "/opt/rucio/etc/automatix.json"
   podAnnotations: {}
   resources:
     limits:
-      memory: "1200Mi"
-      cpu: "700m"
+      memory: "1400Mi"
+      cpu: "900m"
     requests:
       memory: "1200Mi"
       cpu: "700m"
@@ -151,7 +151,7 @@ cacheConsumer:
       cpu: "700m"
     requests:
       memory: "400Mi"
-      cpu: "100m"
+      cpu: "500m"
   additionalEnvs:
   - name: PYTHONPATH
     value: /opt/rucio/permissions
@@ -162,18 +162,18 @@ cacheConsumer:
         key: db-conn-str.txt
 
 conveyorTransferSubmitter:
-  threads: 1
+  threads: 8
   podAnnotations: {}
   activities: "'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
   sleepTime: 120
   archiveTimeout: ""
   resources:
     limits:
-      memory: "600Mi"
-      cpu: "700m"
+      memory: "1000Mi"
+      cpu: "1200m"
     requests:
-      memory: "600Mi"
-      cpu: "700m"
+      memory: "900Mi"
+      cpu: "1000m"
   additionalEnvs:
   - name: PYTHONPATH
     value: /opt/rucio/permissions
@@ -184,15 +184,15 @@ conveyorTransferSubmitter:
         key: db-conn-str.txt
 
 conveyorPoller:
-  threads: 1
+  threads: 8
   podAnnotations: {}
   activities: "'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
   resources:
     limits:
-      memory: "600Mi"
-      cpu: "700m"
+      memory: "1500Mi"
+      cpu: "900m"
     requests:
-      memory: "600Mi"
+      memory: "1000Mi"
       cpu: "700m"
   additionalEnvs:
   - name: PYTHONPATH
@@ -204,16 +204,16 @@ conveyorPoller:
         key: db-conn-str.txt
 
 conveyorFinisher:
-  threads: 1
+  threads: 8
   podAnnotations: {}
   activities: "'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
   resources:
     limits:
-      memory: "600Mi"
-      cpu: "700m"
+      memory: "800Mi"
+      cpu: "2000m"
     requests:
       memory: "600Mi"
-      cpu: "700m"
+      cpu: "1000m"
   additionalEnvs:
   - name: PYTHONPATH
     value: /opt/rucio/permissions
@@ -228,11 +228,11 @@ conveyorReceiver:
   podAnnotations: {}
   resources:
     limits:
-      memory: "600Mi"
-      cpu: "700m"
+      memory: "800Mi"
+      cpu: "1100m"
     requests:
       memory: "600Mi"
-      cpu: "700m"
+      cpu: "1000m"
   additionalEnvs:
   - name: PYTHONPATH
     value: /opt/rucio/permissions
@@ -247,8 +247,8 @@ conveyorThrottler:
   podAnnotations: {}
   resources:
     limits:
-      memory: "600Mi"
-      cpu: "700m"
+      memory: "800Mi"
+      cpu: "900m"
     requests:
       memory: "600Mi"
       cpu: "700m"
@@ -266,8 +266,8 @@ conveyorPreparer:
   podAnnotations: {}
   resources:
     limits:
-      memory: "600Mi"
-      cpu: "700m"
+      memory: "800Mi"
+      cpu: "900m"
     requests:
       memory: "600Mi"
       cpu: "700m"
@@ -290,8 +290,8 @@ darkReaper:
   podAnnotations: {}
   resources:
     limits:
-      memory: "600Mi"
-      cpu: "700m"
+      memory: "800Mi"
+      cpu: "900m"
     requests:
       memory: "600Mi"
       cpu: "700m"
@@ -326,23 +326,20 @@ hermes:
         name: usdf-db-conn-str
         key: db-conn-str.txt
   - name: RUCIO_CFG_HERMES_ELASTIC_USERNAME
-    valueFrom:
-      secretKeyRef:
-        name: usdf-elasticsearch
-        key: USERNAME
+    value: elastic
   - name: RUCIO_CFG_HERMES_ELASTIC_PASSWORD
     valueFrom:
       secretKeyRef:
-        name: usdf-elasticsearch
+        name: usdf-rucio-elastic
         key: PASSWORD
 
 judgeCleaner:
-  threads: 1
+  threads: 4
   podAnnotations: {}
   resources:
     limits:
-      memory: "600Mi"
-      cpu: "700m"
+      memory: "800Mi"
+      cpu: "900m"
     requests:
       memory: "600Mi"
       cpu: "700m"
@@ -356,15 +353,15 @@ judgeCleaner:
         key: db-conn-str.txt
 
 judgeEvaluator:
-  threads: 1
+  threads: 12
   podAnnotations: {}
   resources:
     limits:
-      memory: "600Mi"
-      cpu: "700m"
+      memory: "2800Mi"
+      cpu: "1200m"
     requests:
-      memory: "600Mi"
-      cpu: "700m"
+      memory: "900Mi"
+      cpu: "1000m"
   additionalEnvs:
   - name: PYTHONPATH
     value: /opt/rucio/permissions
@@ -375,15 +372,15 @@ judgeEvaluator:
         key: db-conn-str.txt
 
 judgeInjector:
-  threads: 1
+  threads: 5
   podAnnotations: {}
   resources:
     limits:
-      memory: "600Mi"
+      memory: "900Mi"
       cpu: "700m"
     requests:
       memory: "600Mi"
-      cpu: "700m"
+      cpu: "500m"
   additionalEnvs:
   - name: PYTHONPATH
     value: /opt/rucio/permissions
@@ -394,15 +391,15 @@ judgeInjector:
         key: db-conn-str.txt
 
 judgeRepairer:
-  threads: 1
+  threads: 12
   podAnnotations: {}
   resources:
     limits:
-      memory: "600Mi"
+      memory: "1800Mi"
       cpu: "700m"
     requests:
-      memory: "600Mi"
-      cpu: "700m"
+      memory: "1200Mi"
+      cpu: "500m"
   additionalEnvs:
   - name: PYTHONPATH
     value: /opt/rucio/permissions
@@ -418,9 +415,9 @@ oauthManager:
   resources:
     limits:
       memory: "600Mi"
-      cpu: "700m"
+      cpu: "900m"
     requests:
-      memory: "600Mi"
+      memory: "400Mi"
       cpu: "700m"
   additionalEnvs:
   - name: PYTHONPATH
@@ -432,12 +429,12 @@ oauthManager:
         key: db-conn-str.txt
 
 undertaker:
-  threads: 1
+  threads: 6
   podAnnotations: {}
   resources:
     limits:
-      memory: "600Mi"
-      cpu: "700m"
+      memory: "800Mi"
+      cpu: "900m"
     requests:
       memory: "600Mi"
       cpu: "700m"
@@ -453,16 +450,16 @@ undertaker:
 reaper:
   greedy: 0
   scheme: ""
-  threads: 4
+  threads: 8
   includeRses: ""
   podAnnotations: {}
   resources:
     limits:
-      memory: "600Mi"
-      cpu: "700m"
+      memory: "2200Mi"
+      cpu: "1700m"
     requests:
-      memory: "600Mi"
-      cpu: "700m"
+      memory: "2000Mi"
+      cpu: "1000m"
   additionalEnvs:
   - name: PYTHONPATH
     value: /opt/rucio/permissions
@@ -477,8 +474,8 @@ transmogrifier:
   podAnnotations: {}
   resources:
     limits:
-      memory: "600Mi"
-      cpu: "700m"
+      memory: "800Mi"
+      cpu: "900m"
     requests:
       memory: "600Mi"
       cpu: "700m"
@@ -496,8 +493,8 @@ tracerKronos:
   podAnnotations: {}
   resources:
     limits:
-      memory: "600Mi"
-      cpu: "700m"
+      memory: "800Mi"
+      cpu: "900m"
     requests:
       memory: "600Mi"
       cpu: "700m"
@@ -516,10 +513,10 @@ minos:
   resources:
     limits:
       memory: "600Mi"
-      cpu: "700m"
+      cpu: "1200m"
     requests:
       memory: "400Mi"
-      cpu: "100m"
+      cpu: "1000m"
   additionalEnvs:
   - name: PYTHONPATH
     value: /opt/rucio/permissions
@@ -538,7 +535,7 @@ minosTemporaryExpiration:
       cpu: "700m"
     requests:
       memory: "400Mi"
-      cpu: "100m"
+      cpu: "500m"
   additionalEnvs:
   - name: PYTHONPATH
     value: /opt/rucio/permissions
@@ -556,7 +553,7 @@ necromancer:
       cpu: "700m"
     requests:
       memory: "400Mi"
-      cpu: "100m"
+      cpu: "500m"
   additionalEnvs:
   - name: PYTHONPATH
     value: /opt/rucio/permissions
@@ -703,7 +700,7 @@ config:
     # support_rucio: "https://github.com/rucio/rucio/issues/"
 
   automatix:
-    rses: "IN2P3_BUTLER_DISK, LANCS_BUTLER_DISK, RAL_BUTLER_DISK, RAL_DATA_DISK, IN2P3_DATA_DISK, LANCS_DATA_DISK"
+    rses: "FRDF_STS_DISK, IN2P3_BUTLER_DISK, LANCS_BUTLER_DISK, RAL_BUTLER_DISK, RAL_DATA_DISK, IN2P3_DATA_DISK, LANCS_DATA_DISK"
     dataset_lifetime: 18000
     set_metadata: "True"
     account: "automatix"
@@ -715,7 +712,7 @@ config:
 
 
   conveyor:
-    scheme: "srm,gsiftp,root,http,https"
+    scheme: "davs,gsiftp,http,https,root,srm"
     transfertool: "fts3"
     ftshosts: "https://fts-eval01.slac.stanford.edu:8446,https://lcgfts3.gridpp.rl.ac.uk:8446"
     cacert: "/opt/certs/ca.pem"
@@ -753,7 +750,7 @@ config:
   # email_test: ""
 
   hermes:
-    services_list: kafka, elastic
+    services_list: elastic
     elastic_endpoint: "http://elasticsearch-eck-elasticsearch-es-worker.elastic-system.svc.cluster.local:9200/rucio_events/_bulk"
 
   messaging-hermes-kafka:
