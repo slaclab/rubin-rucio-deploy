@@ -108,11 +108,6 @@ extraEnvs:
 # Cluster will not spin-up without this unless demo config install is disabled.
 #  - name: OPENSEARCH_INITIAL_ADMIN_PASSWORD
 #    value: <strong-password>
-- name: OPENSEARCH_INITIAL_ADMIN_PASSWORD
-  valueFrom:
-    secretKeyRef:
-      name: open-secrets
-      key: PASSWORD
 
 # Allows you to load environment variables from kubernetes secret or config map
 envFrom: []
