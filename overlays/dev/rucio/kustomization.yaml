@@ -9,8 +9,8 @@ resources:
 
 patchesStrategicMerge:
 - patch-ingress.yaml
-- grid-certificates-patch.yaml
-- hermesk-image-patch.yaml
+- patch-grid-certificates.yaml
+- patch-hermesk-image.yaml
 
 secretGenerator:
 # rucio
