@@ -43,17 +43,32 @@ spec:
       log_min_duration_statement: 250ms
       log_statement: all
       log_temp_files: "1"
-      max_connections: "250"
-      shared_buffers: 2GB
       pg_stat_statements.max: "10000"
       pg_stat_statements.track: all
+      #
+      shared_buffers: 16GB
+      work_mem: 64MB
+      #
+      max_connections: 500
+      #
+      max_wal_size: 4GB
+      wal_segment_size: 256MB
+      archive_timeout: 30min
+      checkpoint_timeout: 15min
+      wal_receiver_timeout: 1min
+       
+      #
+      autovacuum_analyze_threshold: 250
+      autovacuum_vacuum_threshold: 500
+      autovacuum_naptime: 1h
+      maintenance_work_mem: 1GB
 
   resources:
     requests:
-      memory: 8Gi
+      memory: 64Gi
       cpu: 8
     limits:
-      memory: 16Gi
+      memory: 128Gi
       cpu: 16 
 
   storage:
