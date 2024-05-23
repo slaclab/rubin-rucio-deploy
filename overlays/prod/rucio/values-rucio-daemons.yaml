@@ -750,7 +750,7 @@ config:
   # email_test: ""
 
   hermes:
-    services_list: elastic
+    services_list: kafka, elastic
     elastic_endpoint: "http://elasticsearch-eck-elasticsearch-es-worker.elastic-system.svc.cluster.local:9200/rucio_events/_bulk"
 
   messaging-hermes-kafka:
