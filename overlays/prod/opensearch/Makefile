@@ -1,4 +1,4 @@
-OPEN_VERSION := 2.13.0
+OPEN_VERSION := 2.14.0
 
 helm:
 	helm repo add elastic https://helm.elastic.co
