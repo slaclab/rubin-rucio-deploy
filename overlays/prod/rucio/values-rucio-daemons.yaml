@@ -735,12 +735,12 @@ config:
   # brokers: "dashb-test-mb.cern.ch"
   # voname: "atlas"
 
-  # messaging-hermes:
-  # username: ""
-  # password: ""
-  # port: "61023"
-  # nonssl_port: ""
-  # use_ssl: ""
+  messaging-hermes:
+    # username: ""
+    # password: ""
+    # port: "61023"
+    # nonssl_port: ""
+    use_ssl: "false"
   # ssl_key_file: "/etc/grid-security/hostkey.pem"
   # ssl_cert_file: "/etc/grid-security/hostcert.pem"
   # destination: "/topic/rucio.events"
@@ -751,7 +751,7 @@ config:
 
   hermes:
     services_list: kafka, elastic
-    elastic_endpoint: "http://elasticsearch-eck-elasticsearch-es-worker.elastic-system.svc.cluster.local:9200/rucio_events/_bulk"
+    elastic_endpoint: "https://opensearch-cluster-worker.opensearch-system.svc.cluster.local:9200/rucio_events/_bulk"
 
   messaging-hermes-kafka:
     port: 9092
