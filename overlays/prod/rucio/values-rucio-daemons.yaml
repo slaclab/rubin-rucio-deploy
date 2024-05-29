@@ -326,7 +326,7 @@ hermes:
         name: usdf-db-conn-str
         key: db-conn-str.txt
   - name: RUCIO_CFG_HERMES_ELASTIC_USERNAME
-    value: elastic
+    value: admin
   - name: RUCIO_CFG_HERMES_ELASTIC_PASSWORD
     valueFrom:
       secretKeyRef:
