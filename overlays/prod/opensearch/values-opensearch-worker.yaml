@@ -360,7 +360,7 @@ securityConfig:
 # How long to wait for opensearch to stop gracefully
 terminationGracePeriod: 120
 
-sysctlVmMaxMapCount: 65530
+sysctlVmMaxMapCount: 262144
 
 startupProbe:
   tcpSocket:
@@ -477,7 +477,7 @@ sysctl:
 
 ## Set optimal sysctl's through privileged initContainer.
 sysctlInit:
-  enabled: false
+  enabled: true
   # override image, which is busybox by default
   # image: busybox
   # override image tag, which is latest by default
