@@ -325,6 +325,8 @@ hermes:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+  - name: RUCIO_DAEMON
+    value: hermesk
   #- name: RUCIO_CFG_HERMES_ELASTIC_USERNAME
   #  value: elastic
   #- name: RUCIO_CFG_HERMES_ELASTIC_PASSWORD
