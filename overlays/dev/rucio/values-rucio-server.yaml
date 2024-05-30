@@ -204,10 +204,10 @@ config:
 
 serverResources:
   limits:
-    memory: "600Mi"
-    cpu: "700m"
+    memory: "2000Mi"
+    cpu: "1200m"
   requests:
-    memory: "200Mi"
+    memory: "600Mi"
     cpu: "200m"
 
 nodeSelector: {}
