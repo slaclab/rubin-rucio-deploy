@@ -7,17 +7,6 @@ use_deprecated_implicit_secrets: true
 # When set, run extra busybox containers in the relevant pods to also expose the error logs
 exposeErrorLogs: true
 
-
-    
-        
-          
-    
-
-        
-        Expand All
-    
-    @@ -17,7 +15,6 @@ errorLogsExporterResources:
-  
 errorLogsExporterResources:
   limits:
    cpu: 30m
@@ -32,18 +21,8 @@ useSSL: true
 image:
   repository: rucio/rucio-server
   tag: release-34.0.0
-
-    
-        
-          
-    
-
-        
-        Expand All
-    
-    @@ -37,24 +34,18 @@ service:
-  
   pullPolicy: Always
+
 service:
   type: ClusterIP
   port: 443 
@@ -79,23 +58,6 @@ logFormat: '[%{%Y-%m-%d %H:%M:%S}t]\t%v\t%h\t%{X-Forwarded-For}i\t%{X-Rucio-Requ
 monitoring:
   enabled: false
   exporterPort: 8080
-
-    
-          
-            
-    
-
-          
-          Expand Down
-          
-            
-    
-
-          
-          Expand Up
-    
-    @@ -98,7 +89,6 @@ additionalEnvs:
-  
   targetPort: 8080
   nativeMetricsPort: 8081
   interval: 30s
@@ -103,6 +65,7 @@ monitoring:
   namespace: monitoring
   labels:
     release: prometheus-operator
+
 metricsExporterResources:
   limits:
    cpu: 30m
@@ -110,6 +73,7 @@ metricsExporterResources:
   requests:
    cpu: 20m
    memory: 20Mi
+
 automaticRestart:
   enabled: 0
   image:
@@ -117,9 +81,11 @@ automaticRestart:
     tag: latest
     pullPolicy: IfNotPresent
   schedule: "0 0 * * *"
+
 secretMounts:
   - secretName: policy-package
     mountPath: /opt/rucio/permissions/rubin
+
 additionalEnvs:
   - name: PYTHONPATH
     value: /opt/rucio/permissions
@@ -128,6 +94,7 @@ additionalEnvs:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+
 wsgi:
   daemonProcesses: "4"
   daemonThreads: "4"
@@ -135,23 +102,6 @@ wsgi:
 httpd_config:
   grid_site_enabled: "True"
   encoded_slashes: "True"
-
-    
-          
-            
-    
-
-          
-          Expand Down
-          
-            
-    
-
-          
-          Expand Up
-    
-    @@ -212,10 +202,6 @@ serverResources:
-  
   legacy_dn: "True"
   #mpm_mode: "event"
   #enable_status: "True"
@@ -166,6 +116,7 @@ httpd_config:
   #max_spare_threads: "512"
   #max_request_workers: "1280"
   #max_connections_per_child: "2048"
+
 ingress:
   enabled: true 
   annotations:
@@ -175,6 +126,7 @@ ingress:
   path: /
   hosts:
      - rubin-rucio.slac.stanford.edu 
+
 ## values used to configure Rucio
 config:
   # common:
@@ -184,6 +136,7 @@ config:
     # loglevel: "DEBUG"
     ## config.common.mailtemplatedir: directory containing the mail templates (default: "/opt/rucio/etc/mail_templates")
     # mailtemplatedir: "/opt/rucio/etc/mail_templates"
+
   # database:
     ## config.database.default: the connection string for the database (default: "sqlite:////tmp/rucio.db")
     # default: "sqlite:////tmp/rucio.db"
@@ -208,6 +161,7 @@ config:
   hermes:
     services_list: kafka, elastic
     elastic_endpoint: "http://elasticsearch-eck-elasticsearch-es-worker.elastic-system.svc.cluster.local:9200/rucio_events/_bulk"
+
   #monitor:
     ## Turn on the Prometheus server for scraping of metrics (Default port 8080)
     #enable_metrics: "True"
@@ -217,6 +171,7 @@ config:
     # carbon_server: "8125"
     ## config.monitor.user_scope: scope used on the graphite server (default: "default_docker")
     # user_scope: "default_docker"
+
   ## only necessary if the server is configurated to receive traces
   # trace:
     ## config.trace.tracedir: directory where traces are written to (default "/var/log/rucio/trace")
@@ -231,6 +186,7 @@ config:
     # username: ""
     ## config.trace.password: password for the topic (if necessary)
     # password: ""
+
   policy:
     package: rubin
     ## config.permission.policy: (default "generic")
@@ -243,10 +199,12 @@ config:
     # support: "https://github.com/rucio/rucio/issues/"
     ## config.permission.support_rucio: (default "https://github.com/rucio/rucio/issues/")
     # support_rucio: "https://github.com/rucio/rucio/issues/"
+
   ## Only necessary for webui deployments
   # webui:
     ## config.webui.usercert:  (default "/opt/rucio/etc/usercert_with_key.pem")
     # usercert: "/opt/rucio/etc/usercert_with_key.pem"
+
 serverResources:
   limits:
     memory: "2000Mi"
