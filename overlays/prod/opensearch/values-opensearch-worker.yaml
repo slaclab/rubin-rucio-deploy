@@ -214,7 +214,7 @@ persistence:
   # storageClass: "-"
   accessModes:
   - ReadWriteOnce
-  size: 30Gi
+  size: 300Gi
   annotations: {}
 
 extraVolumes: []
