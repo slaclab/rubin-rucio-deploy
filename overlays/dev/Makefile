@@ -52,7 +52,8 @@ dump: get-secrets rucio elastic run-dump clean-secrets
 run-apply:  
 	kubectl apply -k .
 
-apply: get-secrets rucio elastic run-apply clean-secrets 
+#apply: get-secrets rucio elastic run-apply clean-secrets 
+apply: get-secrets run-apply clean-secrets
 
 run-destroy:
 	kubectl delete -k .

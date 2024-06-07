@@ -1,6 +1,6 @@
 
 bases:
 - postgres/
-- rucio/
-- data-backbone/
-- elastic/
+#- rucio/
+#- data-backbone/
+#- elastic/
