@@ -11,3 +11,10 @@ spec:
       containers:
         - name: rucio-daemons
           image: "ghcr.io/lsst-dm/rucio-daemons-hermesk:34.0.0.1"
+          volumeMounts:
+            - name: proxy-volume
+              mountPath: /opt/proxy
+      volumes:
+        - name: proxy-volume
+          secret:
+            secretName: usdf-rucio-x509up
