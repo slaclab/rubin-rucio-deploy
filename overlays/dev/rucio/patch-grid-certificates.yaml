@@ -50,3 +50,4 @@ spec:
          secret:
            $patch: delete
          emptyDir: {}
+---
