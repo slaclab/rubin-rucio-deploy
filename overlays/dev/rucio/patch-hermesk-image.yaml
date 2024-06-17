@@ -8,13 +8,26 @@ metadata:
 spec:
   template:
     spec:
+      initContainers:
+      - name: grid-certs
+        image: docker.io/bjwhitefnal/grid-security-files:32
+        command: ["/bin/bash", "-c", "cp -rv --preserve=links /grid-certificates/* /out/"]
+        volumeMounts:
+        - name: ca-volume
+          mountPath: /out/
       containers:
         - name: rucio-daemons
-          image: "ghcr.io/lsst-dm/rucio-daemons-hermesk:34.0.0.1"
+          image: "ghcr.io/lsst-dm/rucio-daemons-hermesk:34.0.0.2"
           volumeMounts:
             - name: proxy-volume
               mountPath: /opt/proxy
+            - name: ca-volume
+              mountPath: /opt/certs
       volumes:
         - name: proxy-volume
           secret:
             secretName: usdf-rucio-x509up
+        - name: ca-volume
+          secret:
+            $patch: delete
+          emptyDir: {}
