@@ -26,7 +26,7 @@ spec:
       secret:
         name: usdf-rucio-dev-creds
   
-  imageName:  ghcr.io/cloudnative-pg/postgresql:14.4-7
+  imageName:  ghcr.io/cloudnative-pg/postgresql:14.12-5
   inheritedMetadata:
     annotations:
       prometheus.io/scrape: 'true' 
@@ -50,7 +50,7 @@ spec:
       #
       max_connections: "500"
       #
-      #max_wal_size: 4GB
+      max_wal_size: 4GB
       #wal_segment_size: 16MB
       archive_timeout: "30min"
       checkpoint_timeout: "15min"
