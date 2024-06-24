@@ -1,4 +1,3 @@
-
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
@@ -27,7 +26,7 @@ spec:
       secret:
         name: usdf-rucio-dev-creds
   
-  imageName:  ghcr.io/cloudnative-pg/postgresql:14.4-7
+  imageName:  ghcr.io/cloudnative-pg/postgresql:14.12-5
   inheritedMetadata:
     annotations:
       prometheus.io/scrape: 'true' 
@@ -40,7 +39,7 @@ spec:
     parameters:
       log_disconnections: "on"
       log_duration: "on"
-      log_min_duration_statement: 250ms
+      log_min_duration_statement: "250ms"
       log_statement: all
       log_temp_files: "1"
       pg_stat_statements.max: "10000"
@@ -49,18 +48,18 @@ spec:
       shared_buffers: 16GB
       work_mem: 64MB
       #
-      max_connections: 500
+      max_connections: "500"
       #
       max_wal_size: 4GB
-      wal_segment_size: 256MB
-      archive_timeout: 30min
-      checkpoint_timeout: 15min
-      wal_receiver_timeout: 1min
+      #wal_segment_size: 16MB
+      archive_timeout: "30min"
+      checkpoint_timeout: "15min"
+      wal_receiver_timeout: "1min"
        
       #
-      autovacuum_analyze_threshold: 250
-      autovacuum_vacuum_threshold: 500
-      autovacuum_naptime: 1h
+      autovacuum_analyze_threshold: "250"
+      autovacuum_vacuum_threshold: "500"
+      autovacuum_naptime: "1h"
       maintenance_work_mem: 1GB
 
   resources:

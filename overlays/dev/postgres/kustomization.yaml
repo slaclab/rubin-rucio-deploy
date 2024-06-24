@@ -3,6 +3,7 @@ namespace: rucio-db
 resources:
 - ns.yaml
 - cnpg-rucio-pooler.yaml
+#- cnpg-rucio-pooler-lb-svc.yaml
 - cnpg-rucio-database.yaml
 - backup.yaml
 
