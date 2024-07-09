@@ -20,6 +20,8 @@ spec:
         port: 9094
         type: loadbalancer
         tls: false
+        #authentication:
+        #  type: scram-sha-512
         configuration:
           bootstrap:
             annotations:

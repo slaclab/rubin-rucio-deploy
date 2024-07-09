@@ -762,7 +762,7 @@ config:
     use_ssl: False
     brokers: 134.79.23.204:9094
     message_filter: rucio.daemons.hermes.kafka.filters.filtered_list
-    topic_list: USDF_STS_DISK,FRDF_STS_DISK
+    topic_list: SLAC_BUTLER_DEV_DISK
 
   # tracer-kronos:
   # brokers: "atlas-test-mb.cern.ch"

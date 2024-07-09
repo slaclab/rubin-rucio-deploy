@@ -4,3 +4,4 @@ resources:
   - ns.yaml
   - kafka-persistent.yaml 
   - topics.yaml
+  - users.yaml
