@@ -1,0 +1,9 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaUser
+metadata:
+  name: usdfkafka
+  labels:
+    strimzi.io/cluster: rucio-kafka
+spec:
+  authentication:
+    type: scram-sha-512

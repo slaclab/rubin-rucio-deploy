@@ -325,13 +325,15 @@ hermes:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
-  - name: RUCIO_CFG_HERMES_ELASTIC_USERNAME
-    value: elastic
-  - name: RUCIO_CFG_HERMES_ELASTIC_PASSWORD
-    valueFrom:
-      secretKeyRef:
-        name: usdf-rucio-elastic
-        key: PASSWORD
+  - name: RUCIO_DAEMON
+    value: hermesk
+  #- name: RUCIO_CFG_HERMES_ELASTIC_USERNAME
+  #  value: elastic
+  #- name: RUCIO_CFG_HERMES_ELASTIC_PASSWORD
+  #  valueFrom:
+  #    secretKeyRef:
+  #      name: usdf-rucio-elastic
+  #      key: PASSWORD
 
 judgeCleaner:
   threads: 1
@@ -750,16 +752,16 @@ config:
   # email_test: ""
 
   hermes:
-    services_list: kafka, elastic
-    elastic_endpoint: "http://elasticsearch-eck-elasticsearch-es-worker.elastic-system.svc.cluster.local:9200/rucio_events/_bulk"
+    services_list: kafka
+    #elastic_endpoint: "http://elasticsearch-eck-elasticsearch-es-worker.elastic-system.svc.cluster.local:9200/rucio_events/_bulk"
 
   messaging-hermes-kafka:
-    port: 9092
-    nonssl_port: 9092
+    port: 9094
+    nonssl_port: 9094
     use_ssl: False
-    broker: 134.79.23.221:9094,134.79.23.222:9094,134.79.23.223:9094
+    brokers: 134.79.23.204:9094
     message_filter: rucio.daemons.hermes.kafka.filters.filtered_list
-    topic_list: USDF_STS_DISK,FRDF_STS_DISK
+    topic_list: SLAC_BUTLER_DEV_DISK
 
   # tracer-kronos:
   # brokers: "atlas-test-mb.cern.ch"
