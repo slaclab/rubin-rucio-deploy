@@ -85,6 +85,9 @@ automaticRestart:
 secretMounts:
 - secretName: policy-package
   mountPath: /opt/rucio/permissions/rubin
+- secretName: hermeskafka-constants
+  mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/constants.py
+  subPath: constants.py
 
 additionalEnvs:
 - name: PYTHONPATH
@@ -183,6 +186,9 @@ config:
   # username: ""
   ## config.trace.password: password for the topic (if necessary)
   # password: ""
+
+  hermes:
+    services_list: kafka
 
   policy:
     package: rubin
