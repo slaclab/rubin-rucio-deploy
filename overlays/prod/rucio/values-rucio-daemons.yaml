@@ -327,7 +327,7 @@ hermes:
         name: usdf-db-conn-str
         key: db-conn-str.txt
   - name: RUCIO_CFG_HERMES_ELASTIC_USERNAME
-    value: elastic
+    value: admin
   - name: RUCIO_CFG_HERMES_ELASTIC_PASSWORD
     valueFrom:
       secretKeyRef:
@@ -736,12 +736,12 @@ config:
   # brokers: "dashb-test-mb.cern.ch"
   # voname: "atlas"
 
-  # messaging-hermes:
-  # username: ""
-  # password: ""
-  # port: "61023"
-  # nonssl_port: ""
-  # use_ssl: ""
+  messaging-hermes:
+    # username: ""
+    # password: ""
+    # port: "61023"
+    # nonssl_port: ""
+    use_ssl: "false"
   # ssl_key_file: "/etc/grid-security/hostkey.pem"
   # ssl_cert_file: "/etc/grid-security/hostcert.pem"
   # destination: "/topic/rucio.events"
@@ -751,16 +751,16 @@ config:
   # email_test: ""
 
   hermes:
-    services_list: elastic
-    elastic_endpoint: "http://elasticsearch-eck-elasticsearch-es-worker.elastic-system.svc.cluster.local:9200/rucio_events/_bulk"
+    services_list: kafka, elastic
+    elastic_endpoint: "https://opensearch-cluster-worker.opensearch-system.svc.cluster.local:9200/rucio_events/_bulk"
 
-  #messaging-hermes-kafka:
-  #  port: 9092
-  #  nonssl_port: 9092
-  #  use_ssl: False
-  #  broker: 134.79.23.221:9094,134.79.23.222:9094,134.79.23.223:9094
-  #  message_filter: rucio.daemons.hermes.kafka.filters.filtered_list
-  #  topic_list: USDF_STS_DISK,FRDF_STS_DISK
+  messaging-hermes-kafka:
+    port: 9092
+    nonssl_port: 9092
+    use_ssl: False
+    broker: 134.79.23.221:9094,134.79.23.222:9094,134.79.23.223:9094
+    message_filter: rucio.daemons.hermes.kafka.filters.filtered_list
+    topic_list: USDF_STS_DISK,FRDF_STS_DISK,SLAC_BUTLER_DISK,SLAC_BUTLER_DEV_DISK
 
   # tracer-kronos:
   # brokers: "atlas-test-mb.cern.ch"

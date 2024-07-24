@@ -16,8 +16,8 @@ spec:
   pgbouncer:
     poolMode: session
     parameters:
-      max_client_conn: "1000"
-      default_pool_size: "100"
+      max_client_conn: "500"
+      default_pool_size: "450"
       log_connections: "1"
       log_disconnections: "1"
       idle_transaction_timeout: "0"
