@@ -85,6 +85,9 @@ automaticRestart:
 secretMounts:
 - secretName: policy-package
   mountPath: /opt/rucio/permissions/rubin
+- secretName: hermeskafka-constants
+  mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/constants.py
+  subPath: constants.py
 
 additionalEnvs:
 - name: PYTHONPATH
@@ -158,9 +161,6 @@ config:
   # powuseraccount: ""
   ## config.database.powuseraccount: password for user used to check the DB
   # powuserpassword: ""
-  hermes:
-    services_list: kafka, elastic
-    elastic_endpoint: "https://opensearch-cluster-worker.opensearch-system.svc.cluster.local:9200/rucio_events/_bulk"
 
   #monitor:
   ## Turn on the Prometheus server for scraping of metrics (Default port 8080)
@@ -186,6 +186,9 @@ config:
   # username: ""
   ## config.trace.password: password for the topic (if necessary)
   # password: ""
+
+  hermes:
+    services_list: kafka
 
   policy:
     package: rubin

@@ -3,5 +3,5 @@ bases:
 - postgres/
 - rucio/
 - data-backbone/
-- elastic/
-- opensearch/
+#- elastic/
+#- opensearch/
