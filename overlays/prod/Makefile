@@ -1,14 +1,10 @@
 SERVER_CHART_VERSION := 32.0.0
 DAEMON_CHART_VERSION := 32.0.2
 UI_CHART_VERSION := 32.0.1
-ELASTIC_VERSION := 0.8.0
-OPEN_VERSION := 2.13.0
 
 helm:
 	helm repo add rucio https://rucio.github.io/helm-charts
-	helm repo add elastic https://helm.elastic.co
-	helm repo add opensearch https://opensearch-project.github.io/helm-charts/
-	helm repo update rucio elastic opensearch
+	helm repo update rucio
 
 rucio-server: helm
 	helm template usdf rucio/rucio-server --version=${SERVER_CHART_VERSION} --values=rucio/values-rucio-server.yaml > rucio/helm-rucio-server.yaml
@@ -20,22 +16,6 @@ rucio-ui: helm
 	helm template usdf rucio/rucio-ui --version=${UI_CHART_VERSION} --values=rucio/values-rucio-ui.yaml > rucio/helm-rucio-ui.yaml
 
 rucio: rucio-server rucio-daemons rucio-ui
-
-elasticsearch:
-	helm template elasticsearch elastic/eck-elasticsearch --version=${ELASTIC_VERSION} --values=elastic/elasticsearch/values-elasticsearch.yaml > elastic/elasticsearch/helm-elasticsearch.yaml
-	vi elastic/elasticsearch/helm-elasticsearch.yaml -c ":%s/enterprise/basic/g" -c ":wq"
-
-elastic: elasticsearch
-
-open-deployment:
-	helm template opensearch opensearch/opensearch --version=${OPEN_VERSION} --values=opensearch/values-opensearch-master.yaml > opensearch/helm-opensearch-master.yaml
-	helm template opensearch opensearch/opensearch --version=${OPEN_VERSION} --values=opensearch/values-opensearch-worker.yaml > opensearch/helm-opensearch-worker.yaml
-
-opensearch: helm open-deployment
-
-opensearch-apply:  opensearch run-apply
-
-opensearch-destroy: opensearch run-destroy
 
 package-reaper-certs:
 	rm -rf etc/.secrets/grid-certificates
@@ -69,16 +49,16 @@ clean-secrets:
 run-dump: 
 	kubectl kustomize .
 
-dump: get-secrets rucio elastic run-dump clean-secrets
+dump: get-secrets rucio run-dump clean-secrets
 
 run-apply:  
 	kubectl apply -k .
 
-apply: get-secrets rucio elastic run-apply clean-secrets opensearch
+apply: get-secrets rucio run-apply clean-secrets
 
 run-destroy:
 	kubectl delete -k .
 
-destroy: get-secrets rucio elastic run-destroy clean-secrets opensearch
+destroy: get-secrets rucio run-destroy clean-secrets
 
 

@@ -67,3 +67,17 @@ spec:
   config:
     retention.ms: 604800000
     segment.bytes: 1073741824
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: slac-butler-disk
+  labels:
+    strimzi.io/cluster: rucio-kafka
+spec:
+  topicName: SLAC_BUTLER_DISK
+  partitions: 3
+  replicas: 2
+  config:
+    retention.ms: 604800000
+    segment.bytes: 1073741824
