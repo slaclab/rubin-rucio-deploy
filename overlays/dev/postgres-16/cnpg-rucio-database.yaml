@@ -1,0 +1,77 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: usdf-rucio-16
+  namespace: rucio-db-16
+spec:
+  backup:
+    retentionPolicy: "15d"
+    barmanObjectStore:
+      destinationPath: s3://rubin-rucio-dev
+      endpointURL: https://s3dfrgw.slac.stanford.edu:443
+      s3Credentials:
+        accessKeyId:
+          name: s3-creds
+          key: ACCESS_KEY_ID
+        secretAccessKey:
+          name: s3-creds
+          key: ACCESS_SECRET_KEY
+  instances: 2
+  primaryUpdateStrategy: unsupervised
+
+  bootstrap:
+    initdb:
+      database: rucio
+      owner: rubin
+      secret:
+        name: usdf-rucio-dev-creds
+  
+  imageName:  ghcr.io/cloudnative-pg/postgresql:16.3
+  inheritedMetadata:
+    annotations:
+      prometheus.io/scrape: 'true' 
+
+  nodeMaintenanceWindow:
+    inProgress: false
+    reusePVC: true
+
+  postgresql:
+    parameters:
+      log_disconnections: "on"
+      log_duration: "on"
+      log_min_duration_statement: "250ms"
+      log_statement: all
+      log_temp_files: "1"
+      pg_stat_statements.max: "10000"
+      pg_stat_statements.track: all
+      #
+      shared_buffers: 16GB
+      work_mem: 64MB
+      #
+      max_connections: "500"
+      #
+      max_wal_size: 4GB
+      #wal_segment_size: 16MB
+      archive_timeout: "30min"
+      checkpoint_timeout: "15min"
+      wal_receiver_timeout: "1min"
+       
+      #
+      autovacuum_analyze_threshold: "250"
+      autovacuum_vacuum_threshold: "500"
+      autovacuum_naptime: "1h"
+      maintenance_work_mem: 1GB
+
+  resources:
+    requests:
+      memory: 64Gi
+      cpu: 8
+    limits:
+      memory: 128Gi
+      cpu: 16 
+
+  storage:
+    storageClass: wekafs--sdf-k8s01
+    size: 1000Gi
+
+
