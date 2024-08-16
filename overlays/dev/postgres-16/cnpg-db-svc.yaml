@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: usdf-butler-embargo-svc
-  namespace: embargo-dev
+  name: usdf-rucio-16-svc
+  namespace: rucio-db-16
   annotations:
     metallb.universe.tf/address-pool: sdf-services
 spec:
@@ -12,7 +12,7 @@ spec:
     protocol: TCP
     targetPort: 5432
   selector:
-    cnpg.io/cluster: usdf-butler-embargo
+    cnpg.io/cluster: usdf-rucio-16
     role: primary
   sessionAffinity: None
   type: LoadBalancer
