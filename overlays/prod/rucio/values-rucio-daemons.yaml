@@ -328,13 +328,13 @@ hermes:
         key: db-conn-str.txt
   - name: RUCIO_DAEMON
     value: hermesk
-  #- name: RUCIO_CFG_HERMES_ELASTIC_USERNAME
-  #  value: admin
-  #- name: RUCIO_CFG_HERMES_ELASTIC_PASSWORD
-  #  valueFrom:
-  #    secretKeyRef:
-  #      name: usdf-rucio-elastic
-  #      key: PASSWORD
+  - name: RUCIO_CFG_HERMES_ELASTIC_USERNAME
+    value: rucio
+  - name: RUCIO_CFG_HERMES_ELASTIC_PASSWORD
+    valueFrom:
+      secretKeyRef:
+        name: usdf-rucio-elastic
+        key: PASSWORD
 
 judgeCleaner:
   threads: 4
