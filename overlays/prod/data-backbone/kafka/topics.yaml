@@ -1,67 +1,11 @@
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
-  name: slac-test-disk
+  name: slac-butler-dev-disk
   labels:
     strimzi.io/cluster: rucio-kafka
 spec:
-  topicName: SLAC_TEST_DISK
-  partitions: 3
-  replicas: 2
-  config:
-    retention.ms: 604800000
-    segment.bytes: 1073741824
----
-apiVersion: kafka.strimzi.io/v1beta2
-kind: KafkaTopic
-metadata:
-  name: butler-frdf-test
-  labels:
-    strimzi.io/cluster: rucio-kafka
-spec:
-  topicName: BUTLER_FRDF_TEST
-  partitions: 3
-  replicas: 2
-  config:
-    retention.ms: 604800000
-    segment.bytes: 1073741824
----
-apiVersion: kafka.strimzi.io/v1beta2
-kind: KafkaTopic
-metadata:
-  name: butler-ukdf-test
-  labels:
-    strimzi.io/cluster: rucio-kafka
-spec:
-  topicName: BUTLER_UKDF_TEST
-  partitions: 3
-  replicas: 2
-  config:
-    retention.ms: 604800000
-    segment.bytes: 1073741824
----
-apiVersion: kafka.strimzi.io/v1beta2
-kind: KafkaTopic
-metadata:
-  name: usdf-sts-disk
-  labels:
-    strimzi.io/cluster: rucio-kafka
-spec:
-  topicName: USDF_STS_DISK
-  partitions: 3
-  replicas: 2
-  config:
-    retention.ms: 604800000
-    segment.bytes: 1073741824
----
-apiVersion: kafka.strimzi.io/v1beta2
-kind: KafkaTopic
-metadata:
-  name: frdf-sts-disk
-  labels:
-    strimzi.io/cluster: rucio-kafka
-spec:
-  topicName: FRDF_STS_DISK
+  topicName: SLAC_BUTLER_DEV_DISK
   partitions: 3
   replicas: 2
   config:
@@ -76,6 +20,104 @@ metadata:
     strimzi.io/cluster: rucio-kafka
 spec:
   topicName: SLAC_BUTLER_DISK
+  partitions: 3
+  replicas: 2
+  config:
+    retention.ms: 604800000
+    segment.bytes: 1073741824
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: slac-raw-disk
+  labels:
+    strimzi.io/cluster: rucio-kafka
+spec:
+  topicName: SLAC_RAW_DISK
+  partitions: 3
+  replicas: 2
+  config:
+    retention.ms: 604800000
+    segment.bytes: 1073741824
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: in2p3-butler-disk
+  labels:
+    strimzi.io/cluster: rucio-kafka
+spec:
+  topicName: IN2P3_BUTLER_DISK
+  partitions: 3
+  replicas: 2
+  config:
+    retention.ms: 604800000
+    segment.bytes: 1073741824
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: in2p3-raw-disk
+  labels:
+    strimzi.io/cluster: rucio-kafka
+spec:
+  topicName: IN2P3_RAW_DISK
+  partitions: 3
+  replicas: 2
+  config:
+    retention.ms: 604800000
+    segment.bytes: 1073741824
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: lancs-butler-disk
+  labels:
+    strimzi.io/cluster: rucio-kafka
+spec:
+  topicName: LANCS_BUTLER_DISK
+  partitions: 3
+  replicas: 2
+  config:
+    retention.ms: 604800000
+    segment.bytes: 1073741824
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: lancs-raw-disk
+  labels:
+    strimzi.io/cluster: rucio-kafka
+spec:
+  topicName: LANCS_RAW_DISK
+  partitions: 3
+  replicas: 2
+  config:
+    retention.ms: 604800000
+    segment.bytes: 1073741824
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: ral-butler-disk
+  labels:
+    strimzi.io/cluster: rucio-kafka
+spec:
+  topicName: RAL_BUTLER_DISK
+  partitions: 3
+  replicas: 2
+  config:
+    retention.ms: 604800000
+    segment.bytes: 1073741824
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: ral-raw-disk
+  labels:
+    strimzi.io/cluster: rucio-kafka
+spec:
+  topicName: RAL_RAW_DISK
   partitions: 3
   replicas: 2
   config:
