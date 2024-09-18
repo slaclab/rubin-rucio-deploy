@@ -753,8 +753,8 @@ config:
   # email_test: ""
 
   hermes:
-    services_list: kafka
-    #elastic_endpoint: "https://opensearch-cluster-worker.opensearch-system.svc.cluster.local:9200/rucio_events/_bulk"
+    services_list: kafka, elastic
+    elastic_endpoint: "https://usdf-opensearch.slac.stanford.edu/rucio-events/_bulk"
 
   messaging-hermes-kafka:
     port: 9094
