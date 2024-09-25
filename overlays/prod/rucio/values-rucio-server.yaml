@@ -188,7 +188,7 @@ config:
   # password: ""
 
   hermes:
-    services_list: kafka
+    services_list: kafka, elastic
 
   policy:
     package: rubin
