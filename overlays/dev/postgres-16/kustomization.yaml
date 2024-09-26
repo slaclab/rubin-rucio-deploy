@@ -6,6 +6,8 @@ resources:
 #- cnpg-rucio-pooler-lb-svc.yaml
 - cnpg-rucio-database.yaml
 - backup.yaml
+- cnpg-db-svc.yaml
+#- cnpg-rucio-pooler-service.yaml
 
 secretGenerator:
 # database
