@@ -1,0 +1,12 @@
+namespace: elastic-system
+
+resources:
+- helm-logstash.yaml
+
+patchesStrategicMerge: []
+
+secretGenerator:
+- name: rucio-pipelines
+  files:
+  - pipelines/pipelines.yml
+
