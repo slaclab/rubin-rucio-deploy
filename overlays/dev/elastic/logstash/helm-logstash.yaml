@@ -1,0 +1,93 @@
+# Source: eck-logstash/templates/logstash.yaml
+apiVersion: logstash.k8s.elastic.co/v1alpha1
+kind: Logstash
+metadata:
+  name: logstash-eck-logstash
+  labels:
+    helm.sh/chart: eck-logstash-0.10.0
+    app.kubernetes.io/name: eck-logstash
+    app.kubernetes.io/instance: logstash
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    eck.k8s.elastic.co/license: basic
+spec:
+  version: 8.15.0-SNAPSHOT
+  count: 1
+  image: opensearchproject/logstash-oss-with-opensearch-output-plugin:8.9.0
+  config:
+    log.level: info
+    pipeline.workers: 2
+  pipelinesRef:
+    secretName: rucio-pipelines
+  podTemplate:
+    spec:
+      containers:
+      - env:
+        - name: LS_HEAP_SIZE
+          value: 3g
+        - name: LS_JAVA_OPTS
+          value: -Xmx3g -Xms3g
+        - name: DB_SECRET_USERNAME
+          valueFrom:
+            secretKeyRef:
+              key: USERNAME
+              name: db-secrets
+        - name: DB_SECRET_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: PASSWORD
+              name: db-secrets
+        - name: DB_SECRET_CONNECT
+          valueFrom:
+            secretKeyRef:
+              key: CONNECT
+              name: db-secrets
+        - name: ES_SECRET_HOST
+          valueFrom:
+            secretKeyRef:
+              key: HOSTS
+              name: es-secrets
+        - name: ES_SECRET_USER
+          valueFrom:
+            secretKeyRef:
+              key: USER
+              name: es-secrets
+        - name: ES_SECRET_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: PASSWORD
+              name: es-secrets
+        name: logstash
+        resources:
+          limits:
+            cpu: 5
+            memory: 10Gi
+          requests:
+            cpu: 3
+            memory: 8Gi
+        volumeMounts:
+        - mountPath: /usr/share/logstash/jars
+          name: workdir
+      initContainers:
+      - args:
+        - -c
+        - curl -o /data/postgresql.jar -L https://jdbc.postgresql.org/download/postgresql-42.7.3.jar
+        command:
+        - /bin/sh
+        name: download-postgres
+        volumeMounts:
+        - mountPath: /data
+          name: workdir
+
+  volumeClaimTemplates:
+  - metadata:
+      name: workdir
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 50Mi
+  elasticsearchRefs: []
+  services: []
+  secureSettings: []
