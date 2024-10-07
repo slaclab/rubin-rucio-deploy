@@ -32,7 +32,7 @@ necromancerCount: 1
 
 image:
   repository: rucio/rucio-daemons
-  tag: release-34.0.0
+  tag: release-35.4.0
   pullPolicy: Always
 
 strategy:
@@ -753,6 +753,7 @@ config:
   # email_test: ""
 
   hermes:
+    #services_list: kafka
     services_list: kafka, elastic
     elastic_endpoint: "https://usdf-opensearch.slac.stanford.edu/rucio-dev-events/_bulk"
 
