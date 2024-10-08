@@ -306,9 +306,9 @@ darkReaper:
         key: db-conn-str.txt
 
 hermes:
-  threads: 1
+  threads: 2
   podAnnotations: {}
-  bulk: 500
+  bulk: 1000
   delay: 10
   brokerTimeout: 3
   resources:
