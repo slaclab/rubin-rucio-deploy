@@ -308,7 +308,7 @@ darkReaper:
 hermes:
   threads: 1
   podAnnotations: {}
-  bulk: 100
+  bulk: 500
   delay: 10
   brokerTimeout: 3
   resources:
