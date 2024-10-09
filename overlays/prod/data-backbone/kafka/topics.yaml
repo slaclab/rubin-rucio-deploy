@@ -9,8 +9,8 @@ spec:
   partitions: 3
   replicas: 2
   config:
-    retention.ms: 604800000
-    segment.bytes: 1073741824
+    retention.ms: 604800
+    segment.bytes: 268435456
 ---
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
@@ -23,8 +23,8 @@ spec:
   partitions: 3
   replicas: 2
   config:
-    retention.ms: 604800000
-    segment.bytes: 1073741824
+    retention.ms: 604800
+    segment.bytes: 268435456
 ---
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
@@ -37,8 +37,8 @@ spec:
   partitions: 3
   replicas: 2
   config:
-    retention.ms: 604800000
-    segment.bytes: 1073741824
+    retention.ms: 604800
+    segment.bytes: 268435456
 ---
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
@@ -51,8 +51,8 @@ spec:
   partitions: 3
   replicas: 2
   config:
-    retention.ms: 604800000
-    segment.bytes: 1073741824
+    retention.ms: 604800
+    segment.bytes: 268435456
 ---
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
@@ -65,8 +65,8 @@ spec:
   partitions: 3
   replicas: 2
   config:
-    retention.ms: 604800000
-    segment.bytes: 1073741824
+    retention.ms: 604800
+    segment.bytes: 268435456
 ---
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
@@ -79,8 +79,8 @@ spec:
   partitions: 3
   replicas: 2
   config:
-    retention.ms: 604800000
-    segment.bytes: 1073741824
+    retention.ms: 604800
+    segment.bytes: 268435456
 ---
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
@@ -93,8 +93,8 @@ spec:
   partitions: 3
   replicas: 2
   config:
-    retention.ms: 604800000
-    segment.bytes: 1073741824
+    retention.ms: 604800
+    segment.bytes: 268435456
 ---
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
@@ -107,8 +107,8 @@ spec:
   partitions: 3
   replicas: 2
   config:
-    retention.ms: 604800000
-    segment.bytes: 1073741824
+    retention.ms: 604800
+    segment.bytes: 268435456
 ---
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
@@ -121,5 +121,5 @@ spec:
   partitions: 3
   replicas: 2
   config:
-    retention.ms: 604800000
-    segment.bytes: 1073741824
+    retention.ms: 604800
+    segment.bytes: 268435456

@@ -47,7 +47,7 @@ spec:
       - id: 0
         type: persistent-claim
         class: wekafs--sdf-k8s01
-        size: 1Gi
+        size: 5Gi
         deleteClaim: false
   zookeeper:
     replicas: 3
