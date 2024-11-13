@@ -6,7 +6,7 @@
 abacusAccountCount: 1
 abacusCollectionReplicaCount: 1
 abacusRseCount: 1
-automatixCount: 0
+automatixCount: 1
 cacheConsumerCount: 0
 conveyorTransferSubmitterCount: 1
 conveyorPollerCount: 1
