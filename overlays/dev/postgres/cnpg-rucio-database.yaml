@@ -1,7 +1,7 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: usdf-rucio
+  name: usdf-rucio-16
   namespace: rucio-db
 spec:
   backup:
