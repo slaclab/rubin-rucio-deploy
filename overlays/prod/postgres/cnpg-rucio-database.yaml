@@ -17,7 +17,7 @@ spec:
         secretAccessKey:
           name: s3-creds
           key: ACCESS_SECRET_KEY
-  instances: 2
+  instances: 3
   primaryUpdateStrategy: unsupervised
 
   bootstrap:
