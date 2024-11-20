@@ -9,7 +9,7 @@ spec:
   partitions: 3
   replicas: 2
   config:
-    retention.ms: 604800
+    retention.ms: 21600000
     segment.bytes: 268435456
 ---
 apiVersion: kafka.strimzi.io/v1beta2
@@ -23,7 +23,7 @@ spec:
   partitions: 3
   replicas: 2
   config:
-    retention.ms: 604800
+    retention.ms: 21600000
     segment.bytes: 268435456
 ---
 apiVersion: kafka.strimzi.io/v1beta2
@@ -37,7 +37,7 @@ spec:
   partitions: 3
   replicas: 2
   config:
-    retention.ms: 604800
+    retention.ms: 21600000
     segment.bytes: 268435456
 ---
 apiVersion: kafka.strimzi.io/v1beta2
@@ -51,7 +51,7 @@ spec:
   partitions: 3
   replicas: 2
   config:
-    retention.ms: 604800
+    retention.ms: 21600000
     segment.bytes: 268435456
 ---
 apiVersion: kafka.strimzi.io/v1beta2
@@ -65,7 +65,7 @@ spec:
   partitions: 3
   replicas: 2
   config:
-    retention.ms: 604800
+    retention.ms: 21600000
     segment.bytes: 268435456
 ---
 apiVersion: kafka.strimzi.io/v1beta2
@@ -79,7 +79,7 @@ spec:
   partitions: 3
   replicas: 2
   config:
-    retention.ms: 604800
+    retention.ms: 21600000
     segment.bytes: 268435456
 ---
 apiVersion: kafka.strimzi.io/v1beta2
@@ -93,7 +93,7 @@ spec:
   partitions: 3
   replicas: 2
   config:
-    retention.ms: 604800
+    retention.ms: 21600000
     segment.bytes: 268435456
 ---
 apiVersion: kafka.strimzi.io/v1beta2
@@ -107,7 +107,7 @@ spec:
   partitions: 3
   replicas: 2
   config:
-    retention.ms: 604800
+    retention.ms: 21600000
     segment.bytes: 268435456
 ---
 apiVersion: kafka.strimzi.io/v1beta2
@@ -121,5 +121,5 @@ spec:
   partitions: 3
   replicas: 2
   config:
-    retention.ms: 604800
+    retention.ms: 21600000
     segment.bytes: 268435456
