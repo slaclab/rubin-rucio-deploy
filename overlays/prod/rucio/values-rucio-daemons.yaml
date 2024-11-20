@@ -760,7 +760,7 @@ config:
     port: 9094
     nonssl_port: 9094
     use_ssl: False
-    brokers: 134.79.23.221:9094
+    brokers: 134.79.23.189:9094
     message_filter: rucio.daemons.hermes.kafka.filters.filtered_list
     topic_list: SLAC_BUTLER_DEV_DISK,SLAC_BUTLER_DISK,SLAC_RAW_DISK,IN2P3_BUTLER_DISK,IN2P3_RAW_DISK,LANCS_BUTLER_DISK,LANCS_RAW_DISK,RAL_BUTLER_DISK,RAL_RAW_DISK
 
