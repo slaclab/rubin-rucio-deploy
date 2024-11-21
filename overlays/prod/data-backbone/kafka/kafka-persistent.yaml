@@ -22,6 +22,7 @@ spec:
         tls: false
         configuration:
           bootstrap:
+            loadBalancerIP: 134.79.23.189
             annotations:
               metallb.universe.tf/address-pool: sdf-dmz
           brokers:
