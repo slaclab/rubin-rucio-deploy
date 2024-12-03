@@ -44,7 +44,9 @@ spec:
       log_statement: all
       log_temp_files: "1"
       max_connections: "250"
-      shared_buffers: 2GB
+      shared_buffers: 8GB
+      work_mem: 16MB
+      maintenance_work_mem: 512MB
       pg_stat_statements.max: "10000"
       pg_stat_statements.track: all
 
@@ -53,7 +55,7 @@ spec:
       memory: 8Gi
       cpu: 8
     limits:
-      memory: 16Gi
+      memory: 32Gi
       cpu: 16 
 
   storage:
