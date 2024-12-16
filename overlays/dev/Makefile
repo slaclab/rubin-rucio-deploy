@@ -1,6 +1,6 @@
 SERVER_CHART_VERSION := 35.0.0
 DAEMON_CHART_VERSION := 35.0.2
-UI_CHART_VERSION := 32.0.1
+UI_CHART_VERSION := 35.1.0
 
 helm:
 	helm repo add rucio https://rucio.github.io/helm-charts
@@ -13,7 +13,7 @@ rucio-daemons: helm
 	helm template usdf rucio/rucio-daemons --version=${DAEMON_CHART_VERSION} --values=rucio/values-rucio-daemons.yaml > rucio/helm-rucio-daemons.yaml
 
 rucio-ui: helm
-	helm template usdf rucio/rucio-ui --version=${UI_CHART_VERSION} --values=rucio/values-rucio-ui.yaml > rucio/helm-rucio-ui.yaml
+	helm template usdf rucio/rucio-webui --version=${UI_CHART_VERSION} --values=rucio/values-rucio-ui.yaml > rucio/helm-rucio-ui.yaml
 
 rucio: rucio-server rucio-daemons rucio-ui
 
