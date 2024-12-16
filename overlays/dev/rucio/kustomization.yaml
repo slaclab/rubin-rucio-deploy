@@ -5,7 +5,7 @@ resources:
 - ns.yaml
 - helm-rucio-server.yaml
 - helm-rucio-daemons.yaml
-#- helm-rucio-ui.yaml
+- helm-rucio-ui.yaml
 
 patchesStrategicMerge:
 - patch-ingress.yaml
