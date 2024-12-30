@@ -641,7 +641,7 @@ config:
     auth_type: "x509_proxy"
     account: "automatix"
     client_x509_proxy: "/opt/proxy/x509up"
-    ca_cert: "/opt/certs"
+    ca_cert: "/etc/grid-security/certificates"
     protocol_stat_retries: 6
     request_retries: 6
     # special_accounts: "panda, tier0"
