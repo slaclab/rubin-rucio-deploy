@@ -88,6 +88,8 @@ secretMounts:
 - secretName: hermeskafka-constants
   mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/constants.py
   subPath: constants.py
+- secretName: ca-volume
+  mountPath: /etc/grid-security/certificates
 
 additionalEnvs:
 - name: PYTHONPATH
@@ -97,6 +99,8 @@ additionalEnvs:
     secretKeyRef:
       name: usdf-db-conn-str
       key: db-conn-str.txt
+- name: RUCIO_CA_PATH
+  value: "/etc/grid-security/certificates"
 
 wsgi:
   daemonProcesses: "4"
