@@ -29,4 +29,5 @@ spec:
         - name: ca-volume
           secret:
             $patch: delete
-          emptyDir: {}
+          persistentVolumeClaim:
+            claimName: grid-certificates-pvc
