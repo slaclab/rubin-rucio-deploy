@@ -6,6 +6,8 @@ resources:
 - helm-rucio-server.yaml
 - helm-rucio-daemons.yaml
 - helm-rucio-ui.yaml
+- grid-certificates-pvc.yaml
+- grid-certificates-cronjob.yaml
 
 patchesStrategicMerge:
 - patch-ingress.yaml
