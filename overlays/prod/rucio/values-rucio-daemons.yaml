@@ -188,10 +188,11 @@ conveyorPoller:
   threads: 8
   podAnnotations: {}
   activities: "'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
+  sleepTime: 60
   resources:
     limits:
       memory: "1500Mi"
-      cpu: "900m"
+      cpu: "1200m"
     requests:
       memory: "1000Mi"
       cpu: "700m"
@@ -208,9 +209,10 @@ conveyorFinisher:
   threads: 8
   podAnnotations: {}
   activities: "'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
+  sleepTime: 60
   resources:
     limits:
-      memory: "800Mi"
+      memory: "1000Mi"
       cpu: "2000m"
     requests:
       memory: "600Mi"
