@@ -42,7 +42,7 @@ strategy:
     maxUnavailable: 1
 
 # Instead of specifying secrets explicitly, use ones with "expected" names as per "old" rucio
-use_deprecated_implicit_secrets: true
+useDeprecatedImplicitSecrets: false
 
 podLabels: {}
 # Enable Prometheus scraping of metrics
@@ -141,6 +141,16 @@ automatix:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+  secretMounts:
+  - secretName: policy-package
+    mountPath: /opt/rucio/permissions/rubin
+  - secretName: rucio-automatix-input-file 
+    mountPath: /opt/rucio/etc/automatix.json
+    subPath: automatix.json
+  - secretName: rucio-x509up
+    mountPath: /opt/proxy
+  - secretName: ca-volume
+    mountPath: /etc/grid-security/certificates
 
 cacheConsumer:
   threads: 1
@@ -473,6 +483,16 @@ reaper:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+  secretMounts:
+  - secretName: ca-volume
+    mountPath: /etc/grid-security/certificates
+  - secretName: policy-package
+    mountPath: /opt/rucio/permissions/rubin
+  - secretName: rucio-x509up
+    mountPath: /opt/proxy
+  - secretName: hermeskafka-constants
+    mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/constants.py
+    subPath: constants.py
 
 transmogrifier:
   threads: 1
@@ -586,6 +606,14 @@ ftsRenewal:
     subPath: vomses
   - secretName: lsst-vomsdir
     mountPath: /etc/grid-security/vomsdir
+  - secretName: fts-cert
+    mountPath: /opt/rucio/certs/usercert.pem
+    subPath: usercert.pem
+  - secretName: fts-key
+    mountPath: /opt/rucio/keys/new_userkey.pem
+    subPath: new_userkey.pem
+  - secretName: rucio-x509up
+    mountPath: /opt/proxy
     #- secretName: fts-cert
     #  mountPath: /opt/rucio/certs/usercert.pem
     #  subPath: usercert.pem
@@ -596,12 +624,14 @@ ftsRenewal:
     #   mountPath: /opt/rucio/certs/long.proxy
     #   subPath: long.proxy
   additionalEnvs:
-  #- name: RUCIO_FTS_SECRETS
-  #  value: fnal-rucio-x509up
+  - name: RUCIO_FTS_SECRETS
+    value: usdf-rucio-x509up
   - name: USERCERT_NAME
     value: "usercert.pem"
   - name: USERKEY_NAME
     value: "new_userkey.pem"
+  - name: FETCH_CRL
+    value: "False"
     # - name: RUCIO_LONG_PROXY
     #   value: long.proxy
     # - name: GRID_PASSPHRASE
@@ -634,6 +664,8 @@ secretMounts:
   subPath: constants.py
 - secretName: policy-package
   mountPath: /opt/rucio/permissions/rubin
+- secretName: rucio-x509up
+  mountPath: /opt/proxy
 
 ## common config values used to configure the Rucio daemons
 config:
