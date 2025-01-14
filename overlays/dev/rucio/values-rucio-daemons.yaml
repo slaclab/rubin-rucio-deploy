@@ -490,6 +490,9 @@ reaper:
     mountPath: /opt/rucio/permissions/rubin
   - secretName: rucio-x509up
     mountPath: /opt/proxy
+  - secretName: hermeskafka-constants
+    mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/constants.py
+    subPath: constants.py
 
 transmogrifier:
   threads: 1
