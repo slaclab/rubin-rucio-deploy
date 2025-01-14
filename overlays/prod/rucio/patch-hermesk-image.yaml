@@ -18,14 +18,9 @@ spec:
         - name: rucio-daemons
           image: "ghcr.io/lsst-dm/rucio-daemons-hermesk:35.6.0.1"
           volumeMounts:
-            - name: proxy-volume
-              mountPath: /opt/proxy
             - name: ca-volume
               mountPath: /etc/grid-security/certificates
       volumes:
-        - name: proxy-volume
-          secret:
-            secretName: usdf-rucio-x509up
         - name: ca-volume
           secret:
             $patch: delete

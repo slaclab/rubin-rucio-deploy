@@ -5,7 +5,7 @@ resources:
 - ns.yaml
 - helm-rucio-server.yaml
 - helm-rucio-daemons.yaml
-#- helm-rucio-ui.yaml
+- helm-rucio-ui.yaml
 - grid-certificates-pvc.yaml
 - grid-certificates-cronjob.yaml
 
@@ -26,25 +26,11 @@ secretGenerator:
 - name: usdf-server-hostkey
   files:
   - hostkey.pem=etc/.secrets/hostkey.pem
-- name: usdf-server-cafile
-  files:
-  - ca.pem=etc/.secrets/ca.pem
 
 - name: usdf-rucio-x509up
   files:
   - hostcert.pem=etc/.secrets/hostcert.pem
   - hostkey.pem=etc/.secrets/hostkey.pem
-  options:
-    disableNameSuffixHash: true
-
-- name: usdf-rucio-ca-bundle
-  files:
-  - ca.pem=etc/.secrets/ca.pem
-  options:
-    disableNameSuffixHash: true
-- name: usdf-rucio-ca-bundle-reaper
-  files:
-  - ca.pem=etc/.secrets/ca.pem
   options:
     disableNameSuffixHash: true
 
