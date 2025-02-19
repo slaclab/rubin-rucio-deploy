@@ -1,9 +1,8 @@
-
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
   name: usdf-rucio
-  namespace: rucio-db
+  namespace: rucio-db-16b
 spec:
   backup:
     retentionPolicy: "15d"
@@ -27,7 +26,7 @@ spec:
       secret:
         name: usdf-rucio-creds
   
-  imageName:  ghcr.io/cloudnative-pg/postgresql:14.4-7
+  imageName:  ghcr.io/cloudnative-pg/postgresql:16.6
   inheritedMetadata:
     annotations:
       prometheus.io/scrape: 'true' 
@@ -61,5 +60,3 @@ spec:
   storage:
     storageClass: wekafs--sdf-k8s01
     size: 1000Gi
-
-
