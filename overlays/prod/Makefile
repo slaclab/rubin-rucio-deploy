@@ -7,13 +7,13 @@ helm:
 	helm repo update rucio
 
 rucio-server: helm
-	helm template usdf rucio/rucio-server --version=${SERVER_CHART_VERSION} --values=rucio/values-rucio-server.yaml > rucio/helm-rucio-server.yaml
+	helm template usdf rucio/rucio-server --namespace rucio --version=${SERVER_CHART_VERSION} --values=rucio/values-rucio-server.yaml > rucio/helm-rucio-server.yaml
 
 rucio-daemons: helm
-	helm template usdf rucio/rucio-daemons --version=${DAEMON_CHART_VERSION} --values=rucio/values-rucio-daemons.yaml > rucio/helm-rucio-daemons.yaml
+	helm template usdf rucio/rucio-daemons --namespace rucio --version=${DAEMON_CHART_VERSION} --values=rucio/values-rucio-daemons.yaml > rucio/helm-rucio-daemons.yaml
 
 rucio-ui: helm
-	helm template usdf rucio/rucio-webui --version=${UI_CHART_VERSION} --values=rucio/values-rucio-ui.yaml > rucio/helm-rucio-ui.yaml
+	helm template usdf rucio/rucio-webui --namespace rucio --version=${UI_CHART_VERSION} --values=rucio/values-rucio-ui.yaml > rucio/helm-rucio-ui.yaml
 
 rucio: rucio-server rucio-daemons rucio-ui
 
@@ -32,7 +32,7 @@ get-secrets:
 	vault kv get --field=usdf-server-hostkey secret/rubin/usdf-rucio/rucio  > rucio/etc/.secrets/hostkey.pem
 	vault kv get --field=usdf-server-hostcert secret/rubin/usdf-rucio/rucio  > rucio/etc/.secrets/hostcert.pem
 	vault kv get --field=usdf-server-cafile secret/rubin/usdf-rucio/rucio  > rucio/etc/.secrets/ca.pem
-	vault kv get --field=usdf-db-conn-str secret/rubin/usdf-rucio/rucio  > rucio/etc/.secrets/db-conn-str.txt
+	vault kv get --field=usdf-db-16b-conn-str secret/rubin/usdf-rucio/rucio  > rucio/etc/.secrets/db-conn-str.txt
 	vault kv get --field=usdf-elasticsearch-password secret/rubin/usdf-rucio/rucio  > rucio/etc/.secrets/usdf-elasticsearch-password	
 	cp rucio/etc/automatix.json rucio/etc/.secrets/automatix.json
 	mkdir -p postgres/etc/.secrets

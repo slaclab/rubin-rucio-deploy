@@ -2,14 +2,14 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Pooler
 metadata:
-  name: usdf-rucio-16-pooler-rw
-  namespace: rucio-db
+  name: usdf-rucio-16b-pooler-rw
+  namespace: rucio-db-16b
 spec:
   cluster:
     # the name here is not the cluster name, but the name of DB service that the pooler will control.
     # CNPG-operator automatcally added number to the name and starting from 1. It will not reuse 
     # the number if we redeploy a new DB. example of the name is usdf-rucio-1, usdf-rucio-2, ...
-    name: usdf-rucio-16
+    name: usdf-rucio-16b
   instances: 3
   type: rw
 
@@ -58,6 +58,4 @@ spec:
                 values:
                 - pooler
             topologyKey: "kubernetes.io/hostname"
-
-
 ---

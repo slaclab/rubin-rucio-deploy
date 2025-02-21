@@ -1,4 +1,4 @@
-namespace: rucio-db-16
+namespace: rucio-db-16b
 
 resources:
 - ns.yaml
