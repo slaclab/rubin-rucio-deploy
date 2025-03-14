@@ -596,7 +596,7 @@ ftsRenewal:
     repository: rucio/fts-cron
     tag: latest
     pullPolicy: Always
-  servers: "https://fts-eval01.slac.stanford.edu:8446,https://lcgfts3.gridpp.rl.ac.uk:8446"
+  servers: "https://usdf-fts3.slac.stanford.edu:8446,https://lcgfts3.gridpp.rl.ac.uk:8446,https://usdf-fts3-dev.slac.stanford.edu:8446"
   script: 'default' # one of: 'default', 'atlas', 'dteam', 'multi_vo', 'tutorial', 'escape'. The associated scripts can be found here: https://github.com/rucio/containers/tree/master/fts-cron
   vos:
   - vo: "lsst"
