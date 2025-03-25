@@ -2,10 +2,10 @@ apiVersion: kafka.strimzi.io/v1beta2
 kind: Kafka
 metadata:
   name: rucio-kafka
-  namespace: usdf-kafka
+  namespace: kafka
 spec:
   kafka:
-    version: 3.7.0
+    version: 3.9.0
     replicas: 3
     listeners:
       - name: plain
@@ -24,6 +24,7 @@ spec:
         #  type: scram-sha-512
         configuration:
           bootstrap:
+            loadBalancerIP: 134.79.23.202
             annotations:
               metallb.universe.tf/address-pool: sdf-dmz
           brokers:
@@ -60,5 +61,5 @@ spec:
       deleteClaim: false
   entityOperator:
     topicOperator: 
-      watchedNamespace: usdf-kafka
+      watchedNamespace: kafka
     userOperator: {}

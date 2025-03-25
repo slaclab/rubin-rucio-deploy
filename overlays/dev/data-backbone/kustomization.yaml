@@ -3,7 +3,6 @@ images:
   newTag: "7.0.8"
 
 resources:
-- strimzi/clusterRoleBinding
-- strimzi/operator
+#- strimzi
 - redis
 - kafka
