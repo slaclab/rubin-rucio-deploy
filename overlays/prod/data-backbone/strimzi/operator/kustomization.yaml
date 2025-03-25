@@ -1,5 +1,0 @@
-namespace: strimzi
-
-resources:
-  - ns.yaml
-  - strimzi.yaml

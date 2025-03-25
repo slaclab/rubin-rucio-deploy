@@ -1,7 +1,0 @@
-namespace: strimzi
-
-resources:
-- strimzi-cluster-operator-namespaced.yaml
-- strimzi-cluster-operator-watched.yaml
-- strimzi-entity-operator.yaml
-

@@ -1,4 +1,4 @@
-namespace: usdf-kafka
+namespace: kafka
 
 resources:
   - ns.yaml

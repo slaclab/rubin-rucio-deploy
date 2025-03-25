@@ -2,10 +2,10 @@ apiVersion: kafka.strimzi.io/v1beta2
 kind: Kafka
 metadata:
   name: rucio-kafka
-  namespace: usdf-kafka
+  namespace: kafka
 spec:
   kafka:
-    version: 3.7.0
+    version: 3.9.0
     replicas: 3
     listeners:
       - name: plain
@@ -42,6 +42,13 @@ spec:
       default.replication.factor: 3
       min.insync.replicas: 2
       inter.broker.protocol.version: "3.7"
+    resources:
+      requests:
+        memory: 8Gi
+        cpu: "4"
+      limits:
+        memory: 16Gi
+        cpu: "8"
     storage:
       type: jbod
       volumes:
@@ -59,5 +66,5 @@ spec:
       deleteClaim: false
   entityOperator:
     topicOperator: 
-      watchedNamespace: usdf-kafka
+      watchedNamespace: kafka
     userOperator: {}
