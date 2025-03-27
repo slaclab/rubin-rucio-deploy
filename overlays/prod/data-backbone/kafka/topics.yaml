@@ -53,15 +53,21 @@ spec:
   config:
     retention.ms: 21600000
     segment.bytes: 268435456
+
+
+
+
+
+
 ---
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
-  name: slac-butler-dc2-disk
+  name: slac-butler-disk-dc2
   labels:
     strimzi.io/cluster: rucio-kafka
 spec:
-  topicName: SLAC_BUTLER_DC2_DISK
+  topicName: SLAC_BUTLER_DISK-dc2
   partitions: 3
   replicas: 2
   config:
@@ -71,11 +77,11 @@ spec:
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
-  name: slac-butler-hsc-pdr2-multisite-disk
+  name: slac-butler-disk-hsc-pdr2-multisite
   labels:
     strimzi.io/cluster: rucio-kafka
 spec:
-  topicName: SLAC_BUTLER_HSC_PDR2_MULTISITE_DISK
+  topicName: SLAC_BUTLER_DISK-hsc_pdr2_multisite
   partitions: 3
   replicas: 2
   config:
@@ -85,11 +91,11 @@ spec:
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
-  name: slac-butler-ccms1-disk
+  name: slac-butler-disk-ccms1
   labels:
     strimzi.io/cluster: rucio-kafka
 spec:
-  topicName: SLAC_BUTLER_CCMS1_DISK
+  topicName: SLAC_BUTLER_DISK-ccms1
   partitions: 3
   replicas: 2
   config:
@@ -99,11 +105,11 @@ spec:
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
-  name: in2p3-butler-dc2-disk
+  name: in2p3-butler-disk-dc2
   labels:
     strimzi.io/cluster: rucio-kafka
 spec:
-  topicName: IN2P3_BUTLER_DC2_DISK
+  topicName: IN2P3_BUTLER_DISK-dc2
   partitions: 3
   replicas: 2
   config:
@@ -113,11 +119,11 @@ spec:
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
-  name: in2p3-butler-hsc-pdr2-multisite-disk
+  name: in2p3-butler-disk-hsc-pdr2-multisite
   labels:
     strimzi.io/cluster: rucio-kafka
 spec:
-  topicName: IN2P3_BUTLER_HSC_PDR2_MULTISITE_DISK
+  topicName: IN2P3_BUTLER_DISK-hsc_pdr2_multisite
   partitions: 3
   replicas: 2
   config:
@@ -127,11 +133,11 @@ spec:
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
-  name: in2p3-butler-ccms1-disk
+  name: in2p3-butler-disk-ccms1
   labels:
     strimzi.io/cluster: rucio-kafka
 spec:
-  topicName: IN2P3_BUTLER_CCMS1_DISK
+  topicName: IN2P3_BUTLER_DISK-ccms1
   partitions: 3
   replicas: 2
   config:
@@ -141,11 +147,11 @@ spec:
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
-  name: lancs-butler-dc2-disk
+  name: lancs-butler-disk-dc2
   labels:
     strimzi.io/cluster: rucio-kafka
 spec:
-  topicName: LANCS_BUTLER_DC2_DISK
+  topicName: LANCS_BUTLER_DISK-dc2
   partitions: 3
   replicas: 2
   config:
@@ -155,11 +161,11 @@ spec:
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
-  name: lancs-butler-hsc-pdr2-multisite-disk
+  name: lancs-butler-disk-hsc-pdr2-multisite
   labels:
     strimzi.io/cluster: rucio-kafka
 spec:
-  topicName: LANCS_BUTLER_HSC_PDR2_MULTISITE_DISK
+  topicName: LANCS_BUTLER_DISK-hsc_pdr2_multisite
   partitions: 3
   replicas: 2
   config:
@@ -169,11 +175,11 @@ spec:
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
-  name: lancs-butler-ccms1-disk
+  name: lancs-butler-disk-ccms1
   labels:
     strimzi.io/cluster: rucio-kafka
 spec:
-  topicName: LANCS_BUTLER_CCMS1_DISK
+  topicName: LANCS_BUTLER_DISK-ccms1
   partitions: 3
   replicas: 2
   config:
@@ -183,11 +189,11 @@ spec:
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
-  name: ral-butler-dc2-disk
+  name: ral-butler-disk-dc2
   labels:
     strimzi.io/cluster: rucio-kafka
 spec:
-  topicName: RAL_BUTLER_DC2_DISK
+  topicName: RAL_BUTLER_DISK-dc2
   partitions: 3
   replicas: 2
   config:
@@ -197,11 +203,11 @@ spec:
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
-  name: ral-butler-hsc-pdr2-multisite-disk
+  name: ral-butler-disk-hsc-pdr2-multisite
   labels:
     strimzi.io/cluster: rucio-kafka
 spec:
-  topicName: RAL_BUTLER_HSC_PDR2_MULTISITE_DISK
+  topicName: RAL_BUTLER_DISK-hsc_pdr2_multisite
   partitions: 3
   replicas: 2
   config:
@@ -211,11 +217,11 @@ spec:
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
-  name: ral-butler-ccms1-disk
+  name: ral-butler-disk-ccms1
   labels:
     strimzi.io/cluster: rucio-kafka
 spec:
-  topicName: RAL_BUTLER_CCMS1_DISK
+  topicName: RAL_BUTLER_DISK-ccms1
   partitions: 3
   replicas: 2
   config:
