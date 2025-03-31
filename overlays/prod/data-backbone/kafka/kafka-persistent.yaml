@@ -1,12 +1,54 @@
 apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaNodePool
+metadata:
+  name: rucio-kafka-controller-pool
+  labels:
+    strimzi.io/cluster: rucio-kafka
+spec:
+  replicas: 3
+  roles:
+    - controller
+  storage:
+    type: jbod
+    volumes:
+    - id: 0
+      type: persistent-claim
+      kraftMetadata: shared
+      class: wekafs--sdf-k8s01
+      size: 5Gi
+      deleteClaim: false
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaNodePool
+metadata:
+  name: rucio-kafka-broker-pool
+  labels:
+    strimzi.io/cluster: rucio-kafka
+spec:
+  replicas: 3
+  roles:
+    - broker
+  storage:
+    type: jbod
+    volumes:
+    - id: 0
+      type: persistent-claim
+      kraftMetadata: shared
+      class: wekafs--sdf-k8s01
+      size: 5Gi
+      deleteClaim: false
+---
+apiVersion: kafka.strimzi.io/v1beta2
 kind: Kafka
 metadata:
   name: rucio-kafka
   namespace: kafka
+  annotations:
+    strimzi.io/node-pools: enabled
+    strimzi.io/kraft: enabled
 spec:
   kafka:
     version: 3.9.0
-    replicas: 3
     listeners:
       - name: plain
         port: 9092
@@ -42,28 +84,7 @@ spec:
       default.replication.factor: 3
       min.insync.replicas: 2
       inter.broker.protocol.version: "3.9"
-    resources:
-      requests:
-        memory: 8Gi
-        cpu: "4"
-      limits:
-        memory: 16Gi
-        cpu: "8"
-    storage:
-      type: jbod
-      volumes:
-      - id: 0
-        type: persistent-claim
-        class: wekafs--sdf-k8s01
-        size: 5Gi
-        deleteClaim: false
-  zookeeper:
-    replicas: 3
-    storage:
-      type: persistent-claim
-      class: wekafs--sdf-k8s01
-      size: 1Gi
-      deleteClaim: false
+      auto.create.topics.enable: "false"
   entityOperator:
     topicOperator: 
       watchedNamespace: kafka
