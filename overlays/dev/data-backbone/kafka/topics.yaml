@@ -53,12 +53,6 @@ spec:
   config:
     retention.ms: 21600000
     segment.bytes: 268435456
-
-
-
-
-
-
 ---
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
