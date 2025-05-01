@@ -1,6 +1,20 @@
 apiVersion: kafka.strimzi.io/v1beta2
 kind: KafkaTopic
 metadata:
+  name: test-topic
+  labels:
+    strimzi.io/cluster: rucio-kafka
+spec:
+  topicName: TEST_TOPIC
+  partitions: 3
+  replicas: 2
+  config:
+    retention.ms: 21600000
+    segment.bytes: 268435456
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
   name: slac-raw-disk
   labels:
     strimzi.io/cluster: rucio-kafka
