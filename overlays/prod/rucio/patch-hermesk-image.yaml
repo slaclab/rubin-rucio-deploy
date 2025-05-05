@@ -16,7 +16,7 @@ spec:
           mountPath: /out/
       containers:
         - name: rucio-daemons
-          image: "ghcr.io/lsst-dm/rucio-daemons-hermesk:35.6.0.2"
+          image: "ghcr.io/lsst-dm/rucio-daemons-hermesk:37.2.0.1"
           volumeMounts:
             - name: ca-volume
               mountPath: /etc/grid-security/certificates
