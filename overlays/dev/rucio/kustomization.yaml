@@ -10,7 +10,6 @@ resources:
 - grid-certificates-cronjob.yaml
 
 patchesStrategicMerge:
-- patch-ingress.yaml
 - patch-grid-certificates.yaml
 - patch-hermesk-image.yaml
 
