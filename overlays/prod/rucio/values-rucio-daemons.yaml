@@ -790,6 +790,7 @@ config:
   hermes:
     services_list: kafka, elastic
     elastic_endpoint: "https://usdf-opensearch.slac.stanford.edu/rucio-events/_bulk"
+    query_by_service: True
 
   messaging-hermes-kafka:
     port: 9094
