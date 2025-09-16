@@ -8,7 +8,7 @@ abacusCollectionReplicaCount: 1
 abacusRseCount: 1
 automatixCount: 1
 cacheConsumerCount: 0
-conveyorTransferSubmitterCount: 1
+conveyorTransferSubmitterCount: 2
 conveyorPollerCount: 1
 conveyorFinisherCount: 1
 conveyorReceiverCount: 0
@@ -19,7 +19,7 @@ darkReaperCount: 0
 hermesCount: 1
 judgeCleanerCount: 1
 judgeEvaluatorCount: 1
-judgeInjectorCount: 1
+judgeInjectorCount: 2
 judgeRepairerCount: 1
 oauthManagerCount: 0
 undertakerCount: 1

@@ -53,7 +53,7 @@ livenessProbe:
 
 serverType: api
 
-logFormat: '[%{%Y-%m-%d %H:%M:%S}t]\t%v\t%h\t%{X-Forwarded-For}i\t%{X-Rucio-RequestId}i\t%>s\t%I\t%B\t%D\t\"%r\"\t\"%{X-Rucio-Auth-Token}i\"\t\"%{User-Agent}i\"\t%{X-Rucio-Script}i'
+logFormat: '[%{%Y-%m-%d %H:%M:%S}t]\t%v\t%h\t%{X-Forwarded-For}i\t%{X-Rucio-RequestId}i\t%>s\t%I\t%B\t%D\t\"%r\"\t\"%{X-Rucio-Account}i\"\t\"%{User-Agent}i\"\t%{X-Rucio-Script}i'
 
 monitoring:
   enabled: false
@@ -116,6 +116,7 @@ httpd_config:
   grid_site_enabled: "True"
   encoded_slashes: "True"
   legacy_dn: "True"
+  timeout: "300"
   #mpm_mode: "event"
   #enable_status: "True"
   #keep_alive: "On"
@@ -220,7 +221,7 @@ config:
 
 serverResources:
   limits:
-    memory: "2000Mi"
+    memory: "4000Mi"
     cpu: "1000m"
   requests:
     memory: "2000Mi"
