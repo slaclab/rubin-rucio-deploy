@@ -8,7 +8,7 @@ abacusCollectionReplicaCount: 1
 abacusRseCount: 1
 automatixCount: 1
 cacheConsumerCount: 0
-conveyorTransferSubmitterCount: 1
+conveyorTransferSubmitterCount: 2
 conveyorPollerCount: 1
 conveyorFinisherCount: 1
 conveyorReceiverCount: 0
@@ -19,7 +19,7 @@ darkReaperCount: 0
 hermesCount: 1
 judgeCleanerCount: 1
 judgeEvaluatorCount: 1
-judgeInjectorCount: 1
+judgeInjectorCount: 2
 judgeRepairerCount: 1
 oauthManagerCount: 0
 undertakerCount: 1
@@ -325,7 +325,7 @@ hermes:
   brokerTimeout: 3
   resources:
     limits:
-      memory: "600Mi"
+      memory: "1200Mi"
       cpu: "700m"
     requests:
       memory: "600Mi"
@@ -391,7 +391,7 @@ judgeInjector:
   podAnnotations: {}
   resources:
     limits:
-      memory: "900Mi"
+      memory: "1800Mi"
       cpu: "700m"
     requests:
       memory: "600Mi"
@@ -410,7 +410,7 @@ judgeRepairer:
   podAnnotations: {}
   resources:
     limits:
-      memory: "1800Mi"
+      memory: "8000Mi"
       cpu: "700m"
     requests:
       memory: "1200Mi"
@@ -500,7 +500,7 @@ transmogrifier:
   podAnnotations: {}
   resources:
     limits:
-      memory: "800Mi"
+      memory: "1600Mi"
       cpu: "900m"
     requests:
       memory: "600Mi"
