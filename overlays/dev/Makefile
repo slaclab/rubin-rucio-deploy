@@ -42,6 +42,7 @@ run-dump:
 dump: get-secrets rucio run-dump clean-secrets 
 
 run-apply:  
+	kubectl config use-context "usdf-rucio-dev"
 	kubectl apply -k .
 
 apply: get-secrets rucio run-apply clean-secrets 
