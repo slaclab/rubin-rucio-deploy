@@ -20,7 +20,7 @@ useSSL: true
 
 image:
   repository: rucio/rucio-server
-  tag: release-37.2.0
+  tag: release-38.2.0
   pullPolicy: Always
 
 service:
@@ -53,7 +53,7 @@ livenessProbe:
 
 serverType: api
 
-logFormat: '[%{%Y-%m-%d %H:%M:%S}t]\t%v\t%h\t%{X-Forwarded-For}i\t%{X-Rucio-RequestId}i\t%>s\t%I\t%B\t%D\t\"%r\"\t\"%{X-Rucio-Auth-Token}i\"\t\"%{User-Agent}i\"\t%{X-Rucio-Script}i'
+#logFormat: '[%{%Y-%m-%d %H:%M:%S}t]\t%v\t%h\t%{X-Forwarded-For}i\t%{X-Rucio-RequestId}i\t%>s\t%I\t%B\t%D\t\"%r\"\t\"%{X-Rucio-Account}i\"\t\"%{User-Agent}i\"\t%{X-Rucio-Script}i'
 
 monitoring:
   enabled: false
@@ -142,7 +142,8 @@ ingress:
 
 ## values used to configure Rucio
 config:
-  # common:
+  common:
+    logjson: True
   ## config.common.logdir: the default directoy to write logs to (default: "/var/log/rucio")
   # logdir: "/var/log/rucio"
   ## config.common.logdir: the max loglevel (default: "DEBUG")
