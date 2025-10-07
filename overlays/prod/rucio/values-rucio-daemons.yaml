@@ -32,7 +32,7 @@ necromancerCount: 1
 
 image:
   repository: rucio/rucio-daemons
-  tag: release-37.2.0
+  tag: release-38.2.0
   pullPolicy: Always
 
 strategy:
@@ -174,7 +174,7 @@ cacheConsumer:
 conveyorTransferSubmitter:
   threads: 8
   podAnnotations: {}
-  activities: "'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
+  activities: "'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'Upload/Download' 'User Subscriptions' 'Data Challenge' 'Recovery' 'IDAC Release'"
   sleepTime: 120
   archiveTimeout: ""
   groupBulk: 20
@@ -197,7 +197,7 @@ conveyorTransferSubmitter:
 conveyorPoller:
   threads: 8
   podAnnotations: {}
-  activities: "'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
+  activities: "'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'Upload/Download' 'User Subscriptions' 'Data Challenge' 'Recovery' 'IDAC Release'"
   sleepTime: 60
   resources:
     limits:
@@ -218,7 +218,7 @@ conveyorPoller:
 conveyorFinisher:
   threads: 8
   podAnnotations: {}
-  activities: "'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'T0 Export' 'T0 Tape' 'Upload/Download' 'User Subscriptions' 'Data Challenge'"
+  activities: "'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'Upload/Download' 'User Subscriptions' 'Data Challenge' 'Recovery' 'IDAC Release'"
   sleepTime: 60
   resources:
     limits:
@@ -681,7 +681,8 @@ config:
     request_retries: 6
     # special_accounts: "panda, tier0"
 
-  # common:
+  common:
+    logjson: True
   ## config.common.logdir: the default directoy to write logs to (default: "/var/log/rucio")
   # logdir: "/var/log/rucio"
   ## config.common.logdir: the max loglevel (default: "DEBUG")

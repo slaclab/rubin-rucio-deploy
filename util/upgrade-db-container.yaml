@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: rucio-db-upgrade
+spec:
+  serviceAccountName: usdf-rucio-edit
+  containers:
+  - name: rucio-db-upgrade
+    image: rucio/rucio-init:release-38.0.0
+    command: ["sleep"]
+    args: ["infinity"]
+    resources:
+      requests:
+        cpu: 1
+        memory: 600Mi
+      limits:
+        cpu: 1
+        memory: 600Mi
+    env:
+    - name: RUCIO_CFG_DATABASE_DEFAULT
+      valueFrom:
+        secretKeyRef:
+          name: <connection-string-secret>
+          key: db-conn-str.txt
