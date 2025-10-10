@@ -4,7 +4,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: usdf-hermes
+  name: usdf-rucio-daemons-hermes
 spec:
   template:
     spec:
@@ -16,7 +16,7 @@ spec:
           mountPath: /out/
       containers:
         - name: rucio-daemons
-          image: "ghcr.io/lsst-dm/rucio-daemons-hermesk:37.2.0.1"
+          image: "ghcr.io/lsst-dm/rucio-daemons-hermesk:38.2.0"
           volumeMounts:
             - name: ca-volume
               mountPath: /etc/grid-security/certificates

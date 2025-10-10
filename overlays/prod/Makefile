@@ -1,5 +1,5 @@
-SERVER_CHART_VERSION := 35.0.0
-DAEMON_CHART_VERSION := 35.0.2
+SERVER_CHART_VERSION := 38.0.2
+DAEMON_CHART_VERSION := 38.0.1
 UI_CHART_VERSION := 35.1.0
 
 helm:
@@ -52,6 +52,7 @@ run-dump:
 dump: get-secrets rucio run-dump clean-secrets
 
 run-apply:  
+	kubectl config use-context "usdf-rucio"
 	kubectl apply -k .
 
 apply: get-secrets rucio run-apply clean-secrets
