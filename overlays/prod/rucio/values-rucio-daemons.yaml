@@ -326,7 +326,7 @@ hermes:
   brokerTimeout: 3
   resources:
     limits:
-      memory: "1200Mi"
+      memory: "2000Mi"
       cpu: "700m"
     requests:
       memory: "600Mi"
@@ -501,7 +501,7 @@ transmogrifier:
   podAnnotations: {}
   resources:
     limits:
-      memory: "1600Mi"
+      memory: "4000Mi"
       cpu: "900m"
     requests:
       memory: "600Mi"

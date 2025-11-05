@@ -1,5 +1,5 @@
 
 bases:
-- postgres/
+#- postgres/
 - rucio/
 - data-backbone/

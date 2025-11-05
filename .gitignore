@@ -1,8 +1,8 @@
 *.swp
 
 # Keep the DB password and cert/key out of the repo
-secret
-.secrets
+secret*
+.secrets*
 
 # Ignore the policy package. It is tracked in its own repo, and only needs to be present for use.
 policy-package
