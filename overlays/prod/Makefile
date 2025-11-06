@@ -35,11 +35,11 @@ get-secrets:
 	vault kv get --field=usdf-db-conn-str secret/rubin/usdf-rucio/rucio  > rucio/etc/.secrets/db-conn-str.txt
 	vault kv get --field=usdf-elasticsearch-password secret/rubin/usdf-rucio/rucio  > rucio/etc/.secrets/usdf-elasticsearch-password	
 	cp rucio/etc/automatix.json rucio/etc/.secrets/automatix.json
-	mkdir -p postgres/etc/.secrets
-	vault kv get --field=client-secret secret/rubin/usdf-rucio/s3  > postgres/etc/.secrets/client-secret
-	vault kv get --field=client-id secret/rubin/usdf-rucio/s3  > postgres/etc/.secrets/client-id
-	vault kv get --field=username secret/rubin/usdf-rucio/database  > postgres/etc/.secrets/username
-	vault kv get --field=password secret/rubin/usdf-rucio/database  > postgres/etc/.secrets/password
+#	mkdir -p postgres/etc/.secrets
+#	vault kv get --field=client-secret secret/rubin/usdf-rucio/s3  > postgres/etc/.secrets/client-secret
+#	vault kv get --field=client-id secret/rubin/usdf-rucio/s3  > postgres/etc/.secrets/client-id
+#	vault kv get --field=username secret/rubin/usdf-rucio/database  > postgres/etc/.secrets/username
+#	vault kv get --field=password secret/rubin/usdf-rucio/database  > postgres/etc/.secrets/password
 	mkdir -p data-backbone/redis/etc/.secrets
 	vault kv get --field=redis secret/rubin/usdf-rucio/data-backbone > data-backbone/redis/etc/.secrets/redis-secret
 
