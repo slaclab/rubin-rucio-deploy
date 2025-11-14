@@ -222,3 +222,59 @@ spec:
     retention.ms: 21600000
     segment.bytes: 268435456
 ---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: in2p3-butler-disk-dp2-prep
+  labels:
+    strimzi.io/cluster: rucio-kafka
+spec:
+  topicName: IN2P3_BUTLER_DISK-dp2_prep
+  partitions: 3
+  replicas: 2
+  config:
+    retention.ms: 21600000
+    segment.bytes: 268435456
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: ral-butler-disk-dp2-prep
+  labels:
+    strimzi.io/cluster: rucio-kafka
+spec:
+  topicName: RAL_BUTLER_DISK-dp2_prep
+  partitions: 3
+  replicas: 2
+  config:
+    retention.ms: 21600000
+    segment.bytes: 268435456
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: lancs-butler-disk-dp2-prep
+  labels:
+    strimzi.io/cluster: rucio-kafka
+spec:
+  topicName: LANCS_BUTLER_DISK-dp2_prep
+  partitions: 3
+  replicas: 2
+  config:
+    retention.ms: 21600000
+    segment.bytes: 268435456
+---
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: slac-butler-disk-dp2-prep
+  labels:
+    strimzi.io/cluster: rucio-kafka
+spec:
+  topicName: SLAC_BUTLER_DISK-dp2_prep
+  partitions: 3
+  replicas: 2
+  config:
+    retention.ms: 21600000
+    segment.bytes: 268435456
+---
