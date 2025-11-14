@@ -10,11 +10,11 @@ automatixCount: 1
 cacheConsumerCount: 0
 conveyorTransferSubmitterCount: 2
 conveyorPollerCount: 1
-conveyorFinisherCount: 1
+conveyorFinisherCount: 2
 conveyorReceiverCount: 0
 conveyorStagerCount: 0
 conveyorThrottlerCount: 1
-conveyorPreparerCount: 1
+conveyorPreparerCount: 2
 darkReaperCount: 0
 hermesCount: 1
 judgeCleanerCount: 1
@@ -32,7 +32,7 @@ necromancerCount: 1
 
 image:
   repository: rucio/rucio-daemons
-  tag: release-38.2.0
+  tag: release-38.5.0
   pullPolicy: Always
 
 strategy:
