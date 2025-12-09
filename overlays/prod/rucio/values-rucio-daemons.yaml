@@ -2,6 +2,8 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+kubeVersionOverride: "1.33.5"
+
 ## judgeCleanerCount gives the number of judge-cleaner pods to run
 abacusAccountCount: 1
 abacusCollectionReplicaCount: 1
@@ -595,7 +597,7 @@ ftsRenewal:
   schedule: "12 */6 * * *"
   image:
     repository: rucio/fts-cron
-    tag: latest
+    tag: 38.5.1
     pullPolicy: Always
   servers: "https://usdf-fts3.slac.stanford.edu:8446,https://lcgfts3.gridpp.rl.ac.uk:8446,https://usdf-fts3-dev.slac.stanford.edu:8446"
   script: 'default' # one of: 'default', 'atlas', 'dteam', 'multi_vo', 'tutorial', 'escape'. The associated scripts can be found here: https://github.com/rucio/containers/tree/master/fts-cron
