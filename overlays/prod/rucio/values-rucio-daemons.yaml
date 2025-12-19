@@ -803,7 +803,7 @@ config:
     use_ssl: False
     brokers: 134.79.23.189:9094
     message_filter: rucio.daemons.hermes.kafka.filters.filtered_list
-    topic_list: SLAC_RAW_DISK, IN2P3_RAW_DISK, LANCS_RAW_DISK, RAL_RAW_DISK, SLAC_BUTLER_DISK-dc2, SLAC_BUTLER_DISK-hsc_pdr2_multisite, SLAC_BUTLER_DISK-ccms1, IN2P3_BUTLER_DISK-dc2, IN2P3_BUTLER_DISK-hsc_pdr2_multisite, IN2P3_BUTLER_DISK-ccms1, LANCS_BUTLER_DISK-dc2, LANCS_BUTLER_DISK-hsc_pdr2_multisite, LANCS_BUTLER_DISK-ccms1, RAL_BUTLER_DISK-dc2, RAL_BUTLER_DISK-hsc_pdr2_multisite, RAL_BUTLER_DISK-ccms1
+    topic_list: SLAC_RAW_DISK, IN2P3_RAW_DISK, LANCS_RAW_DISK, RAL_RAW_DISK, SLAC_BUTLER_DISK-dc2, SLAC_BUTLER_DISK-hsc_pdr2_multisite, SLAC_BUTLER_DISK-ccms1, SLAC_BUTLER_DISK-dp2_prep, IN2P3_BUTLER_DISK-dc2, IN2P3_BUTLER_DISK-hsc_pdr2_multisite, IN2P3_BUTLER_DISK-ccms1, IN2P3_BUTLER_DISK-dp2_prep, LANCS_BUTLER_DISK-dc2, LANCS_BUTLER_DISK-hsc_pdr2_multisite, LANCS_BUTLER_DISK-ccms1, LANCS_BUTLER_DISK-dp2_prep, RAL_BUTLER_DISK-dc2, RAL_BUTLER_DISK-hsc_pdr2_multisite, RAL_BUTLER_DISK-ccms1, RAL_BUTLER_DISK-dp2_prep
 
   # tracer-kronos:
   # brokers: "atlas-test-mb.cern.ch"

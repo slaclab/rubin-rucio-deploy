@@ -16,6 +16,26 @@ Makefile command for your chosen overlay:
 
     make rucio  # update from upstream helm charts
 
+## Add Hermes-K topic for a new DRP campaign
+
+A common task is to add new topics that Hermes(K) will listen for a new DRP compaign. Follow the example in the
+overlays/prod/rucio/values-rucio-daemons.yaml's `topic_list` to add new topics. Then do the following steps:
+
+1. `export VAULT_ADDR=https://vault.slac.stanford.edu`
+1. `vault login -method=ldap`
+1. Make sure $HOME/.kube/config points to the `usdf-rucio` vCluster and `kubectl get namespace` returns correctly
+1. go to the `overlays/prod` directory
+1. `cd rucio/etc`
+1. `git clone git@github.com:slaclab/RubinRucioPolicy.git`
+1. `ln -s RubinRucioPolicy policy-package`
+1. `cd -`
+1. make rucio
+1. make apply
+
+this will restart most of the Rucio daemons. 
+
+Note that the same topics also needed to be added to the `ctrl-ingestd` daemons.
+
 ## Upgrading Database Schema
 
 1. Edit `util/upgrade-db-container.yaml`
