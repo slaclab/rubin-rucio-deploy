@@ -6,7 +6,7 @@ metadata:
 spec:
   cluster:
     name: rucio-db
-  instances: 3
+  instances: 6
   pgbouncer:
     parameters:
       default_pool_size: "1000"
