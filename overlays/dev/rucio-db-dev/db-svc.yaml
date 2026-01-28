@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rucio-db-svc
+  namespace: rucio-db-dev
+spec:
+  type: ClusterIP
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: pgbouncer
+    port: 5432
+  selector:
+    cnpg.io/cluster: rucio-db
+    cnpg.io/instanceRole: primary
