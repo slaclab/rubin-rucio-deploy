@@ -6,10 +6,10 @@ metadata:
 spec:
   cluster:
     name: rucio-db
-  instances: 6
+  instances: 3
   pgbouncer:
     parameters:
-      default_pool_size: "1000"
+      default_pool_size: "200"
       idle_transaction_timeout: "300"
       log_connections: "1"
       log_disconnections: "1"

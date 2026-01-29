@@ -55,6 +55,7 @@ spec:
       checkpoint_timeout: 3600s
       dynamic_shared_memory_type: posix
       full_page_writes: "on"
+      idle_in_transaction_session_timeout: 5min
       log_destination: csvlog
       log_directory: /controller/log
       log_filename: postgres
