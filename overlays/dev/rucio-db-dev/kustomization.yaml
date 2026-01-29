@@ -1,7 +1,6 @@
 resources:
 - ns.yaml
 - database.yaml
-- db-svc.yaml
 - pooler-ss-rw-svc.yaml
 - pooler-tx-rw-svc.yaml
 - backup.yaml
