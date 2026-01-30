@@ -1,10 +1,9 @@
 resources:
 - ns.yaml
-#- database.yaml
-#- db-svc.yaml
-#- pooler-ss-rw-svc.yaml
-#- pooler-tx-rw-svc.yaml
-#- backup.yaml
+- database.yaml
+- pooler-ss-rw-svc.yaml
+- pooler-tx-rw-svc.yaml
+- backup.yaml
 
 secretGenerator:
 - name: rucio-db-creds
