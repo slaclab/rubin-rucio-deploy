@@ -83,6 +83,8 @@ abacusAccount:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+  - name: RUCIO_CFG_DATABASE_POOLCLASS
+    value: "nullpool"
 
 abacusCollectionReplica:
   threads: 1
@@ -102,6 +104,9 @@ abacusCollectionReplica:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+  - name: RUCIO_CFG_DATABASE_POOLCLASS
+    value: "nullpool"
+
 
 abacusRse:
   fillHistoryTable: 0
@@ -122,6 +127,9 @@ abacusRse:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+  - name: RUCIO_CFG_DATABASE_POOLCLASS
+    value: "nullpool"
+
 
 automatix:
   sleepTime: 1800
@@ -143,6 +151,8 @@ automatix:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+  - name: RUCIO_CFG_DATABASE_POOLCLASS
+    value: "nullpool"
   - name: X509_USER_PROXY
     value: /opt/proxy/x509up
   secretMounts:
@@ -174,6 +184,9 @@ cacheConsumer:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+  - name: RUCIO_CFG_DATABASE_POOLCLASS
+    value: "nullpool"
+
 
 conveyorTransferSubmitter:
   threads: 1
@@ -197,6 +210,9 @@ conveyorTransferSubmitter:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+  - name: RUCIO_CFG_DATABASE_POOLCLASS
+    value: "nullpool"
+
 
 conveyorPoller:
   threads: 1
@@ -217,6 +233,8 @@ conveyorPoller:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+  - name: RUCIO_CFG_DATABASE_POOLCLASS
+    value: "nullpool"
 
 conveyorFinisher:
   threads: 1
@@ -237,6 +255,8 @@ conveyorFinisher:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+  - name: RUCIO_CFG_DATABASE_POOLCLASS
+    value: "nullpool"
 
 conveyorReceiver:
   threads: 1
@@ -256,6 +276,8 @@ conveyorReceiver:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+  - name: RUCIO_CFG_DATABASE_POOLCLASS
+    value: "nullpool"
 
 conveyorThrottler:
   threads: 1
@@ -275,6 +297,8 @@ conveyorThrottler:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+  - name: RUCIO_CFG_DATABASE_POOLCLASS
+    value: "nullpool"
 
 conveyorPreparer:
   threads: 1
@@ -294,6 +318,8 @@ conveyorPreparer:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+  - name: RUCIO_CFG_DATABASE_POOLCLASS
+    value: "nullpool"
 
 darkReaper:
   workers: 1
@@ -318,6 +344,8 @@ darkReaper:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+  - name: RUCIO_CFG_DATABASE_POOLCLASS
+    value: "nullpool"
 
 hermes:
   threads: 1
@@ -340,6 +368,8 @@ hermes:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+  - name: RUCIO_CFG_DATABASE_POOLCLASS
+    value: "nullpool"
   - name: RUCIO_DAEMON
     value: hermesk
   - name: RUCIO_CFG_HERMES_ELASTIC_USERNAME
@@ -368,6 +398,8 @@ judgeCleaner:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+  - name: RUCIO_CFG_DATABASE_POOLCLASS
+    value: "nullpool"
 
 judgeEvaluator:
   threads: 1
@@ -387,6 +419,8 @@ judgeEvaluator:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+  - name: RUCIO_CFG_DATABASE_POOLCLASS
+    value: "nullpool"
 
 judgeInjector:
   threads: 1
@@ -406,6 +440,8 @@ judgeInjector:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+  - name: RUCIO_CFG_DATABASE_POOLCLASS
+    value: "nullpool"
 
 judgeRepairer:
   threads: 1
@@ -425,6 +461,8 @@ judgeRepairer:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+  - name: RUCIO_CFG_DATABASE_POOLCLASS
+    value: "nullpool"
 
 oauthManager:
   threads: 1
@@ -444,6 +482,8 @@ oauthManager:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+  - name: RUCIO_CFG_DATABASE_POOLCLASS
+    value: "nullpool"
 
 undertaker:
   threads: 1
@@ -463,6 +503,8 @@ undertaker:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+  - name: RUCIO_CFG_DATABASE_POOLCLASS
+    value: "nullpool"
 
 reaper:
   greedy: 0
@@ -485,6 +527,9 @@ reaper:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+  - name: RUCIO_CFG_DATABASE_POOLCLASS
+    value: "nullpool"
+
   secretMounts:
   - secretName: ca-volume
     mountPath: /etc/grid-security/certificates
@@ -514,6 +559,8 @@ transmogrifier:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+  - name: RUCIO_CFG_DATABASE_POOLCLASS
+    value: "nullpool"
 
 tracerKronos:
   threads: 1
@@ -533,6 +580,8 @@ tracerKronos:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+  - name: RUCIO_CFG_DATABASE_POOLCLASS
+    value: "nullpool"
 
 minos:
   threads: 1
@@ -552,6 +601,8 @@ minos:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+  - name: RUCIO_CFG_DATABASE_POOLCLASS
+    value: "nullpool"
 
 minosTemporaryExpiration:
   threads: 1
@@ -571,6 +622,8 @@ minosTemporaryExpiration:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+  - name: RUCIO_CFG_DATABASE_POOLCLASS
+    value: "nullpool"
 
 necromancer:
   podAnnotations: {}
@@ -589,6 +642,8 @@ necromancer:
       secretKeyRef:
         name: usdf-db-conn-str
         key: db-conn-str.txt
+  - name: RUCIO_CFG_DATABASE_POOLCLASS
+    value: "nullpool"
 
 ftsRenewal:
   enabled: 1
