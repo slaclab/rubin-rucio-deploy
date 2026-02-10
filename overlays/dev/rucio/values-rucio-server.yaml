@@ -105,6 +105,8 @@ additionalEnvs:
     secretKeyRef:
       name: usdf-db-conn-str
       key: db-conn-str.txt
+- name: RUCIO_CFG_DATABASE_POOLCLASS
+  value: "nullpool"
 - name: RUCIO_CA_PATH
   value: "/etc/grid-security/certificates"
 
@@ -161,7 +163,7 @@ config:
   ## config.database.echo: flag to control the logging of all statements to stdout (default: "0")
   # echo: "0"
   ## config.database.po0l_recycle: this setting causes the pool to recycle connections after the given number of seconds has passed (default: "600")
-  # pool_recycle: "600"
+    pool_recycle: "300"
   ## config.database.pool_size: the number of connections to keep open inside the connection pool
   # pool_size: ""
   ## config.database.pool_timeout: number of seconds to wait before giving up on getting a connection from the pool
