@@ -10,7 +10,7 @@ spec:
   pgbouncer:
     parameters:
       default_pool_size: "100"
-      idle_transaction_timeout: "0"
+      idle_transaction_timeout: "300"
       log_connections: "1"
       log_disconnections: "1"
       max_client_conn: "3000"

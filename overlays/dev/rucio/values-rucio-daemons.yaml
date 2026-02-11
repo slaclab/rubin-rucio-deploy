@@ -794,7 +794,7 @@ config:
   automatix:
     #rses: "RAL_TEST_DISK, IN2P3_TEST_DISK, SLAC_TEST_DISK, LANCS_TEST_DISK"
     rses: "SLAC_TEST_DISK"
-    dataset_lifetime: 18000
+    dataset_lifetime: 86400
     set_metadata: "True"
     account: "automatix"
     scope: "user.automatix"
