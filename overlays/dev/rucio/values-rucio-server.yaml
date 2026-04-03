@@ -221,7 +221,7 @@ config:
 
 serverResources:
   limits:
-    memory: "2000Mi"
+    memory: "4000Mi"
     cpu: "1200m"
   requests:
     memory: "600Mi"
