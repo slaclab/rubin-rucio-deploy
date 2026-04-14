@@ -215,7 +215,7 @@ conveyorTransferSubmitter:
 
 
 conveyorPoller:
-  threads: 1
+  threads: 2
   podAnnotations: {}
   activities: "'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'Upload/Download' 'User Subscriptions' 'Data Challenge' 'Recovery'"
   resources:
@@ -237,7 +237,7 @@ conveyorPoller:
     value: "nullpool"
 
 conveyorFinisher:
-  threads: 1
+  threads: 3
   podAnnotations: {}
   activities: "'Data Brokering' 'Data Consolidation' 'Data rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'Upload/Download' 'User Subscriptions' 'Data Challenge' 'Recovery'"
   resources:
@@ -515,10 +515,10 @@ reaper:
   resources:
     limits:
       memory: "600Mi"
-      cpu: "700m"
+      cpu: "2000m"
     requests:
       memory: "600Mi"
-      cpu: "700m"
+      cpu: "1000m"
   additionalEnvs:
   - name: PYTHONPATH
     value: /opt/rucio/permissions
