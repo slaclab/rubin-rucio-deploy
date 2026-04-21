@@ -348,9 +348,9 @@ darkReaper:
     value: "nullpool"
 
 hermes:
-  threads: 1
+  threads: 2
   podAnnotations: {}
-  bulk: 10000
+  bulk: 1000
   delay: 0
   brokerTimeout: 3
   resources:
