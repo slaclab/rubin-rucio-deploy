@@ -130,7 +130,7 @@ httpd_config:
   #min_spare_threads: "256"
   #max_spare_threads: "512"
   #max_request_workers: "1280"
-  #max_connections_per_child: "2048"
+  max_connections_per_child: "128"
 
 ingress:
   enabled: true
