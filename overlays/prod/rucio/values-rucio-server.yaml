@@ -20,7 +20,7 @@ useSSL: true
 
 image:
   repository: rucio/rucio-server
-  tag: release-38.5.1
+  tag: release-38.5.5
   pullPolicy: Always
 
 service:
@@ -88,14 +88,17 @@ secretMounts:
 - secretName: hermeskafka-constants
   mountPath: /usr/local/lib/python3.9/site-packages/rucio/common/constants.py
   subPath: constants.py
-- secretName: ca-volume
-  mountPath: /etc/grid-security/certificates
 - secretName: server-hostcert
   mountPath: /etc/grid-security/hostcert.pem
   subPath: hostcert.pem
 - secretName: server-hostkey
   mountPath: /etc/grid-security/hostkey.pem
   subPath: hostkey.pem
+
+persistentVolumes:
+  ca-volume:
+    name: grid-certificates-pvc
+    mountPath: /etc/grid-security/certificates
 
 additionalEnvs:
 - name: PYTHONPATH
@@ -129,7 +132,7 @@ httpd_config:
   #min_spare_threads: "256"
   #max_spare_threads: "512"
   #max_request_workers: "1280"
-  #max_connections_per_child: "2048"
+  max_connections_per_child: "128"
 
 ingress:
   enabled: true

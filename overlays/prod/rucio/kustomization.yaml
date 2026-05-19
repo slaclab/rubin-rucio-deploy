@@ -8,11 +8,13 @@ resources:
 - helm-rucio-ui.yaml
 - grid-certificates-pvc.yaml
 - grid-certificates-cronjob.yaml
+- grid-certificates-job.yaml
 
 patchesStrategicMerge:
 #- patch-ingress.yaml
 - patch-grid-certificates.yaml
 - patch-hermesk-image.yaml
+- patch-renew-fts-proxy-job.yaml
 
 secretGenerator:
 # rucio

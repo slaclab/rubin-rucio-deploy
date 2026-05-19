@@ -12,12 +12,6 @@ metadata:
 spec:
   template:
     spec:
-      initContainers:
-      - name: grid-certs
-        image: ghcr.io/fnal-fife/fetch-crl-cron:latest
-        volumeMounts:
-        - name: ca-volume
-          mountPath: /out/
       volumes:
        - name: ca-volume
          secret:
@@ -32,32 +26,6 @@ metadata:
 spec:
   template:
     spec:
-      initContainers:
-      - name: grid-certs
-        image: ghcr.io/fnal-fife/fetch-crl-cron:latest
-        volumeMounts:
-        - name: ca-volume
-          mountPath: /out/
-      volumes:
-       - name: ca-volume
-         secret:
-           $patch: delete
-         persistentVolumeClaim:
-           claimName: grid-certificates-pvc
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: usdf-rucio-server
-spec:
-  template:
-    spec:
-      initContainers:
-      - name: grid-certs
-        image: ghcr.io/fnal-fife/fetch-crl-cron:latest
-        volumeMounts:
-        - name: ca-volume
-          mountPath: /out/
       volumes:
        - name: ca-volume
          secret:
@@ -72,12 +40,6 @@ metadata:
 spec:
   template:
     spec:
-      initContainers:
-      - name: grid-certs
-        image: ghcr.io/fnal-fife/fetch-crl-cron:latest
-        volumeMounts:
-        - name: ca-volume
-          mountPath: /out/
       volumes:
        - name: ca-volume
          secret:
