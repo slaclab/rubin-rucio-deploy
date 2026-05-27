@@ -108,6 +108,8 @@ additionalEnvs:
     secretKeyRef:
       name: usdf-db-conn-str
       key: db-conn-str.txt
+- name: RUCIO_CFG_DATABASE_POOLCLASS
+  value: "nullpool"
 - name: RUCIO_CA_PATH
   value: "/etc/grid-security/certificates"
 
