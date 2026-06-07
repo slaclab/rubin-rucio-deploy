@@ -11,7 +11,7 @@ abacusRseCount: 1
 automatixCount: 1
 cacheConsumerCount: 0
 conveyorTransferSubmitterCount: 2
-conveyorPollerCount: 1
+conveyorPollerCount: 4
 conveyorFinisherCount: 2
 conveyorReceiverCount: 0
 conveyorStagerCount: 0
@@ -189,7 +189,8 @@ conveyorTransferSubmitter:
   activities: "'Data Brokering' 'Data Consolidation' 'Data Rebalancing' 'Debug' 'Express' 'Functional Test' 'Group Subscriptions' Production Input' 'Production Output' Analysis Input' 'Analysis Output' 'Staging' 'Upload/Download' 'User Subscriptions' 'Data Challenge' 'Recovery' 'IDAC Release'"
   sleepTime: 120
   archiveTimeout: ""
-  groupBulk: 20
+  bulk: 1000
+  groupBulk: 50
   resources:
     limits:
       memory: "1000Mi"
