@@ -104,3 +104,11 @@ secretGenerator:
 - name: usdf-rucio-elastic
   files:
   - PASSWORD=etc/.secrets/usdf-elasticsearch-password
+
+# Receiver
+- name: usdf-conveyor-receiver-patch
+  files:
+  - receiver.patch=etc/receiver.patch
+- name: usdf-receiver-creds
+  envs:
+    - etc/.secrets/receiver-creds
