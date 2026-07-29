@@ -10,13 +10,13 @@ abacusCollectionReplicaCount: 1
 abacusRseCount: 1
 automatixCount: 1
 cacheConsumerCount: 0
-conveyorTransferSubmitterCount: 2
+conveyorTransferSubmitterCount: 6
 conveyorPollerCount: 4
 conveyorFinisherCount: 2
-conveyorReceiverCount: 1
+conveyorReceiverCount: 4
 conveyorStagerCount: 0
-conveyorThrottlerCount: 1
-conveyorPreparerCount: 2
+conveyorThrottlerCount: 3
+conveyorPreparerCount: 4
 darkReaperCount: 0
 hermesCount: 1
 judgeCleanerCount: 1
@@ -25,7 +25,7 @@ judgeInjectorCount: 2
 judgeRepairerCount: 1
 oauthManagerCount: 0
 undertakerCount: 1
-reaperCount: 1
+reaperCount: 8
 transmogrifierCount: 1
 tracerKronosCount: 0
 minosCount: 1
@@ -287,6 +287,8 @@ conveyorReceiver:
     value: "nullpool"
   - name: POLICY
     value: lsst
+  - name: RUCIO_CFG_MESSAGING_FTS3_DESTINATION
+    value: /queue/fts_monitoring_complete.usdf_rucio::fts_monitoring_complete.usdf_rucio
   extraSecretMounts:
     - secretName: conveyor-receiver-patch
       mountPath: /patch/receiver.patch
@@ -529,7 +531,7 @@ reaper:
   podAnnotations: {}
   resources:
     limits:
-      memory: "2200Mi"
+      memory: "8000Mi"
       cpu: "1700m"
     requests:
       memory: "2000Mi"
@@ -843,7 +845,6 @@ config:
     use_ssl: "False"
   # ssl_key_file: "/etc/grid-security/hostkey.pem"
   # ssl_cert_file: "/etc/grid-security/hostcert.pem"
-    destination: "/topic/transfer.fts_monitoring_complete"
     brokers: "172.24.10.101"
     voname: "lsst"
 
