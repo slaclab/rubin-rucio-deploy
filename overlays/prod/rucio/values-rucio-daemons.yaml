@@ -845,7 +845,7 @@ config:
     use_ssl: "False"
   # ssl_key_file: "/etc/grid-security/hostkey.pem"
   # ssl_cert_file: "/etc/grid-security/hostcert.pem"
-    brokers: "172.24.10.101"
+    brokers: "172.24.10.101,172.24.10.96"
     voname: "lsst"
 
   #messaging-hermes:
