@@ -1,0 +1,21 @@
+# This patches the hermes2 Deployment containers to utilize the 
+# image built for a Rubin custom Hermes daemon with Kafka support
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: usdf-rucio-daemons-hermes-hermes
+spec:
+  template:
+    spec:
+      containers:
+        - name: rucio-daemons
+          volumeMounts:
+            - name: ca-volume
+              mountPath: /etc/grid-security/certificates
+      volumes:
+        - name: ca-volume
+          secret:
+            $patch: delete
+          persistentVolumeClaim:
+            claimName: grid-certificates-pvc

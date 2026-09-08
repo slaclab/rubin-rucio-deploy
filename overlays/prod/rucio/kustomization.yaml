@@ -5,6 +5,7 @@ resources:
 - ns.yaml
 - helm-rucio-server.yaml
 - helm-rucio-daemons.yaml
+- helm-rucio-hermes.yaml
 - helm-rucio-ui.yaml
 - grid-certificates-pvc.yaml
 - grid-certificates-cronjob.yaml
@@ -14,6 +15,7 @@ patchesStrategicMerge:
 #- patch-ingress.yaml
 - patch-grid-certificates.yaml
 - patch-hermesk-image.yaml
+#- patch-hermesk-image-only.yaml
 - patch-renew-fts-proxy-job.yaml
 
 secretGenerator:

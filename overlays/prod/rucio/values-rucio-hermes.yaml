@@ -4,33 +4,35 @@
 
 kubeVersionOverride: "1.33.5"
 
+fullnameOverride: "usdf-rucio-daemons-hermes"
+
 ## judgeCleanerCount gives the number of judge-cleaner pods to run
-abacusAccountCount: 1
-abacusCollectionReplicaCount: 1
-abacusRseCount: 1
-automatixCount: 1
+abacusAccountCount: 0
+abacusCollectionReplicaCount: 0
+abacusRseCount: 0
+automatixCount: 0
 cacheConsumerCount: 0
-conveyorTransferSubmitterCount: 6
-conveyorPollerCount: 4
-conveyorFinisherCount: 2
-conveyorReceiverCount: 4
+conveyorTransferSubmitterCount: 0
+conveyorPollerCount: 0
+conveyorFinisherCount: 0
+conveyorReceiverCount: 0
 conveyorStagerCount: 0
-conveyorThrottlerCount: 3
-conveyorPreparerCount: 4
+conveyorThrottlerCount: 0
+conveyorPreparerCount: 0
 darkReaperCount: 0
-hermesCount: 5
-judgeCleanerCount: 1
-judgeEvaluatorCount: 1
-judgeInjectorCount: 2
-judgeRepairerCount: 1
+hermesCount: 10
+judgeCleanerCount: 0
+judgeEvaluatorCount: 0
+judgeInjectorCount: 0
+judgeRepairerCount: 0
 oauthManagerCount: 0
-undertakerCount: 1
-reaperCount: 8
-transmogrifierCount: 1
+undertakerCount: 0
+reaperCount: 0
+transmogrifierCount: 0
 tracerKronosCount: 0
-minosCount: 1
+minosCount: 0
 minosTemporaryExpirationCount: 0
-necromancerCount: 1
+necromancerCount: 0
 
 image:
   repository: rucio/rucio-daemons
@@ -366,7 +368,7 @@ darkReaper:
 hermes:
   threads: 2
   podAnnotations: {}
-  bulk: 2000
+  bulk: 300
   delay: 10
   brokerTimeout: 3
   resources:
@@ -387,7 +389,7 @@ hermes:
   - name: RUCIO_CFG_DATABASE_POOLCLASS
     value: "nullpool"
   - name: RUCIO_DAEMON
-    value: hermesk
+    value: hermes
   - name: RUCIO_CFG_HERMES_QUERY_BY_SERVICE
     value: "True"
   - name: RUCIO_CFG_HERMES_ELASTIC_USERNAME
@@ -666,7 +668,7 @@ necromancer:
     value: "nullpool"
 
 ftsRenewal:
-  enabled: 1
+  enabled: 0
   schedule: "12 */6 * * *"
   image:
     repository: rucio/fts-cron
@@ -867,7 +869,7 @@ config:
   # email_test: ""
 
   hermes:
-    services_list: kafka, elastic
+    services_list: elastic
     elastic_endpoint: "https://usdf-opensearch.slac.stanford.edu/rucio-events/_bulk"
     query_by_service: True
 

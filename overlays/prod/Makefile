@@ -12,6 +12,9 @@ rucio-server: helm
 rucio-daemons: helm
 	helm template usdf rucio/rucio-daemons --namespace rucio --version=${DAEMON_CHART_VERSION} --values=rucio/values-rucio-daemons.yaml > rucio/helm-rucio-daemons.yaml
 
+rucio-hermes: helm
+	helm template usdf rucio/rucio-daemons --namespace rucio --version=${DAEMON_CHART_VERSION} --values=rucio/values-rucio-hermes.yaml > rucio/helm-rucio-hermes.yaml
+
 rucio-ui: helm
 	helm template usdf rucio/rucio-webui --namespace rucio --version=${UI_CHART_VERSION} --values=rucio/values-rucio-ui.yaml > rucio/helm-rucio-ui.yaml
 
