@@ -35,16 +35,16 @@ DEFAULT_ACTIVITY = 'User Subscriptions'
 KEY_TYPES = ['ALL', 'COLLECTION', 'FILE', 'DERIVED']
 # all(container, dataset, file), collection(dataset or container), file, derived(compute from file for collection)
 
-BASE_SCHEME_MAP = {'srm': ['srm', 'gsiftp'],
-                   'gsiftp': ['srm', 'gsiftp'],
-                   'https': ['https', 'davs', 'srm+https', 'cs3s'],
-                   'davs': ['https', 'davs', 'srm+https', 'cs3s'],
-                   'srm+https': ['https', 'davs', 'srm+https', 'cs3s'],
-                   'cs3s': ['https', 'davs', 'srm+https', 'cs3s'],
-                   'root': ['root'],
-                   'scp': ['scp'],
-                   'rsync': ['rsync'],
-                   'rclone': ['rclone']}
+SCHEME_MAP = {'srm': ['srm', 'gsiftp'],
+              'gsiftp': ['srm', 'gsiftp'],
+              'https': ['https', 'davs', 'srm+https', 'cs3s'],
+              'davs': ['https', 'davs', 'srm+https', 'cs3s'],
+              'srm+https': ['https', 'davs', 'srm+https', 'cs3s'],
+              'cs3s': ['https', 'davs', 'srm+https', 'cs3s'],
+              'root': ['root'],
+              'scp': ['scp'],
+              'rsync': ['rsync'],
+              'rclone': ['rclone']}
 
 SORTING_ALGORITHMS_LITERAL = Literal['geoip', 'custom_table', 'random']
 SORTING_ALGORITHMS = list(get_args(SORTING_ALGORITHMS_LITERAL))
@@ -59,6 +59,9 @@ RSE_BASE_SUPPORTED_PROTOCOL_OPERATIONS: list[str] = list(get_args(RSE_BASE_SUPPO
 
 RSE_ALL_SUPPORTED_PROTOCOL_OPERATIONS_LITERAL = Literal[RSE_BASE_SUPPORTED_PROTOCOL_OPERATIONS_LITERAL, 'third_party_copy_read', 'third_party_copy_write']
 RSE_ALL_SUPPORTED_PROTOCOL_OPERATIONS: list[str] = list(get_args(RSE_ALL_SUPPORTED_PROTOCOL_OPERATIONS_LITERAL))
+
+IMPORTER_SYNC_METHODS_LITERAL = Literal['append', 'edit', 'hard']
+IMPORTER_SYNC_METHODS: list[str] = list(get_args(IMPORTER_SYNC_METHODS_LITERAL))
 
 FTS_STATE = namedtuple('FTS_STATE', ['SUBMITTED', 'READY', 'ACTIVE', 'FAILED', 'FINISHED', 'FINISHEDDIRTY', 'NOT_USED',
                                      'CANCELED'])('SUBMITTED', 'READY', 'ACTIVE', 'FAILED', 'FINISHED', 'FINISHEDDIRTY',
@@ -108,6 +111,7 @@ class HermesService(str, enum.Enum):
     ELASTIC = "ELASTIC"
     EMAIL = "EMAIL"
     ACTIVEMQ = "ACTIVEMQ"
+    SYSLOG = "SYSLOG"
     KAFKA = "KAFKA"
 
 
