@@ -35,16 +35,16 @@ DEFAULT_ACTIVITY = 'User Subscriptions'
 KEY_TYPES = ['ALL', 'COLLECTION', 'FILE', 'DERIVED']
 # all(container, dataset, file), collection(dataset or container), file, derived(compute from file for collection)
 
-BASE_SCHEME_MAP = {'srm': ['srm', 'gsiftp'],
-                   'gsiftp': ['srm', 'gsiftp'],
-                   'https': ['https', 'davs', 'srm+https', 'cs3s'],
-                   'davs': ['https', 'davs', 'srm+https', 'cs3s'],
-                   'srm+https': ['https', 'davs', 'srm+https', 'cs3s'],
-                   'cs3s': ['https', 'davs', 'srm+https', 'cs3s'],
-                   'root': ['root'],
-                   'scp': ['scp'],
-                   'rsync': ['rsync'],
-                   'rclone': ['rclone']}
+SCHEME_MAP = {'srm': ['srm', 'gsiftp'],
+              'gsiftp': ['srm', 'gsiftp'],
+              'https': ['https', 'davs', 'srm+https', 'cs3s'],
+              'davs': ['https', 'davs', 'srm+https', 'cs3s'],
+              'srm+https': ['https', 'davs', 'srm+https', 'cs3s'],
+              'cs3s': ['https', 'davs', 'srm+https', 'cs3s'],
+              'root': ['root'],
+              'scp': ['scp'],
+              'rsync': ['rsync'],
+              'rclone': ['rclone']}
 
 SORTING_ALGORITHMS_LITERAL = Literal['geoip', 'custom_table', 'random']
 SORTING_ALGORITHMS = list(get_args(SORTING_ALGORITHMS_LITERAL))
