@@ -1,5 +1,4 @@
-# rubin-rucio-deploy
-## Deployment framework for Rubin USDF Rucio. 
+# rubin-rucio-deploy ## Deployment framework for Rubin USDF Rucio. 
 
 This project requires a Kubernetes cluster with permissions to run operators as needed. Once you have access to your Kubernetes cluster, you can deploy Rucio for a given overlay (found in overlays/[dev,prod]) using the Makefile found there with (most simply)
 
@@ -36,7 +35,11 @@ this will restart most of the Rucio daemons.
 
 Note that the same topics also needed to be added to the `ctrl-ingestd` daemons.
 
-## Upgrading Database Schema
+### Upgrading Rucio Database
+
+`util/upgrade-db-container.yaml` is a helper pod that utilizes the rucio/rucio-init container. This pod contains a script in /tmp/ that sets up the alembic and rucio configurations. The pod also deploys a `psql` client pod that directly connects to the database defined in `db-conn-str`
+
+#### Deploy helper pod
 
 1. Edit `util/upgrade-db-container.yaml`
 
@@ -45,7 +48,7 @@ Note that the same topics also needed to be added to the `ctrl-ingestd` daemons.
       valueFrom:
         secretKeyRef:
           name: <secret name in cluster>
-          key: db-connstr.txt
+          key: db-conn-str.txt
     ```
 
     To get the secret, run the following:
@@ -68,8 +71,11 @@ Note that the same topics also needed to be added to the `ctrl-ingestd` daemons.
     $ kubectl exec -it rucio-db-upgrade -- /bin/bash
     ```
 
-    
-4. Generate the `rucio.cfg` and `alembic.ini` file and set `ALEMBIC_CONFIG` (these are the first few commands in `docker-entrypoint.sh`)
+#### Generate configuration
+
+Running `/tmp/generate_sql.sh` will perform steps 1-4, stopping at applying the upgrade. The script will generate the upgrade sql script at `/tmp/upgrade.sql`.
+
+1. Generate the `rucio.cfg` and `alembic.ini` file and set `ALEMBIC_CONFIG` (these are the first few commands in `docker-entrypoint.sh`)
 
     ```bash
     $ python3 /usr/local/rucio/tools/merge_rucio_configs.py \
@@ -82,18 +88,23 @@ Note that the same topics also needed to be added to the `ctrl-ingestd` daemons.
     $ export ALEMBIC_CONFIG=/opt/rucio/etc/alembic.ini
     ```
 
-5. Modify `script_location` in `/opt/rucio/etc/alembic.ini` to the Rucio package's migrate repo
+2. Modify `script_location` in `/opt/rucio/etc/alembic.ini` to the Rucio package's migrate repo
 
     ```
     script_location = /usr/local/lib/python3.9/site-packages/rucio/db/sqla/migrate_repo
     ```
 
-6. Check the current alembic migration version
+    ```
+    # Single sed command
+    sed -i 's/\(script_location = \).*/\1\/usr\/local\/lib\/python3.9\/site-packages\/rucio\/db\/sqla\/migrate_repo/' $ALEMBIC_CONFIG
+    ```
+
+3. Check the current alembic migration version
     ```bash
     alembic current
     ```
 
-7. Follow instructions at <https://rucio.github.io/documentation/operator/database#upgrading-and-downgrading-the-database-schema>
+4. Follow instructions at <https://rucio.github.io/documentation/operator/database#upgrading-and-downgrading-the-database-schema>
 
     > Ensure that in etc/alembic.ini the database connection string is is set to the same database connection string as the etc/rucio.cfg and issue the following command to verify the changes to the upgrade of the schema:
     >
@@ -117,7 +128,7 @@ Note that the same topics also needed to be added to the `ctrl-ingestd` daemons.
     psql> source upgrade.sql
     ```
 
-8. Delete the pod with
+5. Delete the pod with
 
     ```bash
     $ kubectl delete pod/rucio-db-upgrade
