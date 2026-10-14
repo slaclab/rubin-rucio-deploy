@@ -1,24 +1,82 @@
 apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: alembic-script
+  namespace: rucio
+data:
+  generate_sql.sh: |
+    #!/bin/bash
+    python3 /usr/local/rucio/tools/merge_rucio_configs.py \
+    -s /tmp/rucio.config.default.cfg $RUCIO_OVERRIDE_CONFIGS \
+    --use-env \
+    -d /opt/rucio/etc/rucio.cfg
+    j2 /tmp/alembic.ini.j2 | sed '/^\s*$/d' > /opt/rucio/etc/alembic.ini
+    #export ALEMBIC_CONFIG=/opt/rucio/etc/alembic.ini
+
+    sed -i 's/\(script_location = \).*/\1\/usr\/local\/lib\/python3.9\/site-packages\/rucio\/db\/sqla\/migrate_repo/' $ALEMBIC_CONFIG
+    alembic upgrade --sql $(alembic current | cut -d' ' -f1):head > /tmp/upgrade.sql
+---
+apiVersion: v1
 kind: Pod
 metadata:
   name: rucio-db-upgrade
+  namespace: rucio
 spec:
-  serviceAccountName: usdf-rucio-edit
+  volumes:
+    - name: alembic-script-volume
+      configMap:
+        name: alembic-script
+        defaultMode: 0755
   containers:
   - name: rucio-db-upgrade
-    image: rucio/rucio-init:release-38.0.0
+    image: rucio/rucio-init:release-41.1.1
     command: ["sleep"]
     args: ["infinity"]
     resources:
-      requests:
-        cpu: 1
-        memory: 600Mi
       limits:
-        cpu: 1
-        memory: 600Mi
+        cpu: 1000m
+        memory: 1000Mi
+      requests:
+        cpu: 700m
+        memory: 1000Mi
+    volumeMounts:
+      - name: alembic-script-volume
+        mountPath: /tmp/generate_sql.sh
+        subPath: generate_sql.sh
     env:
-    - name: RUCIO_CFG_DATABASE_DEFAULT
-      valueFrom:
-        secretKeyRef:
-          name: <connection-string-secret>
-          key: db-conn-str.txt
+      - name: ALEMBIC_CONFIG
+        value: /opt/rucio/etc/alembic.ini
+      - name: RUCIO_CFG_DATABASE_DEFAULT
+        valueFrom:
+          secretKeyRef:
+            name: <replace with db-conn-str>
+            key: db-conn-str.txt
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: psql-client
+  namespace: rucio
+spec:
+  containers:
+    - name: psql
+      image: postgres:latest
+      stdin: true
+      tty: true
+      command: ["bash", "-c"]
+      args:
+        - |
+          exec psql $(echo $RUCIO_CFG_DATABASE_DEFAULT | sed "s/+psycopg//g")
+      resources:
+        requests:
+          cpu: 250m
+          memory: 384Mi
+        limits:
+          cpu: "1"
+          memory: 1Gi
+      env:
+        - name: RUCIO_CFG_DATABASE_DEFAULT
+          valueFrom:
+            secretKeyRef:
+              name: <replace with db-conn-str>
+              key: db-conn-str.txt

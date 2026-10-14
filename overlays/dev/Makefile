@@ -1,6 +1,6 @@
-SERVER_CHART_VERSION := 38.0.3
-DAEMON_CHART_VERSION := 38.0.2
-UI_CHART_VERSION := 35.1.0
+SERVER_CHART_VERSION := 41.0.1
+DAEMON_CHART_VERSION := 41.1.1
+UI_CHART_VERSION := 41.1.0
 
 helm:
 	helm repo add rucio https://rucio.github.io/helm-charts
