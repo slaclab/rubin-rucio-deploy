@@ -112,6 +112,8 @@ additionalEnvs:
   value: "nullpool"
 - name: RUCIO_CA_PATH
   value: "/etc/grid-security/certificates"
+- name: RUCIO_HTTPD_ENCODED_SLASHES_NO_DECODE
+  value: "True"
 
 wsgi:
   daemonProcesses: "4"
