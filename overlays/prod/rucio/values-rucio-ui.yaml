@@ -25,7 +25,7 @@ service:
 
 image:
   repository: rucio/rucio-webui
-  tag: release-35.4.0
+  tag: release-41.0.1
   pullPolicy: Always
 
 strategy:
@@ -44,7 +44,7 @@ ingress:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
   path: /
   hosts:
-  - webui-rubin-rucio-dev.slac.stanford.edu
+  - webui-rubin-rucio.slac.stanford.edu
 
 additionalSecrets: {}
 # - volumeName: gcssecret
@@ -106,14 +106,17 @@ additionalEnvs:
     value: "True"
   - name: RUCIO_LOG_LEVEL
     value: debug
+  - name: RUCIO_WEBUI_NEXTAUTH_URL
+    value: "https://webui-rubin-rucio.slac.stanford.edu"
 
-resources: {}
-  # limits:
-  #  cpu: 100m
-  #  memory: 128Mi
-  # requests:
-  #  cpu: 100m
-  #  memory: 128Mi
+resources:
+  limits:
+   cpu: 1000m
+   memory: 6Gi
+  requests:
+   cpu: 100m
+   memory: 128Mi
+
 secretMounts:
   - secretName: server-hostcert
     mountPath: /etc/grid-security/hostcert.pem
