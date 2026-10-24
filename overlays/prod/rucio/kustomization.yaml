@@ -16,6 +16,16 @@ patchesStrategicMerge:
 - patch-hermesk-image.yaml
 - patch-renew-fts-proxy-job.yaml
 
+images:
+  - name: rucio/rucio-server
+    newTag: release-41.5.1
+  - name: rucio/rucio-daemons
+    newTag: release-41.5.1
+  - name: rucio/fts-cron
+    newTag: 41.5.1
+  - name: rucio/rucio-webui
+    newTag: release-41.1.0
+
 secretGenerator:
 # rucio
 - name: usdf-db-conn-str
