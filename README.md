@@ -1,4 +1,6 @@
-# rubin-rucio-deploy ## Deployment framework for Rubin USDF Rucio. 
+# rubin-rucio-deploy
+
+*Deployment framework for Rubin USDF Rucio.*
 
 This project requires a Kubernetes cluster with permissions to run operators as needed. Once you have access to your Kubernetes cluster, you can deploy Rucio for a given overlay (found in overlays/[dev,prod]) using the Makefile found there with (most simply)
 
@@ -14,6 +16,13 @@ If you update the values-*.yaml files, be sure to also update the rucio helm tem
 Makefile command for your chosen overlay:
 
     make rucio  # update from upstream helm charts
+
+## Upgrading Rucio
+1. Check any database schema changes
+2. Follow [Upgrading Rucio Database](#upgrading-rucio-database)
+3. Change image tags in `kustomization.yaml`
+4. Change `hermesk` image tag in `patch-hermesk-image.yaml`
+5. Deploy
 
 ## Add Hermes-K topic for a new DRP campaign
 
@@ -35,7 +44,7 @@ this will restart most of the Rucio daemons.
 
 Note that the same topics also needed to be added to the `ctrl-ingestd` daemons.
 
-### Upgrading Rucio Database
+## Upgrading Rucio Database
 
 `util/upgrade-db-container.yaml` is a helper pod that utilizes the rucio/rucio-init container. This pod contains a script in /tmp/ that sets up the alembic and rucio configurations. The pod also deploys a `psql` client pod that directly connects to the database defined in `db-conn-str`
 
@@ -71,7 +80,7 @@ Note that the same topics also needed to be added to the `ctrl-ingestd` daemons.
     $ kubectl exec -it rucio-db-upgrade -- /bin/bash
     ```
 
-#### Generate configuration
+### Generate configuration
 
 Running `/tmp/generate_sql.sh` will perform steps 1-4, stopping at applying the upgrade. The script will generate the upgrade sql script at `/tmp/upgrade.sql`.
 
@@ -104,7 +113,7 @@ Running `/tmp/generate_sql.sh` will perform steps 1-4, stopping at applying the 
     alembic current
     ```
 
-4. Follow instructions at <https://rucio.github.io/documentation/operator/database#upgrading-and-downgrading-the-database-schema>
+4. Follow [Rucio database upgrade instructions](https://rucio.github.io/documentation/operator/database#upgrading-and-downgrading-the-database-schema)
 
     > Ensure that in etc/alembic.ini the database connection string is is set to the same database connection string as the etc/rucio.cfg and issue the following command to verify the changes to the upgrade of the schema:
     >
