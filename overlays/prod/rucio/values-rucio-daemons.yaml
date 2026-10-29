@@ -304,7 +304,7 @@ conveyorThrottler:
     requests:
       memory: "600Mi"
       cpu: "700m"
-  sleepTime: 300
+  sleepTime: 30
   additionalEnvs:
   - name: PYTHONPATH
     value: /opt/rucio/permissions
@@ -531,6 +531,7 @@ reaper:
   greedy: 0
   scheme: ""
   threads: 8
+  chunkSize: 1000
   includeRses: ""
   excludeRses: "BASE_BUTLER_DISK|IN2P3_BUTLER_DISK|IN2P3_RAW_DISK|LANCS_BUTLER_DISK|LANCS_RAW_DISK|RAL_BUTLER_DISK|RAL_RAW_DISK|SLAC_BUTLER_DISK|SLAC_RAW_DISK"
   podAnnotations: {}
@@ -846,7 +847,8 @@ config:
 
   messaging-fts3:
   # port: "61123"
-    nonssl_port: "61613"
+  # nonssl_port: "61613"
+    port: "61613"
     use_ssl: "False"
   # ssl_key_file: "/etc/grid-security/hostkey.pem"
   # ssl_cert_file: "/etc/grid-security/hostcert.pem"
