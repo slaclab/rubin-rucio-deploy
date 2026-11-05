@@ -186,7 +186,7 @@ cacheConsumer:
 conveyorTransferSubmitter:
   threads: 8
   podAnnotations: {}
-  activities: "'Express' 'Production Input' 'Production Output' 'User Subscriptions' 'IDAC Release'"
+  activities: "'Express' 'Production Input' 'Production Output' 'User Subscriptions' 'Recovery' 'IDAC Release'"
   sleepTime: 30
   archiveTimeout: ""
   bulk: 1000
@@ -212,7 +212,7 @@ conveyorTransferSubmitter:
 conveyorPoller:
   threads: 8
   podAnnotations: {}
-  activities: "'Express' 'Production Input' 'Production Output' 'User Subscriptions' 'IDAC Release'"
+  activities: "'Express' 'Production Input' 'Production Output' 'User Subscriptions' 'Recovery' 'IDAC Release'"
   sleepTime: 60
   resources:
     limits:
@@ -235,7 +235,7 @@ conveyorPoller:
 conveyorFinisher:
   threads: 8
   podAnnotations: {}
-  activities: "'Express' 'Production Input' 'Production Output' 'User Subscriptions' 'IDAC Release'"
+  activities: "'Express' 'Production Input' 'Production Output' 'User Subscriptions' Recovery' 'IDAC Release'"
   sleepTime: 60
   resources:
     limits:
@@ -530,7 +530,7 @@ undertaker:
 reaper:
   greedy: 0
   scheme: ""
-  threads: 8
+  threads: 2
   chunkSize: 1000
   includeRses: ""
   excludeRses: "BASE_BUTLER_DISK|IN2P3_BUTLER_DISK|IN2P3_RAW_DISK|LANCS_BUTLER_DISK|LANCS_RAW_DISK|RAL_BUTLER_DISK|RAL_RAW_DISK|SLAC_BUTLER_DISK|SLAC_RAW_DISK"
