@@ -235,7 +235,7 @@ conveyorPoller:
 conveyorFinisher:
   threads: 8
   podAnnotations: {}
-  activities: "'Express' 'Production Input' 'Production Output' 'User Subscriptions' Recovery' 'IDAC Release'"
+  activities: "'Express' 'Production Input' 'Production Output' 'User Subscriptions' 'Recovery' 'IDAC Release'"
   sleepTime: 60
   resources:
     limits:
