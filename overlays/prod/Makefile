@@ -34,6 +34,8 @@ get-secrets:
 	mkdir -p rucio/etc/.secrets
 	vault kv get --field=usdf-server-hostkey secret/rubin/usdf-rucio/rucio  > rucio/etc/.secrets/hostkey.pem
 	vault kv get --field=usdf-server-hostcert secret/rubin/usdf-rucio/rucio  > rucio/etc/.secrets/hostcert.pem
+	vault kv get --field=lsst-ddm-robot-key secret/rubin/usdf-rucio/rucio  > rucio/etc/.secrets/robotkey.pem
+	vault kv get --field=lsst-ddm-robot-cert secret/rubin/usdf-rucio/rucio  > rucio/etc/.secrets/robotcert.pem
 	vault kv get --field=usdf-server-cafile secret/rubin/usdf-rucio/rucio  > rucio/etc/.secrets/ca.pem
 	vault kv get --field=usdf-db-conn-str secret/rubin/usdf-rucio/rucio  > rucio/etc/.secrets/db-conn-str.txt
 	vault kv get --field=receiver-creds secret/rubin/usdf-rucio-dev/rucio  > rucio/etc/.secrets/receiver-creds
