@@ -66,10 +66,10 @@ secretGenerator:
 # fts3
 - name: usdf-fts-cert
   files:
-  - usercert.pem=etc/.secrets/hostcert.pem
+  - usercert.pem=etc/.secrets/robotcert.pem
 - name: usdf-fts-key
   files:
-  - new_userkey.pem=etc/.secrets/hostkey.pem
+  - new_userkey.pem=etc/.secrets/robotkey.pem
 
 # lsst customization
 - name: usdf-lsst-schema-file
